@@ -1,0 +1,90 @@
+[submodule "neatlogic-autoexec"]
+	path = neatlogic-autoexec
+	url = ../neatlogic-autoexec.git
+[submodule "neatlogic-autoexec-base"]
+	path = neatlogic-autoexec-base
+	url = ../neatlogic-autoexec-base.git
+[submodule "neatlogic-change"]
+	path = neatlogic-change
+	url = ../neatlogic-change.git
+[submodule "neatlogic-change-base"]
+	path = neatlogic-change-base
+	url = ../neatlogic-change-base.git
+[submodule "neatlogic-cmdb"]
+	path = neatlogic-cmdb
+	url = ../neatlogic-cmdb.git
+[submodule "neatlogic-cmdb-base"]
+	path = neatlogic-cmdb-base
+	url = ../neatlogic-cmdb-base.git
+[submodule "neatlogic-dashboard"]
+	path = neatlogic-dashboard
+	url = ../neatlogic-dashboard.git
+[submodule "neatlogic-dashboard-base"]
+	path = neatlogic-dashboard-base
+	url = ../neatlogic-dashboard-base.git
+[submodule "neatlogic-deploy"]
+	path = neatlogic-deploy
+	url = ../neatlogic-deploy.git
+[submodule "neatlogic-deploy-base"]
+	path = neatlogic-deploy-base
+	url = ../neatlogic-deploy-base.git
+[submodule "neatlogic-event"]
+	path = neatlogic-event
+	url = ../neatlogic-event.git
+[submodule "neatlogic-event-base"]
+	path = neatlogic-event-base
+	url = ../neatlogic-event-base.git
+[submodule "neatlogic-framework"]
+	path = neatlogic-framework
+	url = ../neatlogic-framework.git
+[submodule "neatlogic-inspect"]
+	path = neatlogic-inspect
+	url = ../neatlogic-inspect.git
+[submodule "neatlogic-inspect-base"]
+	path = neatlogic-inspect-base
+	url = ../neatlogic-inspect-base.git
+[submodule "neatlogic-knowledge"]
+	path = neatlogic-knowledge
+	url = ../neatlogic-knowledge.git
+[submodule "neatlogic-knowledge-base"]
+	path = neatlogic-knowledge-base
+	url = ../neatlogic-knowledge-base.git
+[submodule "neatlogic-parent"]
+	path = neatlogic-parent
+	url = ../neatlogic-parent.git
+[submodule "neatlogic-pbc"]
+	path = neatlogic-pbc
+	url = ../neatlogic-pbc.git
+[submodule "neatlogic-itsm"]
+	path = neatlogic-itsm
+	url = ../neatlogic-itsm.git
+[submodule "neatlogic-itsm-base"]
+	path = neatlogic-itsm-base
+	url = ../neatlogic-itsm-base.git
+[submodule "neatlogic-master"]
+	path = neatlogic-master
+	url = ../neatlogic-master.git
+[submodule "neatlogic-report"]
+	path = neatlogic-report
+	url = ../neatlogic-report.git
+[submodule "neatlogic-report-base"]
+	path = neatlogic-report-base
+	url = ../neatlogic-report-base.git
+[submodule "neatlogic-tagent"]
+	path = neatlogic-tagent
+	url = ../neatlogic-tagent.git
+[submodule "neatlogic-tagent-base"]
+	path = neatlogic-tagent-base
+	url = ../neatlogic-tagent-base.git
+[submodule "neatlogic-tenant"]
+	path = neatlogic-tenant
+	url = ../neatlogic-tenant.git
+[submodule "neatlogic-web"]
+	path = neatlogic-web
+	url = ../neatlogic-web.git
+[submodule "neatlogic-webroot"]
+	path = neatlogic-webroot
+	url = ../neatlogic-webroot.git
+[submodule "neatlogic-master-web"]
+	path = neatlogic-master-web
+	url = ../neatlogic-master-web.git
