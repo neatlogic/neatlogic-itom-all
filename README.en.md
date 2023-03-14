@@ -1,4 +1,4 @@
-![NeaLogic](https://github.com/neatlogic/.github/blob/main/images/logo.png?raw=true)
+![NeaLogic](README_IMAGES/logo.png)
 
 <p align="left">
      <a href="https://opensource.org/licenses/Apache-2.0" alt="License">
@@ -47,6 +47,12 @@ NeatLogic manages code in a modular fashion.
 | neatlogic-inspect | neatlogic-framework, neatlogic-autoexec | Daily inspection of operating systems, hardware servers, virtualization, middleware, databases, network devices, containers, storage devices and other infrastructure, discover potential risks and alert<br> - Application inspection: Check the health of all components of an application. <br>- Asset inspection: From the perspective of infrastructure management, such as checking the health of all network devices. <br>- Configuration file comparison: check configuration files of applications, servers, and services, and record configuration file change records. <br>- Custom Thresholds: Configure asset health indicator thresholds. <br>- Patrol inspection report: The inspection results are in the form of reports, archived and saved or exported for viewing. <br>- Latest Issues: In the full infrastructure, the collection of assets that currently have health issues and the report on the specific issues of each asset. |
 
 ## Quick start
+* check out
+   Check out neatlogic-itom-all to get all the module codes. Since neatlogic-itom-all uses submodule to import modules, you need to add the --recurse-submodules parameter when checking out the code. \example:
+   ```
+   git clone url --recurse-submodules
+   ```
+
 * online demo
 preparing……
 

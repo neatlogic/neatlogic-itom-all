@@ -1,4 +1,4 @@
-![NeaLogic](https://github.com/neatlogic/.github/blob/main/images/logo.png?raw=true)
+![NeaLogic](README_IMAGES/logo.png)
 
 <p align="left">
     <a href="https://opensource.org/licenses/Apache-2.0" alt="License">
@@ -47,6 +47,12 @@ NeatLogic采用模块化方式管理代码。
 | neatlogic-inspect | neatlogic-framework、neatlogic-autoexec |对操作系统、硬件服务器、虚拟化、中间件、数据库、网络设备、容器、存储设备等基础设施的日常检查，发现潜在风险并告警<br> - 应用巡检：检查某个应用所有组件的健康性。<br>- 资产巡检：基础架构管理角度，如检查所有网络设备的健康性。<br>- 配置文件比对：对应用、服务器、服务的配置文件检查，记录配置文件变更记录。<br>- 自定义阈值：配置资产健康性指标阈值。<br>- 巡检报告：巡检结果以报告形式，归档保存或导出查看。<br>- 最新问题：全量基础设施中，当前存在健康性问题的资产集合以及各个资产具体问题的报告。 | 
 
 ## 快速开始
+* 获取代码
+  签出neatlogic-itom-all可以一次性获取所有模块代码，由于neatlogic-itom-all使用submodule引入模块，签出代码时需加上--recurse-submodules参数。\范例：
+  ```
+  git clone url --recurse-submodules
+  ```
+
 * 在线演示
 准备中……
 
