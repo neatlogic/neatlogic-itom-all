@@ -49,7 +49,7 @@ docker-compose --version
 netstat -anp |grep XX  #XX是端口号
 ```
 如图，如果有LISTEN那一行，就表示端口被占用。此处注意，图中显示的LISTENING并不表示端口被占用，不要和LISTEN混淆哦，查看具体端口时候，必须要看到tcp、端口号、LISTEN那一行，才表示端口被占用了<br>
-![端口占用示例图](images/port.png)<br>
+![端口占用示例图](QUICK_START_IMAGES/images_port.png)<br>
 端口被占用时，可以先查询该端口指定程序的进程号，然后使用命令关闭使用该端口号运行的程序
 ```
 ps -ef |grep XX  #查询该端口指定程序的进程号命令，XX是端口号
