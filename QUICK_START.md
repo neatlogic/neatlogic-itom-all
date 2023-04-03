@@ -3,27 +3,22 @@
 ## Docker环境安装
 
 检查docker版本
-
 ```
 docker --version #查看docker版本，返回版本信息，说明docker已安装
 docker-compose --version
 ```
-
-在/tmp目录下添加文件install-docker.sh，然后执行<br>
-下载[install-docker.sh](install-docker.sh)
-
-
+如果没有安装,需安装docker则执行
+```
+curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/install_docker.sh|bash
+```
 ## 在目标机器部署服务
-
-在/tmp目录下添加文件neatlogic_setup.sh，然后执行<br>
-下载[neatlogic_setup.sh](neatlogic_setup.sh)
-
-
+```
+curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_setup.sh|bash
+```
 ## 服务一键卸载
-
-在/tmp目录下添加文件neatlogic_clear.sh，然后执行<br>
-下载[neatlogic_clear.sh](neatlogic_clear.sh)
-
+```
+curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_clear.sh|bash
+```
 ## 镜像容器服务说明
 |  启动顺序  |  容器服务名  |  暴露到操作系统层面端口  | 容器内服务启停命令  |
 |  ----  | ----  | ----  | ----  |
