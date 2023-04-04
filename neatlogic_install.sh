@@ -50,17 +50,9 @@ parseOpts() {
                     OPTIND=$(($OPTIND + 1))
                     ;;
             *)
-                if [ "$OPTERR" = 1 ] && [ "${OPT_SPEC:0:1}" != ":" ]; then
-                    echo "Unknown option --${OPTARG}" >&2
-                fi
-                ;;
             esac
             ;;
         *)
-            if [ "$OPTERR" != 1 ] || [ "${OPT_SPEC:0:1}" = ":" ]; then
-                echo "Non-option argument: '-${OPTARG}'" >&2
-            fi
-            ;;
         esac
     done
 }
