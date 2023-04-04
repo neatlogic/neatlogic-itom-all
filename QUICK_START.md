@@ -21,7 +21,13 @@ curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_
 | runnerHeatbeatPort | 8888 | 处理器心跳端口 |
 | webPort | 8090 |  前端页面服务端口 |
 | masterWebPort | 9099 | 租户管理页面服务端口 |
+| mobileWebPort | 8091 | 移动端前端页面服务端口 |
 | appPort | 8282 | 后端服务端口 |
+
+例如:需要替换 mobileWebPort 为8092:
+```
+curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh --mobileWebPort 8092|bash
+```
 
 ## 卸载
 ```
@@ -33,8 +39,9 @@ curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_
 |  1  |  neatlogicdb  |  3306端口  |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |
 |  1  |  neatlogic-collectdb  |  27017端口  |  启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |
 |  2  |  neatlogic-runner  |  8084、8888端口  |  启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |
-|  2  |  neatlogic-web  |  8090端口  |  启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall  |
-|  3  |  neatlogic-app  |  8282端口  |  启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx  |
+|  2  |  neatlogic-app  |  8282端口  | 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall |
+|  3  |  neatlogic-web  |  8090端口  | 启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx |
+
 
 > 说明：启动顺序： 数字越小，启停优先级越高 1 > 2 >3
 
