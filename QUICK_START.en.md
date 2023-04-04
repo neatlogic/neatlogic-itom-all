@@ -49,14 +49,14 @@ An error message appears, 'Docker: Error response from daemon: Conflict, The con
 3. The service port is occupied<br>
 Execute the following command to view the port usage status<br>
 ```
-Netstat - np | grep XX # XX is the port number
+Netstat - np | grep XX #XX is the port number
 ```
 As shown in the figure, if there is a LISTEN line, it indicates that the port is occupied. Please note that the LISTENING shown in the figure does not indicate that the port is occupied. Do not confuse it with LISTEN. When viewing the specific port, you must see the lines TCP, port number, and LISTEN to indicate that the port is occupied.<br>
 ! [Port Occupation Example Figure] (QUICK_START-IMAGES/images_port. png)<br>
 When a port is occupied, you can first query the process number of the specified program on that port, and then use the command to close the program running with that port number
 ```
-Ps - ef | grep XX # Command to query the process number of the specified program on this port, where XX is the port number
-Kill -9 XX # Close the process, where XX is the process number
+Ps - ef | grep XX #Command to query the process number of the specified program on this port, where XX is the port number
+Kill -9 XX #Close the process, where XX is the process number
 ```
 4. After the Docker restarts, the process in the container hangs
 
