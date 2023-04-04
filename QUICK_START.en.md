@@ -1,12 +1,12 @@
-#Project Deployment Tutorial
-##Docker environment inspection
+# Project Deployment Tutorial
+## Docker environment inspection
 Check the Docker version (return version information indicating that the Docker is installed)
 ```
 docker --version
 docker-compose --version
 ```
 >Note: Please ensure that the Docker is installed before proceeding with the next steps
-##Installation
+## Installation
 ```
 curl  https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh |bash
 ```
@@ -26,11 +26,11 @@ For example, it is necessary to replace the MobileWebPort with 8092:
 ```
 curl  https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh |bash -s -- --mobileWebPort 8092
 ```
-##Uninstall
+## Uninstall
 ```
 curl  https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_clear.sh |bash
 ```
-##Mirror Container Service Description
+## Mirror Container Service Description
 |Start sequence | Container service name | Expose to operating system level ports | Container service start stop command|
 |  ----  | ----  | ----  | ----  |
 |1 | nearlogicDB | Port 3306 | Start:/app/databases/nearlogicDB/scripts/nearlogicDB start<br>Stop:/app/databases/nearlogicDB/scripts/nearlogicDB stop|
@@ -39,7 +39,7 @@ curl  https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic
 |2 | neologic app | Port 8282 | Start: deployadmin - s neologic - a startall<br>Stop: deployadmin - s neologic - a stopall|
 |3 | neologic web | Port 8090 | Start:/app/systems/nginx/sbin/nginx<br>Restart:/app/systems/nginx/sbin/nginx - s reload<br>Stop: kill xx|
 >Explanation: Starting sequence: The smaller the number, the higher the priority of starting and stopping 1>2>3
-##Frequently Asked Questions
+## Frequently Asked Questions
 1. Docker did not start when pulling the image<br>
 Error Message ` ` Cannot connect to the Docker daemon at unix:///var/run/docker.sock.  Is the docker daemon running?```< br>
 The Docker has not been started. Start the Docker and then re execute the deployment file.
@@ -60,47 +60,47 @@ Kill -9 XX # Close the process, where XX is the process number
 ```
 4. After the Docker restarts, the process in the container hangs
 
-##Explanation of common operating commands
+## Explanation of common operating commands
 
-**1. Deployment, Docker run - it -- name Container name - p Operating system port: Container port -- net Network name - d Image: Version **<br>
+**1. Deployment, Docker run - it -- name Container name - p Operating system port: Container port -- net Network name - d Image: Version**<br>
 
 ```
 docker run -it --name neatlogic -p 8282:8282 --net neatlogic  -d neatlogic/neatlogic:3.0.0
 ```
-**2. Entering the container, dock exec it [container name | container ID]/bin/sh **<br>
+**2. Entering the container, dock exec it [container name | container ID]/bin/sh**<br>
 ```
 docker exec -it neatlogic /bin/sh
 ```
-**3. View container logs, Docker logs [container name | container ID] **<br>
+**3. View container logs, Docker logs [container name | container ID]**<br>
 ```
 docker logs neatlogic
 ```
-**4. Container start/stop, Docker start/stop [Container name | Container ID] **<br>
+**4. Container start/stop, Docker start/stop [Container name | Container ID]**<br>
 ```
 docker start/stop  neatlogic-web
 ```
-**5. Delete container, Docker rm [container name | container ID] **<br>
+**5. Delete container, Docker rm [container name | container ID]**<br>
 ```
 docker rm neatlogic
 ```
-**6. Delete image, Docker rm [Image ID | Image Name: Version] **<br>
+**6. Delete image, Docker rm [Image ID | Image Name: Version]**<br>
 ```
 docker rmi -f  neatlogic/neatlogic:3.0.0
 ```
-**7. Container network: **<br>
+**7. Container network:**<br>
 ```
 Docker network ls # View all
 Docker network create xxxx # Create a network, default to bridging**
 ```
-**8. View running containers: **<br>
+**8. View running containers:**<br>
 ```
 Docker ps # View all running containers
 ```
-**9. Add file execution permissions: **<br>
+**9. Add file execution permissions:**<br>
 ```
 Chmod+x XXX. sh # Add Execution Permissions
 ```
-**10. Execute script: **<br>
+**10. Execute script:**<br>
 ```
 Sh XXX.sh # Execute script for XXX.sh file
 ```
