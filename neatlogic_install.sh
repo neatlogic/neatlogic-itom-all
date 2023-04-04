@@ -52,7 +52,6 @@ parseOpts() {
             esac
             ;;
         h)
-            exit 2
             ;;
         *)
             if [ "$OPTERR" != 1 ] || [ "${OPT_SPEC:0:1}" = ":" ]; then
