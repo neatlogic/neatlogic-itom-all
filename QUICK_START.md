@@ -2,9 +2,9 @@
 
 ## Docker环境检查
 
-检查docker版本
+检查docker版本(返回版本信息，说明docker已安装)
 ```
-docker --version #查看docker版本，返回版本信息，说明docker已安装
+docker --version
 docker-compose --version
 ```
 > 注意:请确保docker已安装,才能进行后续步骤
