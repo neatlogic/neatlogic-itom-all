@@ -8,6 +8,7 @@ runnerPort=8084
 runnerHeartbeatPort=8888
 webPort=8090
 masterWebPort=9099
+mobileWebPort=8091
 
 # 处理参数
 parseOpts() {
@@ -17,41 +18,39 @@ parseOpts() {
         -)
             case "${OPTARG}" in
                 dbPort)
-                dbPort="${!OPTIND}"
-                OPTIND=$(($OPTIND + 1))
-                ;;
+                    dbPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
                 collectdbPort)
-                collectdbPort="${!OPTIND}"
-                OPTIND=$(($OPTIND + 1))
-                ;;
+                    collectdbPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
                 appPort)
-                appPort="${!OPTIND}"
-                OPTIND=$(($OPTIND + 1))
-                ;;
+                    appPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
                 runnerPort)
-                runnerPort="${!OPTIND}"
-                OPTIND=$(($OPTIND + 1))
-                ;;
+                    runnerPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
                 runnerHeartbeatPort)
-                runnerHeartbeatPort="${!OPTIND}"
-                OPTIND=$(($OPTIND + 1))
-                ;;
+                    runnerHeartbeatPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
                 webPort)
-                webPort="${!OPTIND}"
-                OPTIND=$(($OPTIND + 1))
-                ;;
+                    webPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
                 masterWebPort)
-                masterWebPort="${!OPTIND}"
-                OPTIND=$(($OPTIND + 1))
-                ;;
+                    masterWebPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
             *)
                 if [ "$OPTERR" = 1 ] && [ "${OPT_SPEC:0:1}" != ":" ]; then
                     echo "Unknown option --${OPTARG}" >&2
                 fi
                 ;;
             esac
-            ;;
-        h)
             ;;
         *)
             if [ "$OPTERR" != 1 ] || [ "${OPT_SPEC:0:1}" = ":" ]; then
@@ -100,7 +99,7 @@ docker run -it --name neatlogic-runner -p $runnerPort:8084 -p $runnerHeartbeatPo
 sleep 20 
 
 echo "部署neatlogic-web...."
-docker run -it --name neatlogic-web -p $webPort:8090 -p $masterWebPort:9099 --net neatlogic --network-alias neatlogic-web  -d neatlogic/neatlogic-web:3.0.0
+docker run -it --name neatlogic-web -p $webPort:8090 -p $masterWebPort:9099 -p $mobileWebPort:8080 --net neatlogic --network-alias neatlogic-web  -d neatlogic/neatlogic-web:3.0.0
 
 echo "检查服务..."
 docker ps
