@@ -26,7 +26,7 @@ curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_
 
 例如:需要替换 mobileWebPort 为8092:
 ```
-curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh|bash
+curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh|bash -s -- --mobileWebPort 8092
 ```
 
 ## 卸载
