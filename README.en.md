@@ -1,8 +1,10 @@
 ![NeaLogic](README_IMAGES/logo.png)
 
 <p align="left">
-     <a href="https://opensource.org/licenses/Apache-2.0" alt="License">
-         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+    <a href="https://opensource.org/licenses/Apache-2.0" alt="License">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+<a target="_blank" href="https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA">
+<img src="https://img.shields.io/badge/Slack-Neatlogic-orange" /></a>
 </p>
 
 [中文](README.md) / English
@@ -60,4 +62,4 @@ preparing……
 [Click to view docker deployment manual](QUICK_START.en.md)
 
 ## Contact us
-   <img src="README_IMAGES/qq.jpeg" width="300" /></a>
+  [Neatlogic in Slack](https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA)
