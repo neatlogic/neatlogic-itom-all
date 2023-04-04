@@ -89,18 +89,18 @@ docker rmi -f  neatlogic/neatlogic:3.0.0
 ```
 **7. Container network:**<br>
 ```
-Docker network ls # View all
-Docker network create xxxx # Create a network, default to bridging**
+Docker network ls #View all
+Docker network create xxxx #Create a network, default to bridging**
 ```
 **8. View running containers:**<br>
 ```
-Docker ps # View all running containers
+Docker ps #View all running containers
 ```
 **9. Add file execution permissions:**<br>
 ```
-Chmod+x XXX. sh # Add Execution Permissions
+Chmod+x XXX.sh #Add Execution Permissions
 ```
 **10. Execute script:**<br>
 ```
-Sh XXX.sh # Execute script for XXX.sh file
+Sh XXX.sh #Execute script for XXX.sh file
 ```
