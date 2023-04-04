@@ -47,16 +47,16 @@ The Docker has not been started. Start the Docker and then re execute the deploy
 An error message 'Error response from daemon: network with name nearlogic already exists' appears, indicating that the service nearlogic is already running and needs to be stopped< br>
 An error message appears, 'Docker: Error response from daemon: Conflict, The container name'/netlogic xxx 'is already in use by container' xxxxxxxx ' You have to remove (or rename) that container to be able to reuse that name.```， It indicates that there is a container with the same name as/readlogic xxx, and it is necessary to stop the container and delete the container and related images.
 3. The service port is occupied<br>
-Execute the following command to view the port usage status<br>
+execute the following command to view the port usage status<br>
 ```
-Netstat - np | grep XX #XX is the port number
+netstat - np | grep XX #XX is the port number
 ```
 As shown in the figure, if there is a LISTEN line, it indicates that the port is occupied. Please note that the LISTENING shown in the figure does not indicate that the port is occupied. Do not confuse it with LISTEN. When viewing the specific port, you must see the lines TCP, port number, and LISTEN to indicate that the port is occupied.<br>
 ! [Port Occupation Example Figure] (QUICK_START-IMAGES/images_port. png)<br>
 When a port is occupied, you can first query the process number of the specified program on that port, and then use the command to close the program running with that port number
 ```
-Ps - ef | grep XX #Command to query the process number of the specified program on this port, where XX is the port number
-Kill -9 XX #Close the process, where XX is the process number
+ps - ef | grep XX #Command to query the process number of the specified program on this port, where XX is the port number
+kill -9 XX #Close the process, where XX is the process number
 ```
 4. After the Docker restarts, the process in the container hangs
 
@@ -89,18 +89,18 @@ docker rmi -f  neatlogic/neatlogic:3.0.0
 ```
 **7. Container network:**<br>
 ```
-Docker network ls #View all
-Docker network create xxxx #Create a network, default to bridging**
+docker network ls #View all
+docker network create xxxx #Create a network, default to bridging**
 ```
 **8. View running containers:**<br>
 ```
-Docker ps #View all running containers
+docker ps #View all running containers
 ```
 **9. Add file execution permissions:**<br>
 ```
-Chmod+x XXX.sh #Add Execution Permissions
+chmod+x XXX.sh #Add Execution Permissions
 ```
 **10. Execute script:**<br>
 ```
-Sh XXX.sh #Execute script for XXX.sh file
+sh XXX.sh #Execute script for XXX.sh file
 ```
