@@ -45,6 +45,10 @@ parseOpts() {
                     masterWebPort="${!OPTIND}"
                     OPTIND=$(($OPTIND + 1))
                     ;;
+                mobileWebPort)
+                    mobileWebPort="${!OPTIND}"
+                    OPTIND=$(($OPTIND + 1))
+                    ;;
             *)
                 if [ "$OPTERR" = 1 ] && [ "${OPT_SPEC:0:1}" != ":" ]; then
                     echo "Unknown option --${OPTARG}" >&2
