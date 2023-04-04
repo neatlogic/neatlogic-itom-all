@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # 初始化变量
@@ -8,27 +7,63 @@ appPort=8282
 runnerPort=8084
 runnerHeartbeatPort=8888
 webPort=8090
+masterWebPort=9099
 
 # 处理参数
-while [[ $# -gt 0 ]]
-do
-    key="$1"
-    case $key in
-        --dbPort)
-        dbPort="$2"
-        shift
-        shift
-        ;;
-        --ip)
-        ip="$2"
-        shift
-        shift
-        ;;
+parseOpts() {
+    OPT_SPEC=":h-:"
+    while getopts "$OPT_SPEC" optchar; do
+        case "${optchar}" in
+        -)
+            case "${OPTARG}" in
+                dbPort)
+                dbPort="${!OPTIND}"
+                OPTIND=$(($OPTIND + 1))
+                ;;
+                collectdbPort)
+                collectdbPort="${!OPTIND}"
+                OPTIND=$(($OPTIND + 1))
+                ;;
+                appPort)
+                appPort="${!OPTIND}"
+                OPTIND=$(($OPTIND + 1))
+                ;;
+                runnerPort)
+                runnerPort="${!OPTIND}"
+                OPTIND=$(($OPTIND + 1))
+                ;;
+                runnerHeartbeatPort)
+                runnerHeartbeatPort="${!OPTIND}"
+                OPTIND=$(($OPTIND + 1))
+                ;;
+                webPort)
+                webPort="${!OPTIND}"
+                OPTIND=$(($OPTIND + 1))
+                ;;
+                masterWebPort)
+                masterWebPort="${!OPTIND}"
+                OPTIND=$(($OPTIND + 1))
+                ;;
+            *)
+                if [ "$OPTERR" = 1 ] && [ "${OPT_SPEC:0:1}" != ":" ]; then
+                    echo "Unknown option --${OPTARG}" >&2
+                fi
+                ;;
+            esac
+            ;;
+        h)
+            usage
+            exit 2
+            ;;
         *)
-        shift
-        ;;
-    esac
-done
+            if [ "$OPTERR" != 1 ] || [ "${OPT_SPEC:0:1}" = ":" ]; then
+                echo "Non-option argument: '-${OPTARG}'" >&2
+            fi
+            ;;
+        esac
+    done
+}
+parseOpts "$@"
 
 echo "抽取镜像..."
 echo "neatlogic/neatlogic-collectdb:1.0.0..."
@@ -67,7 +102,7 @@ docker run -it --name neatlogic-runner -p $runnerPort:8084 -p $runnerHeartbeatPo
 sleep 20 
 
 echo "部署neatlogic-web...."
-docker run -it --name neatlogic-web -p $webPort:8090 --net neatlogic --network-alias neatlogic-web  -d neatlogic/neatlogic-web:3.0.0
+docker run -it --name neatlogic-web -p $webPort:8090 -p $masterWebPort:9099 --net neatlogic --network-alias neatlogic-web  -d neatlogic/neatlogic-web:3.0.0
 
 echo "检查服务..."
 docker ps
