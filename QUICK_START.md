@@ -1,21 +1,29 @@
 # 项目部署教程
 
-## Docker环境安装
+## Docker环境检查
 
 检查docker版本
 ```
 docker --version #查看docker版本，返回版本信息，说明docker已安装
 docker-compose --version
 ```
-如果没有安装,需安装docker则执行
+> 注意:请确保docker已安装,才能进行后续步骤
+## 安装
 ```
-curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/install_docker.sh|bash
+curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh|bash
 ```
-## 在目标机器部署服务
-```
-curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_setup.sh|bash
-```
-## 服务一键卸载
+为了解决可能存在操作系统层面端口冲突,需自定义容器暴露到操作系统端口:
+| 参数名 | 默认端口 | 描述 |
+|---|---|---|
+| dbPort | 3306  | neatlogic mysql端口  |
+| collectdbPort | 27017 | neatlogic mongodb端口   |
+| runnerPort | 8084 | runner 服务端口 |
+| runnerHeatbeatPort | 8888 | 处理器心跳端口 |
+| webPort | 8090 |  前端页面服务端口 |
+| masterWebPort | 9099 | 租户管理页面服务端口 |
+| appPort | 8282 | 后端服务端口 |
+
+## 卸载
 ```
 curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_clear.sh|bash
 ```
@@ -25,10 +33,10 @@ curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_
 |  1  |  neatlogicdb  |  3306端口  |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |
 |  1  |  neatlogic-collectdb  |  27017端口  |  启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |
 |  2  |  neatlogic-runner  |  8084、8888端口  |  启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |
-|  2  |  neatlogic-web  |  8090、8080端口  |  启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall  |
+|  2  |  neatlogic-web  |  8090端口  |  启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall  |
 |  3  |  neatlogic-app  |  8282端口  |  启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx  |
 
-<u>说明：启动顺序： 数字越小，启停优先级越高 1 > 2 >3</u>
+> 说明：启动顺序： 数字越小，启停优先级越高 1 > 2 >3
 
 ## 常见问题
 
