@@ -52,7 +52,6 @@ parseOpts() {
             esac
             ;;
         h)
-            usage
             exit 2
             ;;
         *)
