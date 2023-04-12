@@ -20,22 +20,21 @@ docker-compose --version
 | ----  | ----  | ----  | ---- | ---- |
 |  neatlogic-db  |  3306  | - |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |mysql数据库|
 |  neatlogic-collectdb |  27017  | - |   启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |mongodb,如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
-|  neatlogic-runner  |  8084、8888 | neatlogic-db <br> neatlogic-collectdb |  启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
-|  neatlogic-app  |  8282  | neatlogic-runner<br>neatlogic-nacos| 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
+|  neatlogic-runner  |  8084、8888 | - |  启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
+|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
 |  neatlogic-web  |  8090、8080、9099  | neatlogic-app |启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
 |  neatlogic-nacos | 8848 | neatlogic-db | 启: /app/systems/nacos/bin/startup.sh -m standalone nacos | 后端服务 config |
 
 ## 验证
 因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
 仍需要等待几分钟时间后访问前端服务:http://宿主机ip:8090/ 如果出现登录页面,恭喜你服务部署成功.<br>
-如果提示租户不存在,则需要查看下日志
+如果提示租户不存在,则需要查看下日志,可能是服务还在等待启动中
 ```
-docker-compose -f docker-compose.yml logs neatlogic-app
+docker-compose -f docker-compose.yml logs -f neatlogic-app
 ```
- 将最后的截图联系我们[Neatlogic in Slack](https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA)
+如果日志中出现error,则将最后的截图联系我们[Neatlogic in Slack](https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA)
 
 ## 按需修改配置 docker-compose.yml
->如果无需某容器服务则只需要删除对应容器服务配置即可
 ### 一般常见需要修改的场景:
 **1、数据持久化**
 默认是没有配置持久化的,如果需要则参考以下配置修改即可:
@@ -73,6 +72,21 @@ neatlogic-runner
     - "8090:8090"
     - "8081:8080"
     - "9099:9099"
+```
+
+**3、不使用自带的容器服务**
+
+如无需某容器服务则只需要删除对应容器服务配置,且修改对应被依赖的容器服务的environment属性<br>
+如无需neatlogic-db,因neatlogic-db被neatlogic-app和neatlogic-nacos依赖,所以neatlogic-app和neatlogic-nacos都需要修改environment的MYSQL_SERVICE_HOST、MYSQL_SERVICE_PORT、MYSQL_SERVICE_USER、MYSQL_SERVICE_PASSWORD,如:<br>
+自定义使用外部mysqldb 192.168.1.33:3306,帐号/密码:app/123456
+```
+  environment:
+    #连接的mysql配置
+    MYSQL_SERVICE_HOST: "192.168.1.33"
+    MYSQL_SERVICE_PORT: 3306
+    ...
+    MYSQL_SERVICE_USER: app
+    MYSQL_SERVICE_PASSWORD: "123456"
 ```
 # 常用COMMAND
 ## 启动
