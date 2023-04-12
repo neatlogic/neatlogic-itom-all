@@ -27,7 +27,7 @@ docker-compose --version
 
 ## 验证
 因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
-仍需要等待几分钟时间后访问前端服务:http://宿主机ip:8090/ 如果出现登录页面,恭喜你服务部署成功.<br>
+仍需要等待几分钟时间后访问前端服务:http://宿主机ip:8090/ 如果出现登录页面,恭喜你服务部署成功.登录帐号:admin 密码:123456<br>
 如果提示租户不存在,则需要查看下日志,可能是服务还在等待启动中
 ```
 docker-compose -f docker-compose.yml logs -f neatlogic-app
