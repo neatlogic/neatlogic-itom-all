@@ -1,0 +1,128 @@
+version: "3.2"
+networks:
+  neatlogic:
+    driver: bridge
+  
+services:
+
+  neatlogic-db:
+    image: neatlogic/neatlogic-db:1.0.0
+    container_name: neatlogic-db
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/logs/neatlogicdb/:/app/logs/neatlogicdb/
+    ports:
+      - "3306:3306"
+    environment:
+      - NEATLOGIC_HOME:/app
+    networks:
+      - neatlogic
+      
+  neatlogic-collectdb:
+    image: neatlogic/neatlogic-collectdb:1.0.0
+    container_name: neatlogic-collectdb
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/logs/collectdb/:/app/logs/collectdb/
+    ports:
+      - "27017:27017"
+    environment:
+      - NEATLOGIC_HOME:/app
+    networks:
+      - neatlogic
+      
+  neatlogic-runner:
+    image: neatlogic/neatlogic-runner:3.0.0
+    container_name: neatlogic-runner
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/logs/neatlogic-runner/:/app/logs/autoexec-runner/
+    ports:
+      #连接端口
+      - "8084:8084"
+      #心跳端口
+      - "8888:8888"
+    restart: always
+    environment:
+      - NEATLOGIC_HOME:/app
+    networks:
+      - neatlogic
+    depends_on:
+      - neatlogic-db
+      - neatlogic-collectdb
+  
+  neatlogic-nacos:
+    image: neatlogic/neatlogic-nacos:3.0.0
+    container_name: neatlogic-nacos
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/logs/neatlogic-nacos/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+    depends_on:
+      - neatlogic-db
+    restart: always
+    environment:
+      #连接的mysql配置
+      MYSQL_SERVICE_HOST: "neatlogic-db"
+      MYSQL_SERVICE_PORT: 3306
+      MYSQL_SERVICE_DB_NAME: "nacos"
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: "zanyue$$2012"
+    networks:
+      - neatlogic
+    
+  neatlogic-app:
+    image: neatlogic/neatlogic-app:3.0.0
+    container_name: neatlogic-app
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/logs/neatlogic-app/:/app/logs/neatlogic/
+    ports:
+      #宿主端口:容器端口
+      - "8282:8282"
+    depends_on:
+      - neatlogic-runner
+      - neatlogic-nacos
+    restart: always
+    environment:
+      #默认nacos和mysql连接配置
+      NACOS_SERVICE_HOST: "neatlogic-nacos"
+      NACOS_SERVICE_PORT: "8848"
+      NACOS_SERVICE_NAMESPACE: "neatlogic"
+      MYSQL_SERVICE_HOST: "neatlogic-db"
+      MYSQL_SERVICE_PORT: 3306
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: "zanyue$$2012"
+    networks:
+      - neatlogic
+      
+    
+  neatlogic-web:
+    image: neatlogic/neatlogic-web:3.0.0
+    container_name: neatlogic-web
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/logs/neatlogic-web/:/app/logs/nginx/
+    ports:
+      - "8090:8090"
+      - "8080:8080"
+      - "9099:9099"
+    restart: always
+    environment:
+      - NEATLOGIC_HOME:/app
+    networks:
+      - neatlogic
+    depends_on:
+      - neatlogic-app
+
+volumes:
+  db_data: 
+  collectdb_data: 
+  autoexec_data: 
