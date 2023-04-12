@@ -16,13 +16,13 @@ docker-compose --version
   docker-compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
 ```
 默认会安装一下容器服务:
-|  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 |容器内服务启停命令 |   描述 |
-| ----  | ----  | ----  | ---- | ---- |
-|  neatlogic-db  |  3306  | - |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |mysql数据库|
-|  neatlogic-collectdb |  27017  | - |   启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |mongodb,如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
-|  neatlogic-runner  |  8084、8888 | - |  启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
-|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
-|  neatlogic-web  |  8090、8080、9099  | neatlogic-app |启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
+|  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 | 访问地址 |容器内服务启停命令 |   描述 |
+| ----  | ----  | ----  | ---- | ---- | ---- |
+|  neatlogic-db  |  3306  | - | - |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |mysql数据库|
+|  neatlogic-collectdb |  27017  | - | - |   启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |mongodb,如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
+|  neatlogic-runner  |  8084、8888 | - | - | 启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
+|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
+|  neatlogic-web  |  8090、8080、9099  | neatlogic-app | 宿主机IP:8090/租户名 #前端页面 <br> 宿主机IP:9099 #租户管理页面 登录帐号:admin 密码:123456 |启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
 |  neatlogic-nacos | 8848 | neatlogic-db | 启: /app/systems/nacos/bin/startup.sh -m standalone nacos | 后端服务 config |
 
 ## 验证
