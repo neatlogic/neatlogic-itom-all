@@ -9,113 +9,122 @@ docker-compose --version
 ```
 > 注意:请确保docker已安装,才能进行后续步骤
 ## 安装
-```
-curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh|bash
-```
-为了解决可能存在操作系统层面端口冲突,需自定义容器暴露到操作系统端口:
-| 参数名 | 默认端口 | 描述 |
-|---|---|---|
-| dbPort | 3306  | neatlogic mysql端口  |
-| collectdbPort | 27017 | neatlogic mongodb端口   |
-| runnerPort | 8084 | runner 服务端口 |
-| runnerHeatbeatPort | 8888 | 处理器心跳端口 |
-| webPort | 8090 |  前端页面服务端口 |
-| masterWebPort | 9099 | 租户管理页面服务端口 |
-| mobileWebPort | 8091 | 移动端前端页面服务端口 |
-| appPort | 8282 | 后端服务端口 |
+先下载 [docker-compose.yml](docker-compose.yml),该配置文件是docker compose的核心，用于定义服务、网络和数据卷。
 
-例如:需要替换 mobileWebPort 为8092:
+如果不做修改,直接执行启动命令
 ```
-curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_install.sh|bash -s -- --mobileWebPort 8092
+  docker-compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
 ```
+默认会安装一下容器服务:
+|  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 |容器内服务启停命令 |   描述 |
+| ----  | ----  | ----  | ---- | ---- |
+|  neatlogic-db  |  3306  | - |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |mysql数据库|
+|  neatlogic-collectdb |  27017  | - |   启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |mongodb,如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
+|  neatlogic-runner  |  8084、8888 | neatlogic-db <br> neatlogic-collectdb |  启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
+|  neatlogic-app  |  8282  | neatlogic-runner<br>neatlogic-nacos| 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
+|  neatlogic-web  |  8090、8080、9099  | neatlogic-app |启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
+|  neatlogic-nacos | 8848 | neatlogic-db | 启: /app/systems/nacos/bin/startup.sh -m standalone nacos | 后端服务 config |
 
-## 卸载
+## 验证
+因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
+仍需要等待几分钟时间后访问前端服务:http://宿主机ip:8090/ 如果出现登录页面,恭喜你服务部署成功.<br>
+如果提示租户不存在,则需要查看下日志
 ```
-curl https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/neatlogic_clear.sh|bash
+docker-compose -f docker-compose.yml logs neatlogic-app
 ```
-## 镜像容器服务说明
-|  启动顺序  |  容器服务名  |  暴露到操作系统层面端口  | 容器内服务启停命令  |
-|  ----  | ----  | ----  | ----  |
-|  1  |  neatlogicdb  |  3306端口  |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |
-|  1  |  neatlogic-collectdb  |  27017端口  |  启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |
-|  2  |  neatlogic-runner  |  8084、8888端口  |  启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |
-|  2  |  neatlogic-app  |  8282端口  | 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall |
-|  3  |  neatlogic-web  |  8090端口  | 启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx |
+ 将最后的截图联系我们[Neatlogic in Slack](https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA)
 
+## 按需修改配置 docker-compose.yml
+>如果无需某容器服务则只需要删除对应容器服务配置即可
+### 一般常见需要修改的场景:
+**1、数据持久化**
+默认是没有配置持久化的,如果需要则参考以下配置修改即可:
 
-> 说明：启动顺序： 数字越小，启停优先级越高 1 > 2 >3
-
-## 常见问题
-
-1. 拉取镜像时docker未启动<br>
-报错信息```Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?```<br>
-说明docker未启动，启动docker后再重新执行部署文件即可。
-2. 重新拉取镜像前未卸载服务，导致服务、容器被占用<br>
-出现报错信息```Error response from daemon: network with name neatlogic already exists```，说明服务neatlogic已在运行，需停止服务。<br>
-出现报错信息```docker: Error response from daemon: Conflict, The container name "/neatlogic-xxx" is already in use by container "xxxxxxxx". You have to remove (or rename) that container to be able to reuse that name.```，说明存在与/neatlogic-xxx同名的容器，需停止容器并删除容器和相关镜像。
-3. 服务端口被占用<br>
-执行下面命令可以查看端口占用情况<br>
+neatlogic-db 
 ```
-netstat -anp |grep XX  #XX是端口号
+  volumes:
+    - /app/logs/neatlogicdb/:/app/logs/neatlogicdb/
+    - type: volume
+      source: db_data
+      target: /app/databases/neatlogicdb/ #宿主机路径
 ```
-如图，如果有LISTEN那一行，就表示端口被占用。此处注意，图中显示的LISTENING并不表示端口被占用，不要和LISTEN混淆哦，查看具体端口时候，必须要看到tcp、端口号、LISTEN那一行，才表示端口被占用了<br>
-![端口占用示例图](QUICK_START_IMAGES/images_port.png)<br>
-端口被占用时，可以先查询该端口指定程序的进程号，然后使用命令关闭使用该端口号运行的程序
+neatlogic-collectdb
 ```
-ps -ef |grep XX  #查询该端口指定程序的进程号命令，XX是端口号
-kill -9 XX  #关闭进程，XX是进程号
+  volumes:
+      - /app/logs/collectdb/:/app/logs/collectdb/
+      - type: volume
+        source: collectdb_data
+        target: /app/databases/collectdb/ #宿主机路径
 ```
-4.docker重启后，容器中的进程挂了
-
-## 常用操作命令说明
-
-**1、部署，docker run -it --name 容器名称  -p 操作系统端口:容器端口 --net 网络名称 -d  镜像:版本**<br>
+neatlogic-runner
 ```
-docker run -it --name neatlogic -p 8282:8282 --net neatlogic  -d neatlogic/neatlogic:3.0.0
+  volumes:
+      - /app/logs/neatlogic-runner/:/app/logs/autoexec-runner/
+      - type: volume
+        source: autoexec_data
+        target: /app/autoexec/data/ #宿主机路径
 ```
 
-**2、进入容器内部，docker exec -it  [容器名称|容器ID]  /bin/sh**<br>
+**2、宿主机端口冲突**
+
+修改 ports 字段即可,例如neatlogic-web的8080端口冲突,则需要将左侧的宿主机端口改成非占用端口即可,如我要改成8081:
 ```
-docker exec -it neatlogic /bin/sh
+  ports:
+    - "8090:8090"
+    - "8081:8080"
+    - "9099:9099"
+```
+# 常用COMMAND
+## 启动
+根据yml创建容器并启动所有容器服务
+```
+  docker-compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
+```
+如果只需要处理某个容器服务,只需要在命令后补充容器服务名即可,如:
+```
+  docker-compose -f docker-compose.yml up -d neatlogic-app #单独重新创建并启动neatlogic-app服务
 ```
 
-**3、查看容器日志，docker logs [容器名称|容器ID]**<br>
+## 查看日志
+查看所有容器服务的日志
 ```
-docker logs neatlogic
+  docker-compose -f docker-compose.yml logs
 ```
-
-**4、容器启停，docker  start/stop  [容器名称|容器ID]**<br>
+如果只需要查看某个容器服务的日志,只需要在命令后补充容器服务名即可,如:
 ```
-docker start/stop  neatlogic-web
+  docker-compose -f docker-compose.yml logs neatlogic-app
 ```
-
-**5、删除容器，docker rm  [容器名称|容器ID]**<br>
+### 实时查看日志
 ```
-docker rm neatlogic
-```
-
-**6、删除镜像，docker rm  [镜像ID|镜像名称：版本]**<br>
-```
-docker rmi -f  neatlogic/neatlogic:3.0.0
+  docker-compose -f docker-compose.yml logs -f
 ```
 
-**7、容器网络：**<br>
+## 查看启动成功的容器
 ```
-docker network ls   #查看所有
-docker network create  xxxx   #创建网络，默认是桥接**
-```
-
-**8、查看正在运行的容器：**<br>
-```
-docker ps   #查看所有正在运行的容器
+  docker-compose -f docker-compose.yml ps
 ```
 
-**9、添加文件执行权限：**<br>
+## 启停容器
+### 启容器
 ```
-chmod +x XXX.sh  #添加执行权限
+  docker-compose -f docker-compose.yml start
+```
+### 停容器
+```
+  docker-compose -f docker-compose.yml stop 
+```
+如果只需要启某个容器,只需要在命令后补充容器服务名即可,如:
+```
+  docker-compose -f docker-compose.yml start neatlogic-app
 ```
 
-**10、执行脚本：**<br>
+## 进入容器服务
+>非必要用户无需进入容器服务,如进去neatlogic-app容器服务:
 ```
-sh XXX.sh  #执行XXX.sh文件的脚本
+  docker-compose -f docker-compose.yml exec neatlogic-app sh
 ```
+## 停止并移除容器，网络，镜像和卷
+```
+  docker-compose -f docker-compose.yml down 
+```
+
