@@ -60,7 +60,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /app/logs/neatlogic-nacos/:/home/nacos/logs
+      - /app/logs/neatlogic-nacos/:/app/nacos/logs
     ports:
       - "8848:8848"
     depends_on:
