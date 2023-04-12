@@ -50,9 +50,6 @@ services:
       - NEATLOGIC_HOME:/app
     networks:
       - neatlogic
-    depends_on:
-      - neatlogic-db
-      - neatlogic-collectdb
   
   neatlogic-nacos:
     image: neatlogic/neatlogic-nacos:3.0.0
@@ -60,7 +57,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /app/logs/neatlogic-nacos/:/app/nacos/logs
+      - /app/logs/neatlogic-nacos/:/home/nacos/logs
     ports:
       - "8848:8848"
     depends_on:
@@ -87,6 +84,8 @@ services:
       #宿主端口:容器端口
       - "8282:8282"
     depends_on:
+      - neatlogic-db
+      - neatlogic-collectdb
       - neatlogic-runner
       - neatlogic-nacos
     restart: always
@@ -95,6 +94,11 @@ services:
       NACOS_SERVICE_HOST: "neatlogic-nacos"
       NACOS_SERVICE_PORT: "8848"
       NACOS_SERVICE_NAMESPACE: "neatlogic"
+      #不使用nacos,使用config.properties 才需要通过这个配置自定义mysql db
+      #MYSQL_SERVICE_HOST: "neatlogic-db"
+      #MYSQL_SERVICE_PORT: 3306
+      #MYSQL_SERVICE_USER: root
+      #MYSQL_SERVICE_PASSWORD: "zanyue$$2012"
     networks:
       - neatlogic
       
