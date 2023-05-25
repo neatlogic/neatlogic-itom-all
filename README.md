@@ -62,7 +62,7 @@ NeatLogic采用模块化方式管理代码。
 
 
 ## 技术交流
-  [Neatlogic in Slack](https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA)
+  [Neatlogic in Slack](https://join.slack.com/t/neatlogichome/shared_invite/zt-1w7sdcc0g-sTP0Rxk0D6ogpSj0Xrx6fg)
 
 
 
