@@ -31,7 +31,10 @@ git submodule foreach 'git checkout develop3.0.0'
 ### 配置tomcat9
 ![](README_IMAGES/BUILD/idea-tomcat.png)
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
+指定本地tomcat
 ![](README_IMAGES/BUILD/idea-tomcat2.png)
+本体tomcat的lib目录需添加 mysql-connector-java-8.0.23.jar包,以支持com.mysql.cj.jdbc.Driver
+![](README_IMAGES/BUILD/idea-tomcat2-1.png)
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
