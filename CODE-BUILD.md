@@ -62,4 +62,5 @@ git submodule foreach 'git checkout develop3.0.0'
 ### 启动tomcat
 如果出现一下日志,说明后端已经启动成功.
 ![](README_IMAGES/BUILD/startTomcatSuccess.png)
-## vscode启动前端项目 to be continued...持续更新
+## vscode启动前端项目 
+[请移步neatlogic-web](https://gitee.com/neat-logic/neatlogic-web/blob/develop3.0.0/README.md)
