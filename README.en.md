@@ -62,4 +62,4 @@ preparing……
 [Click to view docker deployment manual](QUICK_START.en.md)
 
 ## Contact us
-  [Neatlogic in Slack](https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA)
+  [Neatlogic in Slack](https://join.slack.com/t/neatlogichome/shared_invite/zt-1w037axf8-r_i2y4pPQ1Z8FxOkAbb64w)
