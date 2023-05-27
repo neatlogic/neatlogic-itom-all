@@ -48,17 +48,16 @@ NeatLogic manages code in a modular fashion.
 | neatlogic-pbc | neatlogic-framework、neatlogic-cmdb | Financial basic data reporting platform of the People's Bank of China (bank users just need it, other users can ignore it)|
 | neatlogic-inspect | neatlogic-framework, neatlogic-autoexec | Daily inspection of operating systems, hardware servers, virtualization, middleware, databases, network devices, containers, storage devices and other infrastructure, discover potential risks and alert<br> - Application inspection: Check the health of all components of an application. <br>- Asset inspection: From the perspective of infrastructure management, such as checking the health of all network devices. <br>- Configuration file comparison: check configuration files of applications, servers, and services, and record configuration file change records. <br>- Custom Thresholds: Configure asset health indicator thresholds. <br>- Patrol inspection report: The inspection results are in the form of reports, archived and saved or exported for viewing. <br>- Latest Issues: In the full infrastructure, the collection of assets that currently have health issues and the report on the specific issues of each asset. |
 
-## Quick start
-* check out
-   Check out neatlogic-itom-all to get all the module codes. Since neatlogic-itom-all uses submodule to import modules, you need to add the --recurse-submodules parameter when checking out the code. \example:
-   ```
-   git clone url --recurse-submodules
-   ```
+## Build Code
+[Click to see build manual](CODE-BUILD.en.md)
 
-* online demo
-preparing……
+## Online Demo
+Coming soon...
 
-* docker deployment
+## Local Deployment
+Coming soon...
+
+## Docker deployment
 [Click to view docker deployment manual](QUICK_START.en.md)
 
 ## Contact us

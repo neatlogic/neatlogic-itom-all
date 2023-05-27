@@ -1,3 +1,4 @@
+中文 / [English](QUICK_START.en.md)
 # 项目部署教程
 
 ## Docker环境检查

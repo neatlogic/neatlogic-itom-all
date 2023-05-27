@@ -1,3 +1,5 @@
+中文 / [English](CODE-BUILD.en.md)
+
 # 构建代码
 
 ## 下载项目所有代码
@@ -6,7 +8,7 @@
   git clone url --recurse-submodules
 ```
 
-## idea 启动后端项目
+##  IntelliJ IDEA配置
 ### 新建workspace,并引入所有项目
 > 打开项目
 ![](README_IMAGES/BUILD/idea-openProject.png)
@@ -23,47 +25,82 @@ git submodule foreach 'git checkout develop3.0.0'
 ### 配置maven
 ![](README_IMAGES/BUILD/idea-projectStructure.png)
 ![](README_IMAGES/BUILD/idea-mavenSetting1.png)
-### 配置jdk 1.8
+### 配置JDK8
 ![](README_IMAGES/BUILD/idea-jdk.png)
 ![](README_IMAGES/BUILD/idea-jdk1.png)
 ### 刷新maven依赖
 ![](README_IMAGES/BUILD/idea-mavenRefreshDependencies.png)
-### 配置tomcat9
+### 配置Tomcat9
 ![](README_IMAGES/BUILD/idea-tomcat.png)
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
-指定本地tomcat
+#### 指定本地Tomcat
 ![](README_IMAGES/BUILD/idea-tomcat2.png)
-本体tomcat的lib目录需添加 mysql-connector-java-8.0.23.jar包,以支持com.mysql.cj.jdbc.Driver
+#### 将mysql8的jdbc驱动放入Tomcat的lib目录
 ![](README_IMAGES/BUILD/idea-tomcat2-1.png)
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
 ```
 //VM Option
-//nacos 配置,会优先使用nacos,获取不到config则会从config.properties中获取
+//nacos配置，会优先使用nacos，获取不到config则会从config.properties中获取
 -Dnacos.home=192.168.0.10:8848 
 -Dnacos.namespace=lvzk_local 
 //日志级别
 -Dlog4j.priority=ERROR 
 -Drunmode=develop 
-//设置true则登录用户无需密码
+//设为true，输入用户名后可使用任意密码登录，只能在研发阶段使用！
 -DenableNoSecret=false 
-//开启运维模式
+//设为true开启运维模式，能用超级管理员身份登录进行紧急干预和授权，此用户权限很大，只能在研发阶段使用！
 -DenableSuperAdmin=true
 ```
-![](README_IMAGES/BUILD/idea-tomcat6.png)
-### 配置config
+#### 配置自动构建的时机
+![idea-tomcat6.png](README_IMAGES/BUILD/idea-tomcat6.png)
+### 配置config.properties
+nacos的配置文件模板如下，如果不使用nacos，则需要配置在config.properties中：
+``` properties
+#database properties
+db.driverClassName = com.mysql.cj.jdbc.Driver
+db.url = jdbc:mysql://localhost:3306/neatlogic?characterEncoding=UTF-8&jdbcCompliantTruncation=false&allowMultiQueries=true&useSSL=false&&serverTimeZone=Asia/Shanghai
+db.username = root
+db.password = password
+db.dataSource.maxTotal=10
+ 
+conn.validationQuery = select 1
+conn.testOnBorrow = true
+conn.maxActive = 50
+conn.initialSize = 4
+conn.maxIdle=16
+#minio配置，如果不配置，默认使用本地存储
+minio.url = http://localhost:8989
+minio.accesskey = minioadmin
+minio.secretkey = minioadmin
+#本地存储起始文件夹，如果调用minio失败，会自动转存到这里，如果需要多服务共享附件，此路径请配置到nas卷上。
+data.home = /app/data
+
+#自己的服务地址，主要用于内部跳转
+home.url = http://localhost:8099/
+
+#active MQ地址，没有可以不用配
+jms.url = tcp://localhost:8161
+
+#心跳设置
+heartbeat.rate = 3
+heartbeat.threshold = 5
+
+```
+#### 将config目录定义为资源目录
 ![](README_IMAGES/BUILD/idea-config.png)
-> 需要修改下图中jdbc链接,mysql8 的账号密码
-![](README_IMAGES/BUILD/idea-config1.png)
-### 创建初始化数据库
->因为我们系统是支持多租户模式,所以我们架构是采用主库(neatlogic)+租户库的模式(neatlogic_租户名)+租户库动态数据和视图(neatlogic_租户名_data)
-目前为了快速搭建直接定义demo租户,并采用以下比较low的方式初始化数据库,后续会提供脚本一键初始化:<br>
-首先得创建手动以上提到的三个空库因为时间关系,注意编码是“utf8mb4”,排序规则是“utf8mb4_general_ci”,如下图:
-![](README_IMAGES/BUILD/database.png)<br>
-然后执行sql [neatlogic.sql](neatlogic.sql)  和 [neatlogic_demo.sql](neatlogic_demo.sql) 进行初始化数据.
-### 启动tomcat
-如果出现一下日志,说明后端已经启动成功.
+
+### 创建数据库
+#### neatlogic需要使用3个库，字符集采用utf8mb4，排序规则采用utf8mb4_general_ci，由于neatlogic需要动态创建、删除表和视图，请授予数据库连接用户适当的权限。
+  + neatlogic：管理库，所用租户共用，用于管理租户信息，管理系统的健康状态等。
+  + neatlogic_xxx：xxx租户的主库，租户的核心数据都保存在这个库。
+  + neatlogic_xxx_data：xxx租户的扩展库，用于存放所有由系统自动生成的表和视图。人工构建时需要手动创建这个空库，使用neatlogic-master创建租户时，此库会自动生成。
+#### 为了方便构建，目前提供了[neatlogic.sql](neatlogic.sql)和[neatlogic_demo.sql](neatlogic_demo.sql)两个SQL文件，请按照上述说明创建了空库再执行脚本，执行完会自动创建demo租户，如果想把demo改成别的名称，需要修改neatlogic库中的tenant表，修改neatlogic_demo的库名为neatlogic_新的租户名称
+
+![](README_IMAGES/BUILD/database.png)
+### 启动Tomcat
+如果出现一下日志，说明后端已经启动成功.
 ![](README_IMAGES/BUILD/startTomcatSuccess.png)
-## vscode启动前端项目 
-[请移步neatlogic-web](https://gitee.com/neat-logic/neatlogic-web/blob/develop3.0.0/README.md)
+## 前端构建 
+[点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)

@@ -1,3 +1,4 @@
+[中文](QUICK_START.md) / English
 # Project Deployment Tutorial
 ## Docker environment inspection
 Check the Docker version (return version information indicating that the Docker is installed)
