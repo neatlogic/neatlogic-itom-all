@@ -90,13 +90,13 @@
 	url = ../neatlogic-master-web.git
 [submodule "neatlogic-rdm"]
 	path = neatlogic-rdm
-	url = git@gitee.com:neat-logic/neatlogic-rdm.git
+	url = ../neatlogic-rdm.git
 [submodule "neatlogic-rdm-base"]
 	path = neatlogic-rdm-base
-	url = git@gitee.com:neat-logic/neatlogic-rdm-base.git
+	url = ../neatlogic-rdm-base.git
 [submodule "neatlogic-codehub-base"]
 	path = neatlogic-codehub-base
-	url = git@gitee.com:neat-logic/neatlogic-codehub-base.git
+	url = ../neatlogic-codehub-base.git
 [submodule "neatlogic-codehub"]
 	path = neatlogic-codehub
-	url = git@gitee.com:neat-logic/neatlogic-codehub.git
+	url = ../neatlogic-codehub.git
