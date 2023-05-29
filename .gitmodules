@@ -100,3 +100,6 @@
 [submodule "neatlogic-codehub"]
 	path = neatlogic-codehub
 	url = git@gitee.com:neat-logic/neatlogic-codehub.git
+[submodule "neatlogic-master"]
+	path = neatlogic-master
+	url = git@gitee.com:neat-logic/neatlogic-master.git
