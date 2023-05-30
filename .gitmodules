@@ -61,9 +61,6 @@
 [submodule "neatlogic-itsm-base"]
 	path = neatlogic-itsm-base
 	url = ../neatlogic-itsm-base.git
-[submodule "neatlogic-master"]
-	path = neatlogic-master
-	url = ../neatlogic-master.git
 [submodule "neatlogic-report"]
 	path = neatlogic-report
 	url = ../neatlogic-report.git
@@ -100,6 +97,3 @@
 [submodule "neatlogic-codehub"]
 	path = neatlogic-codehub
 	url = ../neatlogic-codehub.git
-[submodule "neatlogic-master"]
-	path = neatlogic-master
-	url = ../neatlogic-master.git
