@@ -82,9 +82,6 @@
 [submodule "neatlogic-webroot"]
 	path = neatlogic-webroot
 	url = ../neatlogic-webroot.git
-[submodule "neatlogic-master-web"]
-	path = neatlogic-master-web
-	url = ../neatlogic-master-web.git
 [submodule "neatlogic-rdm"]
 	path = neatlogic-rdm
 	url = ../neatlogic-rdm.git
