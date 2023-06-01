@@ -94,3 +94,6 @@
 [submodule "neatlogic-codehub"]
 	path = neatlogic-codehub
 	url = ../neatlogic-codehub.git
+[submodule "neatlogic-master"]
+	path = neatlogic-master
+	url = ../neatlogic-master.git
