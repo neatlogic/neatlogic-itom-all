@@ -22,7 +22,7 @@ NeatLogic 提供 docker 镜像部署模式和安装包部署模式，自带所�
 
 ## 依赖组件
 
-|组件|版本|是否必要|说明|
+|组件|版本|必要|说明|
 |---|---|---|---|
 |[Tomcat](https://tomcat.apache.org/)|9.0.75|✅|Servlet容器|
 |[Mysql](https://www.mysql.com/)|8.0.27|✅|数据库|
