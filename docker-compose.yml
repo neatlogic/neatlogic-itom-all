@@ -15,7 +15,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - NEATLOGIC_HOME:/app
+      NEATLOGIC_HOME: "/app"
+      NEATLOGIC_RUNNER_HOST: "192.168.0.92"
     networks:
       - neatlogic
       
@@ -122,7 +123,3 @@ services:
     depends_on:
       - neatlogic-app
 
-volumes:
-  db_data: 
-  collectdb_data: 
-  autoexec_data: 

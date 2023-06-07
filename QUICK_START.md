@@ -11,6 +11,7 @@ docker-compose --version
 > 注意:请确保docker已安装,才能进行后续步骤
 ## 安装
 先下载 [docker-compose.yml](docker-compose.yml),该配置文件是docker compose的核心，用于定义服务、网络和数据卷。
+> 注意:如果需要用到 [neatlogic-runner](../../../neatlogic-runner/blob/develop3.0.0/README.md) ,还需要修改[docker-compose.yml](docker-compose.yml)文件中NEATLOGIC_RUNNER_HOST环境变量,设置为runner容器所在的宿主机ip
 
 如果不做修改,直接执行启动命令
 ```
