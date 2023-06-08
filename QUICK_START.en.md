@@ -1,5 +1,7 @@
 [中文](QUICK_START.md) / English
 # Project Deployment Tutorial
+>  :tw-2705:  Currently only verified by **Centos7** . <br>
+>  :tw-274c:  Centos8/9 is still being verified and will be updated after verification
 ## Docker environment inspection
 Check the Docker version (return version information indicating that the Docker is installed)
 ```
