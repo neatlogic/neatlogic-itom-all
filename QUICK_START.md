@@ -1,5 +1,7 @@
 中文 / [English](QUICK_START.en.md)
 # 项目部署教程
+>  :tw-2705:  目前仅 验证通过 **Centos7** . <br>
+>  :tw-274c:  Centos8/9 还在验证中,验证后更新 
 
 ## Docker环境检查
 
