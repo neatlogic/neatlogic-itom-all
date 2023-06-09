@@ -11,7 +11,8 @@
 
 ## 关于
 
-NeatLogic 是一套渐进式 ITOM 平台，致力为不同类型不同规模用户提供 ITOM 解决方案。除了开源版本，我们也为企业客户提供二次开发、咨询等服务，咨询请联系chenqw@neatlogic.com
+NeatLogic 是一套渐进式 ITOM 平台，致力为不同类型不同规模用户提供 ITOM 解决方案。除了开源版本，我们也为企业客户提供二次开发、咨询等服务，邮件咨询请联系<a href="mailto:zhangzm@neatlogic.com">zhangzm@neatlogic.com</a>，或者进入<a target="_blank" href="https://join.slack.com/t/neatlogichome/shared_invite/zt-1w037axf8-r_i2y4pPQ1Z8FxOkAbb64w">
+Slack</a>商务交流频道留言，我们的回应会更快。
 ![index](README_IMAGES/index.png)
 
 NeatLogic 原生支持多租户（中间件共享，数据库分租户模式），模块化扩展，已包含流程引擎、表单引擎、报表引擎、大屏、仪表板等关键核心功能，对数据规模敏感的功能，例如 CMDB 在设计上做了充分考虑，同时兼顾报表和日常使用的性能要求。仅使用基本功能情况下，仅需要 Tomcat、Nginx 和 Mysql8+，部分高级功能，例如自动采集需要使用 MongoDb。\

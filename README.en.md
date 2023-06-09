@@ -10,7 +10,7 @@
 [中文](README.md) / English
 
 ## About
-NeatLogic is a progressive ITOM platform dedicated to providing ITOM solutions for users of different types and sizes. In addition to the open source version, we also provide secondary development, consulting and other services for enterprise customers. For inquiries, please contact chenqw@neatlogic.com
+NeatLogic is a progressive ITOM platform dedicated to providing ITOM solutions for users of different types and sizes. In addition to the open source version, we also provide secondary development, consulting and other services for enterprise customers. For inquiries, please contact <a href="mailto:zhangzm@neatlogic.com">zhangzm@neatlogic.com</a>,or contact us from <a target="_blank" href="https://join.slack.com/t/neatlogichome/shared_invite/zt-1w037axf8-r_i2y4pPQ1Z8FxOkAbb64w">Slack</a>.
 ![index](README_IMAGES/index.png)
 
 NeatLogic natively supports multi-tenancy (middleware sharing, database sub-tenant mode), modular expansion, already includes key core functions such as process engine, form engine, report engine, large screen, dashboard, etc., functions sensitive to data scale, such as CMDB Fully considered in the design, taking into account the performance requirements of reports and daily use. When only basic functions are used, only Tomcat, Nginx, and Mysql8+ are required, and some advanced functions, such as automatic collection, require MongoDb. \
