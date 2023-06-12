@@ -54,6 +54,9 @@ To enhance the efficiency of research and development, we have developed the fol
 - 📌 release x.x.x: Release branch, has been deployed and finalized in key customers. Core features will not be largely adjusted, only functional adjustments and defect fixes will be made.
 - 🏁 (tag) x.x.x: Each version adjustment of release will be tagged correspondingly, usually after feature adjustments or major defect fixes.
 
+## Service Architecture
+![架构图](README_IMAGES/inf.jpeg)
+
 ## Feature List
 
 ### ⭐️ Basic Functions
