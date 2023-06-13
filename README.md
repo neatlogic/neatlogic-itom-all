@@ -47,6 +47,9 @@ NeatLogic 采用模块化方式管理代码。
 - ❌【暂不开源】neatlogic-master-web是租户管理模块前端代码，部署时需要和 neatlogic-web 分开部署。
 - 其余每个功能模块都需要分拆成两个代码模块，分别是 neatlogic-xxx 和 neatlogic-xxx-base。由于 maven 不支持交叉引用，neatlogic-xxx-base 主要用于被其他模块引用，主要放 pojo 和一些底层接口。neatlogic-xxx 需要引用 neatlogic-xxx-base，主要放自身独占的业务 bean。
 
+## 服务架构图
+![架构图](README_IMAGES/inf.jpeg)
+
 ## 内部插件
 为了提升研发效率，我们自研了以下IDE插件协助开发。
 - 🚀 [i18nhelper-idea](../../../i18nhelper-idea/blob/main/README.md) 用于自动替换i18n键值和文本翻译，intellij IDEA专用，neatlogic后端的国际化没有采用spring 5官方的properties格式方案，而是改成了和前端一致的json格式方案。
@@ -56,8 +59,20 @@ NeatLogic 采用模块化方式管理代码。
 - 📌 deveploy x.x.x：研发分支，还没有在重点客户中完成部署并结项，主线功能基本稳定，功能持续增加中，部分功能可能有调整但不影响使用。
 - 📌 release x.x.x：发布分支，已经在重点客户中完成部署并结项，核心功能不会有大调整，仅做功能调整和缺陷修复。
 - 🏁 (标签)x.x.x：release每次版本调整都会打出对应tag，一般是功能调整过或重大缺陷修复后产生。
-## 服务架构图
-![架构图](README_IMAGES/inf.jpeg)
+
+## 版本说明
+Neatlogic为研发和发布两个分支的版本号划分了两个区间，研发使用[0,1)区间，发布分支使用[1,)区间，这样做的用意是如果想使用版本区间的方式关联模块，不会造成版本冲突。
+- 🔢 研发分支版本号以0开头，如0.3.1.0-SNAPSHOT。
+- 🔢 发布分支版本号在封板后在去掉前面的0.和-SNAPSHOT，如3.1.0。缺陷修复后在第3位+1，如3.1.1，有功能改进后第2位+1，如3.2.0。
+
+## Maven Profile说明
+Neatlogic通过maven profile管理不同分支的版本号以及社区版和商业版的模块依赖。
+- 📇 develop 研发分支版本profile，如果当前是在研发分支，请勾选此profile，所有依赖包版本号都以-SNAPSHOT结尾。
+- 📇 release 发布分支版本profile，如果当前是在发布分支，请勾选此profile，所有依赖包都是正式的版本号。
+- 📇 commercial 商业版专用profile，如果使用社区版进行二次开发，不要勾选此profile，这样不会依赖任何商业版的模块。
+
+    __❗注意：__ develop和release只能二选一，commercial可以和develop或release一起勾选。
+
 
 ## 功能清单
 

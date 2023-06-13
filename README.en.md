@@ -44,18 +44,36 @@ NeatLogic adopts a modular approach to code management.
 - ❌【Temporarily Not Open Source】neatlogic-master-web is the front-end code of the tenant management module, and needs to be deployed separately from neatlogic-web during deployment.
 - Each other functional module needs to be split into two code modules, namely neatlogic-xxx and neatlogic-xxx-base. Due to the cross-reference limitation of maven, neatlogic-xxx-base is mainly used to be referenced by other modules, mainly containing pojo and some underlying interfaces. neatlogic-xxx needs to reference neatlogic-xxx-base, mainly containing its own exclusive business beans.
 
+## Service Architecture
+![架构图](README_IMAGES/inf.jpeg)
 ## Internal Plugins
 To enhance the efficiency of research and development, we have developed the following IDE plugins to assist in development.
 - 🚀 [i18nhelper-idea](../../../i18nhelper-idea/blob/main/README.en.md) is used for automatic replacement of i18n key-value pairs and text translation, exclusively for IntelliJ IDEA. The internationalization of neatlogic's backend did not adopt the official properties format solution of spring 5, but switched to the json format solution consistent with the frontend.
 - 🚀 [i18nhelper-vscode](../../../i18nhelper-vscode/blob/main/README.en.md) is used for automatic replacement of i18n key-value pairs and text translation, exclusively for vscode.
 
-## Branch Instructions
+## About Branch
 - 📌 deveploy x.x.x: Development branch, has not been deployed and finalized in key customers yet. The main features are basically stable, and new features are continuously being added. Some features may be adjusted but will not affect usage.
 - 📌 release x.x.x: Release branch, has been deployed and finalized in key customers. Core features will not be largely adjusted, only functional adjustments and defect fixes will be made.
 - 🏁 (tag) x.x.x: Each version adjustment of release will be tagged correspondingly, usually after feature adjustments or major defect fixes.
 
-## Service Architecture
-![架构图](README_IMAGES/inf.jpeg)
+## About Version
+
+Neatlogic has divided the version numbers into two ranges for the development and release branches. The development branch uses the interval [0, 1), while the release branch uses the interval [1, ∞). This is done to ensure that using version ranges to associate modules does not result in version conflicts.
+
+- 🔢 Development branch version numbers start with 0, such as 0.3.1.0-SNAPSHOT.
+- 🔢 After the release branch is frozen, the release branch version number removes the leading 0. and -SNAPSHOT, such as 3.1.0. For defect fixes, the third digit is incremented, for example, 3.1.1. For feature improvements, the second digit is incremented, such as 3.2.0.
+
+## About Maven Profile
+
+Neatlogic manages different branch version numbers and module dependencies for the community edition and commercial edition using Maven profiles.
+
+- 📇 `develop` is the profile for the development branch. If you are currently on the development branch, select this profile. All dependency package versions end with `-SNAPSHOT`.
+- 📇 `release` is the profile for the release branch. If you are currently on the release branch, select this profile. All dependency packages have official version numbers.
+- 📇 `commercial` is the profile specifically for the commercial edition. If you are using the community edition for further development, do not select this profile to avoid depending on any commercial edition modules.
+
+    __❗ Note:__ You can choose either `develop` or `release`, but you can select `commercial` along with `develop` or `release`.
+
+
 
 ## Feature List
 
