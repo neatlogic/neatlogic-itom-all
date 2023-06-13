@@ -60,8 +60,8 @@ To enhance the efficiency of research and development, we have developed the fol
 
 Neatlogic has divided the version numbers into two ranges for the development and release branches. The development branch uses the interval [0, 1), while the release branch uses the interval [1, ∞). This is done to ensure that using version ranges to associate modules does not result in version conflicts.
 
-- 🔢 Development branch version numbers start with 0, such as 0.3.1.0-SNAPSHOT.
-- 🔢 After the release branch is frozen, the release branch version number removes the leading 0. and -SNAPSHOT, such as 3.1.0. For defect fixes, the third digit is incremented, for example, 3.1.1. For feature improvements, the second digit is incremented, such as 3.2.0.
+- 🔢 Develop branch version numbers start with 0, such as 0.3.1.0-SNAPSHOT.
+- 🔢 After the release branch is frozen, the release branch version number removes the leading 0. and the trailing -SNAPSHOT, resulting in a version number like 3.1.0. For defect fixes, the third digit is incremented, for example, 3.1.1. For feature improvements, the second digit is incremented, such as 3.2.0.
 
 ## About Maven Profile
 

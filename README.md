@@ -62,14 +62,14 @@ NeatLogic 采用模块化方式管理代码。
 
 ## 版本说明
 Neatlogic为研发和发布两个分支的版本号划分了两个区间，研发使用[0,1)区间，发布分支使用[1,)区间，这样做的用意是如果想使用版本区间的方式关联模块，不会造成版本冲突。
-- 🔢 研发分支版本号以0开头，如0.3.1.0-SNAPSHOT。
-- 🔢 发布分支版本号在封板后在去掉前面的0.和-SNAPSHOT，如3.1.0。缺陷修复后在第3位+1，如3.1.1，有功能改进后第2位+1，如3.2.0。
+- 🔢 `develop`分支版本号以0开头，如0.3.1.0-SNAPSHOT。
+- 🔢 `release`分支版本号在封板后去掉前面的0.和后面的-SNAPSHOT，如3.1.0。缺陷修复在第3位+1，如3.1.1，功能改进在第2位+1，如3.2.0。
 
 ## Maven Profile说明
 Neatlogic通过maven profile管理不同分支的版本号以及社区版和商业版的模块依赖。
-- 📇 develop 研发分支版本profile，如果当前是在研发分支，请勾选此profile，所有依赖包版本号都以-SNAPSHOT结尾。
-- 📇 release 发布分支版本profile，如果当前是在发布分支，请勾选此profile，所有依赖包都是正式的版本号。
-- 📇 commercial 商业版专用profile，如果使用社区版进行二次开发，不要勾选此profile，这样不会依赖任何商业版的模块。
+- 📇 `develop`：研发分支版本profile，如果当前在`develop`分支，请勾选此profile，所有依赖包版本号都以-SNAPSHOT结尾。
+- 📇 `release`：发布分支版本profile，如果当前在`release`分支，请勾选此profile，所有依赖包都是正式的版本号。
+- 📇 `commercial`：商业版专用profile，如果使用社区版进行二次开发，不要勾选此profile，这样不会依赖任何商业版的模块。
 
     __❗注意：__ develop和release只能二选一，commercial可以和develop或release一起勾选。
 
