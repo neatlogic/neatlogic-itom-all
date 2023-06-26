@@ -38,7 +38,7 @@ CREATE TABLE `datasource` (
 -- Records of datasource
 -- ----------------------------
 BEGIN;
-INSERT INTO `datasource` VALUES (1, 'demo', 'jdbc:mysql://{host}:{port}/{dbname}?characterEncoding=UTF-8&jdbcCompliantTruncation=false&allowMultiQueries=true&useSSL=false&&serverTimeZone=Asia/Shanghai', 'root', 'Zanyue$2022', 'com.mysql.cj.jdbc.Driver', '127.0.0.1', 3306);
+INSERT INTO `datasource` VALUES (1, 'demo', 'jdbc:mysql://{host}:{port}/{dbname}?characterEncoding=UTF-8&jdbcCompliantTruncation=false&allowMultiQueries=true&useSSL=false&&serverTimeZone=Asia/Shanghai', 'root', 'root', 'com.mysql.cj.jdbc.Driver', '127.0.0.1', 3306);
 COMMIT;
 
 -- ----------------------------
