@@ -115,3 +115,4 @@ Neatlogic通过maven profile管理不同分支的版本号以及社区版和商�
     [点击进入Slack交流频道](https://join.slack.com/t/neatlogichome/shared_invite/zt-1w037axf8-r_i2y4pPQ1Z8FxOkAbb64w)
 - **企业微信** <br>
 ![联系我](README_IMAGES/contact_me.png)
+<img src="/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" style="width:200px"/>
