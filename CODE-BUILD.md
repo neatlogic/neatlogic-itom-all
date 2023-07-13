@@ -95,8 +95,9 @@ heartbeat.threshold = 5
 #### neatlogic需要使用3个库，字符集采用utf8mb4，排序规则采用utf8mb4_general_ci，由于neatlogic需要动态创建、删除表和视图，请授予数据库连接用户适当的权限。
   + neatlogic：管理库，所用租户共用，用于管理租户信息，管理系统的健康状态等。
   + neatlogic_xxx：xxx租户的主库，租户的核心数据都保存在这个库。
-  + neatlogic_xxx_data：xxx租户的扩展库，用于存放所有由系统自动生成的表和视图。人工构建时需要手动创建这个空库，使用neatlogic-master创建租户时，此库会自动生成。
+  + neatlogic_xxx_data：xxx租户的扩展库，用于存放所有由系统自动生成的表和视图。人工构建时需要手动创建这个空库
 #### 为了方便构建，目前提供了[neatlogic.sql](neatlogic.sql)和[neatlogic_demo.sql](neatlogic_demo.sql)两个SQL文件，请按照上述说明创建了空库再执行脚本，执行完会自动创建demo租户，如果想把demo改成别的名称，需要修改neatlogic库中的tenant表，修改neatlogic_demo的库名为neatlogic_新的租户名称
+>注意:还需要修改neatlogic数据库datasource表对应租户的数据库连接信息(password、host、port)
 
 ![](README_IMAGES/BUILD/database.png)
 ### 启动Tomcat
