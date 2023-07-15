@@ -76,7 +76,7 @@ CREATE TABLE `master_user` (
 -- Records of master_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `master_user` VALUES ('111', 'admin', '管理员', 'admin', NULL, NULL, 1, NULL);
+INSERT INTO `master_user` VALUES ('111', 'admin', '管理员', 'admin', NULL, NULL, 1, NULL,0,null,now());
 COMMIT;
 
 -- ----------------------------
