@@ -99,7 +99,10 @@ Neatlogic manages different branch version numbers and module dependencies for t
 [Click to see build manual](CODE-BUILD.en.md)
 
 ## Online Demo
-Coming soon...
+[Click here to register and use](http://demo.neatlogic.com:9098/neatlogic)
+>- limited resources, first come first served.
+>- If there is no quota after registration, you will be notified by email when there is an available quota.
+>- If you don’t use it for 3 consecutive days, the resources will be reclaimed. If you still want to use it, you will need to reactivate by sending an email again.
 
 ## Local Deployment
 Coming soon...
