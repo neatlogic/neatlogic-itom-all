@@ -100,6 +100,22 @@ heartbeat.threshold = 5
 >注意:还需要修改neatlogic数据库datasource表对应租户的数据库连接信息(password、host、port)
 
 ![](README_IMAGES/BUILD/database.png)
+#### 为了更快让系统正常使用,每个模块提供了dml sql文件,用于导入demo数据.如果是xxx_data后缀的sql,则需要到租户data库执行. 如果是不熟悉我们项目的导入所有dml sql,熟悉的用户倒是可以按需执行对应模块的dml sql.
+![dml位置](README_IMAGES/BUILD/image.png)
+>注意:ddldemo_data.sql 也是需要执行的,里面存放的是租户data库需要的schema,如:矩阵、cmdb的配置项动态表(通过租户库固定的表的数据动态生成租户data库动态表)
+
+#### 初始化创建用户、分组、角色授权
+VM options 添加-DenableSuperAdmin=true 参数
+![运维模式](README_IMAGES/BUILD/vmoptions-maintain.png)
+配置文件config.properties 增加
+```
+#超级管理员账号
+superadmin = neatlogic
+#超级管理员密码
+superadmin.password = 123456
+VM options 添加-DenableSuperAdmin=true 参数
+```
+然后启动后使用上面的超级管理员账号 创建用户、角色、分组 授权等操作,好了,再通过创建的用户登录即可
 ### 启动Tomcat
 如果出现一下日志，说明后端已经启动成功.
 ![](README_IMAGES/BUILD/startTomcatSuccess.png)
