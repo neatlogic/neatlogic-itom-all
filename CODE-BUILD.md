@@ -119,5 +119,8 @@ VM options 添加-DenableSuperAdmin=true 参数
 ### 启动Tomcat
 如果出现一下日志，说明后端已经启动成功.
 ![](README_IMAGES/BUILD/startTomcatSuccess.png)
+> 检查后端服务是否正常
+> 浏览器访问 http://localhost:8080/neatlogic/tenant/check/demo
+> ![输入图片说明](README_IMAGES/BUILD/checkhealth.png)
 ## 前端构建 
 [点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)
