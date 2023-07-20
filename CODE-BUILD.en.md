@@ -99,8 +99,28 @@ heartbeat.threshold = 5
 #### To facilitate construction, [neatlogic.sql](neatlogic.sql) and [neatlogic_demo.sql](neatlogic_demo.sql) two SQL files are currently provided. Please create an empty library according to the above description and then execute the script. The execution will automatically create a demo tenant. If you want to change the demo to another name, you need to modify the tenant table in the neatlogic library and change the library name of neatlogic_demo to neatlogic_new tenant name.
 
 ![](README_IMAGES/BUILD/database.png)
+### To quickly get the system functioning properly, each module provides DML SQL files for importing demo data. If the SQL file has an “_data” suffix, it needs to be executed in the tenant’s data database. If you are unfamiliar with our project, you can import all the DML SQL files. For users who are familiar with the project, you can execute the corresponding DML SQL files as needed.
+
+>Note: The ddldemo_data.sql file also needs to be executed. It contains the schemas required for the tenant’s data database, such as matrices and dynamic configuration tables for CMDB (dynamic tables generated based on data from fixed tables in the tenant’s database).
+
+![](README_IMAGES/BUILD/dmlsql.png)
+### Initializing user, group, and role authorization
+Add the VM option -DenableSuperAdmin=true to the VM options.
+![](README_IMAGES/BUILD/vmoptions-maintain.png)
+In the config.properties file, add the following configurations:
+```
+#Super admin account
+superadmin = neatlogic
+#Super admin password
+superadmin.password = 123456
+```
+After starting, use the super admin account mentioned above to create users, roles, groups, and perform authorization operations. Once done, you can log in using the created user account.
+
 ### Start Tomcat
 If the following logs appear, it indicates that the backend has started successfully.
 ![](README_IMAGES/BUILD/startTomcatSuccess.png)
+> check if the backend service is functioning properly.
+> Open your browser and access http://localhost:8080/neatlogic/tenant/check/demo
+> ![](README_IMAGES/BUILD/checkhealth.png)
 ## Front-End Build 
 [Click to view](../../../neatlogic-web/blob/develop3.0.0/README.md)
