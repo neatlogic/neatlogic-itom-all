@@ -101,12 +101,12 @@ heartbeat.threshold = 5
 
 ![](README_IMAGES/BUILD/database.png)
 #### 为了更快让系统正常使用,每个模块提供了dml sql文件,用于导入demo数据.如果是xxx_data后缀的sql,则需要到租户data库执行. 如果是不熟悉我们项目的导入所有dml sql,熟悉的用户倒是可以按需执行对应模块的dml sql.
-![dml位置](README_IMAGES/BUILD/image.png)
+![dmlsql位置](README_IMAGES/BUILD/dmlsql.png)
 >注意:ddldemo_data.sql 也是需要执行的,里面存放的是租户data库需要的schema,如:矩阵、cmdb的配置项动态表(通过租户库固定的表的数据动态生成租户data库动态表)
 
 #### 初始化创建用户、分组、角色授权
 VM options 添加-DenableSuperAdmin=true 参数
-![运维模式](README_IMAGES/BUILD/vmoptions-maintain.png)
+![输入图片说明](README_IMAGES/BUILD/vmoptions-maintain.png)
 配置文件config.properties 增加
 ```
 #超级管理员账号
