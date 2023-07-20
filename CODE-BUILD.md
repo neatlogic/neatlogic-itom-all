@@ -113,7 +113,6 @@ VM options 添加-DenableSuperAdmin=true 参数
 superadmin = neatlogic
 #超级管理员密码
 superadmin.password = 123456
-VM options 添加-DenableSuperAdmin=true 参数
 ```
 然后启动后使用上面的超级管理员账号 创建用户、角色、分组 授权等操作,好了,再通过创建的用户登录即可
 ### 启动Tomcat
