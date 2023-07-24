@@ -121,5 +121,8 @@ superadmin.password = 123456
 > 检查后端服务是否正常
 > 浏览器访问 http://localhost:8080/neatlogic/tenant/check/demo
 > ![输入图片说明](README_IMAGES/BUILD/checkhealth.png)
+### 初始化视图
+需要初始化视图,否则部分模块功能会提示data租户库找不到scence_xxx、resource_xxx视图
+![输入图片说明](README_IMAGES/BUILD/rebuild_views.pngimage.png)
 ## 前端构建 
 [点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)
