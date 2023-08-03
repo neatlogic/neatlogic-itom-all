@@ -94,7 +94,7 @@ services:
       #默认nacos
       NACOS_SERVICE_HOST: "neatlogic-nacos"
       NACOS_SERVICE_PORT: "8848"
-      NACOS_SERVICE_NAMESPACE: "neatlogic"
+      NACOS_SERVICE_NAMESPACE: "neatlogic-docker"
       #不使用nacos,使用config.properties 才需要通过这个配置自定义mysql db
       #MYSQL_SERVICE_HOST: "neatlogic-db"
       #MYSQL_SERVICE_PORT: 3306
