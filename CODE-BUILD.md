@@ -22,7 +22,7 @@
 ```
 git submodule foreach 'git checkout develop3.0.0'
 ```
-### 配置maven
+### 配置maven(版本3.8+)
 ![](README_IMAGES/BUILD/idea-projectStructure.png)
 ![](README_IMAGES/BUILD/idea-mavenSetting1.png)
 ### 配置JDK8
