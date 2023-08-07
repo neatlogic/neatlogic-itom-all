@@ -100,9 +100,14 @@ heartbeat.threshold = 5
 >注意:还需要修改neatlogic数据库datasource表对应租户的数据库连接信息(password、host、port)
 
 ![](README_IMAGES/BUILD/database.png)
-#### 为了更快让系统正常使用,每个模块提供了dml sql文件,用于导入demo数据.如果是xxx_data后缀的sql,则需要到租户data库执行. 如果是不熟悉我们项目的导入所有dml sql,熟悉的用户倒是可以按需执行对应模块的dml sql.
+### 导入样例数据作为参考
+#### 如果熟悉的用户可以按需执行对应模块的dml sql.每个模块提供了dml sql文件,用于导入demo数据.如果是xxx_data后缀的sql,则需要到租户data库执行. 
 ![输入图片说明](README_IMAGES/BUILD/dmlsql.png)
 >注意:ddldemo_data.sql 也是需要执行的,里面存放的是租户data库需要的schema,如:矩阵、cmdb的配置项动态表(通过租户库固定的表的数据动态生成租户data库动态表)
+
+#### 如果是不熟悉我们项目的导入所有模块的样例数据导入到对应的租户库,以下例子用的是demo租户
+请自行将[demo(ddl+dml).sql](demo(ddl+dml).sql)导入到neatlogic_demo库;
+将[demo_data(ddl+dml).sql](demo_data(ddl+dml).sql)导入到neatlogic_demo_data库.
 
 #### 初始化创建用户、分组、角色授权
 VM options 添加-DenableSuperAdmin=true 参数
