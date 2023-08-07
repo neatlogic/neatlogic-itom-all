@@ -147,6 +147,6 @@ neatlogic-runner
 ```
 
 ## demo样例数据参考
-由于考虑到环境的干净,镜像初始化的数据是比较少的.如果仍需要更多的样例数据作为参考,
+由于考虑到环境的干净,镜像只保留了核心数据.如果仍需要更多的样例数据作为参考,
 请自行将[demo(ddl+dml).sql](demo(ddl+dml).sql)导入到neatlogic_demo库;
 将[demo_data(ddl+dml).sql](demo_data(ddl+dml).sql)导入到neatlogic_demo_data库.
