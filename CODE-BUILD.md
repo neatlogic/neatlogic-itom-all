@@ -8,7 +8,7 @@
   git clone url --recurse-submodules
 ```
 
-##  IntelliJ IDEA配置
+##  IntelliJ IDEA配置(2022.2.4+)
 ### 新建workspace,并引入所有项目
 > 打开项目
 ![](README_IMAGES/BUILD/idea-openProject.png)
