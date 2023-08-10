@@ -146,6 +146,11 @@ neatlogic-runner
   docker-compose -f docker-compose.yml down 
 ```
 
+## 批量拉取镜像
+```
+  docker-compose -f docker-compose.yml pull
+```
+
 ## demo样例数据参考
 由于考虑到环境的干净,镜像只保留了核心数据.如果仍需要更多的样例数据作为参考,
 请自行将[demo(ddl+dml).sql](demo(ddl+dml).sql)导入到neatlogic_demo库;
