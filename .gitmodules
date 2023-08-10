@@ -98,5 +98,5 @@
 	path = neatlogic-master
 	url = ../neatlogic-master.git
 [submodule "neatlogic-document-online"]
-        path = neatlogic-document-online
-        url = ../neatlogic-document-online.git
+	path = neatlogic-document-online
+	url = https://gitee.com/neat-logic/neatlogic-document-online.git
