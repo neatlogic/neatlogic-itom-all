@@ -1,6 +1,6 @@
 中文 / [English](CODE-BUILD.en.md)
 
-# 构建代码
+# 研发环境搭建
 
 ## 下载项目所有代码
 获取代码 签出neatlogic-itom-all可以一次性获取所有模块代码，由于neatlogic-itom-all使用submodule引入模块，签出代码时需加上--recurse-submodules参数。范例：
