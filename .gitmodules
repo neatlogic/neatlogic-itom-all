@@ -97,3 +97,6 @@
 [submodule "neatlogic-master"]
 	path = neatlogic-master
 	url = ../neatlogic-master.git
+[submodule "neatlogic-document-online"]
+        path = neatlogic-document-online
+        url = ../neatlogic-document-online.git
