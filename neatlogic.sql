@@ -300,6 +300,7 @@ INSERT INTO `tenant_modulegroup` VALUES (1, 'demo', 'knowledge');
 INSERT INTO `tenant_modulegroup` VALUES (1, 'demo', 'pbc');
 INSERT INTO `tenant_modulegroup` VALUES (1, 'demo', 'process');
 INSERT INTO `tenant_modulegroup` VALUES (1, 'demo', 'report');
+INSERT INTO `tenant_modulegroup` VALUES (1, 'demo', 'rdm');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
