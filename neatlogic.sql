@@ -303,4 +303,18 @@ INSERT INTO `tenant_modulegroup` VALUES (1, 'demo', 'report');
 INSERT INTO `tenant_modulegroup` VALUES (1, 'demo', 'rdm');
 COMMIT;
 
+-- ----------------------------
+-- Table structure for documentonline_config
+-- ----------------------------
+
+DROP TABLE IF EXISTS `documentonline_config`;
+
+CREATE TABLE `documentonline_config` (
+  `file_path` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文档路径',
+  `module_group` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模块组标识',
+  `menu` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '菜单路由',
+  `anchor_point` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '锚点',
+  PRIMARY KEY (`file_path`,`module_group`,`menu`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 SET FOREIGN_KEY_CHECKS = 1;
