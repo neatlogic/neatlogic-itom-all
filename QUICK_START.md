@@ -27,11 +27,11 @@ docker-compose --version
 |  neatlogic-runner  |  8084、8888 | - | - | 启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
 |  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
 |  neatlogic-web  |  8090、8080、9099  | neatlogic-app | 宿主机IP:8090/租户名 #前端页面 <br> 宿主机IP:9099 #租户管理页面 登录帐号:admin 密码:123456 |启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
-|  neatlogic-nacos | 8848 | neatlogic-db | 宿主机IP:8848/nacos |启: deployadmin -s nacos -a startall <br>停： deployadmin -s nacos -a stopall| 后端服务 config ,帐号/密码 nacos/nacos|
+|  neatlogic-nacos | 8848 | neatlogic-db | 宿主机IP:8848/nacos |启: deployadmin -s nacos -a startall <br>停： deployadmin -s nacos -a stopall| 后端服务 config ,账号/密码 nacos/nacos|
 
 ## 验证
 因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
-仍需要等待几分钟时间后访问前端服务:http://宿主机ip:8090/ 如果出现登录页面,恭喜你服务部署成功.登录帐号:admin 密码:neatlogic@901<br>
+仍需要等待几分钟时间后访问前端服务:http://宿主机ip:8090/ 如果出现登录页面,恭喜你服务部署成功.登录账号:admin 密码:neatlogic@901<br>
 如果提示租户不存在,则需要查看下日志,可能是服务还在等待启动中
 ```
 docker-compose -f docker-compose.yml logs -f neatlogic-app
