@@ -27,7 +27,7 @@ docker-compose --version
 |  neatlogic-runner  |  8084、8888 | - | - | 启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
 |  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
 |  neatlogic-web  |  8090、8080、9099  | neatlogic-app | 宿主机IP:8090/租户名 #前端页面 <br> 宿主机IP:9099 #租户管理页面 登录帐号:admin 密码:123456 |启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
-|  neatlogic-nacos | 8848 | neatlogic-db | 启: /app/systems/nacos/bin/startup.sh -m standalone nacos | 后端服务 config |
+|  neatlogic-nacos | 8848 | neatlogic-db | 启: deployadmin -s nacos -a startall <br>停： deployadmin -s nacos -a stopall| 后端服务 config |
 
 ## 验证
 因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
