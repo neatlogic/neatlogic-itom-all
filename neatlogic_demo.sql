@@ -1,26 +1,26 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 
+ Source Server         : 1.135
  Source Server Type    : MySQL
  Source Server Version : 80026
- Source Host           : 
- Source Schema         : neatlogic_demo
+ Source Host           : 192.168.1.135:3306
+ Source Schema         : neatlogic_develop
 
  Target Server Type    : MySQL
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 25/05/2023 17:15:04
+ Date: 17/08/2023 18:57:01
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-/*Table structure for table `api` */
-
+-- ----------------------------
+-- Table structure for api
+-- ----------------------------
 DROP TABLE IF EXISTS `api`;
-
 CREATE TABLE `api` (
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'token',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -41,20 +41,20 @@ CREATE TABLE `api` (
   PRIMARY KEY (`token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='接口表';
 
-/*Table structure for table `api_access_count` */
-
+-- ----------------------------
+-- Table structure for api_access_count
+-- ----------------------------
 DROP TABLE IF EXISTS `api_access_count`;
-
 CREATE TABLE `api_access_count` (
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'token',
   `count` int DEFAULT NULL COMMENT '访问次数',
   PRIMARY KEY (`token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='接口访问次数表';
 
-/*Table structure for table `api_audit` */
-
+-- ----------------------------
+-- Table structure for api_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `api_audit`;
-
 CREATE TABLE `api_audit` (
   `id` bigint NOT NULL COMMENT '记录id',
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '接口token',
@@ -74,30 +74,30 @@ CREATE TABLE `api_audit` (
   KEY `idx_api_audit_token` (`token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='接口记录表';
 
-/*Table structure for table `audit_config` */
-
+-- ----------------------------
+-- Table structure for audit_config
+-- ----------------------------
 DROP TABLE IF EXISTS `audit_config`;
-
 CREATE TABLE `audit_config` (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '审计类型',
   `config` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '审计配置',
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='控制所有审计的配置信息';
 
-/*Table structure for table `audit_file` */
-
+-- ----------------------------
+-- Table structure for audit_file
+-- ----------------------------
 DROP TABLE IF EXISTS `audit_file`;
-
 CREATE TABLE `audit_file` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件hash',
   `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '日志文件路径',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='接口文件表';
 
-/*Table structure for table `autoexec_catalog` */
-
+-- ----------------------------
+-- Table structure for autoexec_catalog
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_catalog`;
-
 CREATE TABLE `autoexec_catalog` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -108,10 +108,10 @@ CREATE TABLE `autoexec_catalog` (
   KEY `idx_lft_rht` (`lft`,`rht`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工具目录';
 
-/*Table structure for table `autoexec_combop` */
-
+-- ----------------------------
+-- Table structure for autoexec_combop
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_combop`;
-
 CREATE TABLE `autoexec_combop` (
   `id` bigint NOT NULL COMMENT '如果从工具/脚本则直接生成combop则使用对应id，否则id自动生成',
   `uk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '唯一标识',
@@ -131,10 +131,10 @@ CREATE TABLE `autoexec_combop` (
   UNIQUE KEY `uniq_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='组合工具信息表';
 
-/*Table structure for table `autoexec_combop_authority` */
-
+-- ----------------------------
+-- Table structure for autoexec_combop_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_combop_authority`;
-
 CREATE TABLE `autoexec_combop_authority` (
   `combop_id` bigint NOT NULL COMMENT '流水线id',
   `type` enum('common','role','user','team') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '对象类型',
@@ -143,10 +143,10 @@ CREATE TABLE `autoexec_combop_authority` (
   PRIMARY KEY (`combop_id`,`uuid`,`action`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='组合工具授权表';
 
-/*Table structure for table `autoexec_combop_group` */
-
+-- ----------------------------
+-- Table structure for autoexec_combop_group
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_combop_group`;
-
 CREATE TABLE `autoexec_combop_group` (
   `id` bigint NOT NULL COMMENT 'id',
   `combop_id` bigint NOT NULL COMMENT '组合工具id',
@@ -156,10 +156,10 @@ CREATE TABLE `autoexec_combop_group` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='组合工具组';
 
-/*Table structure for table `autoexec_combop_param` */
-
+-- ----------------------------
+-- Table structure for autoexec_combop_param
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_combop_param`;
-
 CREATE TABLE `autoexec_combop_param` (
   `combop_id` bigint NOT NULL COMMENT '流水线id',
   `key` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '参数名',
@@ -174,10 +174,10 @@ CREATE TABLE `autoexec_combop_param` (
   PRIMARY KEY (`combop_id`,`key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='组合工具参数表';
 
-/*Table structure for table `autoexec_combop_param_matrix` */
-
+-- ----------------------------
+-- Table structure for autoexec_combop_param_matrix
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_combop_param_matrix`;
-
 CREATE TABLE `autoexec_combop_param_matrix` (
   `combop_id` bigint NOT NULL COMMENT '流水线id',
   `key` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '参数名',
@@ -186,10 +186,10 @@ CREATE TABLE `autoexec_combop_param_matrix` (
   KEY `idx_matrix_uuid` (`matrix_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='组合工具参数引用矩阵关系表';
 
-/*Table structure for table `autoexec_combop_version` */
-
+-- ----------------------------
+-- Table structure for autoexec_combop_version
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_combop_version`;
-
 CREATE TABLE `autoexec_combop_version` (
   `id` bigint NOT NULL COMMENT '主键ID',
   `combop_id` bigint DEFAULT NULL COMMENT '组合工具ID',
@@ -204,10 +204,10 @@ CREATE TABLE `autoexec_combop_version` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `autoexec_customtemplate` */
-
+-- ----------------------------
+-- Table structure for autoexec_customtemplate
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_customtemplate`;
-
 CREATE TABLE `autoexec_customtemplate` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -221,10 +221,10 @@ CREATE TABLE `autoexec_customtemplate` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义模板';
 
-/*Table structure for table `autoexec_global_param` */
-
+-- ----------------------------
+-- Table structure for autoexec_global_param
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_global_param`;
-
 CREATE TABLE `autoexec_global_param` (
   `id` bigint NOT NULL COMMENT '主键id',
   `key` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '参数名',
@@ -239,10 +239,10 @@ CREATE TABLE `autoexec_global_param` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布全局参数表';
 
-/*Table structure for table `autoexec_job` */
-
+-- ----------------------------
+-- Table structure for autoexec_job
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job`;
-
 CREATE TABLE `autoexec_job` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -277,20 +277,20 @@ CREATE TABLE `autoexec_job` (
   KEY `idx_parent_id` (`parent_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业表';
 
-/*Table structure for table `autoexec_job_content` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_content
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_content`;
-
 CREATE TABLE `autoexec_job_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '配置hash',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '配置',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业参数内容表';
 
-/*Table structure for table `autoexec_job_env` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_env
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_env`;
-
 CREATE TABLE `autoexec_job_env` (
   `job_id` bigint NOT NULL COMMENT '作业id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '环境变量名',
@@ -298,10 +298,10 @@ CREATE TABLE `autoexec_job_env` (
   PRIMARY KEY (`job_id`,`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='作业环境变量表';
 
-/*Table structure for table `autoexec_job_group` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_group
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_group`;
-
 CREATE TABLE `autoexec_job_group` (
   `id` bigint NOT NULL COMMENT 'id',
   `job_id` bigint NOT NULL COMMENT '作业id',
@@ -313,10 +313,10 @@ CREATE TABLE `autoexec_job_group` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业组';
 
-/*Table structure for table `autoexec_job_invoke` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_invoke
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_invoke`;
-
 CREATE TABLE `autoexec_job_invoke` (
   `job_id` bigint NOT NULL COMMENT '作业id',
   `invoke_id` bigint NOT NULL COMMENT '来源id',
@@ -327,10 +327,10 @@ CREATE TABLE `autoexec_job_invoke` (
   KEY `idx_invoke_id` (`invoke_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业来源表';
 
-/*Table structure for table `autoexec_job_phase` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_phase
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_phase`;
-
 CREATE TABLE `autoexec_job_phase` (
   `id` bigint NOT NULL COMMENT 'id',
   `job_id` bigint NOT NULL COMMENT '作业id',
@@ -362,10 +362,10 @@ CREATE TABLE `autoexec_job_phase` (
   KEY `idx_protocol_from` (`protocol_from`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业阶段表';
 
-/*Table structure for table `autoexec_job_phase_node` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_phase_node
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_phase_node`;
-
 CREATE TABLE `autoexec_job_phase_node` (
   `id` bigint NOT NULL COMMENT 'id',
   `job_id` bigint DEFAULT NULL COMMENT '作业id',
@@ -393,10 +393,10 @@ CREATE TABLE `autoexec_job_phase_node` (
   KEY `idx_resource_id_job_phase_id` (`resource_id`,`job_phase_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业阶段节点表';
 
-/*Table structure for table `autoexec_job_phase_node_runner` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_phase_node_runner
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_phase_node_runner`;
-
 CREATE TABLE `autoexec_job_phase_node_runner` (
   `job_id` bigint DEFAULT NULL COMMENT '作业id',
   `job_phase_id` bigint DEFAULT NULL COMMENT '作业剧本id',
@@ -406,10 +406,10 @@ CREATE TABLE `autoexec_job_phase_node_runner` (
   KEY `idx_phaseId` (`job_phase_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业阶段节点runner表';
 
-/*Table structure for table `autoexec_job_phase_operation` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_phase_operation
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_phase_operation`;
-
 CREATE TABLE `autoexec_job_phase_operation` (
   `job_id` bigint NOT NULL COMMENT '作业id',
   `job_phase_id` bigint NOT NULL COMMENT '作业阶段id',
@@ -433,10 +433,10 @@ CREATE TABLE `autoexec_job_phase_operation` (
   KEY `idx_phaseid_opid` (`job_phase_id`,`operation_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业阶段操作表';
 
-/*Table structure for table `autoexec_job_phase_runner` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_phase_runner
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_phase_runner`;
-
 CREATE TABLE `autoexec_job_phase_runner` (
   `job_id` bigint DEFAULT NULL COMMENT '作业id',
   `job_group_id` bigint DEFAULT NULL COMMENT '作业组id',
@@ -452,20 +452,20 @@ CREATE TABLE `autoexec_job_phase_runner` (
   KEY `idx_runner_map_id` (`runner_map_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业阶段runner表';
 
-/*Table structure for table `autoexec_job_processtask_step` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_processtask_step
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_processtask_step`;
-
 CREATE TABLE `autoexec_job_processtask_step` (
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
   `job_id` bigint NOT NULL COMMENT '作业ID',
   PRIMARY KEY (`processtask_step_id`,`job_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化步骤最新批次作业ID';
 
-/*Table structure for table `autoexec_job_resource_inspect` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_resource_inspect
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_resource_inspect`;
-
 CREATE TABLE `autoexec_job_resource_inspect` (
   `resource_id` bigint NOT NULL COMMENT '资产id',
   `job_id` bigint DEFAULT NULL COMMENT '作业id',
@@ -475,10 +475,10 @@ CREATE TABLE `autoexec_job_resource_inspect` (
   KEY `index_jobid_phaseId` (`job_id`,`phase_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化作业资源巡检';
 
-/*Table structure for table `autoexec_job_sql_detail` */
-
+-- ----------------------------
+-- Table structure for autoexec_job_sql_detail
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_job_sql_detail`;
-
 CREATE TABLE `autoexec_job_sql_detail` (
   `id` bigint NOT NULL COMMENT '主键 id',
   `status` enum('pending','running','aborting','aborted','succeed','failed','ignored','waitInput') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '状态',
@@ -506,10 +506,10 @@ CREATE TABLE `autoexec_job_sql_detail` (
   KEY `idx_job_id_job_phase_name` (`job_id`,`job_phase_name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化sql详情表';
 
-/*Table structure for table `autoexec_operation_generate_combop` */
-
+-- ----------------------------
+-- Table structure for autoexec_operation_generate_combop
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_operation_generate_combop`;
-
 CREATE TABLE `autoexec_operation_generate_combop` (
   `combop_id` bigint NOT NULL COMMENT '组合工具id',
   `operation_type` enum('script','tool') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '工具或自定义工具',
@@ -518,10 +518,10 @@ CREATE TABLE `autoexec_operation_generate_combop` (
   KEY `idx_operation_id` (`operation_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='组合工具关联表';
 
-/*Table structure for table `autoexec_profile` */
-
+-- ----------------------------
+-- Table structure for autoexec_profile
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_profile`;
-
 CREATE TABLE `autoexec_profile` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -536,20 +536,20 @@ CREATE TABLE `autoexec_profile` (
   KEY ` idx_system_id` (`system_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布工具profile表';
 
-/*Table structure for table `autoexec_profile_cientity` */
-
+-- ----------------------------
+-- Table structure for autoexec_profile_cientity
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_profile_cientity`;
-
 CREATE TABLE `autoexec_profile_cientity` (
   `ci_entity_id` bigint NOT NULL COMMENT '配置项id',
   `profile_id` bigint NOT NULL COMMENT ' id',
   PRIMARY KEY (`ci_entity_id`,`profile_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布工具profile配置项关系表';
 
-/*Table structure for table `autoexec_profile_operation` */
-
+-- ----------------------------
+-- Table structure for autoexec_profile_operation
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_profile_operation`;
-
 CREATE TABLE `autoexec_profile_operation` (
   `operation_id` bigint NOT NULL COMMENT '工具库工具id/自定义工具id',
   `profile_id` bigint NOT NULL COMMENT 'profile id',
@@ -558,10 +558,10 @@ CREATE TABLE `autoexec_profile_operation` (
   PRIMARY KEY (`operation_id`,`profile_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布工具profile和tool、script关系表';
 
-/*Table structure for table `autoexec_profile_param` */
-
+-- ----------------------------
+-- Table structure for autoexec_profile_param
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_profile_param`;
-
 CREATE TABLE `autoexec_profile_param` (
   `id` bigint NOT NULL COMMENT '主键 id',
   `profile_id` bigint DEFAULT NULL COMMENT 'profile id',
@@ -576,10 +576,10 @@ CREATE TABLE `autoexec_profile_param` (
   UNIQUE KEY `idx_profile_id_key` (`profile_id`,`key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化profile参数表';
 
-/*Table structure for table `autoexec_profile_param_value_invoke` */
-
+-- ----------------------------
+-- Table structure for autoexec_profile_param_value_invoke
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_profile_param_value_invoke`;
-
 CREATE TABLE `autoexec_profile_param_value_invoke` (
   `id` bigint NOT NULL COMMENT '主键 id',
   `profile_param_id` bigint NOT NULL COMMENT 'profile 参数id',
@@ -590,10 +590,10 @@ CREATE TABLE `autoexec_profile_param_value_invoke` (
   KEY `idx_profile_param_id_value_invoke_id_value_invoke_type` (`profile_param_id`,`value_invoke_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化profile参数值引用表';
 
-/*Table structure for table `autoexec_risk` */
-
+-- ----------------------------
+-- Table structure for autoexec_risk
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_risk`;
-
 CREATE TABLE `autoexec_risk` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -609,10 +609,10 @@ CREATE TABLE `autoexec_risk` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化操作级别表';
 
-/*Table structure for table `autoexec_scenario` */
-
+-- ----------------------------
+-- Table structure for autoexec_scenario
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_scenario`;
-
 CREATE TABLE `autoexec_scenario` (
   `id` bigint NOT NULL COMMENT '主键 id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -625,20 +625,20 @@ CREATE TABLE `autoexec_scenario` (
   KEY `idx_lcd` (`lcd`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化场景定义表';
 
-/*Table structure for table `autoexec_scenario_cientity` */
-
+-- ----------------------------
+-- Table structure for autoexec_scenario_cientity
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_scenario_cientity`;
-
 CREATE TABLE `autoexec_scenario_cientity` (
   `scenario_id` bigint NOT NULL COMMENT '场景 id',
   `ci_entity_id` bigint NOT NULL COMMENT '应用 id',
   PRIMARY KEY (`ci_entity_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化场景应用关系表';
 
-/*Table structure for table `autoexec_schedule` */
-
+-- ----------------------------
+-- Table structure for autoexec_schedule
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_schedule`;
-
 CREATE TABLE `autoexec_schedule` (
   `id` bigint NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一uuid',
@@ -657,10 +657,10 @@ CREATE TABLE `autoexec_schedule` (
   UNIQUE KEY `idx_uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业信息表';
 
-/*Table structure for table `autoexec_script` */
-
+-- ----------------------------
+-- Table structure for autoexec_script
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script`;
-
 CREATE TABLE `autoexec_script` (
   `id` bigint NOT NULL COMMENT 'id',
   `uk` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '唯一标识(英文名)',
@@ -681,10 +681,10 @@ CREATE TABLE `autoexec_script` (
   KEY `idx_catalog_id` (`catalog_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具表';
 
-/*Table structure for table `autoexec_script_audit` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_audit`;
-
 CREATE TABLE `autoexec_script_audit` (
   `id` bigint NOT NULL COMMENT '主键',
   `script_id` bigint DEFAULT NULL COMMENT '脚本ID',
@@ -698,20 +698,20 @@ CREATE TABLE `autoexec_script_audit` (
   KEY `idx_script_version_id` (`script_version_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具活动表';
 
-/*Table structure for table `autoexec_script_audit_detail` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_audit_detail
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_audit_detail`;
-
 CREATE TABLE `autoexec_script_audit_detail` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `content` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具活动内容表';
 
-/*Table structure for table `autoexec_script_line` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_line
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_line`;
-
 CREATE TABLE `autoexec_script_line` (
   `id` bigint NOT NULL COMMENT 'id',
   `script_id` bigint DEFAULT NULL COMMENT '脚本id',
@@ -723,20 +723,20 @@ CREATE TABLE `autoexec_script_line` (
   KEY `idx_version_id` (`script_version_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具内容行表';
 
-/*Table structure for table `autoexec_script_line_content` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_line_content
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_line_content`;
-
 CREATE TABLE `autoexec_script_line_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '内容hash值',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '行脚本内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具内容表';
 
-/*Table structure for table `autoexec_script_validate` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_validate
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_validate`;
-
 CREATE TABLE `autoexec_script_validate` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -747,10 +747,10 @@ CREATE TABLE `autoexec_script_validate` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具危险代码表';
 
-/*Table structure for table `autoexec_script_validate_type` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_validate_type
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_validate_type`;
-
 CREATE TABLE `autoexec_script_validate_type` (
   `id` bigint NOT NULL COMMENT 'id',
   `validate_id` bigint DEFAULT NULL COMMENT '高危代码id',
@@ -758,10 +758,10 @@ CREATE TABLE `autoexec_script_validate_type` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具危险代码类型表';
 
-/*Table structure for table `autoexec_script_version` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_version
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_version`;
-
 CREATE TABLE `autoexec_script_version` (
   `id` bigint NOT NULL COMMENT 'id',
   `script_id` bigint DEFAULT NULL COMMENT '脚本id',
@@ -781,10 +781,10 @@ CREATE TABLE `autoexec_script_version` (
   KEY `idx_status` (`status`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具版本表';
 
-/*Table structure for table `autoexec_script_version_argument` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_version_argument
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_version_argument`;
-
 CREATE TABLE `autoexec_script_version_argument` (
   `script_version_id` bigint NOT NULL COMMENT '脚本版本id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '参数名',
@@ -796,20 +796,20 @@ CREATE TABLE `autoexec_script_version_argument` (
   UNIQUE KEY `idx_script_version_id` (`script_version_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自定义工具库自由参数';
 
-/*Table structure for table `autoexec_script_version_lib` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_version_lib
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_version_lib`;
-
 CREATE TABLE `autoexec_script_version_lib` (
   `script_version_id` bigint NOT NULL COMMENT '脚本版本id',
   `lib_script_id` bigint NOT NULL COMMENT '依赖的脚本id',
   PRIMARY KEY (`script_version_id`,`lib_script_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='自动化脚本依赖表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化脚本依赖表';
 
-/*Table structure for table `autoexec_script_version_param` */
-
+-- ----------------------------
+-- Table structure for autoexec_script_version_param
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_script_version_param`;
-
 CREATE TABLE `autoexec_script_version_param` (
   `script_version_id` bigint NOT NULL COMMENT '脚本版本id',
   `key` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '参数名',
@@ -825,10 +825,10 @@ CREATE TABLE `autoexec_script_version_param` (
   PRIMARY KEY (`script_version_id`,`key`,`mode`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化自定义工具参数表';
 
-/*Table structure for table `autoexec_service` */
-
+-- ----------------------------
+-- Table structure for autoexec_service
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_service`;
-
 CREATE TABLE `autoexec_service` (
   `id` bigint NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
@@ -845,10 +845,10 @@ CREATE TABLE `autoexec_service` (
   KEY `idx_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `autoexec_service_authority` */
-
+-- ----------------------------
+-- Table structure for autoexec_service_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_service_authority`;
-
 CREATE TABLE `autoexec_service_authority` (
   `service_id` bigint NOT NULL,
   `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -856,10 +856,10 @@ CREATE TABLE `autoexec_service_authority` (
   PRIMARY KEY (`service_id`,`type`,`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `autoexec_service_config` */
-
+-- ----------------------------
+-- Table structure for autoexec_service_config
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_service_config`;
-
 CREATE TABLE `autoexec_service_config` (
   `service_id` bigint NOT NULL,
   `combop_id` bigint NOT NULL,
@@ -870,10 +870,10 @@ CREATE TABLE `autoexec_service_config` (
   PRIMARY KEY (`service_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `autoexec_service_user` */
-
+-- ----------------------------
+-- Table structure for autoexec_service_user
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_service_user`;
-
 CREATE TABLE `autoexec_service_user` (
   `service_id` bigint NOT NULL,
   `user_uuid` char(32) COLLATE utf8mb4_general_ci NOT NULL,
@@ -882,20 +882,20 @@ CREATE TABLE `autoexec_service_user` (
   KEY `idx_user_uuid` (`user_uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `autoexec_tag` */
-
+-- ----------------------------
+-- Table structure for autoexec_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_tag`;
-
 CREATE TABLE `autoexec_tag` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标签名称',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化标签表';
 
-/*Table structure for table `autoexec_tool` */
-
+-- ----------------------------
+-- Table structure for autoexec_tool
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_tool`;
-
 CREATE TABLE `autoexec_tool` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -911,15 +911,15 @@ CREATE TABLE `autoexec_tool` (
   `lcd` timestamp(3) NULL DEFAULT NULL COMMENT '最后修改时间',
   `lcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '最后修改人',
   `is_lib` tinyint DEFAULT '0' COMMENT '是否库文件',
-  `modify_time_milliseconds` bigint DEFAULT NULL COMMENT '修改时间的毫秒数',
+  `import_time` bigint DEFAULT NULL COMMENT '最后导入时间的秒数',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `unique_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化工具表';
 
-/*Table structure for table `autoexec_type` */
-
+-- ----------------------------
+-- Table structure for autoexec_type
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_type`;
-
 CREATE TABLE `autoexec_type` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '分类名',
@@ -931,10 +931,10 @@ CREATE TABLE `autoexec_type` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化类型表';
 
-/*Table structure for table `autoexec_type_authority` */
-
+-- ----------------------------
+-- Table structure for autoexec_type_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `autoexec_type_authority`;
-
 CREATE TABLE `autoexec_type_authority` (
   `type_id` bigint NOT NULL COMMENT '工具类型id',
   `action` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '操作类型',
@@ -943,10 +943,10 @@ CREATE TABLE `autoexec_type_authority` (
   PRIMARY KEY (`type_id`,`auth_uuid`,`auth_type`,`action`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动化分类权限表';
 
-/*Table structure for table `catalog` */
-
+-- ----------------------------
+-- Table structure for catalog
+-- ----------------------------
 DROP TABLE IF EXISTS `catalog`;
-
 CREATE TABLE `catalog` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -960,10 +960,10 @@ CREATE TABLE `catalog` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务目录表';
 
-/*Table structure for table `catalog_authority` */
-
+-- ----------------------------
+-- Table structure for catalog_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `catalog_authority`;
-
 CREATE TABLE `catalog_authority` (
   `catalog_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目录uuid',
   `type` enum('common','user','team','role') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
@@ -973,10 +973,10 @@ CREATE TABLE `catalog_authority` (
   KEY `idx_catalog_uuid` (`catalog_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目录授权表';
 
-/*Table structure for table `change` */
-
+-- ----------------------------
+-- Table structure for change
+-- ----------------------------
 DROP TABLE IF EXISTS `change`;
-
 CREATE TABLE `change` (
   `id` bigint NOT NULL COMMENT '唯一主键id',
   `plan_start_time` varchar(23) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '计划开始时间',
@@ -996,20 +996,20 @@ CREATE TABLE `change` (
   KEY `actual_end_time_idx` (`end_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更信息表';
 
-/*Table structure for table `change_auto_start` */
-
+-- ----------------------------
+-- Table structure for change_auto_start
+-- ----------------------------
 DROP TABLE IF EXISTS `change_auto_start`;
-
 CREATE TABLE `change_auto_start` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `target_time` timestamp(3) NULL DEFAULT NULL COMMENT '自动开始时间点',
   PRIMARY KEY (`change_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更定时自动开始表';
 
-/*Table structure for table `change_change_template` */
-
+-- ----------------------------
+-- Table structure for change_change_template
+-- ----------------------------
 DROP TABLE IF EXISTS `change_change_template`;
-
 CREATE TABLE `change_change_template` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `change_template_id` bigint NOT NULL COMMENT '变更模板id',
@@ -1017,20 +1017,20 @@ CREATE TABLE `change_change_template` (
   KEY `idx_change_template_id` (`change_template_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更引用变更模板关系表';
 
-/*Table structure for table `change_content` */
-
+-- ----------------------------
+-- Table structure for change_content
+-- ----------------------------
 DROP TABLE IF EXISTS `change_content`;
-
 CREATE TABLE `change_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash值',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '文本内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更回复文本压缩表';
 
-/*Table structure for table `change_description` */
-
+-- ----------------------------
+-- Table structure for change_description
+-- ----------------------------
 DROP TABLE IF EXISTS `change_description`;
-
 CREATE TABLE `change_description` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `content_hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash值',
@@ -1043,10 +1043,10 @@ CREATE TABLE `change_description` (
   KEY `content_hash_idx` (`content_hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更描述表';
 
-/*Table structure for table `change_file` */
-
+-- ----------------------------
+-- Table structure for change_file
+-- ----------------------------
 DROP TABLE IF EXISTS `change_file`;
-
 CREATE TABLE `change_file` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `file_id` bigint NOT NULL COMMENT '附件id',
@@ -1054,10 +1054,10 @@ CREATE TABLE `change_file` (
   KEY `idx_file_id` (`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更附件表';
 
-/*Table structure for table `change_param` */
-
+-- ----------------------------
+-- Table structure for change_param
+-- ----------------------------
 DROP TABLE IF EXISTS `change_param`;
-
 CREATE TABLE `change_param` (
   `id` bigint NOT NULL COMMENT '唯一标识',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '变量名',
@@ -1065,10 +1065,10 @@ CREATE TABLE `change_param` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更参数表';
 
-/*Table structure for table `change_sop` */
-
+-- ----------------------------
+-- Table structure for change_sop
+-- ----------------------------
 DROP TABLE IF EXISTS `change_sop`;
-
 CREATE TABLE `change_sop` (
   `id` bigint NOT NULL COMMENT '变更sop模板id',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -1082,10 +1082,10 @@ CREATE TABLE `change_sop` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更SOP表';
 
-/*Table structure for table `change_sop_step` */
-
+-- ----------------------------
+-- Table structure for change_sop_step
+-- ----------------------------
 DROP TABLE IF EXISTS `change_sop_step`;
-
 CREATE TABLE `change_sop_step` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '前端生成的uuid',
   `change_sop_id` bigint DEFAULT NULL COMMENT '变更sop模板id',
@@ -1098,10 +1098,10 @@ CREATE TABLE `change_sop_step` (
   KEY `chang_sop_id_idx` (`change_sop_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更SOP步骤表';
 
-/*Table structure for table `change_sop_step_content` */
-
+-- ----------------------------
+-- Table structure for change_sop_step_content
+-- ----------------------------
 DROP TABLE IF EXISTS `change_sop_step_content`;
-
 CREATE TABLE `change_sop_step_content` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '唯一主键id',
   `change_sop_id` bigint NOT NULL COMMENT '变更sop模板id',
@@ -1117,10 +1117,10 @@ CREATE TABLE `change_sop_step_content` (
   KEY `content_hash_idx` (`content_hash`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=531 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更SOP表步骤描述表';
 
-/*Table structure for table `change_sop_step_file` */
-
+-- ----------------------------
+-- Table structure for change_sop_step_file
+-- ----------------------------
 DROP TABLE IF EXISTS `change_sop_step_file`;
-
 CREATE TABLE `change_sop_step_file` (
   `change_sop_id` bigint NOT NULL COMMENT '变更sop模板id',
   `change_sop_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '变更sop模板步骤uuid',
@@ -1129,10 +1129,10 @@ CREATE TABLE `change_sop_step_file` (
   KEY `idx_file_id` (`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更SOP表步骤附件表';
 
-/*Table structure for table `change_sop_step_param` */
-
+-- ----------------------------
+-- Table structure for change_sop_step_param
+-- ----------------------------
 DROP TABLE IF EXISTS `change_sop_step_param`;
-
 CREATE TABLE `change_sop_step_param` (
   `change_sop_id` bigint NOT NULL COMMENT 'sop模板id',
   `change_sop_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'sop模板步骤uuid',
@@ -1141,10 +1141,10 @@ CREATE TABLE `change_sop_step_param` (
   KEY `change_sop_id_idx` (`change_sop_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更SOP表步骤参数表';
 
-/*Table structure for table `change_sop_step_team` */
-
+-- ----------------------------
+-- Table structure for change_sop_step_team
+-- ----------------------------
 DROP TABLE IF EXISTS `change_sop_step_team`;
-
 CREATE TABLE `change_sop_step_team` (
   `change_sop_id` bigint NOT NULL COMMENT '变更sop模板id',
   `change_sop_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '变更sop模板步骤uuid',
@@ -1153,10 +1153,10 @@ CREATE TABLE `change_sop_step_team` (
   KEY `change_id_idx` (`change_sop_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更SOP表步骤处理组表';
 
-/*Table structure for table `change_sop_step_user` */
-
+-- ----------------------------
+-- Table structure for change_sop_step_user
+-- ----------------------------
 DROP TABLE IF EXISTS `change_sop_step_user`;
-
 CREATE TABLE `change_sop_step_user` (
   `change_sop_id` bigint NOT NULL COMMENT '变更sop模板id',
   `change_sop_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '变更sop模板步骤uuid',
@@ -1165,10 +1165,10 @@ CREATE TABLE `change_sop_step_user` (
   KEY `change_id_idx` (`change_sop_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更SOP表步骤处理人表';
 
-/*Table structure for table `change_step` */
-
+-- ----------------------------
+-- Table structure for change_step
+-- ----------------------------
 DROP TABLE IF EXISTS `change_step`;
-
 CREATE TABLE `change_step` (
   `id` bigint NOT NULL COMMENT '唯一主键id',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '前端生成的uuid',
@@ -1191,10 +1191,10 @@ CREATE TABLE `change_step` (
   KEY `actual_end_time_idx` (`end_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更步骤信息表';
 
-/*Table structure for table `change_step_comment` */
-
+-- ----------------------------
+-- Table structure for change_step_comment
+-- ----------------------------
 DROP TABLE IF EXISTS `change_step_comment`;
-
 CREATE TABLE `change_step_comment` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '唯一标识',
   `change_id` bigint NOT NULL COMMENT '变更id',
@@ -1209,10 +1209,10 @@ CREATE TABLE `change_step_comment` (
   KEY `processtask_step_id_idx` (`change_step_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更步骤回复表';
 
-/*Table structure for table `change_step_content` */
-
+-- ----------------------------
+-- Table structure for change_step_content
+-- ----------------------------
 DROP TABLE IF EXISTS `change_step_content`;
-
 CREATE TABLE `change_step_content` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '唯一主键id',
   `change_id` bigint NOT NULL COMMENT '变更id',
@@ -1229,10 +1229,10 @@ CREATE TABLE `change_step_content` (
   KEY `content_hash_idx` (`content_hash`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=461 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更步骤描述表';
 
-/*Table structure for table `change_step_file` */
-
+-- ----------------------------
+-- Table structure for change_step_file
+-- ----------------------------
 DROP TABLE IF EXISTS `change_step_file`;
-
 CREATE TABLE `change_step_file` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `change_step_id` bigint NOT NULL COMMENT '变更步骤id',
@@ -1242,10 +1242,10 @@ CREATE TABLE `change_step_file` (
   KEY `idx_file_id` (`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更步骤附件表';
 
-/*Table structure for table `change_step_pause_operate` */
-
+-- ----------------------------
+-- Table structure for change_step_pause_operate
+-- ----------------------------
 DROP TABLE IF EXISTS `change_step_pause_operate`;
-
 CREATE TABLE `change_step_pause_operate` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `change_step_id` bigint DEFAULT NULL COMMENT '变更步骤id',
@@ -1254,10 +1254,10 @@ CREATE TABLE `change_step_pause_operate` (
   PRIMARY KEY (`change_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更步骤暂停操作表';
 
-/*Table structure for table `change_step_team` */
-
+-- ----------------------------
+-- Table structure for change_step_team
+-- ----------------------------
 DROP TABLE IF EXISTS `change_step_team`;
-
 CREATE TABLE `change_step_team` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `change_step_id` bigint NOT NULL COMMENT '变更步骤id',
@@ -1266,10 +1266,10 @@ CREATE TABLE `change_step_team` (
   KEY `change_id_idx` (`change_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更步骤处理组表';
 
-/*Table structure for table `change_step_user` */
-
+-- ----------------------------
+-- Table structure for change_step_user
+-- ----------------------------
 DROP TABLE IF EXISTS `change_step_user`;
-
 CREATE TABLE `change_step_user` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `change_step_id` bigint NOT NULL COMMENT '变更步骤id',
@@ -1278,10 +1278,10 @@ CREATE TABLE `change_step_user` (
   KEY `change_id_idx` (`change_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更步骤处理人表';
 
-/*Table structure for table `change_template` */
-
+-- ----------------------------
+-- Table structure for change_template
+-- ----------------------------
 DROP TABLE IF EXISTS `change_template`;
-
 CREATE TABLE `change_template` (
   `id` bigint NOT NULL COMMENT '变更模板id',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -1295,10 +1295,10 @@ CREATE TABLE `change_template` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更模板表';
 
-/*Table structure for table `change_template_sop` */
-
+-- ----------------------------
+-- Table structure for change_template_sop
+-- ----------------------------
 DROP TABLE IF EXISTS `change_template_sop`;
-
 CREATE TABLE `change_template_sop` (
   `change_template_id` bigint NOT NULL COMMENT '变更模板id',
   `change_sop_id` bigint NOT NULL COMMENT '变更sop模板id',
@@ -1306,10 +1306,10 @@ CREATE TABLE `change_template_sop` (
   PRIMARY KEY (`change_template_id`,`change_sop_id`,`sort`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更模板引用SOP关系表';
 
-/*Table structure for table `change_user` */
-
+-- ----------------------------
+-- Table structure for change_user
+-- ----------------------------
 DROP TABLE IF EXISTS `change_user`;
-
 CREATE TABLE `change_user` (
   `change_id` bigint NOT NULL COMMENT '变更id',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '变更经理',
@@ -1317,10 +1317,10 @@ CREATE TABLE `change_user` (
   KEY `user_uuid_idx` (`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='变更经理表';
 
-/*Table structure for table `channel` */
-
+-- ----------------------------
+-- Table structure for channel
+-- ----------------------------
 DROP TABLE IF EXISTS `channel`;
-
 CREATE TABLE `channel` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -1342,10 +1342,10 @@ CREATE TABLE `channel` (
   KEY `idx_parent_uuid` (`parent_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务表';
 
-/*Table structure for table `channel_authority` */
-
+-- ----------------------------
+-- Table structure for channel_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_authority`;
-
 CREATE TABLE `channel_authority` (
   `channel_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务uuid',
   `type` enum('common','user','team','role') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
@@ -1355,10 +1355,10 @@ CREATE TABLE `channel_authority` (
   KEY `idx_uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务授权表';
 
-/*Table structure for table `channel_priority` */
-
+-- ----------------------------
+-- Table structure for channel_priority
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_priority`;
-
 CREATE TABLE `channel_priority` (
   `channel_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'channel表的uuid',
   `priority_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'priority表的uuid',
@@ -1366,20 +1366,20 @@ CREATE TABLE `channel_priority` (
   PRIMARY KEY (`channel_uuid`,`priority_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务引用优先级关系表';
 
-/*Table structure for table `channel_process` */
-
+-- ----------------------------
+-- Table structure for channel_process
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_process`;
-
 CREATE TABLE `channel_process` (
   `channel_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'channel表的uuid',
   `process_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'process表的uuid',
   PRIMARY KEY (`channel_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务引用流程关系表';
 
-/*Table structure for table `channel_relation` */
-
+-- ----------------------------
+-- Table structure for channel_relation
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_relation`;
-
 CREATE TABLE `channel_relation` (
   `source` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '来源服务uuid',
   `channel_type_relation_id` bigint NOT NULL COMMENT '关系类型id',
@@ -1390,10 +1390,10 @@ CREATE TABLE `channel_relation` (
   KEY `idx_channel_type_relation_id` (`channel_type_relation_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务转报设置表';
 
-/*Table structure for table `channel_relation_authority` */
-
+-- ----------------------------
+-- Table structure for channel_relation_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_relation_authority`;
-
 CREATE TABLE `channel_relation_authority` (
   `source` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务uuid',
   `channel_type_relation_id` bigint NOT NULL COMMENT '关系类型id',
@@ -1403,10 +1403,10 @@ CREATE TABLE `channel_relation_authority` (
   KEY `idx_source` (`source`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务转报设置授权表';
 
-/*Table structure for table `channel_relation_isusepreowner` */
-
+-- ----------------------------
+-- Table structure for channel_relation_isusepreowner
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_relation_isusepreowner`;
-
 CREATE TABLE `channel_relation_isusepreowner` (
   `source` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务uuid',
   `channel_type_relation_id` bigint NOT NULL COMMENT '关系类型id',
@@ -1414,10 +1414,10 @@ CREATE TABLE `channel_relation_isusepreowner` (
   PRIMARY KEY (`source`,`channel_type_relation_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务转报设置是否使用原用户表';
 
-/*Table structure for table `channel_type` */
-
+-- ----------------------------
+-- Table structure for channel_type
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_type`;
-
 CREATE TABLE `channel_type` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -1430,10 +1430,10 @@ CREATE TABLE `channel_type` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务类型信息表';
 
-/*Table structure for table `channel_type_relation` */
-
+-- ----------------------------
+-- Table structure for channel_type_relation
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_type_relation`;
-
 CREATE TABLE `channel_type_relation` (
   `id` bigint NOT NULL COMMENT '唯一主键',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -1442,30 +1442,30 @@ CREATE TABLE `channel_type_relation` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单关联关系类型表';
 
-/*Table structure for table `channel_type_relation_source` */
-
+-- ----------------------------
+-- Table structure for channel_type_relation_source
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_type_relation_source`;
-
 CREATE TABLE `channel_type_relation_source` (
   `channel_type_relation_id` bigint NOT NULL COMMENT '关系类型id',
   `channel_type_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务类型uuid',
   PRIMARY KEY (`channel_type_relation_id`,`channel_type_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单关联关系来源服务类型表';
 
-/*Table structure for table `channel_type_relation_target` */
-
+-- ----------------------------
+-- Table structure for channel_type_relation_target
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_type_relation_target`;
-
 CREATE TABLE `channel_type_relation_target` (
   `channel_type_relation_id` bigint NOT NULL COMMENT '关系类型id',
   `channel_type_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务类型uuid',
   PRIMARY KEY (`channel_type_relation_id`,`channel_type_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单关联关系目标服务类型表';
 
-/*Table structure for table `channel_user` */
-
+-- ----------------------------
+-- Table structure for channel_user
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_user`;
-
 CREATE TABLE `channel_user` (
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'user的uuid',
   `channel_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'channel的uuid',
@@ -1473,10 +1473,10 @@ CREATE TABLE `channel_user` (
   UNIQUE KEY `user_channel_index` (`user_uuid`,`channel_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户收藏服务关系表';
 
-/*Table structure for table `channel_worktime` */
-
+-- ----------------------------
+-- Table structure for channel_worktime
+-- ----------------------------
 DROP TABLE IF EXISTS `channel_worktime`;
-
 CREATE TABLE `channel_worktime` (
   `channel_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'channel表的uuid',
   `worktime_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'worktime表的uuid',
@@ -1484,10 +1484,10 @@ CREATE TABLE `channel_worktime` (
   KEY `idx_wt_uuid` (`worktime_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务引用服务窗口关系表';
 
-/*Table structure for table `cmdb_attr` */
-
+-- ----------------------------
+-- Table structure for cmdb_attr
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_attr`;
-
 CREATE TABLE `cmdb_attr` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_id` bigint NOT NULL COMMENT '引用ecmdb_ci的id',
@@ -1508,13 +1508,14 @@ CREATE TABLE `cmdb_attr` (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `uk_name` (`ci_id`,`name`) USING BTREE,
   KEY `idx_prop_id` (`prop_id`) USING BTREE,
-  KEY `idx_name` (`name`) USING BTREE
+  KEY `idx_name` (`name`) USING BTREE,
+  KEY `idx_target_ci_id` (`target_ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项属性表';
 
-/*Table structure for table `cmdb_attrentity` */
-
+-- ----------------------------
+-- Table structure for cmdb_attrentity
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_attrentity`;
-
 CREATE TABLE `cmdb_attrentity` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `from_cientity_id` bigint DEFAULT NULL COMMENT '所属配置项id',
@@ -1531,12 +1532,12 @@ CREATE TABLE `cmdb_attrentity` (
   KEY `idx_from_ci_id` (`from_ci_id`) USING BTREE,
   KEY `idx_to_ci_id` (`to_ci_id`) USING BTREE,
   KEY `idx_transaction_id` (`transaction_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3298 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项属性实例表';
+) ENGINE=InnoDB AUTO_INCREMENT=3309 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项属性实例表';
 
-/*Table structure for table `cmdb_attrentity_content` */
-
+-- ----------------------------
+-- Table structure for cmdb_attrentity_content
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_attrentity_content`;
-
 CREATE TABLE `cmdb_attrentity_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `value_hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'value值的hash值，用于精确匹配',
@@ -1545,10 +1546,10 @@ CREATE TABLE `cmdb_attrentity_content` (
   KEY `idx_value_hash` (`value_hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项属性实例内容表';
 
-/*Table structure for table `cmdb_attrentity_content_offset` */
-
+-- ----------------------------
+-- Table structure for cmdb_attrentity_content_offset
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_attrentity_content_offset`;
-
 CREATE TABLE `cmdb_attrentity_content_offset` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '内容hash',
@@ -1558,10 +1559,10 @@ CREATE TABLE `cmdb_attrentity_content_offset` (
   KEY `idx_field_id` (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_attrentity_content_offset';
 
-/*Table structure for table `cmdb_attrexpression_rebuild_audit` */
-
+-- ----------------------------
+-- Table structure for cmdb_attrexpression_rebuild_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_attrexpression_rebuild_audit`;
-
 CREATE TABLE `cmdb_attrexpression_rebuild_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_id` bigint DEFAULT NULL COMMENT '模型id',
@@ -1573,10 +1574,10 @@ CREATE TABLE `cmdb_attrexpression_rebuild_audit` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_attrexpression_rebuild_audit';
 
-/*Table structure for table `cmdb_attrexpression_rel` */
-
+-- ----------------------------
+-- Table structure for cmdb_attrexpression_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_attrexpression_rel`;
-
 CREATE TABLE `cmdb_attrexpression_rel` (
   `expression_ci_id` bigint NOT NULL COMMENT 'expression_ci_id',
   `expression_attr_id` bigint NOT NULL COMMENT '表达式属性id',
@@ -1585,10 +1586,10 @@ CREATE TABLE `cmdb_attrexpression_rel` (
   PRIMARY KEY (`value_ci_id`,`value_attr_id`,`expression_attr_id`,`expression_ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_attrexpression_rel';
 
-/*Table structure for table `cmdb_ci` */
-
+-- ----------------------------
+-- Table structure for cmdb_ci
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_ci`;
-
 CREATE TABLE `cmdb_ci` (
   `id` bigint NOT NULL COMMENT 'ID',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '英文名',
@@ -1613,10 +1614,10 @@ CREATE TABLE `cmdb_ci` (
   KEY `idx_rht` (`rht`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项表';
 
-/*Table structure for table `cmdb_ci_auth` */
-
+-- ----------------------------
+-- Table structure for cmdb_ci_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_ci_auth`;
-
 CREATE TABLE `cmdb_ci_auth` (
   `ci_id` bigint NOT NULL COMMENT '引用ecmdb_ci的id',
   `auth_type` enum('user','role','team','common') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色名称',
@@ -1625,20 +1626,20 @@ CREATE TABLE `cmdb_ci_auth` (
   PRIMARY KEY (`ci_id`,`auth_type`,`action`,`auth_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项授权表';
 
-/*Table structure for table `cmdb_ci_customview` */
-
+-- ----------------------------
+-- Table structure for cmdb_ci_customview
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_ci_customview`;
-
 CREATE TABLE `cmdb_ci_customview` (
   `ci_id` bigint NOT NULL COMMENT '模型id',
   `customview_id` bigint NOT NULL COMMENT '自定义视图id',
   PRIMARY KEY (`ci_id`,`customview_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='配置模型自定义视图关联表';
 
-/*Table structure for table `cmdb_ci_group` */
-
+-- ----------------------------
+-- Table structure for cmdb_ci_group
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_ci_group`;
-
 CREATE TABLE `cmdb_ci_group` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_id` bigint DEFAULT NULL COMMENT '模型id',
@@ -1649,10 +1650,10 @@ CREATE TABLE `cmdb_ci_group` (
   KEY `idx_group_id` (`group_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='模型团体关系表';
 
-/*Table structure for table `cmdb_ci_unique` */
-
+-- ----------------------------
+-- Table structure for cmdb_ci_unique
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_ci_unique`;
-
 CREATE TABLE `cmdb_ci_unique` (
   `ci_id` bigint NOT NULL COMMENT 'ci id',
   `attr_id` bigint NOT NULL COMMENT '属性id',
@@ -1660,10 +1661,10 @@ CREATE TABLE `cmdb_ci_unique` (
   KEY `idx_attr_id` (`attr_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_ci_unique';
 
-/*Table structure for table `cmdb_cientity` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity`;
-
 CREATE TABLE `cmdb_cientity` (
   `id` bigint NOT NULL COMMENT 'ID',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'uuid',
@@ -1684,10 +1685,10 @@ CREATE TABLE `cmdb_cientity` (
   KEY `idx_ci_id` (`ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项实例表';
 
-/*Table structure for table `cmdb_cientity_alert` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_alert
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_alert`;
-
 CREATE TABLE `cmdb_cientity_alert` (
   `id` bigint NOT NULL,
   `cientity_id` bigint DEFAULT NULL,
@@ -1704,10 +1705,10 @@ CREATE TABLE `cmdb_cientity_alert` (
   KEY `idx_cientity_uuid` (`cientity_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `cmdb_cientity_alertlevel` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_alertlevel
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_alertlevel`;
-
 CREATE TABLE `cmdb_cientity_alertlevel` (
   `level` int NOT NULL,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -1715,10 +1716,10 @@ CREATE TABLE `cmdb_cientity_alertlevel` (
   PRIMARY KEY (`level`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `cmdb_cientity_expiredtime` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_expiredtime
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_expiredtime`;
-
 CREATE TABLE `cmdb_cientity_expiredtime` (
   `cientity_id` bigint NOT NULL COMMENT '配置项id',
   `expired_day` int DEFAULT NULL COMMENT '原来的超时天数，用于比对修正expired_time',
@@ -1729,10 +1730,10 @@ CREATE TABLE `cmdb_cientity_expiredtime` (
   KEY `idx_ci_id` (`ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `cmdb_cientity_group` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_group
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_group`;
-
 CREATE TABLE `cmdb_cientity_group` (
   `cientity_id` bigint NOT NULL COMMENT '配置项ID',
   `group_id` bigint NOT NULL COMMENT '圈子id',
@@ -1742,10 +1743,10 @@ CREATE TABLE `cmdb_cientity_group` (
   KEY `idx_cientity_id` (`cientity_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='配置项团体关系表';
 
-/*Table structure for table `cmdb_cientity_illegal` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_illegal
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_illegal`;
-
 CREATE TABLE `cmdb_cientity_illegal` (
   `ci_id` bigint NOT NULL COMMENT '模型id',
   `cientity_id` bigint NOT NULL COMMENT '配置项id',
@@ -1758,10 +1759,10 @@ CREATE TABLE `cmdb_cientity_illegal` (
   KEY `idx_time` (`valid_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='非法配置项';
 
-/*Table structure for table `cmdb_cientity_inspect` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_inspect
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_inspect`;
-
 CREATE TABLE `cmdb_cientity_inspect` (
   `id` bigint NOT NULL COMMENT '主键',
   `job_id` bigint NOT NULL COMMENT '作业id',
@@ -1772,20 +1773,20 @@ CREATE TABLE `cmdb_cientity_inspect` (
   UNIQUE KEY `uk_job_id_cientity_id` (`job_id`,`ci_entity_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='配置项的巡检状态表';
 
-/*Table structure for table `cmdb_cientity_snapshot` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_snapshot
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_snapshot`;
-
 CREATE TABLE `cmdb_cientity_snapshot` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项实例快照表';
 
-/*Table structure for table `cmdb_cientity_transaction` */
-
+-- ----------------------------
+-- Table structure for cmdb_cientity_transaction
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_cientity_transaction`;
-
 CREATE TABLE `cmdb_cientity_transaction` (
   `id` bigint unsigned NOT NULL COMMENT 'ID',
   `ci_entity_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '配置项实例uuid',
@@ -1803,10 +1804,10 @@ CREATE TABLE `cmdb_cientity_transaction` (
   KEY `idx_NewIndex3` (`ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项实例事务表';
 
-/*Table structure for table `cmdb_citype` */
-
+-- ----------------------------
+-- Table structure for cmdb_citype
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_citype`;
-
 CREATE TABLE `cmdb_citype` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型名称',
@@ -1817,10 +1818,10 @@ CREATE TABLE `cmdb_citype` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项类型表';
 
-/*Table structure for table `cmdb_customview` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview`;
-
 CREATE TABLE `cmdb_customview` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -1838,10 +1839,10 @@ CREATE TABLE `cmdb_customview` (
   UNIQUE KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb自定义视图表';
 
-/*Table structure for table `cmdb_customview_attr` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_attr
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_attr`;
-
 CREATE TABLE `cmdb_customview_attr` (
   `customview_id` bigint NOT NULL COMMENT '视图id',
   `customview_ci_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模型在视图中的唯一id',
@@ -1858,10 +1859,10 @@ CREATE TABLE `cmdb_customview_attr` (
   KEY `idx_customviewci_id` (`customview_ci_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb自定义视图属性表';
 
-/*Table structure for table `cmdb_customview_auth` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_auth`;
-
 CREATE TABLE `cmdb_customview_auth` (
   `customview_id` bigint NOT NULL COMMENT '视图id',
   `auth_type` enum('user','team','role','common') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '''user'',''team'',''role''',
@@ -1871,10 +1872,10 @@ CREATE TABLE `cmdb_customview_auth` (
   KEY `idx_auth_uuid` (`auth_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自定义视图授权表';
 
-/*Table structure for table `cmdb_customview_ci` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_ci
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_ci`;
-
 CREATE TABLE `cmdb_customview_ci` (
   `customview_id` bigint NOT NULL COMMENT '视图id',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '在视图中的uuid',
@@ -1888,10 +1889,10 @@ CREATE TABLE `cmdb_customview_ci` (
   KEY `idx_ci_id` (`ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_customview_ci';
 
-/*Table structure for table `cmdb_customview_constattr` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_constattr
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_constattr`;
-
 CREATE TABLE `cmdb_customview_constattr` (
   `customview_id` bigint NOT NULL COMMENT '视图id',
   `customview_ci_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模型在视图中的唯一id',
@@ -1907,10 +1908,10 @@ CREATE TABLE `cmdb_customview_constattr` (
   KEY `idx_customviewci_id` (`customview_ci_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='视图属性配置';
 
-/*Table structure for table `cmdb_customview_link` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_link
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_link`;
-
 CREATE TABLE `cmdb_customview_link` (
   `customview_id` bigint NOT NULL COMMENT '视图id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '别名',
@@ -1928,10 +1929,10 @@ CREATE TABLE `cmdb_customview_link` (
   KEY `idx_fromcustomviewci_id` (`to_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb自定义视图关联表';
 
-/*Table structure for table `cmdb_customview_rel` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_rel`;
-
 CREATE TABLE `cmdb_customview_rel` (
   `customview_id` bigint NOT NULL COMMENT '视图id',
   `customview_ci_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'customview_ci_uuid',
@@ -1942,10 +1943,10 @@ CREATE TABLE `cmdb_customview_rel` (
   KEY `idx_rel_id` (`rel_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_customview_rel';
 
-/*Table structure for table `cmdb_customview_tag` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_tag`;
-
 CREATE TABLE `cmdb_customview_tag` (
   `customview_id` bigint NOT NULL COMMENT '视图id',
   `tag_id` bigint NOT NULL COMMENT '标签id',
@@ -1953,10 +1954,10 @@ CREATE TABLE `cmdb_customview_tag` (
   KEY `idx_tag_id` (`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb自定义视图标签表';
 
-/*Table structure for table `cmdb_customview_template` */
-
+-- ----------------------------
+-- Table structure for cmdb_customview_template
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_customview_template`;
-
 CREATE TABLE `cmdb_customview_template` (
   `customview_id` bigint NOT NULL COMMENT '自定义模板id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -1966,16 +1967,16 @@ CREATE TABLE `cmdb_customview_template` (
   PRIMARY KEY (`customview_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb自定义视图模板\r\n';
 
-/*Table structure for table `cmdb_graph` */
-
+-- ----------------------------
+-- Table structure for cmdb_graph
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_graph`;
-
 CREATE TABLE `cmdb_graph` (
   `id` bigint NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `is_active` tinyint DEFAULT NULL,
-  `icon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `icon` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `type` enum('private','public','scene') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `fcd` timestamp(3) NULL DEFAULT NULL,
@@ -1985,10 +1986,10 @@ CREATE TABLE `cmdb_graph` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `cmdb_graph_auth` */
-
+-- ----------------------------
+-- Table structure for cmdb_graph_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_graph_auth`;
-
 CREATE TABLE `cmdb_graph_auth` (
   `graph_id` bigint NOT NULL,
   `auth_type` enum('user','team','role','common') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -1996,20 +1997,20 @@ CREATE TABLE `cmdb_graph_auth` (
   PRIMARY KEY (`graph_id`,`auth_type`,`auth_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `cmdb_graph_cientity` */
-
+-- ----------------------------
+-- Table structure for cmdb_graph_cientity
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_graph_cientity`;
-
 CREATE TABLE `cmdb_graph_cientity` (
   `graph_id` bigint NOT NULL,
   `cientity_id` bigint NOT NULL,
   PRIMARY KEY (`graph_id`,`cientity_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `cmdb_graph_rel` */
-
+-- ----------------------------
+-- Table structure for cmdb_graph_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_graph_rel`;
-
 CREATE TABLE `cmdb_graph_rel` (
   `from_graph_id` bigint NOT NULL,
   `to_graph_id` bigint NOT NULL,
@@ -2017,10 +2018,10 @@ CREATE TABLE `cmdb_graph_rel` (
   KEY `idx_to_graph_id` (`to_graph_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `cmdb_group` */
-
+-- ----------------------------
+-- Table structure for cmdb_group
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_group`;
-
 CREATE TABLE `cmdb_group` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名字',
@@ -2039,10 +2040,10 @@ CREATE TABLE `cmdb_group` (
   KEY `idx_server_id` (`server_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='团体';
 
-/*Table structure for table `cmdb_group_auth` */
-
+-- ----------------------------
+-- Table structure for cmdb_group_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_group_auth`;
-
 CREATE TABLE `cmdb_group_auth` (
   `group_id` bigint NOT NULL COMMENT '引用cmdb_group表id',
   `auth_type` enum('user','role','team','common') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'user,role,team',
@@ -2050,10 +2051,10 @@ CREATE TABLE `cmdb_group_auth` (
   PRIMARY KEY (`group_id`,`auth_uuid`,`auth_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_group_auth';
 
-/*Table structure for table `cmdb_import_audit` */
-
+-- ----------------------------
+-- Table structure for cmdb_import_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_import_audit`;
-
 CREATE TABLE `cmdb_import_audit` (
   `id` bigint NOT NULL COMMENT 'ID',
   `import_user` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '导入用户',
@@ -2072,19 +2073,19 @@ CREATE TABLE `cmdb_import_audit` (
   KEY `idx_import_date` (`import_date`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb批量导入审计表';
 
-/*Table structure for table `cmdb_import_file` */
-
+-- ----------------------------
+-- Table structure for cmdb_import_file
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_import_file`;
-
 CREATE TABLE `cmdb_import_file` (
   `file_id` bigint NOT NULL COMMENT '文件ID',
   PRIMARY KEY (`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_import_file';
 
-/*Table structure for table `cmdb_legalvalid` */
-
+-- ----------------------------
+-- Table structure for cmdb_legalvalid
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_legalvalid`;
-
 CREATE TABLE `cmdb_legalvalid` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -2097,10 +2098,10 @@ CREATE TABLE `cmdb_legalvalid` (
   KEY `idx_ci_id` (`ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='合规设置表';
 
-/*Table structure for table `cmdb_rel` */
-
+-- ----------------------------
+-- Table structure for cmdb_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_rel`;
-
 CREATE TABLE `cmdb_rel` (
   `id` bigint NOT NULL COMMENT 'ID',
   `type_id` bigint DEFAULT NULL COMMENT '类型id',
@@ -2128,10 +2129,10 @@ CREATE TABLE `cmdb_rel` (
   KEY `idx_to_ciid` (`to_ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='CI关联类型表';
 
-/*Table structure for table `cmdb_relativerel` */
-
+-- ----------------------------
+-- Table structure for cmdb_relativerel
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_relativerel`;
-
 CREATE TABLE `cmdb_relativerel` (
   `rel_id` bigint NOT NULL COMMENT '关系id',
   `from_path` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '上游端路径',
@@ -2142,10 +2143,10 @@ CREATE TABLE `cmdb_relativerel` (
   UNIQUE KEY `uk_path` (`path_hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb引用关系';
 
-/*Table structure for table `cmdb_relentity` */
-
+-- ----------------------------
+-- Table structure for cmdb_relentity
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_relentity`;
-
 CREATE TABLE `cmdb_relentity` (
   `id` bigint NOT NULL COMMENT 'ID',
   `rel_id` bigint NOT NULL COMMENT '关联属性ID',
@@ -2170,10 +2171,10 @@ CREATE TABLE `cmdb_relentity` (
   KEY `idx_source_relentity_id` (`source_relentity_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项实例关联表';
 
-/*Table structure for table `cmdb_relgroup` */
-
+-- ----------------------------
+-- Table structure for cmdb_relgroup
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_relgroup`;
-
 CREATE TABLE `cmdb_relgroup` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_id` bigint NOT NULL COMMENT '配置项id',
@@ -2182,10 +2183,10 @@ CREATE TABLE `cmdb_relgroup` (
   UNIQUE KEY `idx_group_name` (`ci_id`,`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_relgroup';
 
-/*Table structure for table `cmdb_reltype` */
-
+-- ----------------------------
+-- Table structure for cmdb_reltype
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_reltype`;
-
 CREATE TABLE `cmdb_reltype` (
   `id` bigint NOT NULL COMMENT 'ID',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -2199,10 +2200,10 @@ CREATE TABLE `cmdb_reltype` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_reltype';
 
-/*Table structure for table `cmdb_resourcecenter_account` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_account
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_account`;
-
 CREATE TABLE `cmdb_resourcecenter_account` (
   `id` bigint NOT NULL COMMENT '主键id',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -2220,20 +2221,20 @@ CREATE TABLE `cmdb_resourcecenter_account` (
   KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb资源中心账号表';
 
-/*Table structure for table `cmdb_resourcecenter_account_ip` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_account_ip
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_account_ip`;
-
 CREATE TABLE `cmdb_resourcecenter_account_ip` (
   `account_id` bigint NOT NULL COMMENT '账号id',
   `ip` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '账号对应的ip',
   PRIMARY KEY (`account_id`,`ip`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用于ip账号匹配';
 
-/*Table structure for table `cmdb_resourcecenter_account_protocol` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_account_protocol
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_account_protocol`;
-
 CREATE TABLE `cmdb_resourcecenter_account_protocol` (
   `id` bigint NOT NULL COMMENT '协议id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '协议名称',
@@ -2246,10 +2247,10 @@ CREATE TABLE `cmdb_resourcecenter_account_protocol` (
   UNIQUE KEY `uniq_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb资源中心账号协议表';
 
-/*Table structure for table `cmdb_resourcecenter_account_tag` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_account_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_account_tag`;
-
 CREATE TABLE `cmdb_resourcecenter_account_tag` (
   `account_id` bigint NOT NULL COMMENT '账号id',
   `tag_id` bigint NOT NULL COMMENT '标签id',
@@ -2257,10 +2258,10 @@ CREATE TABLE `cmdb_resourcecenter_account_tag` (
   KEY `idx_tag_id` (`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_resourcecenter_account_tag';
 
-/*Table structure for table `cmdb_resourcecenter_config` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_config
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_config`;
-
 CREATE TABLE `cmdb_resourcecenter_config` (
   `id` int NOT NULL DEFAULT '1' COMMENT 'id',
   `config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'config',
@@ -2271,10 +2272,10 @@ CREATE TABLE `cmdb_resourcecenter_config` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='资源中心配置表';
 
-/*Table structure for table `cmdb_resourcecenter_entity` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_entity
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_entity`;
-
 CREATE TABLE `cmdb_resourcecenter_entity` (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
   `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标识',
@@ -2285,13 +2286,14 @@ CREATE TABLE `cmdb_resourcecenter_entity` (
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '描述',
   `init_time` timestamp(3) NULL DEFAULT NULL COMMENT 'init time',
   `ci_id` bigint DEFAULT NULL COMMENT '模型id',
+  `config` mediumtext COLLATE utf8mb4_general_ci COMMENT '配置信息',
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_resourcecenter_entity';
 
-/*Table structure for table `cmdb_resourcecenter_resource_account` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_resource_account
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_resource_account`;
-
 CREATE TABLE `cmdb_resourcecenter_resource_account` (
   `resource_id` bigint NOT NULL COMMENT '资源id',
   `account_id` bigint NOT NULL COMMENT '账号id',
@@ -2299,20 +2301,29 @@ CREATE TABLE `cmdb_resourcecenter_resource_account` (
   KEY `idx_account_id` (`account_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='资源中心资源与账号关联表';
 
-/*Table structure for table `cmdb_resourcecenter_resource_tag` */
-
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_resource_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_resourcecenter_resource_tag`;
-
 CREATE TABLE `cmdb_resourcecenter_resource_tag` (
   `resource_id` bigint NOT NULL COMMENT '资源id',
   `tag_id` bigint NOT NULL COMMENT '标签id',
   PRIMARY KEY (`resource_id`,`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_resourcecenter_resource_tag';
 
-/*Table structure for table `cmdb_schema_audit` */
+-- ----------------------------
+-- Table structure for cmdb_resourcecenter_type_ci
+-- ----------------------------
+DROP TABLE IF EXISTS `cmdb_resourcecenter_type_ci`;
+CREATE TABLE `cmdb_resourcecenter_type_ci` (
+  `ci_id` bigint NOT NULL COMMENT '模型id',
+  PRIMARY KEY (`ci_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='资产清单树形模型';
 
+-- ----------------------------
+-- Table structure for cmdb_schema_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_schema_audit`;
-
 CREATE TABLE `cmdb_schema_audit` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `target_id` bigint NOT NULL COMMENT '目标id',
@@ -2328,10 +2339,10 @@ CREATE TABLE `cmdb_schema_audit` (
   KEY `idx_server_id` (`server_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_schema_audit';
 
-/*Table structure for table `cmdb_sync_audit` */
-
+-- ----------------------------
+-- Table structure for cmdb_sync_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_sync_audit`;
-
 CREATE TABLE `cmdb_sync_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_collection_id` bigint DEFAULT NULL COMMENT '同步配置id',
@@ -2349,10 +2360,10 @@ CREATE TABLE `cmdb_sync_audit` (
   KEY `idx_end_time` (`end_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb同步记录表';
 
-/*Table structure for table `cmdb_sync_ci_collection` */
-
+-- ----------------------------
+-- Table structure for cmdb_sync_ci_collection
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_sync_ci_collection`;
-
 CREATE TABLE `cmdb_sync_ci_collection` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_id` bigint NOT NULL COMMENT '配置项id',
@@ -2371,10 +2382,10 @@ CREATE TABLE `cmdb_sync_ci_collection` (
   UNIQUE KEY `uk` (`ci_id`,`collection_name`,`parent_key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_sync_ci_collection';
 
-/*Table structure for table `cmdb_sync_mapping` */
-
+-- ----------------------------
+-- Table structure for cmdb_sync_mapping
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_sync_mapping`;
-
 CREATE TABLE `cmdb_sync_mapping` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_collection_id` bigint DEFAULT NULL COMMENT '模型集合id',
@@ -2386,10 +2397,10 @@ CREATE TABLE `cmdb_sync_mapping` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_sync_mapping';
 
-/*Table structure for table `cmdb_sync_policy` */
-
+-- ----------------------------
+-- Table structure for cmdb_sync_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_sync_policy`;
-
 CREATE TABLE `cmdb_sync_policy` (
   `id` bigint NOT NULL COMMENT '主键',
   `ci_collection_id` bigint DEFAULT NULL COMMENT '模型id',
@@ -2401,10 +2412,10 @@ CREATE TABLE `cmdb_sync_policy` (
   KEY `idx_ci_id` (`ci_collection_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb同步策略';
 
-/*Table structure for table `cmdb_sync_schedule` */
-
+-- ----------------------------
+-- Table structure for cmdb_sync_schedule
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_sync_schedule`;
-
 CREATE TABLE `cmdb_sync_schedule` (
   `id` bigint NOT NULL COMMENT 'id',
   `cron` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'cron表达式',
@@ -2413,20 +2424,20 @@ CREATE TABLE `cmdb_sync_schedule` (
   KEY `idx_policy_id` (`policy_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb同步计划表';
 
-/*Table structure for table `cmdb_sync_unique` */
-
+-- ----------------------------
+-- Table structure for cmdb_sync_unique
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_sync_unique`;
-
 CREATE TABLE `cmdb_sync_unique` (
   `ci_collection_id` bigint NOT NULL COMMENT '配置集合id',
   `attr_id` bigint NOT NULL COMMENT '配置属性id',
   PRIMARY KEY (`ci_collection_id`,`attr_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='配置同步唯一属性';
 
-/*Table structure for table `cmdb_tag` */
-
+-- ----------------------------
+-- Table structure for cmdb_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_tag`;
-
 CREATE TABLE `cmdb_tag` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -2434,10 +2445,10 @@ CREATE TABLE `cmdb_tag` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb标签表';
 
-/*Table structure for table `cmdb_transaction` */
-
+-- ----------------------------
+-- Table structure for cmdb_transaction
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_transaction`;
-
 CREATE TABLE `cmdb_transaction` (
   `id` bigint unsigned NOT NULL COMMENT '事务ID',
   `ci_id` bigint DEFAULT NULL COMMENT '模型id',
@@ -2457,10 +2468,10 @@ CREATE TABLE `cmdb_transaction` (
   KEY `idx_commit_time` (`commit_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb事务表';
 
-/*Table structure for table `cmdb_transactiongroup` */
-
+-- ----------------------------
+-- Table structure for cmdb_transactiongroup
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_transactiongroup`;
-
 CREATE TABLE `cmdb_transactiongroup` (
   `id` bigint NOT NULL COMMENT 'id',
   `transaction_id` bigint NOT NULL COMMENT '事务id',
@@ -2468,10 +2479,10 @@ CREATE TABLE `cmdb_transactiongroup` (
   KEY `idx_transaction_id` (`transaction_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb事务组表';
 
-/*Table structure for table `cmdb_validator` */
-
+-- ----------------------------
+-- Table structure for cmdb_validator
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_validator`;
-
 CREATE TABLE `cmdb_validator` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -2483,10 +2494,10 @@ CREATE TABLE `cmdb_validator` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb校验器表';
 
-/*Table structure for table `cmdb_view` */
-
+-- ----------------------------
+-- Table structure for cmdb_view
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_view`;
-
 CREATE TABLE `cmdb_view` (
   `ci_id` bigint NOT NULL COMMENT '模型id',
   `item_id` bigint NOT NULL COMMENT '关系或属性id',
@@ -2498,10 +2509,10 @@ CREATE TABLE `cmdb_view` (
   KEY `idx_item_id` (`item_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb视图表';
 
-/*Table structure for table `cmdb_viewconst` */
-
+-- ----------------------------
+-- Table structure for cmdb_viewconst
+-- ----------------------------
 DROP TABLE IF EXISTS `cmdb_viewconst`;
-
 CREATE TABLE `cmdb_viewconst` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -2509,359 +2520,359 @@ CREATE TABLE `cmdb_viewconst` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb_viewconst';
 
-/*Table structure for table `codehub_action` */
-
+-- ----------------------------
+-- Table structure for codehub_action
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_action`;
-
 CREATE TABLE `codehub_action` (
   `id` bigint NOT NULL,
-  `belong_type` enum('mr','repo') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'mr' COMMENT '动作所属主体类型，如mr、仓库',
+  `belong_type` enum('mr','repo') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'mr' COMMENT '动作所属主体类型，如mr、仓库',
   `belong_id` bigint NOT NULL DEFAULT '0',
-  `action_subject` enum('mr','commit','comment','notify','repository_permission','branch','tag','issue') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '动作的产生主体',
-  `action_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '动作的类型',
+  `action_subject` enum('mr','commit','comment','notify','repository_permission','branch','tag','issue') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '动作的产生主体',
+  `action_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '动作的类型',
   `start_time` timestamp NULL DEFAULT NULL COMMENT '动作开始时间',
   `end_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '动作完成时间',
-  `user_uuid` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户UUID',
-  `status` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '状态',
-  `detail` mediumtext CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `user_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户UUID',
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '状态',
+  `detail` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `subject_id` bigint DEFAULT NULL,
-  `action_time` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `action_time` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `mr_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`,`belong_type`,`belong_id`,`action_subject`) USING BTREE,
   KEY `idx_action_belong` (`belong_type`,`belong_id`,`action_subject`,`action_type`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='活动';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='活动';
 
-/*Table structure for table `codehub_agent` */
-
+-- ----------------------------
+-- Table structure for codehub_agent
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_agent`;
-
 CREATE TABLE `codehub_agent` (
   `id` bigint NOT NULL,
-  `agent_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '代理访问url',
-  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '代理连接用户名',
-  `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '代理连接密码',
+  `agent_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '代理访问url',
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '代理连接用户名',
+  `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '代理连接密码',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `uk_agent_url` (`agent_url`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_appmodule_project` */
-
+-- ----------------------------
+-- Table structure for codehub_appmodule_project
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_appmodule_project`;
-
 CREATE TABLE `codehub_appmodule_project` (
   `app_system_id` bigint NOT NULL COMMENT '系统id',
   `app_module_id` bigint NOT NULL DEFAULT '0' COMMENT '子系统id',
-  `source_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '对应需求管理平台表codehub_issue_source的uuid',
-  `project_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '项目key，用于需求同步',
-  `project_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '项目name，用于页面显示',
+  `source_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '对应需求管理平台表codehub_issue_source的uuid',
+  `project_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目key，用于需求同步',
+  `project_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目name，用于页面显示',
   PRIMARY KEY (`app_system_id`,`app_module_id`,`source_id`,`project_key`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC COMMENT='子系统和项目关联';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='子系统和项目关联';
 
-/*Table structure for table `codehub_commit` */
-
+-- ----------------------------
+-- Table structure for codehub_commit
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_commit`;
-
 CREATE TABLE `codehub_commit` (
   `repository_id` bigint NOT NULL,
-  `commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `author` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `author_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `author_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `committer` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `committer_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `committer_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `message` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `author` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `author_email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `author_date` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `committer` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `committer_email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `committer_date` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `message` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `file_paths` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'MR合并后保存该 commit 对应的文件变更列表',
   `file_add_count` int DEFAULT NULL COMMENT '文件添加计数',
   `file_delete_count` int DEFAULT NULL COMMENT '文件删除计数',
   `file_modify_count` int DEFAULT NULL COMMENT '文件修改计数',
   `line_add_count` int DEFAULT NULL COMMENT '行添加计数',
-  `issue_no` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '行删除计数',
+  `issue_no` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '行删除计数',
   `line_delete_count` int DEFAULT NULL COMMENT '行删除计数',
   PRIMARY KEY (`repository_id`,`commit_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='提交记录';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='提交记录';
 
-/*Table structure for table `codehub_commit_branch` */
-
+-- ----------------------------
+-- Table structure for codehub_commit_branch
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_commit_branch`;
-
 CREATE TABLE `codehub_commit_branch` (
   `repository_id` bigint NOT NULL,
-  `commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `branch_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `branch_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`repository_id`,`commit_id`,`branch_name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_commit_issue` */
-
+-- ----------------------------
+-- Table structure for codehub_commit_issue
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_commit_issue`;
-
 CREATE TABLE `codehub_commit_issue` (
   `repository_id` bigint NOT NULL,
-  `commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'commit id',
-  `issue_no` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '关联codehub_issue表的uuid',
+  `commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'commit id',
+  `issue_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '关联codehub_issue表的uuid',
   PRIMARY KEY (`repository_id`,`commit_id`,`issue_no`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_error_message` */
-
+-- ----------------------------
+-- Table structure for codehub_error_message
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_error_message`;
-
 CREATE TABLE `codehub_error_message` (
   `mr_id` bigint NOT NULL,
-  `error_message` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '报错信息',
+  `error_message` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '报错信息',
   PRIMARY KEY (`mr_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_issue` */
-
+-- ----------------------------
+-- Table structure for codehub_issue
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_issue`;
-
 CREATE TABLE `codehub_issue` (
   `id` bigint DEFAULT NULL,
-  `no` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '需求编号',
-  `name` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '需求名称',
-  `type` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '需求类型',
-  `status` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '需求状态',
+  `no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '需求编号',
+  `name` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '需求名称',
+  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '需求类型',
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '需求状态',
   `source_id` bigint NOT NULL COMMENT '需求来源uuid',
-  `description` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '需求描述',
-  `handle_user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '需求处理人',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '需求描述',
+  `handle_user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '需求处理人',
   `issue_create_time` timestamp NULL DEFAULT NULL COMMENT 'issue创建时间',
   `issue_update_time` timestamp NULL DEFAULT NULL COMMENT 'issue更新时间',
   `issue_last_sync_time` timestamp NULL DEFAULT NULL COMMENT 'issue最后同步时间',
-  `issue_creator` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'issue创建人',
-  `issue_update_user` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'issue更新人',
-  `issue_person_incharge` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'issue负责人',
-  `issue_sync_user` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'issue同步人',
+  `issue_creator` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'issue创建人',
+  `issue_update_user` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'issue更新人',
+  `issue_person_incharge` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'issue负责人',
+  `issue_sync_user` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'issue同步人',
   `fcd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `fcu` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '创建人',
+  `fcu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '创建人',
   `lcd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  `lcu` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '最后修改用户',
+  `lcu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '最后修改用户',
   PRIMARY KEY (`no`) USING BTREE,
   UNIQUE KEY `uk_no` (`no`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='需求';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='需求';
 
-/*Table structure for table `codehub_issue_source` */
-
+-- ----------------------------
+-- Table structure for codehub_issue_source
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_issue_source`;
-
 CREATE TABLE `codehub_issue_source` (
   `id` bigint NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '需求来源平台名，如jira、alm',
-  `display_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '显示名',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '需求来源平台名，如jira、alm',
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '显示名',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_issue_status` */
-
+-- ----------------------------
+-- Table structure for codehub_issue_status
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_issue_status`;
-
 CREATE TABLE `codehub_issue_status` (
   `id` bigint NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态名称，后台使用这个字段进行需求检索，对于jira该字段对应需求状态的id',
-  `display_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态显示名',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '状态名称，后台使用这个字段进行需求检索，对于jira该字段对应需求状态的id',
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '状态显示名',
   `source_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `uk_name` (`name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_latest_commit` */
-
+-- ----------------------------
+-- Table structure for codehub_latest_commit
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_latest_commit`;
-
 CREATE TABLE `codehub_latest_commit` (
   `repository_id` bigint NOT NULL,
-  `branch_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '所属分支名称',
-  `commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'commit id',
+  `branch_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '所属分支名称',
+  `commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'commit id',
   `commit_date` timestamp NULL DEFAULT NULL COMMENT 'commit时间',
   PRIMARY KEY (`repository_id`,`branch_name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='MR合并后记录目标分支的最新最近的一次commit';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='MR合并后记录目标分支的最新最近的一次commit';
 
-/*Table structure for table `codehub_line_comment` */
-
+-- ----------------------------
+-- Table structure for codehub_line_comment
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_line_comment`;
-
 CREATE TABLE `codehub_line_comment` (
   `id` bigint NOT NULL COMMENT 'id',
-  `mr_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'mr关联的id',
-  `left_commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '左侧对比的commit',
-  `right_commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '右侧对比的commit\r\n',
+  `mr_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'mr关联的id',
+  `left_commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '左侧对比的commit',
+  `right_commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '右侧对比的commit\n',
   `parent_id` bigint DEFAULT NULL COMMENT '上一级评论id',
-  `editor` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '评论的用户',
+  `editor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '评论的用户',
   `fcd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `lcd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `comment` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '评论内容',
+  `comment` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '评论内容',
   `line` int NOT NULL COMMENT '行数',
-  `file_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '文件路径',
-  `line_type` enum('left','right') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标识评论是在新行还是旧行',
+  `file_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '文件路径',
+  `line_type` enum('left','right') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '标识评论是在新行还是旧行',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='行评论';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='行评论';
 
-/*Table structure for table `codehub_merge_commit` */
-
+-- ----------------------------
+-- Table structure for codehub_merge_commit
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_merge_commit`;
-
 CREATE TABLE `codehub_merge_commit` (
   `mr_id` bigint NOT NULL,
-  `issue_no` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '需求编号',
-  `commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'merge成功后生成的commit',
+  `issue_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '需求编号',
+  `commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'merge成功后生成的commit',
   `commit_date` timestamp NULL DEFAULT NULL COMMENT 'merge commit的时间',
-  `commit_message` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'commit消息',
+  `commit_message` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'commit消息',
   PRIMARY KEY (`mr_id`,`issue_no`,`commit_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='MergeCommit表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='MergeCommit表';
 
-/*Table structure for table `codehub_merge_lock` */
-
+-- ----------------------------
+-- Table structure for codehub_merge_lock
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_merge_lock`;
-
 CREATE TABLE `codehub_merge_lock` (
   `mr_id` bigint NOT NULL,
   `repository_id` bigint NOT NULL,
-  `target_branch` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '关联codehub_mr的target_branch',
+  `target_branch` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '关联codehub_mr的target_branch',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`mr_id`,`repository_id`,`target_branch`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_mr` */
-
+-- ----------------------------
+-- Table structure for codehub_mr
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr`;
-
 CREATE TABLE `codehub_mr` (
   `id` bigint NOT NULL,
-  `description` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'mr描述',
-  `src_branch` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '源分支',
-  `target_branch` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '目标分支',
+  `description` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'mr描述',
+  `src_branch` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '源分支',
+  `target_branch` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标分支',
   `version_id` bigint DEFAULT NULL,
   `app_module_id` bigint DEFAULT NULL,
-  `fcu` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '提交人',
+  `fcu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '提交人',
   `fcd` timestamp NULL DEFAULT NULL COMMENT '创建时间',
-  `lcu` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '最后修改用户',
+  `lcu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '最后修改用户',
   `lcd` timestamp NULL DEFAULT NULL COMMENT '最后修改时间',
-  `handle_user` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '处理人',
+  `handle_user` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '处理人',
   `handle_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '处理时间',
-  `status` enum('open','failed','conflict','closed','merging','finish') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'open' COMMENT 'MR状态，open:打开(待合并)，conflict：冲突，merged：已合并,closed:关闭',
+  `status` enum('open','failed','conflict','closed','merging','finish') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'open' COMMENT 'MR状态，open:打开(待合并)，conflict：冲突，merged：已合并,closed:关闭',
   `search_commit_count` int DEFAULT '300' COMMENT '搜索commit的数量，用于根据commit message从源分支搜索需求',
-  `type` enum('standard','revert') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'standard' COMMENT 'mr 类型',
+  `type` enum('standard','revert') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'standard' COMMENT 'mr 类型',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_subsystem_uuid` (`app_module_id`) USING BTREE,
   KEY `idx_version_uuid` (`version_id`) USING BTREE,
   KEY `idx_status` (`status`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='MR - MergeRequest';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='MR - MergeRequest';
 
-/*Table structure for table `codehub_mr_comment` */
-
+-- ----------------------------
+-- Table structure for codehub_mr_comment
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr_comment`;
-
 CREATE TABLE `codehub_mr_comment` (
   `id` bigint NOT NULL,
   `mr_id` bigint DEFAULT NULL,
   `parent_id` bigint DEFAULT NULL,
-  `editor` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '评论的用户',
+  `editor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '评论的用户',
   `fcd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   `lcd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-  `comment` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '评论内容',
+  `comment` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '评论内容',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_mr_uuid` (`mr_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='MR评论';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='MR评论';
 
-/*Table structure for table `codehub_mr_commit` */
-
+-- ----------------------------
+-- Table structure for codehub_mr_commit
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr_commit`;
-
 CREATE TABLE `codehub_mr_commit` (
   `mr_id` bigint NOT NULL,
-  `commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `merge_status` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `file_paths` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `merge_status` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `file_paths` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`mr_id`,`commit_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_mr_commit_range` */
-
+-- ----------------------------
+-- Table structure for codehub_mr_commit_range
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr_commit_range`;
-
 CREATE TABLE `codehub_mr_commit_range` (
   `mr_id` bigint NOT NULL,
-  `src_start_commit` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '源分支开始commit点',
-  `src_end_commit` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '源分支结束commit点',
-  `target_start_commit` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '目标分支开始commit点',
-  `target_end_commit` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '目标分支结束commit点',
+  `src_start_commit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '源分支开始commit点',
+  `src_end_commit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '源分支结束commit点',
+  `target_start_commit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '目标分支开始commit点',
+  `target_end_commit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '目标分支结束commit点',
   PRIMARY KEY (`mr_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_mr_issue` */
-
+-- ----------------------------
+-- Table structure for codehub_mr_issue
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr_issue`;
-
 CREATE TABLE `codehub_mr_issue` (
   `mr_id` bigint NOT NULL,
-  `issue_no` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '关联需求表编号',
-  `status` enum('merged','conflict','open','canceled','merging','invalid','failed') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'open' COMMENT 'MR状态，成功、冲突、打开、撤销、合并中、无效、失败',
+  `issue_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '关联需求表编号',
+  `status` enum('merged','conflict','open','canceled','merging','invalid','failed') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'open' COMMENT 'MR状态，成功、冲突、打开、撤销、合并中、无效、失败',
   `is_extra` tinyint(1) DEFAULT NULL COMMENT '扫描得到的额外附加的已合并需求',
   PRIMARY KEY (`mr_id`,`issue_no`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='MR和需求关联';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='MR和需求关联';
 
-/*Table structure for table `codehub_mr_merge_commit` */
-
+-- ----------------------------
+-- Table structure for codehub_mr_merge_commit
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr_merge_commit`;
-
 CREATE TABLE `codehub_mr_merge_commit` (
   `mr_id` bigint NOT NULL,
-  `commit_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `merge_status` enum('merged','conflict','open') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'open' COMMENT 'commit的合并状态',
-  `file_paths` mediumtext CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT 'mr中commit关联的文件列表',
+  `commit_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `merge_status` enum('merged','conflict','open') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'open' COMMENT 'commit的合并状态',
+  `file_paths` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'mr中commit关联的文件列表',
   PRIMARY KEY (`mr_id`,`commit_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_mr_status_action` */
-
+-- ----------------------------
+-- Table structure for codehub_mr_status_action
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr_status_action`;
-
 CREATE TABLE `codehub_mr_status_action` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '动作名称',
-  `trigger_status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '触发动作的状态',
-  `target_branch` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '触发版本',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '动作名称',
+  `trigger_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '触发动作的状态',
+  `target_branch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '触发版本',
   `version_id` bigint DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL COMMENT '是否激活，1.激活 2.未激活',
-  `arguments` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '参数，json字符串',
+  `arguments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '参数，json字符串',
   `app_system_id` bigint DEFAULT NULL,
   `app_module_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COMMENT='MR状态动作';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='MR状态动作';
 
-/*Table structure for table `codehub_mr_status_action_log` */
-
+-- ----------------------------
+-- Table structure for codehub_mr_status_action_log
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_mr_status_action_log`;
-
 CREATE TABLE `codehub_mr_status_action_log` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `action_id` bigint DEFAULT NULL,
   `mr_id` bigint DEFAULT NULL,
   `trigger_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `result` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '事件执行结果',
-  `input_argument` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '输入参数,json格式字符串',
-  `output_argument` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '输出参数,json格式字符串',
+  `result` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '事件执行结果',
+  `input_argument` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '输入参数,json格式字符串',
+  `output_argument` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '输出参数,json格式字符串',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COMMENT='MR状态动作触发日志';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='MR状态动作触发日志';
 
-/*Table structure for table `codehub_repo_credential` */
-
+-- ----------------------------
+-- Table structure for codehub_repo_credential
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_repo_credential`;
-
 CREATE TABLE `codehub_repo_credential` (
-  `user_uuid` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户uuid',
-  `repo_type` enum('gitlab','svn') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'gitlab' COMMENT '仓库类型',
-  `cred_type` enum('password','token') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'password' COMMENT '凭证类型',
-  `repo_username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '仓库用户名',
-  `repo_credential` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '仓库凭证',
+  `user_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
+  `repo_type` enum('gitlab','svn') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'gitlab' COMMENT '仓库类型',
+  `cred_type` enum('password','token') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'password' COMMENT '凭证类型',
+  `repo_username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '仓库用户名',
+  `repo_credential` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '仓库凭证',
   PRIMARY KEY (`user_uuid`,`repo_type`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='仓库凭证';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='仓库凭证';
 
-/*Table structure for table `codehub_repository` */
-
+-- ----------------------------
+-- Table structure for codehub_repository
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_repository`;
-
 CREATE TABLE `codehub_repository` (
   `id` bigint NOT NULL,
   `repo_service_id` bigint NOT NULL COMMENT '关联代码库服务表的id',
@@ -2888,10 +2899,10 @@ CREATE TABLE `codehub_repository` (
   KEY `idx_subsystem_uuid` (`app_module_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='仓库';
 
-/*Table structure for table `codehub_repository_service` */
-
+-- ----------------------------
+-- Table structure for codehub_repository_service
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_repository_service`;
-
 CREATE TABLE `codehub_repository_service` (
   `id` bigint NOT NULL,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务名称',
@@ -2909,118 +2920,118 @@ CREATE TABLE `codehub_repository_service` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='仓库服务';
 
-/*Table structure for table `codehub_sync_source` */
-
+-- ----------------------------
+-- Table structure for codehub_sync_source
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_sync_source`;
-
 CREATE TABLE `codehub_sync_source` (
   `id` bigint NOT NULL,
-  `source` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '来源',
-  `type` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类',
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '来源名称',
-  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '同步来源url',
-  `root_type` enum('jsonarray','json') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'json' COMMENT '请求url返回数据的根节点类型',
-  `auth_type` enum('BASIC','AUTH_COOKIE','NONE') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'BASIC' COMMENT '同步来源认证方法',
-  `request_method` enum('GET','POST') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'GET' COMMENT '同步来源请求方法',
-  `request_mode` enum('PAYLOAD','FORMDATA') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'PAYLOAD' COMMENT '同步来源请求模式',
-  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '用户名',
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '密码',
-  `config` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '同步查询条件配置',
+  `source` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '来源',
+  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '分类',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '来源名称',
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '同步来源url',
+  `root_type` enum('jsonarray','json') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'json' COMMENT '请求url返回数据的根节点类型',
+  `auth_type` enum('BASIC','AUTH_COOKIE','NONE') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'BASIC' COMMENT '同步来源认证方法',
+  `request_method` enum('GET','POST') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'GET' COMMENT '同步来源请求方法',
+  `request_mode` enum('PAYLOAD','FORMDATA') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'PAYLOAD' COMMENT '同步来源请求模式',
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '用户名',
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '密码',
+  `config` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '同步查询条件配置',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `unique_source_type` (`source`,`type`) USING BTREE,
   UNIQUE KEY `uk_name` (`name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_sync_source_field_mapping` */
-
+-- ----------------------------
+-- Table structure for codehub_sync_source_field_mapping
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_sync_source_field_mapping`;
-
 CREATE TABLE `codehub_sync_source_field_mapping` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `source_id` bigint DEFAULT NULL,
-  `sync_table` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '需要同步的表名',
-  `dest_field` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '需要同步的表字段',
-  `source_field` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '同步数据来源的请求结果字段',
+  `sync_table` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '需要同步的表名',
+  `dest_field` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '需要同步的表字段',
+  `source_field` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '同步数据来源的请求结果字段',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_sync_source_mapping` */
-
+-- ----------------------------
+-- Table structure for codehub_sync_source_mapping
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_sync_source_mapping`;
-
 CREATE TABLE `codehub_sync_source_mapping` (
   `id` bigint DEFAULT NULL,
   `source_id` bigint NOT NULL,
-  `root_type` enum('json','jsonarray') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'json' COMMENT '查询结果root节点类型',
-  `no` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '请求编号',
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '请求名称',
-  `type` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '请求类型',
-  `status` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '请求状态',
-  `description` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '请求描述',
-  `handle_user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '请求处理人',
-  `update_time` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '请求更新时间',
+  `root_type` enum('json','jsonarray') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'json' COMMENT '查询结果root节点类型',
+  `no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '请求编号',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '请求名称',
+  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '请求类型',
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '请求状态',
+  `description` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '请求描述',
+  `handle_user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '请求处理人',
+  `update_time` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '请求更新时间',
   PRIMARY KEY (`source_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `codehub_version_strategy` */
-
+-- ----------------------------
+-- Table structure for codehub_version_strategy
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_version_strategy`;
-
 CREATE TABLE `codehub_version_strategy` (
   `id` bigint NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '版本策略名称',
-  `version_prefix` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '版本前缀',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '版本策略名称',
+  `version_prefix` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '版本前缀',
   `version_type_id` bigint DEFAULT NULL COMMENT '默认版本类型，关联codehub_version_type的uuid',
   `app_module_id` bigint NOT NULL COMMENT '关联模块表id',
-  `src_branch` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '源分支',
-  `target_branch` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '目标分支',
-  `type` enum('branch','issue') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'branch' COMMENT '版本策略类型，branch：分支，issue：需求',
+  `src_branch` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '源分支',
+  `target_branch` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '目标分支',
+  `type` enum('branch','issue') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'branch' COMMENT '版本策略类型，branch：分支，issue：需求',
   `use_pattern` tinyint(1) NOT NULL DEFAULT '0' COMMENT '源分支是否使用通配符，0：未使用，1：使用',
-  `issue_status_id_list_text` text COMMENT '关联codehub_issue_status的id，逗号分隔',
+  `issue_status_id_list_text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '关联codehub_issue_status的id，逗号分隔',
   `fcd` timestamp NULL DEFAULT NULL COMMENT '创建时间',
-  `fcu` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '创建人',
+  `fcu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
   `lcd` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  `lcu` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '最后修改用户',
+  `lcu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '最后修改用户',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `uk_name` (`name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='版本策略';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='版本策略';
 
-/*Table structure for table `codehub_version_type` */
-
+-- ----------------------------
+-- Table structure for codehub_version_type
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_version_type`;
-
 CREATE TABLE `codehub_version_type` (
   `id` bigint NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '类型名称（bugfix、normal、project表数据默认有）',
-  `description` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '类型说明',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型名称（bugfix、normal、project表数据默认有）',
+  `description` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '类型说明',
   `is_active` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否激活，0：未激活，1：激活',
   `is_reserve` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否为保留类型，1：保留类型，0：自定义类型。保留类型不可编辑规则和名称',
-  `rule` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '一段JS脚本，用于自动计算版本号',
-  `help` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '对该版本类型和规则的说明',
+  `rule` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '一段JS脚本，用于自动计算版本号',
+  `help` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '对该版本类型和规则的说明',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `unique_name` (`name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='版本类型';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='版本类型';
 
-/*Table structure for table `codehub_version_type_versionstrategy` */
-
+-- ----------------------------
+-- Table structure for codehub_version_type_versionstrategy
+-- ----------------------------
 DROP TABLE IF EXISTS `codehub_version_type_versionstrategy`;
-
 CREATE TABLE `codehub_version_type_versionstrategy` (
-  `version_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ezdeploy_version对应id',
-  `version_type_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `version_strategy_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `version_strategy_type` enum('branch','issue') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'branch',
-  `src_branch` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '源分支',
-  `target_branch` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '目标分支',
+  `version_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'ezdeploy_version对应id',
+  `version_type_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `version_strategy_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `version_strategy_type` enum('branch','issue') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'branch',
+  `src_branch` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '源分支',
+  `target_branch` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '目标分支',
   `use_pattern` tinyint(1) DEFAULT '0' COMMENT '源分支是否使用通配符',
   PRIMARY KEY (`version_id`,`version_type_id`,`version_strategy_id`) USING BTREE,
   KEY `idx_version_strategy_uuid` (`version_strategy_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='版本和版本类型, 版本策略关联';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='版本和版本类型, 版本策略关联';
 
-/*Table structure for table `config` */
-
+-- ----------------------------
+-- Table structure for config
+-- ----------------------------
 DROP TABLE IF EXISTS `config`;
-
 CREATE TABLE `config` (
   `key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '配置名',
   `value` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '配置值',
@@ -3028,10 +3039,10 @@ CREATE TABLE `config` (
   PRIMARY KEY (`key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统配置表';
 
-/*Table structure for table `dashboard` */
-
+-- ----------------------------
+-- Table structure for dashboard
+-- ----------------------------
 DROP TABLE IF EXISTS `dashboard`;
-
 CREATE TABLE `dashboard` (
   `id` bigint NOT NULL COMMENT '唯一标识',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -3048,10 +3059,10 @@ CREATE TABLE `dashboard` (
   KEY `idx_fcd` (`fcd`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='仪表板表';
 
-/*Table structure for table `dashboard_authority` */
-
+-- ----------------------------
+-- Table structure for dashboard_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `dashboard_authority`;
-
 CREATE TABLE `dashboard_authority` (
   `dashboard_id` bigint NOT NULL COMMENT '面板id',
   `type` enum('common','user','team','role') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '查看权限类型',
@@ -3062,10 +3073,10 @@ CREATE TABLE `dashboard_authority` (
   KEY `idx_dashboard_uuid` (`dashboard_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='仪表板权限表';
 
-/*Table structure for table `dashboard_default` */
-
+-- ----------------------------
+-- Table structure for dashboard_default
+-- ----------------------------
 DROP TABLE IF EXISTS `dashboard_default`;
-
 CREATE TABLE `dashboard_default` (
   `dashboard_id` bigint NOT NULL COMMENT '仪表板唯一标识',
   `user_uuid` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '仪表板用户',
@@ -3074,10 +3085,10 @@ CREATE TABLE `dashboard_default` (
   KEY `idx_uuid_userid_type` (`dashboard_id`,`user_uuid`,`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='仪表板默认表';
 
-/*Table structure for table `dashboard_userdefault` */
-
+-- ----------------------------
+-- Table structure for dashboard_userdefault
+-- ----------------------------
 DROP TABLE IF EXISTS `dashboard_userdefault`;
-
 CREATE TABLE `dashboard_userdefault` (
   `dashboard_id` bigint NOT NULL COMMENT '仪表板唯一标识',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
@@ -3085,10 +3096,10 @@ CREATE TABLE `dashboard_userdefault` (
   UNIQUE KEY `uk_user_uuid` (`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户默认仪表板表';
 
-/*Table structure for table `dashboard_visitcounter` */
-
+-- ----------------------------
+-- Table structure for dashboard_visitcounter
+-- ----------------------------
 DROP TABLE IF EXISTS `dashboard_visitcounter`;
-
 CREATE TABLE `dashboard_visitcounter` (
   `dashboard_id` bigint NOT NULL COMMENT '仪表板id',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
@@ -3097,10 +3108,10 @@ CREATE TABLE `dashboard_visitcounter` (
   KEY `idx_user_uuid` (`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='仪表板访问统计表';
 
-/*Table structure for table `dashboard_widget` */
-
+-- ----------------------------
+-- Table structure for dashboard_widget
+-- ----------------------------
 DROP TABLE IF EXISTS `dashboard_widget`;
-
 CREATE TABLE `dashboard_widget` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '唯一标识',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'porlet名称',
@@ -3120,10 +3131,22 @@ CREATE TABLE `dashboard_widget` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='dashboard_widget';
 
-/*Table structure for table `datawarehouse_datasource` */
+-- ----------------------------
+-- Table structure for database_view_info
+-- ----------------------------
+DROP TABLE IF EXISTS `database_view_info`;
+CREATE TABLE `database_view_info` (
+  `view_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '视图名称',
+  `md5` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'MD5',
+  `lcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '修改人',
+  `lcd` timestamp(3) NOT NULL COMMENT '修改时间',
+  PRIMARY KEY (`view_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='视图信息表';
 
+-- ----------------------------
+-- Table structure for datawarehouse_datasource
+-- ----------------------------
 DROP TABLE IF EXISTS `datawarehouse_datasource`;
-
 CREATE TABLE `datawarehouse_datasource` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '唯一标识',
@@ -3143,10 +3166,10 @@ CREATE TABLE `datawarehouse_datasource` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='数据仓库-数据源';
 
-/*Table structure for table `datawarehouse_datasource_audit` */
-
+-- ----------------------------
+-- Table structure for datawarehouse_datasource_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `datawarehouse_datasource_audit`;
-
 CREATE TABLE `datawarehouse_datasource_audit` (
   `id` bigint NOT NULL COMMENT '自增id',
   `datasource_id` bigint DEFAULT NULL COMMENT '数据源id',
@@ -3159,10 +3182,10 @@ CREATE TABLE `datawarehouse_datasource_audit` (
   KEY `idx_end_time` (`end_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='数据仓库-数据源审计';
 
-/*Table structure for table `datawarehouse_datasource_condition` */
-
+-- ----------------------------
+-- Table structure for datawarehouse_datasource_condition
+-- ----------------------------
 DROP TABLE IF EXISTS `datawarehouse_datasource_condition`;
-
 CREATE TABLE `datawarehouse_datasource_condition` (
   `id` bigint NOT NULL COMMENT '主键',
   `datasource_id` bigint DEFAULT NULL COMMENT '数据源Id',
@@ -3175,10 +3198,10 @@ CREATE TABLE `datawarehouse_datasource_condition` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='数据仓库-数据源-条件';
 
-/*Table structure for table `datawarehouse_datasource_field` */
-
+-- ----------------------------
+-- Table structure for datawarehouse_datasource_field
+-- ----------------------------
 DROP TABLE IF EXISTS `datawarehouse_datasource_field`;
-
 CREATE TABLE `datawarehouse_datasource_field` (
   `id` bigint NOT NULL COMMENT '主键',
   `datasource_id` bigint DEFAULT NULL COMMENT '数据源id',
@@ -3193,10 +3216,10 @@ CREATE TABLE `datawarehouse_datasource_field` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='数据仓库-数据源-字段';
 
-/*Table structure for table `datawarehouse_datasource_param` */
-
+-- ----------------------------
+-- Table structure for datawarehouse_datasource_param
+-- ----------------------------
 DROP TABLE IF EXISTS `datawarehouse_datasource_param`;
-
 CREATE TABLE `datawarehouse_datasource_param` (
   `id` bigint NOT NULL COMMENT '自增id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -3208,10 +3231,10 @@ CREATE TABLE `datawarehouse_datasource_param` (
   KEY `idx_datasource_id` (`datasource_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='数据仓库-数据源-参数';
 
-/*Table structure for table `dependency` */
-
+-- ----------------------------
+-- Table structure for dependency
+-- ----------------------------
 DROP TABLE IF EXISTS `dependency`;
-
 CREATE TABLE `dependency` (
   `from` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '被引用方(上游)标识',
   `type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
@@ -3221,10 +3244,10 @@ CREATE TABLE `dependency` (
   KEY `to_index` (`to`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='全局引用关系表';
 
-/*Table structure for table `deploy_app_config` */
-
+-- ----------------------------
+-- Table structure for deploy_app_config
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_config`;
-
 CREATE TABLE `deploy_app_config` (
   `id` bigint NOT NULL COMMENT 'id',
   `app_system_id` bigint NOT NULL COMMENT '应用系统id',
@@ -3239,10 +3262,10 @@ CREATE TABLE `deploy_app_config` (
   UNIQUE KEY `uk_appId_moduleId_envId` (`app_system_id`,`app_module_id`,`env_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用系统配置';
 
-/*Table structure for table `deploy_app_config_authority` */
-
+-- ----------------------------
+-- Table structure for deploy_app_config_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_config_authority`;
-
 CREATE TABLE `deploy_app_config_authority` (
   `app_system_id` bigint NOT NULL COMMENT '应用资产id',
   `auth_type` enum('team','user','role','common') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '授权类型 user|team|role',
@@ -3255,10 +3278,10 @@ CREATE TABLE `deploy_app_config_authority` (
   KEY `idx_app_env_authuuid_action` (`app_system_id`,`action_type`,`auth_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用系统配置授权';
 
-/*Table structure for table `deploy_app_config_draft` */
-
+-- ----------------------------
+-- Table structure for deploy_app_config_draft
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_config_draft`;
-
 CREATE TABLE `deploy_app_config_draft` (
   `app_system_id` bigint NOT NULL COMMENT '应用系统id',
   `app_module_id` bigint NOT NULL COMMENT '模块id',
@@ -3271,10 +3294,10 @@ CREATE TABLE `deploy_app_config_draft` (
   PRIMARY KEY (`app_system_id`,`app_module_id`,`env_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='应用系统模块环境流水线阶段关系表';
 
-/*Table structure for table `deploy_app_config_env` */
-
+-- ----------------------------
+-- Table structure for deploy_app_config_env
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_config_env`;
-
 CREATE TABLE `deploy_app_config_env` (
   `app_system_id` bigint NOT NULL COMMENT '应用系统id',
   `app_module_id` bigint NOT NULL COMMENT '应用模块id',
@@ -3282,10 +3305,10 @@ CREATE TABLE `deploy_app_config_env` (
   PRIMARY KEY (`app_system_id`,`app_module_id`,`env_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用配置环境表';
 
-/*Table structure for table `deploy_app_config_env_db` */
-
+-- ----------------------------
+-- Table structure for deploy_app_config_env_db
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_config_env_db`;
-
 CREATE TABLE `deploy_app_config_env_db` (
   `id` bigint NOT NULL COMMENT 'id',
   `db_schema` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '数据库schema',
@@ -3299,10 +3322,10 @@ CREATE TABLE `deploy_app_config_env_db` (
   UNIQUE KEY `un_app_system_id_app_module_id_env_id_db_schema` (`db_schema`,`app_system_id`,`app_module_id`,`env_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用配置环境层DB配置表';
 
-/*Table structure for table `deploy_app_config_env_db_account` */
-
+-- ----------------------------
+-- Table structure for deploy_app_config_env_db_account
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_config_env_db_account`;
-
 CREATE TABLE `deploy_app_config_env_db_account` (
   `id` bigint NOT NULL COMMENT 'id',
   `db_config_id` bigint NOT NULL COMMENT 'DB配置id',
@@ -3311,20 +3334,20 @@ CREATE TABLE `deploy_app_config_env_db_account` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用配置环境层DB配置账号表';
 
-/*Table structure for table `deploy_app_config_user` */
-
+-- ----------------------------
+-- Table structure for deploy_app_config_user
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_config_user`;
-
 CREATE TABLE `deploy_app_config_user` (
   `app_system_id` bigint NOT NULL COMMENT '应用资产id',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '收藏人',
   PRIMARY KEY (`app_system_id`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用系统配置收藏';
 
-/*Table structure for table `deploy_app_env_auto_config` */
-
+-- ----------------------------
+-- Table structure for deploy_app_env_auto_config
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_env_auto_config`;
-
 CREATE TABLE `deploy_app_env_auto_config` (
   `app_system_id` bigint NOT NULL COMMENT '应用id',
   `app_module_id` bigint NOT NULL COMMENT '模块id',
@@ -3337,10 +3360,10 @@ CREATE TABLE `deploy_app_env_auto_config` (
   PRIMARY KEY (`app_system_id`,`app_module_id`,`env_id`,`instance_id`,`key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用环境变量配置';
 
-/*Table structure for table `deploy_app_module_runner_group` */
-
+-- ----------------------------
+-- Table structure for deploy_app_module_runner_group
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_app_module_runner_group`;
-
 CREATE TABLE `deploy_app_module_runner_group` (
   `app_system_id` bigint NOT NULL COMMENT '应用id',
   `app_module_id` bigint NOT NULL COMMENT '模块资产id',
@@ -3348,10 +3371,10 @@ CREATE TABLE `deploy_app_module_runner_group` (
   PRIMARY KEY (`app_system_id`,`app_module_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布应用模块runner组关联';
 
-/*Table structure for table `deploy_ci` */
-
+-- ----------------------------
+-- Table structure for deploy_ci
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_ci`;
-
 CREATE TABLE `deploy_ci` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -3377,10 +3400,10 @@ CREATE TABLE `deploy_ci` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布持续集成表';
 
-/*Table structure for table `deploy_ci_audit` */
-
+-- ----------------------------
+-- Table structure for deploy_ci_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_ci_audit`;
-
 CREATE TABLE `deploy_ci_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `ci_id` bigint NOT NULL COMMENT '持续集成配置id',
@@ -3395,10 +3418,10 @@ CREATE TABLE `deploy_ci_audit` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布持续集成记录表';
 
-/*Table structure for table `deploy_env_version` */
-
+-- ----------------------------
+-- Table structure for deploy_env_version
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_env_version`;
-
 CREATE TABLE `deploy_env_version` (
   `app_system_id` bigint NOT NULL COMMENT '应用id',
   `app_module_id` bigint NOT NULL COMMENT '模块id',
@@ -3410,10 +3433,10 @@ CREATE TABLE `deploy_env_version` (
   PRIMARY KEY (`app_system_id`,`app_module_id`,`env_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='环境当前版本';
 
-/*Table structure for table `deploy_env_version_audit` */
-
+-- ----------------------------
+-- Table structure for deploy_env_version_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_env_version_audit`;
-
 CREATE TABLE `deploy_env_version_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `app_system_id` bigint NOT NULL COMMENT '应用id',
@@ -3430,10 +3453,10 @@ CREATE TABLE `deploy_env_version_audit` (
   KEY `idx_system_module_env_new_version` (`app_system_id`,`app_module_id`,`env_id`,`new_version_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='环境版本变更记录';
 
-/*Table structure for table `deploy_instance_version` */
-
+-- ----------------------------
+-- Table structure for deploy_instance_version
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_instance_version`;
-
 CREATE TABLE `deploy_instance_version` (
   `app_system_id` bigint NOT NULL COMMENT '应用id',
   `app_module_id` bigint NOT NULL COMMENT '模块id',
@@ -3446,10 +3469,10 @@ CREATE TABLE `deploy_instance_version` (
   PRIMARY KEY (`app_system_id`,`app_module_id`,`env_id`,`resource_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布实例当前版本';
 
-/*Table structure for table `deploy_instance_version_audit` */
-
+-- ----------------------------
+-- Table structure for deploy_instance_version_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_instance_version_audit`;
-
 CREATE TABLE `deploy_instance_version_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `app_system_id` bigint NOT NULL COMMENT '应用id',
@@ -3467,10 +3490,10 @@ CREATE TABLE `deploy_instance_version_audit` (
   KEY `idx_system_module_env_resource_new_version` (`app_system_id`,`app_module_id`,`env_id`,`resource_id`,`new_version_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='实例版本变更记录';
 
-/*Table structure for table `deploy_job` */
-
+-- ----------------------------
+-- Table structure for deploy_job
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job`;
-
 CREATE TABLE `deploy_job` (
   `id` bigint NOT NULL COMMENT 'id',
   `app_system_id` bigint NOT NULL COMMENT '系统id',
@@ -3489,10 +3512,10 @@ CREATE TABLE `deploy_job` (
   KEY `idx_appId_modueId_version_jobId` (`app_system_id`,`app_module_id`,`version`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布作业表';
 
-/*Table structure for table `deploy_job_auth` */
-
+-- ----------------------------
+-- Table structure for deploy_job_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_auth`;
-
 CREATE TABLE `deploy_job_auth` (
   `job_id` bigint DEFAULT NULL COMMENT '作业id',
   `auth_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '授权对象',
@@ -3500,20 +3523,20 @@ CREATE TABLE `deploy_job_auth` (
   KEY `idx_job_id` (`job_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布作业授权';
 
-/*Table structure for table `deploy_job_content` */
-
+-- ----------------------------
+-- Table structure for deploy_job_content
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_content`;
-
 CREATE TABLE `deploy_job_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '配置hash',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '配置',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布作业配置hash';
 
-/*Table structure for table `deploy_job_lane` */
-
+-- ----------------------------
+-- Table structure for deploy_job_lane
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_lane`;
-
 CREATE TABLE `deploy_job_lane` (
   `id` bigint NOT NULL COMMENT '批量作业泳道id',
   `batch_job_id` bigint DEFAULT NULL COMMENT '批量作业id',
@@ -3522,10 +3545,10 @@ CREATE TABLE `deploy_job_lane` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布作业泳道表';
 
-/*Table structure for table `deploy_job_lane_group` */
-
+-- ----------------------------
+-- Table structure for deploy_job_lane_group
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_lane_group`;
-
 CREATE TABLE `deploy_job_lane_group` (
   `id` bigint NOT NULL COMMENT '组id',
   `lane_id` bigint DEFAULT NULL COMMENT '泳道id',
@@ -3535,10 +3558,10 @@ CREATE TABLE `deploy_job_lane_group` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='批量作业泳道组表';
 
-/*Table structure for table `deploy_job_lane_group_job` */
-
+-- ----------------------------
+-- Table structure for deploy_job_lane_group_job
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_lane_group_job`;
-
 CREATE TABLE `deploy_job_lane_group_job` (
   `group_id` bigint NOT NULL COMMENT '泳道组id',
   `job_id` bigint NOT NULL COMMENT '作业id',
@@ -3546,21 +3569,21 @@ CREATE TABLE `deploy_job_lane_group_job` (
   PRIMARY KEY (`group_id`,`job_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='批量作业泳道组作业关联表';
 
-/*Table structure for table `deploy_job_notify_policy` */
-
+-- ----------------------------
+-- Table structure for deploy_job_notify_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_notify_policy`;
-
 CREATE TABLE `deploy_job_notify_policy` (
   `app_system_id` bigint NOT NULL COMMENT '应用系统id',
   `notify_policy_id` bigint NOT NULL COMMENT '通知策略id',
-  `config` mediumtext COMMENT '通知策略个性化配置',
+  `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '通知策略个性化配置',
   PRIMARY KEY (`app_system_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='发布作业引用通知策略表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布作业引用通知策略表';
 
-/*Table structure for table `deploy_job_trigger` */
-
+-- ----------------------------
+-- Table structure for deploy_job_trigger
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_trigger`;
-
 CREATE TABLE `deploy_job_trigger` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -3576,10 +3599,10 @@ CREATE TABLE `deploy_job_trigger` (
   UNIQUE KEY `uniq` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布触发器';
 
-/*Table structure for table `deploy_job_webhook` */
-
+-- ----------------------------
+-- Table structure for deploy_job_webhook
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_webhook`;
-
 CREATE TABLE `deploy_job_webhook` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -3595,10 +3618,10 @@ CREATE TABLE `deploy_job_webhook` (
   UNIQUE KEY `uniq` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布触发器';
 
-/*Table structure for table `deploy_job_webhook_app_module` */
-
+-- ----------------------------
+-- Table structure for deploy_job_webhook_app_module
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_webhook_app_module`;
-
 CREATE TABLE `deploy_job_webhook_app_module` (
   `webhook_id` bigint NOT NULL COMMENT '触发器id',
   `app_system_id` bigint NOT NULL COMMENT '应用系统id',
@@ -3606,10 +3629,10 @@ CREATE TABLE `deploy_job_webhook_app_module` (
   PRIMARY KEY (`webhook_id`,`app_system_id`,`app_module_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `deploy_job_webhook_audit` */
-
+-- ----------------------------
+-- Table structure for deploy_job_webhook_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_job_webhook_audit`;
-
 CREATE TABLE `deploy_job_webhook_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `webhook_id` bigint DEFAULT NULL COMMENT '触发器id',
@@ -3622,10 +3645,10 @@ CREATE TABLE `deploy_job_webhook_audit` (
   KEY `idx_integration_autditid` (`integration_audit_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='作业触发器记录表';
 
-/*Table structure for table `deploy_package` */
-
+-- ----------------------------
+-- Table structure for deploy_package
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_package`;
-
 CREATE TABLE `deploy_package` (
   `id` bigint NOT NULL COMMENT '主键',
   `group_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '工程组标识，在一个组织或者项目中通常是唯一的',
@@ -3638,10 +3661,10 @@ CREATE TABLE `deploy_package` (
   UNIQUE KEY `uk_pkg` (`group_id`,`artifact_id`,`version`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布包信息';
 
-/*Table structure for table `deploy_pipeline` */
-
+-- ----------------------------
+-- Table structure for deploy_pipeline
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_pipeline`;
-
 CREATE TABLE `deploy_pipeline` (
   `id` bigint NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -3655,10 +3678,10 @@ CREATE TABLE `deploy_pipeline` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='超级流水线';
 
-/*Table structure for table `deploy_pipeline_auth` */
-
+-- ----------------------------
+-- Table structure for deploy_pipeline_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_pipeline_auth`;
-
 CREATE TABLE `deploy_pipeline_auth` (
   `pipeline_id` bigint DEFAULT NULL COMMENT '作业id',
   `auth_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '授权对象',
@@ -3666,10 +3689,10 @@ CREATE TABLE `deploy_pipeline_auth` (
   KEY `idx_job_id` (`pipeline_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='超级流水线授权';
 
-/*Table structure for table `deploy_pipeline_group` */
-
+-- ----------------------------
+-- Table structure for deploy_pipeline_group
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_pipeline_group`;
-
 CREATE TABLE `deploy_pipeline_group` (
   `id` bigint NOT NULL COMMENT '组id',
   `lane_id` bigint DEFAULT NULL COMMENT '泳道id',
@@ -3678,10 +3701,10 @@ CREATE TABLE `deploy_pipeline_group` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='批量作业泳道组表';
 
-/*Table structure for table `deploy_pipeline_jobtemplate` */
-
+-- ----------------------------
+-- Table structure for deploy_pipeline_jobtemplate
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_pipeline_jobtemplate`;
-
 CREATE TABLE `deploy_pipeline_jobtemplate` (
   `id` bigint NOT NULL COMMENT 'id',
   `group_id` bigint DEFAULT NULL COMMENT '分组id',
@@ -3698,10 +3721,10 @@ CREATE TABLE `deploy_pipeline_jobtemplate` (
   KEY `idx_appId_modueId_version_jobId` (`app_system_id`,`app_module_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布超级流水线作业模板表';
 
-/*Table structure for table `deploy_pipeline_lane` */
-
+-- ----------------------------
+-- Table structure for deploy_pipeline_lane
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_pipeline_lane`;
-
 CREATE TABLE `deploy_pipeline_lane` (
   `id` bigint NOT NULL COMMENT '流水线泳道id',
   `pipeline_id` bigint DEFAULT NULL COMMENT '流水线id',
@@ -3709,10 +3732,10 @@ CREATE TABLE `deploy_pipeline_lane` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布作业泳道超级流水线表';
 
-/*Table structure for table `deploy_schedule` */
-
+-- ----------------------------
+-- Table structure for deploy_schedule
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_schedule`;
-
 CREATE TABLE `deploy_schedule` (
   `id` bigint NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一uuid',
@@ -3735,10 +3758,10 @@ CREATE TABLE `deploy_schedule` (
   UNIQUE KEY `idx_uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业信息表';
 
-/*Table structure for table `deploy_sql_detail` */
-
+-- ----------------------------
+-- Table structure for deploy_sql_detail
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_sql_detail`;
-
 CREATE TABLE `deploy_sql_detail` (
   `id` bigint NOT NULL COMMENT '主键 id',
   `system_id` bigint DEFAULT NULL COMMENT '系统 id',
@@ -3766,10 +3789,10 @@ CREATE TABLE `deploy_sql_detail` (
   KEY `idx_status` (`status`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布sql状态表';
 
-/*Table structure for table `deploy_sql_job_phase` */
-
+-- ----------------------------
+-- Table structure for deploy_sql_job_phase
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_sql_job_phase`;
-
 CREATE TABLE `deploy_sql_job_phase` (
   `id` bigint NOT NULL COMMENT '主键 id',
   `job_id` bigint DEFAULT NULL COMMENT '作业 id',
@@ -3780,20 +3803,20 @@ CREATE TABLE `deploy_sql_job_phase` (
   UNIQUE KEY `ux_job_id_sql_id_job_phase_name` (`job_id`,`sql_id`,`job_phase_name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布sql与作业剧本关系表';
 
-/*Table structure for table `deploy_type_status` */
-
+-- ----------------------------
+-- Table structure for deploy_type_status
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_type_status`;
-
 CREATE TABLE `deploy_type_status` (
   `type_id` bigint NOT NULL COMMENT '工具类型id',
   `is_active` int NOT NULL COMMENT '是否激活(0:禁用，1：激活)',
   PRIMARY KEY (`type_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布工具类型状态表';
 
-/*Table structure for table `deploy_version` */
-
+-- ----------------------------
+-- Table structure for deploy_version
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version`;
-
 CREATE TABLE `deploy_version` (
   `id` bigint NOT NULL COMMENT '主键',
   `version` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '版本',
@@ -3819,26 +3842,32 @@ CREATE TABLE `deploy_version` (
   `lcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '修改人',
   `lcd` timestamp(3) NULL DEFAULT NULL COMMENT '修改时间',
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '描述',
+  `file_add_count` int DEFAULT NULL COMMENT '文件增加数',
+  `file_modify_count` int DEFAULT NULL COMMENT '文件修改数',
+  `file_delete_count` int DEFAULT NULL COMMENT '文件删除数',
+  `line_add_count` int DEFAULT NULL COMMENT '代码行增加数',
+  `line_delete_count` int DEFAULT NULL COMMENT '代码行减少数',
+  `issue_count` int DEFAULT NULL COMMENT '需求数',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `uk_app_system_id_app_module_id_version` (`version`,`app_system_id`,`app_module_id`) USING BTREE,
   KEY `id_is_locked` (`is_freeze`) USING BTREE,
   KEY `idx_fcd` (`fcd`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布版本表';
 
-/*Table structure for table `deploy_version_appbuild_credential` */
-
+-- ----------------------------
+-- Table structure for deploy_version_appbuild_credential
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_appbuild_credential`;
-
 CREATE TABLE `deploy_version_appbuild_credential` (
   `proxy_to_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '跳转url',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '跳转认证用户',
   PRIMARY KEY (`proxy_to_url`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布版本应用系统编译认证关联表';
 
-/*Table structure for table `deploy_version_build_quality` */
-
+-- ----------------------------
+-- Table structure for deploy_version_build_quality
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_build_quality`;
-
 CREATE TABLE `deploy_version_build_quality` (
   `id` bigint NOT NULL COMMENT 'id',
   `version_id` bigint NOT NULL COMMENT '版本id',
@@ -3929,10 +3958,10 @@ CREATE TABLE `deploy_version_build_quality` (
   UNIQUE KEY `version_build_time` (`version_id`,`build_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布编译质量';
 
-/*Table structure for table `deploy_version_buildno` */
-
+-- ----------------------------
+-- Table structure for deploy_version_buildno
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_buildno`;
-
 CREATE TABLE `deploy_version_buildno` (
   `version_id` bigint NOT NULL COMMENT '发布版本表关联id',
   `build_no` int NOT NULL COMMENT '编译号',
@@ -3952,10 +3981,21 @@ CREATE TABLE `deploy_version_buildno` (
   KEY `idx_buildno` (`build_no`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布版本编译序号关联表';
 
-/*Table structure for table `deploy_version_cve` */
+-- ----------------------------
+-- Table structure for deploy_version_commit
+-- ----------------------------
+DROP TABLE IF EXISTS `deploy_version_commit`;
+CREATE TABLE `deploy_version_commit` (
+  `version_id` bigint NOT NULL COMMENT '版本id',
+  `commit_id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '提交id',
+  `repository_id` bigint NOT NULL COMMENT '仓库id',
+  PRIMARY KEY (`version_id`,`commit_id`,`repository_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布版本提交记录关联吧';
 
+-- ----------------------------
+-- Table structure for deploy_version_cve
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_cve`;
-
 CREATE TABLE `deploy_version_cve` (
   `id` bigint NOT NULL COMMENT '主键ID',
   `version_id` bigint NOT NULL COMMENT '版本id',
@@ -3969,10 +4009,10 @@ CREATE TABLE `deploy_version_cve` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `deploy_version_dependency` */
-
+-- ----------------------------
+-- Table structure for deploy_version_dependency
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_dependency`;
-
 CREATE TABLE `deploy_version_dependency` (
   `id` bigint NOT NULL COMMENT '主键',
   `version_id` bigint NOT NULL COMMENT '版本id',
@@ -3985,10 +4025,10 @@ CREATE TABLE `deploy_version_dependency` (
   KEY `idx_version_id` (`version_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布版本依赖';
 
-/*Table structure for table `deploy_version_deployed_instance` */
-
+-- ----------------------------
+-- Table structure for deploy_version_deployed_instance
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_deployed_instance`;
-
 CREATE TABLE `deploy_version_deployed_instance` (
   `id` bigint NOT NULL COMMENT 'id',
   `resource_id` bigint NOT NULL COMMENT '实例id',
@@ -4000,10 +4040,10 @@ CREATE TABLE `deploy_version_deployed_instance` (
   UNIQUE KEY `uk_instance_version` (`resource_id`,`version_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='已发布的版本实例表';
 
-/*Table structure for table `deploy_version_env` */
-
+-- ----------------------------
+-- Table structure for deploy_version_env
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_env`;
-
 CREATE TABLE `deploy_version_env` (
   `version_id` bigint NOT NULL COMMENT '发布版本表关联id',
   `env_id` bigint NOT NULL COMMENT '环境id',
@@ -4019,10 +4059,20 @@ CREATE TABLE `deploy_version_env` (
   KEY `idx_jobId` (`job_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布版本环境关联表';
 
-/*Table structure for table `deploy_version_unit_test` */
+-- ----------------------------
+-- Table structure for deploy_version_issue
+-- ----------------------------
+DROP TABLE IF EXISTS `deploy_version_issue`;
+CREATE TABLE `deploy_version_issue` (
+  `version_id` bigint NOT NULL COMMENT '版本id',
+  `issue_id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '需求id',
+  PRIMARY KEY (`version_id`,`issue_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发布版本需求表';
 
+-- ----------------------------
+-- Table structure for deploy_version_unit_test
+-- ----------------------------
 DROP TABLE IF EXISTS `deploy_version_unit_test`;
-
 CREATE TABLE `deploy_version_unit_test` (
   `id` bigint NOT NULL COMMENT 'id',
   `version_id` bigint NOT NULL COMMENT '版本id',
@@ -4038,20 +4088,20 @@ CREATE TABLE `deploy_version_unit_test` (
   UNIQUE KEY `version_build_time` (`version_id`,`build_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='发版版本单元测试';
 
-/*Table structure for table `discovery_conf_combop` */
-
+-- ----------------------------
+-- Table structure for discovery_conf_combop
+-- ----------------------------
 DROP TABLE IF EXISTS `discovery_conf_combop`;
-
 CREATE TABLE `discovery_conf_combop` (
   `conf_id` bigint NOT NULL COMMENT '自动发现id',
   `combop_id` bigint NOT NULL COMMENT '组合工具id',
   PRIMARY KEY (`conf_id`,`combop_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自动发现关联组合工具表';
 
-/*Table structure for table `documentonline_config` */
-
+-- ----------------------------
+-- Table structure for documentonline_config
+-- ----------------------------
 DROP TABLE IF EXISTS `documentonline_config`;
-
 CREATE TABLE `documentonline_config` (
   `file_path` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文档路径',
   `module_group` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模块组标识',
@@ -4060,10 +4110,10 @@ CREATE TABLE `documentonline_config` (
   PRIMARY KEY (`file_path`,`module_group`,`menu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `event` */
-
+-- ----------------------------
+-- Table structure for event
+-- ----------------------------
 DROP TABLE IF EXISTS `event`;
-
 CREATE TABLE `event` (
   `id` bigint NOT NULL COMMENT '主键',
   `event_type_id` bigint NOT NULL COMMENT '事件类型ID',
@@ -4071,10 +4121,10 @@ CREATE TABLE `event` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='事件表';
 
-/*Table structure for table `event_solution` */
-
+-- ----------------------------
+-- Table structure for event_solution
+-- ----------------------------
 DROP TABLE IF EXISTS `event_solution`;
-
 CREATE TABLE `event_solution` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '解决方案名称',
@@ -4087,10 +4137,10 @@ CREATE TABLE `event_solution` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='事件解决方案表';
 
-/*Table structure for table `event_type` */
-
+-- ----------------------------
+-- Table structure for event_type
+-- ----------------------------
 DROP TABLE IF EXISTS `event_type`;
-
 CREATE TABLE `event_type` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '事件类型名称',
@@ -4103,10 +4153,10 @@ CREATE TABLE `event_type` (
   KEY `idx_rht_lft` (`rht`,`lft`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='事件类型表';
 
-/*Table structure for table `event_type_authority` */
-
+-- ----------------------------
+-- Table structure for event_type_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `event_type_authority`;
-
 CREATE TABLE `event_type_authority` (
   `event_type_id` bigint NOT NULL COMMENT '事件类型ID',
   `type` enum('common','user','team','role') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '授权对象类型',
@@ -4116,10 +4166,10 @@ CREATE TABLE `event_type_authority` (
   KEY `idx_uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='事件类型授权表';
 
-/*Table structure for table `event_type_solution` */
-
+-- ----------------------------
+-- Table structure for event_type_solution
+-- ----------------------------
 DROP TABLE IF EXISTS `event_type_solution`;
-
 CREATE TABLE `event_type_solution` (
   `event_type_id` bigint NOT NULL COMMENT '事件类型ID',
   `solution_id` bigint NOT NULL COMMENT '解决方案ID',
@@ -4128,13 +4178,13 @@ CREATE TABLE `event_type_solution` (
   KEY `idx_event_type_id` (`event_type_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='事件类型-解决方案关联表';
 
-/*Table structure for table `file` */
-
+-- ----------------------------
+-- Table structure for file
+-- ----------------------------
 DROP TABLE IF EXISTS `file`;
-
 CREATE TABLE `file` (
   `id` bigint NOT NULL COMMENT 'id',
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件名称',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件名称',
   `size` bigint NOT NULL COMMENT '文件大小',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '所属用户，引用user的user_uuid',
   `upload_time` timestamp(3) NULL DEFAULT NULL COMMENT '创建时间',
@@ -4148,20 +4198,20 @@ CREATE TABLE `file` (
   KEY `idx_name` (`name`,`unique_key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='上传文件信息表';
 
-/*Table structure for table `filetype_config` */
-
+-- ----------------------------
+-- Table structure for filetype_config
+-- ----------------------------
 DROP TABLE IF EXISTS `filetype_config`;
-
 CREATE TABLE `filetype_config` (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
   `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'jsong格式，进行允许扩展名等设置',
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='文件类型配置表';
 
-/*Table structure for table `form` */
-
+-- ----------------------------
+-- Table structure for form
+-- ----------------------------
 DROP TABLE IF EXISTS `form`;
-
 CREATE TABLE `form` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表单uuid',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表单名字',
@@ -4170,10 +4220,10 @@ CREATE TABLE `form` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='表单';
 
-/*Table structure for table `form_attribute` */
-
+-- ----------------------------
+-- Table structure for form_attribute
+-- ----------------------------
 DROP TABLE IF EXISTS `form_attribute`;
-
 CREATE TABLE `form_attribute` (
   `form_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表单uuid',
   `formversion_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表单版本uuid',
@@ -4186,10 +4236,10 @@ CREATE TABLE `form_attribute` (
   PRIMARY KEY (`form_uuid`,`formversion_uuid`,`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='表单版本属性';
 
-/*Table structure for table `form_attribute_matrix` */
-
+-- ----------------------------
+-- Table structure for form_attribute_matrix
+-- ----------------------------
 DROP TABLE IF EXISTS `form_attribute_matrix`;
-
 CREATE TABLE `form_attribute_matrix` (
   `form_version_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表单版本uuid',
   `matrix_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '矩阵uuid',
@@ -4198,10 +4248,10 @@ CREATE TABLE `form_attribute_matrix` (
   PRIMARY KEY (`form_version_uuid`,`matrix_uuid`,`form_attribute_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='表单属性引用矩阵关系表';
 
-/*Table structure for table `form_customitem` */
-
+-- ----------------------------
+-- Table structure for form_customitem
+-- ----------------------------
 DROP TABLE IF EXISTS `form_customitem`;
-
 CREATE TABLE `form_customitem` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '唯一标识',
@@ -4217,10 +4267,10 @@ CREATE TABLE `form_customitem` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='自定义表单属性表';
 
-/*Table structure for table `form_version` */
-
+-- ----------------------------
+-- Table structure for form_version
+-- ----------------------------
 DROP TABLE IF EXISTS `form_version`;
-
 CREATE TABLE `form_version` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表单版本uuid',
   `version` int DEFAULT NULL COMMENT '表单版本',
@@ -4235,10 +4285,10 @@ CREATE TABLE `form_version` (
   KEY `idx_form_uui` (`form_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='表单版本';
 
-/*Table structure for table `fulltextindex_content_autoexec` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_content_autoexec
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_content_autoexec`;
-
 CREATE TABLE `fulltextindex_content_autoexec` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_field` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字段',
@@ -4246,10 +4296,10 @@ CREATE TABLE `fulltextindex_content_autoexec` (
   PRIMARY KEY (`target_id`,`target_field`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标内容表';
 
-/*Table structure for table `fulltextindex_content_cmdb` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_content_cmdb
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_content_cmdb`;
-
 CREATE TABLE `fulltextindex_content_cmdb` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_field` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字段',
@@ -4257,10 +4307,10 @@ CREATE TABLE `fulltextindex_content_cmdb` (
   PRIMARY KEY (`target_id`,`target_field`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标内容表';
 
-/*Table structure for table `fulltextindex_content_knowledge` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_content_knowledge
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_content_knowledge`;
-
 CREATE TABLE `fulltextindex_content_knowledge` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_field` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字段',
@@ -4268,10 +4318,10 @@ CREATE TABLE `fulltextindex_content_knowledge` (
   PRIMARY KEY (`target_id`,`target_field`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标内容表';
 
-/*Table structure for table `fulltextindex_content_process` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_content_process
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_content_process`;
-
 CREATE TABLE `fulltextindex_content_process` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_field` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字段',
@@ -4279,10 +4329,10 @@ CREATE TABLE `fulltextindex_content_process` (
   PRIMARY KEY (`target_id`,`target_field`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标内容表';
 
-/*Table structure for table `fulltextindex_content_rdm` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_content_rdm
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_content_rdm`;
-
 CREATE TABLE `fulltextindex_content_rdm` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_field` varchar(100) COLLATE utf8mb4_general_ci NOT NULL COMMENT '字段',
@@ -4290,10 +4340,10 @@ CREATE TABLE `fulltextindex_content_rdm` (
   PRIMARY KEY (`target_id`,`target_field`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标内容表';
 
-/*Table structure for table `fulltextindex_field_autoexec` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_field_autoexec
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_field_autoexec`;
-
 CREATE TABLE `fulltextindex_field_autoexec` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word_id` bigint NOT NULL COMMENT '词id',
@@ -4303,12 +4353,12 @@ CREATE TABLE `fulltextindex_field_autoexec` (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `idx_word` (`word_id`,`target_id`,`target_field`) USING BTREE,
   KEY `idx_target_id` (`target_id`,`target_field`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=908653223018741 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
+) ENGINE=InnoDB AUTO_INCREMENT=957863408025723 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
 
-/*Table structure for table `fulltextindex_field_cmdb` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_field_cmdb
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_field_cmdb`;
-
 CREATE TABLE `fulltextindex_field_cmdb` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word_id` bigint NOT NULL COMMENT '词id',
@@ -4318,12 +4368,12 @@ CREATE TABLE `fulltextindex_field_cmdb` (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `idx_word` (`word_id`,`target_id`,`target_field`) USING BTREE,
   KEY `idx_target_id` (`target_id`,`target_field`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=929487817392204 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
+) ENGINE=InnoDB AUTO_INCREMENT=958599147667496 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
 
-/*Table structure for table `fulltextindex_field_knowledge` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_field_knowledge
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_field_knowledge`;
-
 CREATE TABLE `fulltextindex_field_knowledge` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word_id` bigint NOT NULL COMMENT '词id',
@@ -4333,12 +4383,12 @@ CREATE TABLE `fulltextindex_field_knowledge` (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `idx_word` (`word_id`,`target_id`,`target_field`) USING BTREE,
   KEY `idx_target_id` (`target_id`,`target_field`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=923823678275591 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
+) ENGINE=InnoDB AUTO_INCREMENT=960109709475845 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
 
-/*Table structure for table `fulltextindex_field_process` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_field_process
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_field_process`;
-
 CREATE TABLE `fulltextindex_field_process` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word_id` bigint NOT NULL COMMENT '词id',
@@ -4348,12 +4398,12 @@ CREATE TABLE `fulltextindex_field_process` (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `idx_word` (`word_id`,`target_id`,`target_field`) USING BTREE,
   KEY `idx_target_id` (`target_id`,`target_field`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=923682137292817 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
+) ENGINE=InnoDB AUTO_INCREMENT=952831476351347 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
 
-/*Table structure for table `fulltextindex_field_rdm` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_field_rdm
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_field_rdm`;
-
 CREATE TABLE `fulltextindex_field_rdm` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word_id` bigint NOT NULL COMMENT '词id',
@@ -4363,12 +4413,12 @@ CREATE TABLE `fulltextindex_field_rdm` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_word` (`word_id`,`target_id`,`target_field`),
   KEY `idx_target_id` (`target_id`,`target_field`)
-) ENGINE=InnoDB AUTO_INCREMENT=934601915482469 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
+) ENGINE=InnoDB AUTO_INCREMENT=960150369059008 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词表';
 
-/*Table structure for table `fulltextindex_offset_autoexec` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_offset_autoexec
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_offset_autoexec`;
-
 CREATE TABLE `fulltextindex_offset_autoexec` (
   `field_id` bigint NOT NULL COMMENT '词id',
   `start` int NOT NULL COMMENT 'start',
@@ -4376,10 +4426,10 @@ CREATE TABLE `fulltextindex_offset_autoexec` (
   PRIMARY KEY (`field_id`,`start`,`end`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词定位表';
 
-/*Table structure for table `fulltextindex_offset_cmdb` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_offset_cmdb
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_offset_cmdb`;
-
 CREATE TABLE `fulltextindex_offset_cmdb` (
   `field_id` bigint NOT NULL COMMENT '词id',
   `start` int NOT NULL COMMENT 'start',
@@ -4387,10 +4437,10 @@ CREATE TABLE `fulltextindex_offset_cmdb` (
   PRIMARY KEY (`field_id`,`start`,`end`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词定位表';
 
-/*Table structure for table `fulltextindex_offset_knowledge` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_offset_knowledge
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_offset_knowledge`;
-
 CREATE TABLE `fulltextindex_offset_knowledge` (
   `field_id` bigint NOT NULL COMMENT '词id',
   `start` int NOT NULL COMMENT 'start',
@@ -4398,10 +4448,10 @@ CREATE TABLE `fulltextindex_offset_knowledge` (
   PRIMARY KEY (`field_id`,`start`,`end`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词定位表';
 
-/*Table structure for table `fulltextindex_offset_process` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_offset_process
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_offset_process`;
-
 CREATE TABLE `fulltextindex_offset_process` (
   `field_id` bigint NOT NULL COMMENT '词id',
   `start` int NOT NULL COMMENT 'start',
@@ -4409,10 +4459,10 @@ CREATE TABLE `fulltextindex_offset_process` (
   PRIMARY KEY (`field_id`,`start`,`end`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词定位表';
 
-/*Table structure for table `fulltextindex_offset_rdm` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_offset_rdm
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_offset_rdm`;
-
 CREATE TABLE `fulltextindex_offset_rdm` (
   `field_id` bigint NOT NULL COMMENT '词id',
   `start` int NOT NULL COMMENT 'start',
@@ -4420,10 +4470,10 @@ CREATE TABLE `fulltextindex_offset_rdm` (
   PRIMARY KEY (`field_id`,`start`,`end`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引词定位表';
 
-/*Table structure for table `fulltextindex_rebuild_audit` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_rebuild_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_rebuild_audit`;
-
 CREATE TABLE `fulltextindex_rebuild_audit` (
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
   `status` enum('doing','done') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '状态',
@@ -4435,10 +4485,10 @@ CREATE TABLE `fulltextindex_rebuild_audit` (
   PRIMARY KEY (`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='索引重建日志';
 
-/*Table structure for table `fulltextindex_target_autoexec` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_target_autoexec
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_target_autoexec`;
-
 CREATE TABLE `fulltextindex_target_autoexec` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标类型',
@@ -4449,10 +4499,10 @@ CREATE TABLE `fulltextindex_target_autoexec` (
   KEY `idx_type` (`target_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引命中表';
 
-/*Table structure for table `fulltextindex_target_cmdb` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_target_cmdb
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_target_cmdb`;
-
 CREATE TABLE `fulltextindex_target_cmdb` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标类型',
@@ -4463,10 +4513,10 @@ CREATE TABLE `fulltextindex_target_cmdb` (
   KEY `idx_type` (`target_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引命中表';
 
-/*Table structure for table `fulltextindex_target_knowledge` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_target_knowledge
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_target_knowledge`;
-
 CREATE TABLE `fulltextindex_target_knowledge` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标类型',
@@ -4477,10 +4527,10 @@ CREATE TABLE `fulltextindex_target_knowledge` (
   KEY `idx_type` (`target_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引命中表';
 
-/*Table structure for table `fulltextindex_target_process` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_target_process
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_target_process`;
-
 CREATE TABLE `fulltextindex_target_process` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标类型',
@@ -4491,10 +4541,10 @@ CREATE TABLE `fulltextindex_target_process` (
   KEY `idx_type` (`target_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引命中表';
 
-/*Table structure for table `fulltextindex_target_rdm` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_target_rdm
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_target_rdm`;
-
 CREATE TABLE `fulltextindex_target_rdm` (
   `target_id` bigint NOT NULL COMMENT '目标id',
   `target_type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标类型',
@@ -4505,10 +4555,10 @@ CREATE TABLE `fulltextindex_target_rdm` (
   KEY `idx_type` (`target_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='目标索引命中表';
 
-/*Table structure for table `fulltextindex_word` */
-
+-- ----------------------------
+-- Table structure for fulltextindex_word
+-- ----------------------------
 DROP TABLE IF EXISTS `fulltextindex_word`;
-
 CREATE TABLE `fulltextindex_word` (
   `id` bigint unsigned NOT NULL COMMENT 'id',
   `word` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'word',
@@ -4517,10 +4567,10 @@ CREATE TABLE `fulltextindex_word` (
   UNIQUE KEY `idx_word` (`word`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='wordbook';
 
-/*Table structure for table `global_lock` */
-
+-- ----------------------------
+-- Table structure for global_lock
+-- ----------------------------
 DROP TABLE IF EXISTS `global_lock`;
-
 CREATE TABLE `global_lock` (
   `id` bigint NOT NULL COMMENT '主键id',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'key 散列的唯一标识',
@@ -4535,10 +4585,10 @@ CREATE TABLE `global_lock` (
   KEY `idx_uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='全局锁';
 
-/*Table structure for table `globalsearch_document` */
-
+-- ----------------------------
+-- Table structure for globalsearch_document
+-- ----------------------------
 DROP TABLE IF EXISTS `globalsearch_document`;
-
 CREATE TABLE `globalsearch_document` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `target_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'target_id',
@@ -4551,10 +4601,10 @@ CREATE TABLE `globalsearch_document` (
   UNIQUE KEY `idx_targetid` (`target_id`,`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='globalsearch_document';
 
-/*Table structure for table `globalsearch_document_field` */
-
+-- ----------------------------
+-- Table structure for globalsearch_document_field
+-- ----------------------------
 DROP TABLE IF EXISTS `globalsearch_document_field`;
-
 CREATE TABLE `globalsearch_document_field` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word_id` bigint NOT NULL COMMENT '词id',
@@ -4567,10 +4617,10 @@ CREATE TABLE `globalsearch_document_field` (
   KEY `idx_word` (`word_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='globalsearch_document_field';
 
-/*Table structure for table `globalsearch_document_offset` */
-
+-- ----------------------------
+-- Table structure for globalsearch_document_offset
+-- ----------------------------
 DROP TABLE IF EXISTS `globalsearch_document_offset`;
-
 CREATE TABLE `globalsearch_document_offset` (
   `field_id` bigint NOT NULL COMMENT 'field_id',
   `type` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
@@ -4580,10 +4630,10 @@ CREATE TABLE `globalsearch_document_offset` (
   KEY `idx_field_id` (`field_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='globalsearch_document_offset';
 
-/*Table structure for table `globalsearch_rebuild_audit` */
-
+-- ----------------------------
+-- Table structure for globalsearch_rebuild_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `globalsearch_rebuild_audit`;
-
 CREATE TABLE `globalsearch_rebuild_audit` (
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'type',
   `status` enum('doing','done') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'status',
@@ -4594,10 +4644,10 @@ CREATE TABLE `globalsearch_rebuild_audit` (
   PRIMARY KEY (`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='rebuild_audit';
 
-/*Table structure for table `globalsearch_wordbook` */
-
+-- ----------------------------
+-- Table structure for globalsearch_wordbook
+-- ----------------------------
 DROP TABLE IF EXISTS `globalsearch_wordbook`;
-
 CREATE TABLE `globalsearch_wordbook` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'word',
@@ -4606,10 +4656,10 @@ CREATE TABLE `globalsearch_wordbook` (
   UNIQUE KEY `idx_word` (`word`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='wordbook';
 
-/*Table structure for table `inspect_accessendpoint_script` */
-
+-- ----------------------------
+-- Table structure for inspect_accessendpoint_script
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_accessendpoint_script`;
-
 CREATE TABLE `inspect_accessendpoint_script` (
   `resource_id` bigint NOT NULL COMMENT '资源id',
   `script_id` bigint DEFAULT NULL COMMENT '脚本id',
@@ -4617,10 +4667,10 @@ CREATE TABLE `inspect_accessendpoint_script` (
   PRIMARY KEY (`resource_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='资产清单的脚本关联表';
 
-/*Table structure for table `inspect_alert_everyday` */
-
+-- ----------------------------
+-- Table structure for inspect_alert_everyday
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_alert_everyday`;
-
 CREATE TABLE `inspect_alert_everyday` (
   `report_time` date NOT NULL COMMENT '巡检时间',
   `resource_id` bigint NOT NULL COMMENT '资产ID',
@@ -4633,10 +4683,10 @@ CREATE TABLE `inspect_alert_everyday` (
   KEY `idx_alertlevel` (`alert_level`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='巡检告警统计表';
 
-/*Table structure for table `inspect_appsystem_schedule` */
-
+-- ----------------------------
+-- Table structure for inspect_appsystem_schedule
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_appsystem_schedule`;
-
 CREATE TABLE `inspect_appsystem_schedule` (
   `id` bigint NOT NULL COMMENT 'id',
   `app_system_id` bigint NOT NULL COMMENT '应用ID',
@@ -4652,20 +4702,20 @@ CREATE TABLE `inspect_appsystem_schedule` (
   UNIQUE KEY `idx_app_system_id` (`app_system_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时巡检';
 
-/*Table structure for table `inspect_ci_combop` */
-
+-- ----------------------------
+-- Table structure for inspect_ci_combop
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_ci_combop`;
-
 CREATE TABLE `inspect_ci_combop` (
   `ci_id` bigint NOT NULL COMMENT 'ciType',
   `combop_id` bigint DEFAULT NULL COMMENT '组合工具id',
   PRIMARY KEY (`ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='巡检配置组合';
 
-/*Table structure for table `inspect_config_file_audit` */
-
+-- ----------------------------
+-- Table structure for inspect_config_file_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_config_file_audit`;
-
 CREATE TABLE `inspect_config_file_audit` (
   `id` bigint NOT NULL COMMENT '唯一标识',
   `inspect_time` timestamp(3) NOT NULL COMMENT '巡检时间',
@@ -4674,10 +4724,10 @@ CREATE TABLE `inspect_config_file_audit` (
   KEY `idx_path_id` (`path_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='巡检资源配置文件记录';
 
-/*Table structure for table `inspect_config_file_last_change_time` */
-
+-- ----------------------------
+-- Table structure for inspect_config_file_last_change_time
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_config_file_last_change_time`;
-
 CREATE TABLE `inspect_config_file_last_change_time` (
   `resource_id` bigint NOT NULL COMMENT '资产id',
   `last_change_time` timestamp(3) NOT NULL COMMENT '最近变更时间',
@@ -4685,10 +4735,10 @@ CREATE TABLE `inspect_config_file_last_change_time` (
   KEY `idx_last_change_time` (`last_change_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='巡检资产最近变更时间';
 
-/*Table structure for table `inspect_config_file_path` */
-
+-- ----------------------------
+-- Table structure for inspect_config_file_path
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_config_file_path`;
-
 CREATE TABLE `inspect_config_file_path` (
   `id` bigint NOT NULL COMMENT '唯一标识',
   `resource_id` bigint NOT NULL COMMENT '资源id',
@@ -4700,10 +4750,10 @@ CREATE TABLE `inspect_config_file_path` (
   KEY `idx_resource_id` (`resource_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='巡检资源配置文件路径';
 
-/*Table structure for table `inspect_config_file_version` */
-
+-- ----------------------------
+-- Table structure for inspect_config_file_version
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_config_file_version`;
-
 CREATE TABLE `inspect_config_file_version` (
   `id` bigint NOT NULL COMMENT '唯一标识',
   `md5` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'MD5',
@@ -4717,10 +4767,10 @@ CREATE TABLE `inspect_config_file_version` (
   KEY `idx_path_id` (`path_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='巡检资源配置文件版本';
 
-/*Table structure for table `inspect_new_problem_customview` */
-
+-- ----------------------------
+-- Table structure for inspect_new_problem_customview
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_new_problem_customview`;
-
 CREATE TABLE `inspect_new_problem_customview` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -4731,10 +4781,10 @@ CREATE TABLE `inspect_new_problem_customview` (
   UNIQUE KEY `idx_name_user` (`name`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='巡检报告个人视图';
 
-/*Table structure for table `inspect_schedule` */
-
+-- ----------------------------
+-- Table structure for inspect_schedule
+-- ----------------------------
 DROP TABLE IF EXISTS `inspect_schedule`;
-
 CREATE TABLE `inspect_schedule` (
   `id` bigint NOT NULL COMMENT 'id',
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'uuid',
@@ -4751,10 +4801,10 @@ CREATE TABLE `inspect_schedule` (
   UNIQUE KEY `idx_ci_id` (`ci_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时巡检';
 
-/*Table structure for table `integration` */
-
+-- ----------------------------
+-- Table structure for integration
+-- ----------------------------
 DROP TABLE IF EXISTS `integration`;
-
 CREATE TABLE `integration` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -4773,10 +4823,10 @@ CREATE TABLE `integration` (
   KEY `idx_lcd` (`lcd`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='集成配置表';
 
-/*Table structure for table `integration_audit` */
-
+-- ----------------------------
+-- Table structure for integration_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `integration_audit`;
-
 CREATE TABLE `integration_audit` (
   `id` bigint NOT NULL COMMENT '记录id',
   `integration_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '接口token',
@@ -4797,10 +4847,10 @@ CREATE TABLE `integration_audit` (
   KEY `idx_integration_uuid` (`integration_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='integration_audit';
 
-/*Table structure for table `integration_invoke` */
-
+-- ----------------------------
+-- Table structure for integration_invoke
+-- ----------------------------
 DROP TABLE IF EXISTS `integration_invoke`;
-
 CREATE TABLE `integration_invoke` (
   `integration_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '集成配置uuid',
   `invoke_config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'config',
@@ -4809,20 +4859,20 @@ CREATE TABLE `integration_invoke` (
   KEY `idx_invoke_hash` (`invoke_hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='集成配置接口调用表';
 
-/*Table structure for table `knowledge_circle` */
-
+-- ----------------------------
+-- Table structure for knowledge_circle
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_circle`;
-
 CREATE TABLE `knowledge_circle` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识圈表';
 
-/*Table structure for table `knowledge_circle_user` */
-
+-- ----------------------------
+-- Table structure for knowledge_circle_user
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_circle_user`;
-
 CREATE TABLE `knowledge_circle_user` (
   `knowledge_circle_id` bigint NOT NULL COMMENT '知识圈ID',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户/角色/分组UUID',
@@ -4831,10 +4881,10 @@ CREATE TABLE `knowledge_circle_user` (
   PRIMARY KEY (`knowledge_circle_id`,`uuid`,`type`,`auth_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识圈用户表';
 
-/*Table structure for table `knowledge_document` */
-
+-- ----------------------------
+-- Table structure for knowledge_document
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document`;
-
 CREATE TABLE `knowledge_document` (
   `id` bigint NOT NULL COMMENT '文档主键id',
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标题',
@@ -4850,10 +4900,10 @@ CREATE TABLE `knowledge_document` (
   KEY `source_idx` (`source`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档';
 
-/*Table structure for table `knowledge_document_audit` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_audit`;
-
 CREATE TABLE `knowledge_document_audit` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `knowledge_document_id` bigint DEFAULT NULL COMMENT '知识id',
@@ -4864,22 +4914,22 @@ CREATE TABLE `knowledge_document_audit` (
   `config_hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '配置hash',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_document` (`knowledge_document_id`,`knowledge_document_version_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识库操作记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=341 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识库操作记录表';
 
-/*Table structure for table `knowledge_document_audit_detail` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_audit_detail
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_audit_detail`;
-
 CREATE TABLE `knowledge_document_audit_detail` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '记录hash',
   `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '记录详细',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识库操作记录详情表';
 
-/*Table structure for table `knowledge_document_collect` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_collect
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_collect`;
-
 CREATE TABLE `knowledge_document_collect` (
   `knowledge_document_id` bigint NOT NULL COMMENT '文档主键',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户UUID',
@@ -4887,10 +4937,10 @@ CREATE TABLE `knowledge_document_collect` (
   PRIMARY KEY (`knowledge_document_id`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档收集';
 
-/*Table structure for table `knowledge_document_favor` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_favor
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_favor`;
-
 CREATE TABLE `knowledge_document_favor` (
   `knowledge_document_id` bigint NOT NULL COMMENT '文档主键',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户UUID',
@@ -4898,10 +4948,10 @@ CREATE TABLE `knowledge_document_favor` (
   PRIMARY KEY (`knowledge_document_id`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档收藏';
 
-/*Table structure for table `knowledge_document_file` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_file
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_file`;
-
 CREATE TABLE `knowledge_document_file` (
   `knowledge_document_id` bigint NOT NULL COMMENT '文档id',
   `knowledge_document_version_id` bigint NOT NULL COMMENT '文档版本id',
@@ -4909,10 +4959,10 @@ CREATE TABLE `knowledge_document_file` (
   PRIMARY KEY (`knowledge_document_id`,`knowledge_document_version_id`,`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档附件';
 
-/*Table structure for table `knowledge_document_invoke` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_invoke
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_invoke`;
-
 CREATE TABLE `knowledge_document_invoke` (
   `knowledge_document_id` bigint NOT NULL COMMENT '知识文档id',
   `invoke_id` bigint NOT NULL COMMENT '调用者id',
@@ -4921,10 +4971,10 @@ CREATE TABLE `knowledge_document_invoke` (
   UNIQUE KEY `idx_invoke_id` (`invoke_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档调用';
 
-/*Table structure for table `knowledge_document_line` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_line
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_line`;
-
 CREATE TABLE `knowledge_document_line` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '行uuid',
   `handler` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '行组件',
@@ -4939,30 +4989,30 @@ CREATE TABLE `knowledge_document_line` (
   KEY `idx_document_linenum` (`line_number`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档行';
 
-/*Table structure for table `knowledge_document_line_config` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_line_config
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_line_config`;
-
 CREATE TABLE `knowledge_document_line_config` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键',
   `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '配置',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档行配置';
 
-/*Table structure for table `knowledge_document_line_content` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_line_content
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_line_content`;
-
 CREATE TABLE `knowledge_document_line_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash值',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '文本内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档行内容';
 
-/*Table structure for table `knowledge_document_tag` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_tag`;
-
 CREATE TABLE `knowledge_document_tag` (
   `knowledge_document_id` bigint NOT NULL COMMENT '文档id',
   `knowledge_document_version_id` bigint NOT NULL COMMENT '文档版本id',
@@ -4970,10 +5020,10 @@ CREATE TABLE `knowledge_document_tag` (
   PRIMARY KEY (`knowledge_document_id`,`knowledge_document_version_id`,`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识文档标签';
 
-/*Table structure for table `knowledge_document_type` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_type
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_type`;
-
 CREATE TABLE `knowledge_document_type` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键ID',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -4985,10 +5035,10 @@ CREATE TABLE `knowledge_document_type` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识类型表';
 
-/*Table structure for table `knowledge_document_version` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_version
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_version`;
-
 CREATE TABLE `knowledge_document_version` (
   `id` bigint NOT NULL COMMENT '文档版本主键id',
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标题',
@@ -5007,20 +5057,20 @@ CREATE TABLE `knowledge_document_version` (
   KEY `idx_knowledge_document_id` (`knowledge_document_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识库版本表';
 
-/*Table structure for table `knowledge_document_view_count` */
-
+-- ----------------------------
+-- Table structure for knowledge_document_view_count
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_document_view_count`;
-
 CREATE TABLE `knowledge_document_view_count` (
   `knowledge_document_id` bigint NOT NULL COMMENT '文档主键',
   `count` int DEFAULT NULL COMMENT '浏览量',
   PRIMARY KEY (`knowledge_document_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识查看次数';
 
-/*Table structure for table `knowledge_tag` */
-
+-- ----------------------------
+-- Table structure for knowledge_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_tag`;
-
 CREATE TABLE `knowledge_tag` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '标签名',
@@ -5028,10 +5078,10 @@ CREATE TABLE `knowledge_tag` (
   UNIQUE KEY `idx_name_unique` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识库标签表';
 
-/*Table structure for table `knowledge_template` */
-
+-- ----------------------------
+-- Table structure for knowledge_template
+-- ----------------------------
 DROP TABLE IF EXISTS `knowledge_template`;
-
 CREATE TABLE `knowledge_template` (
   `id` bigint NOT NULL COMMENT '主键ID',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模版名称',
@@ -5045,19 +5095,19 @@ CREATE TABLE `knowledge_template` (
   KEY `idx_lcd` (`lcd`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='知识库模版';
 
-/*Table structure for table `lock` */
-
+-- ----------------------------
+-- Table structure for lock
+-- ----------------------------
 DROP TABLE IF EXISTS `lock`;
-
 CREATE TABLE `lock` (
   `id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'id',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='专门用来放锁的表';
 
-/*Table structure for table `login_captcha` */
-
+-- ----------------------------
+-- Table structure for login_captcha
+-- ----------------------------
 DROP TABLE IF EXISTS `login_captcha`;
-
 CREATE TABLE `login_captcha` (
   `session_id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '登录session_id',
   `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '验证码',
@@ -5066,24 +5116,25 @@ CREATE TABLE `login_captcha` (
   KEY `idx_expired_time` (`expired_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='登录验证码表';
 
-/*Table structure for table `login_failed_count` */
-
+-- ----------------------------
+-- Table structure for login_failed_count
+-- ----------------------------
 DROP TABLE IF EXISTS `login_failed_count`;
-
 CREATE TABLE `login_failed_count` (
   `user_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
   `failed_count` int DEFAULT NULL COMMENT '错误次数',
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='登录失败次数';
 
-/*Table structure for table `mail_server` */
-
+-- ----------------------------
+-- Table structure for mail_server
+-- ----------------------------
 DROP TABLE IF EXISTS `mail_server`;
-
 CREATE TABLE `mail_server` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
   `host` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'host',
+  `ssl_enable` enum('true','false') COLLATE utf8mb4_general_ci NOT NULL COMMENT '是否使用SSL',
   `port` int NOT NULL COMMENT '端口',
   `from_address` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '邮箱地址',
   `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户名',
@@ -5092,10 +5143,10 @@ CREATE TABLE `mail_server` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='邮件服务器表';
 
-/*Table structure for table `matrix` */
-
+-- ----------------------------
+-- Table structure for matrix
+-- ----------------------------
 DROP TABLE IF EXISTS `matrix`;
-
 CREATE TABLE `matrix` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增主键',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '唯一表示id',
@@ -5111,10 +5162,10 @@ CREATE TABLE `matrix` (
   UNIQUE KEY `uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=474 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='矩阵信息表';
 
-/*Table structure for table `matrix_attribute` */
-
+-- ----------------------------
+-- Table structure for matrix_attribute
+-- ----------------------------
 DROP TABLE IF EXISTS `matrix_attribute`;
-
 CREATE TABLE `matrix_attribute` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '属性uuid',
@@ -5128,10 +5179,10 @@ CREATE TABLE `matrix_attribute` (
   UNIQUE KEY `matrix_attribute_key` (`matrix_uuid`,`uuid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1084 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='矩阵自定义属性表';
 
-/*Table structure for table `matrix_ci` */
-
+-- ----------------------------
+-- Table structure for matrix_ci
+-- ----------------------------
 DROP TABLE IF EXISTS `matrix_ci`;
-
 CREATE TABLE `matrix_ci` (
   `matrix_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '矩阵uuid',
   `ci_id` bigint NOT NULL COMMENT 'ci模型id',
@@ -5139,20 +5190,20 @@ CREATE TABLE `matrix_ci` (
   PRIMARY KEY (`matrix_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb模型矩阵';
 
-/*Table structure for table `matrix_external` */
-
+-- ----------------------------
+-- Table structure for matrix_external
+-- ----------------------------
 DROP TABLE IF EXISTS `matrix_external`;
-
 CREATE TABLE `matrix_external` (
   `matrix_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '矩阵uuid',
   `integration_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '插件类型',
   PRIMARY KEY (`matrix_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='矩阵外部数据源配置信息表';
 
-/*Table structure for table `matrix_view` */
-
+-- ----------------------------
+-- Table structure for matrix_view
+-- ----------------------------
 DROP TABLE IF EXISTS `matrix_view`;
-
 CREATE TABLE `matrix_view` (
   `matrix_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '矩阵uuid',
   `file_id` bigint DEFAULT NULL COMMENT '配置文件',
@@ -5162,10 +5213,10 @@ CREATE TABLE `matrix_view` (
   PRIMARY KEY (`matrix_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='矩阵视图表';
 
-/*Table structure for table `menu` */
-
+-- ----------------------------
+-- Table structure for menu
+-- ----------------------------
 DROP TABLE IF EXISTS `menu`;
-
 CREATE TABLE `menu` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '菜单名称',
@@ -5181,10 +5232,10 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='菜单表';
 
-/*Table structure for table `menu_mobile` */
-
+-- ----------------------------
+-- Table structure for menu_mobile
+-- ----------------------------
 DROP TABLE IF EXISTS `menu_mobile`;
-
 CREATE TABLE `menu_mobile` (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '菜单标识',
   `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '菜单名',
@@ -5194,20 +5245,20 @@ CREATE TABLE `menu_mobile` (
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='移动菜单';
 
-/*Table structure for table `menu_role` */
-
+-- ----------------------------
+-- Table structure for menu_role
+-- ----------------------------
 DROP TABLE IF EXISTS `menu_role`;
-
 CREATE TABLE `menu_role` (
   `menu_id` bigint NOT NULL COMMENT '菜单Id',
   `role_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色uuid(引用role的uuid)',
   PRIMARY KEY (`menu_id`,`role_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='菜单角色表';
 
-/*Table structure for table `message` */
-
+-- ----------------------------
+-- Table structure for message
+-- ----------------------------
 DROP TABLE IF EXISTS `message`;
-
 CREATE TABLE `message` (
   `id` bigint NOT NULL COMMENT '主键id',
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标题',
@@ -5221,10 +5272,10 @@ CREATE TABLE `message` (
   KEY `idx_insert_time` (`insert_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='消息详情表';
 
-/*Table structure for table `message_recipient` */
-
+-- ----------------------------
+-- Table structure for message_recipient
+-- ----------------------------
 DROP TABLE IF EXISTS `message_recipient`;
-
 CREATE TABLE `message_recipient` (
   `message_id` bigint NOT NULL COMMENT '消息id',
   `type` enum('user','team','role') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '接收者类型，用户、组、角色',
@@ -5232,10 +5283,10 @@ CREATE TABLE `message_recipient` (
   PRIMARY KEY (`uuid`,`message_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='消息接收者表';
 
-/*Table structure for table `message_subscribe` */
-
+-- ----------------------------
+-- Table structure for message_subscribe
+-- ----------------------------
 DROP TABLE IF EXISTS `message_subscribe`;
-
 CREATE TABLE `message_subscribe` (
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '订阅用户uuid',
   `handler` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '消息类型处理器全类名',
@@ -5245,10 +5296,10 @@ CREATE TABLE `message_subscribe` (
   PRIMARY KEY (`user_uuid`,`handler`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='消息订阅表';
 
-/*Table structure for table `message_user` */
-
+-- ----------------------------
+-- Table structure for message_user
+-- ----------------------------
 DROP TABLE IF EXISTS `message_user`;
-
 CREATE TABLE `message_user` (
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
   `message_id` bigint NOT NULL COMMENT '消息id',
@@ -5260,10 +5311,10 @@ CREATE TABLE `message_user` (
   KEY `idx_news_message_id` (`message_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户消息状态表';
 
-/*Table structure for table `mq_subscribe` */
-
+-- ----------------------------
+-- Table structure for mq_subscribe
+-- ----------------------------
 DROP TABLE IF EXISTS `mq_subscribe`;
-
 CREATE TABLE `mq_subscribe` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '唯一标识',
@@ -5281,20 +5332,30 @@ CREATE TABLE `mq_subscribe` (
   KEY `idx_classname` (`class_name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='mq订阅表';
 
-/*Table structure for table `mq_topic` */
-
+-- ----------------------------
+-- Table structure for mq_topic
+-- ----------------------------
 DROP TABLE IF EXISTS `mq_topic`;
-
 CREATE TABLE `mq_topic` (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
   `is_active` tinyint(1) DEFAULT NULL COMMENT '是否激活',
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='mq主题表';
 
-/*Table structure for table `notify_job` */
+-- ----------------------------
+-- Table structure for notify_config
+-- ----------------------------
+DROP TABLE IF EXISTS `notify_config`;
+CREATE TABLE `notify_config` (
+  `type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '通知类型',
+  `config` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '配置',
+  PRIMARY KEY (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='通知配置表';
 
+-- ----------------------------
+-- Table structure for notify_job
+-- ----------------------------
 DROP TABLE IF EXISTS `notify_job`;
-
 CREATE TABLE `notify_job` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '任务名称',
@@ -5310,10 +5371,10 @@ CREATE TABLE `notify_job` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='通知定时任务表';
 
-/*Table structure for table `notify_job_receiver` */
-
+-- ----------------------------
+-- Table structure for notify_job_receiver
+-- ----------------------------
 DROP TABLE IF EXISTS `notify_job_receiver`;
-
 CREATE TABLE `notify_job_receiver` (
   `notify_job_id` bigint NOT NULL COMMENT '通知定时任务ID',
   `receiver` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '接收者、组、角色uuid或者邮箱',
@@ -5322,10 +5383,10 @@ CREATE TABLE `notify_job_receiver` (
   PRIMARY KEY (`notify_job_id`,`receiver`,`type`,`receive_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='通知定时任务接收者表';
 
-/*Table structure for table `notify_policy` */
-
+-- ----------------------------
+-- Table structure for notify_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `notify_policy`;
-
 CREATE TABLE `notify_policy` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -5339,20 +5400,20 @@ CREATE TABLE `notify_policy` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='通知策略信息表';
 
-/*Table structure for table `pbc_branch_item` */
-
+-- ----------------------------
+-- Table structure for pbc_branch_item
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_branch_item`;
-
 CREATE TABLE `pbc_branch_item` (
   `branch_id` bigint NOT NULL COMMENT '批次ID',
   `item_id` bigint NOT NULL COMMENT '数据ID',
   PRIMARY KEY (`branch_id`,`item_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送批次关联报送数据表';
 
-/*Table structure for table `pbc_category` */
-
+-- ----------------------------
+-- Table structure for pbc_category
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_category`;
-
 CREATE TABLE `pbc_category` (
   `id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '一级分类标识符（两位）、二级分类标识符（两位）、三级分类标识符（三位）和四级分类标识符（三位）',
   `interface_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '数据元名称',
@@ -5370,10 +5431,10 @@ CREATE TABLE `pbc_category` (
   KEY `idx_full_category` (`name_1`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送分类标识符表';
 
-/*Table structure for table `pbc_corporation` */
-
+-- ----------------------------
+-- Table structure for pbc_corporation
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_corporation`;
-
 CREATE TABLE `pbc_corporation` (
   `id` bigint NOT NULL COMMENT '主键',
   `config` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '配置',
@@ -5381,10 +5442,10 @@ CREATE TABLE `pbc_corporation` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送公司表';
 
-/*Table structure for table `pbc_enum` */
-
+-- ----------------------------
+-- Table structure for pbc_enum
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_enum`;
-
 CREATE TABLE `pbc_enum` (
   `property_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '人行属性ID',
   `text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '枚举属性显示',
@@ -5392,10 +5453,10 @@ CREATE TABLE `pbc_enum` (
   PRIMARY KEY (`property_id`,`value`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送属性枚举表';
 
-/*Table structure for table `pbc_interface` */
-
+-- ----------------------------
+-- Table structure for pbc_interface
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_interface`;
-
 CREATE TABLE `pbc_interface` (
   `uid` int NOT NULL COMMENT '数字id',
   `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '人行提供的id',
@@ -5411,10 +5472,10 @@ CREATE TABLE `pbc_interface` (
   UNIQUE KEY `uk_id` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送模型表';
 
-/*Table structure for table `pbc_interface_corporation` */
-
+-- ----------------------------
+-- Table structure for pbc_interface_corporation
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_interface_corporation`;
-
 CREATE TABLE `pbc_interface_corporation` (
   `interface_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '接口id',
   `rule` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '规则',
@@ -5422,10 +5483,10 @@ CREATE TABLE `pbc_interface_corporation` (
   PRIMARY KEY (`interface_id`,`corporation_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送接口公司关联表';
 
-/*Table structure for table `pbc_interface_item` */
-
+-- ----------------------------
+-- Table structure for pbc_interface_item
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_interface_item`;
-
 CREATE TABLE `pbc_interface_item` (
   `id` bigint NOT NULL COMMENT '雪花id',
   `interface_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '接口id',
@@ -5449,10 +5510,10 @@ CREATE TABLE `pbc_interface_item` (
   KEY `idx_primary_key` (`primary_key`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送模型数据表';
 
-/*Table structure for table `pbc_policy` */
-
+-- ----------------------------
+-- Table structure for pbc_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_policy`;
-
 CREATE TABLE `pbc_policy` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -5467,10 +5528,10 @@ CREATE TABLE `pbc_policy` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送策略表';
 
-/*Table structure for table `pbc_policy_audit` */
-
+-- ----------------------------
+-- Table structure for pbc_policy_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_policy_audit`;
-
 CREATE TABLE `pbc_policy_audit` (
   `id` bigint NOT NULL COMMENT '主键',
   `policy_id` bigint DEFAULT NULL COMMENT '策略id',
@@ -5486,31 +5547,33 @@ CREATE TABLE `pbc_policy_audit` (
   KEY `idx_end_time` (`end_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送策略执行记录表';
 
-/*Table structure for table `pbc_policy_audit_interfaceitem` */
-
+-- ----------------------------
+-- Table structure for pbc_policy_audit_interfaceitem
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_policy_audit_interfaceitem`;
-
 CREATE TABLE `pbc_policy_audit_interfaceitem` (
   `audit_id` bigint NOT NULL COMMENT '策略执行记录ID',
   `interfaceitem_id` bigint NOT NULL COMMENT '模型数据ID',
   `action` enum('new','update','delete') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '动作',
+  `branch_id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `group_id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`audit_id`,`interfaceitem_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送策略执行记录关联报送数据表';
 
-/*Table structure for table `pbc_policy_interface` */
-
+-- ----------------------------
+-- Table structure for pbc_policy_interface
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_policy_interface`;
-
 CREATE TABLE `pbc_policy_interface` (
   `policy_id` bigint NOT NULL COMMENT '策略id',
   `interface_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '接口id',
   PRIMARY KEY (`policy_id`,`interface_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送策略关联模型表';
 
-/*Table structure for table `pbc_policy_phase` */
-
+-- ----------------------------
+-- Table structure for pbc_policy_phase
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_policy_phase`;
-
 CREATE TABLE `pbc_policy_phase` (
   `id` bigint NOT NULL COMMENT '自增id',
   `audit_id` bigint DEFAULT NULL COMMENT '记录ID',
@@ -5526,10 +5589,10 @@ CREATE TABLE `pbc_policy_phase` (
   UNIQUE KEY `uk` (`audit_id`,`phase`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送策略执行阶段表';
 
-/*Table structure for table `pbc_property` */
-
+-- ----------------------------
+-- Table structure for pbc_property
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_property`;
-
 CREATE TABLE `pbc_property` (
   `uid` int NOT NULL COMMENT 'global id',
   `id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '属性标识',
@@ -5550,10 +5613,10 @@ CREATE TABLE `pbc_property` (
   UNIQUE KEY `uk_id` (`id`,`complex_id`,`interface_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送模型属性表';
 
-/*Table structure for table `pbc_property_mapping` */
-
+-- ----------------------------
+-- Table structure for pbc_property_mapping
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_property_mapping`;
-
 CREATE TABLE `pbc_property_mapping` (
   `property_uid` bigint NOT NULL COMMENT 'pbc_property表的主键',
   `interface_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '模型ID',
@@ -5566,10 +5629,10 @@ CREATE TABLE `pbc_property_mapping` (
   KEY `idx_interface_id` (`interface_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送属性映射表';
 
-/*Table structure for table `pbc_property_rel` */
-
+-- ----------------------------
+-- Table structure for pbc_property_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `pbc_property_rel`;
-
 CREATE TABLE `pbc_property_rel` (
   `id` bigint NOT NULL COMMENT '自增id',
   `from_property_uid` bigint DEFAULT NULL COMMENT '上游属性uid',
@@ -5580,10 +5643,10 @@ CREATE TABLE `pbc_property_rel` (
   UNIQUE KEY `uk` (`from_property_uid`,`to_interface_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='监管报送属性关联表';
 
-/*Table structure for table `priority` */
-
+-- ----------------------------
+-- Table structure for priority
+-- ----------------------------
 DROP TABLE IF EXISTS `priority`;
-
 CREATE TABLE `priority` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -5595,10 +5658,10 @@ CREATE TABLE `priority` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='优先级信息表';
 
-/*Table structure for table `process` */
-
+-- ----------------------------
+-- Table structure for process
+-- ----------------------------
 DROP TABLE IF EXISTS `process`;
-
 CREATE TABLE `process` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -5611,10 +5674,10 @@ CREATE TABLE `process` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程信息表';
 
-/*Table structure for table `process_comment_template` */
-
+-- ----------------------------
+-- Table structure for process_comment_template
+-- ----------------------------
 DROP TABLE IF EXISTS `process_comment_template`;
-
 CREATE TABLE `process_comment_template` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -5628,10 +5691,10 @@ CREATE TABLE `process_comment_template` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统回复模版表';
 
-/*Table structure for table `process_comment_template_authority` */
-
+-- ----------------------------
+-- Table structure for process_comment_template_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `process_comment_template_authority`;
-
 CREATE TABLE `process_comment_template_authority` (
   `comment_template_id` bigint NOT NULL COMMENT '回复模版ID',
   `type` enum('common','user','team','role') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '授权对象类型',
@@ -5639,10 +5702,10 @@ CREATE TABLE `process_comment_template_authority` (
   PRIMARY KEY (`comment_template_id`,`type`,`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统回复模版授权表';
 
-/*Table structure for table `process_comment_template_usecount` */
-
+-- ----------------------------
+-- Table structure for process_comment_template_usecount
+-- ----------------------------
 DROP TABLE IF EXISTS `process_comment_template_usecount`;
-
 CREATE TABLE `process_comment_template_usecount` (
   `comment_template_id` bigint NOT NULL COMMENT '回复模版ID',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
@@ -5650,10 +5713,10 @@ CREATE TABLE `process_comment_template_usecount` (
   PRIMARY KEY (`comment_template_id`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='回复模版使用次数表';
 
-/*Table structure for table `process_draft` */
-
+-- ----------------------------
+-- Table structure for process_draft
+-- ----------------------------
 DROP TABLE IF EXISTS `process_draft`;
-
 CREATE TABLE `process_draft` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `process_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
@@ -5665,20 +5728,20 @@ CREATE TABLE `process_draft` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程草稿信息表';
 
-/*Table structure for table `process_form` */
-
+-- ----------------------------
+-- Table structure for process_form
+-- ----------------------------
 DROP TABLE IF EXISTS `process_form`;
-
 CREATE TABLE `process_form` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
   `form_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '关联的表单uuid',
   PRIMARY KEY (`process_uuid`,`form_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程表单';
 
-/*Table structure for table `process_integration` */
-
+-- ----------------------------
+-- Table structure for process_integration
+-- ----------------------------
 DROP TABLE IF EXISTS `process_integration`;
-
 CREATE TABLE `process_integration` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
   `integration_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '集成uuid',
@@ -5686,10 +5749,10 @@ CREATE TABLE `process_integration` (
   KEY `idx_integration_uuid` (`integration_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程设置引用集成表';
 
-/*Table structure for table `process_notify_policy` */
-
+-- ----------------------------
+-- Table structure for process_notify_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `process_notify_policy`;
-
 CREATE TABLE `process_notify_policy` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
   `notify_policy_id` bigint NOT NULL COMMENT '通知策略id',
@@ -5697,10 +5760,10 @@ CREATE TABLE `process_notify_policy` (
   KEY `idx_notify_policy_id` (`notify_policy_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程设置引用通知策略表';
 
-/*Table structure for table `process_score_template` */
-
+-- ----------------------------
+-- Table structure for process_score_template
+-- ----------------------------
 DROP TABLE IF EXISTS `process_score_template`;
-
 CREATE TABLE `process_score_template` (
   `score_template_id` bigint NOT NULL COMMENT '评分模版ID',
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程UUID',
@@ -5710,10 +5773,10 @@ CREATE TABLE `process_score_template` (
   PRIMARY KEY (`score_template_id`,`process_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='评分模版-流程关联表';
 
-/*Table structure for table `process_sla` */
-
+-- ----------------------------
+-- Table structure for process_sla
+-- ----------------------------
 DROP TABLE IF EXISTS `process_sla`;
-
 CREATE TABLE `process_sla` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'uuid',
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
@@ -5722,10 +5785,10 @@ CREATE TABLE `process_sla` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程时效表';
 
-/*Table structure for table `process_sla_notify_policy` */
-
+-- ----------------------------
+-- Table structure for process_sla_notify_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `process_sla_notify_policy`;
-
 CREATE TABLE `process_sla_notify_policy` (
   `sla_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '时效uuid',
   `notify_policy_id` bigint NOT NULL COMMENT '通知策略id',
@@ -5733,10 +5796,10 @@ CREATE TABLE `process_sla_notify_policy` (
   KEY `idx_notify_policy_id` (`notify_policy_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程时效引用通知策略表';
 
-/*Table structure for table `process_step` */
-
+-- ----------------------------
+-- Table structure for process_step
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step`;
-
 CREATE TABLE `process_step` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'uuid',
@@ -5749,20 +5812,20 @@ CREATE TABLE `process_step` (
   KEY `idx_process_step` (`process_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤信息表';
 
-/*Table structure for table `process_step_comment_template` */
-
+-- ----------------------------
+-- Table structure for process_step_comment_template
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_comment_template`;
-
 CREATE TABLE `process_step_comment_template` (
   `process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程步骤uuid',
   `comment_template_id` bigint NOT NULL COMMENT '回复模版ID',
   PRIMARY KEY (`process_step_uuid`,`comment_template_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤-回复模版关联表';
 
-/*Table structure for table `process_step_formattribute` */
-
+-- ----------------------------
+-- Table structure for process_step_formattribute
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_formattribute`;
-
 CREATE TABLE `process_step_formattribute` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
   `process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '步骤uuid',
@@ -5773,20 +5836,20 @@ CREATE TABLE `process_step_formattribute` (
   PRIMARY KEY (`process_uuid`,`process_step_uuid`,`form_uuid`,`attribute_uuid`,`action`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤表单组件授权表';
 
-/*Table structure for table `process_step_handler` */
-
+-- ----------------------------
+-- Table structure for process_step_handler
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_handler`;
-
 CREATE TABLE `process_step_handler` (
   `handler` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '节点组件',
   `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '组件配置信息',
   PRIMARY KEY (`handler`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程组件全局配置信息表';
 
-/*Table structure for table `process_step_handler_integration` */
-
+-- ----------------------------
+-- Table structure for process_step_handler_integration
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_handler_integration`;
-
 CREATE TABLE `process_step_handler_integration` (
   `handler` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '节点组件类型',
   `integration_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '集成uuid',
@@ -5794,10 +5857,10 @@ CREATE TABLE `process_step_handler_integration` (
   KEY `idx_integration_uuid` (`integration_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程组件引用集成表';
 
-/*Table structure for table `process_step_handler_notify_policy` */
-
+-- ----------------------------
+-- Table structure for process_step_handler_notify_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_handler_notify_policy`;
-
 CREATE TABLE `process_step_handler_notify_policy` (
   `handler` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '节点组件类型',
   `notify_policy_id` bigint NOT NULL COMMENT '通知策略id',
@@ -5805,10 +5868,10 @@ CREATE TABLE `process_step_handler_notify_policy` (
   KEY `idx_notify_policy_id` (`notify_policy_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程组件引用通知策略表';
 
-/*Table structure for table `process_step_integration` */
-
+-- ----------------------------
+-- Table structure for process_step_integration
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_integration`;
-
 CREATE TABLE `process_step_integration` (
   `process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '步骤uuid',
   `integration_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '集成配置uuid',
@@ -5816,10 +5879,10 @@ CREATE TABLE `process_step_integration` (
   KEY `idx_integration_uuid` (`integration_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤引用集成表';
 
-/*Table structure for table `process_step_notify_policy` */
-
+-- ----------------------------
+-- Table structure for process_step_notify_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_notify_policy`;
-
 CREATE TABLE `process_step_notify_policy` (
   `process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程步骤uuid',
   `notify_policy_id` bigint NOT NULL COMMENT '通知策略id',
@@ -5827,10 +5890,10 @@ CREATE TABLE `process_step_notify_policy` (
   KEY `idx_notify_policy_id` (`notify_policy_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤引用通知策略表';
 
-/*Table structure for table `process_step_rel` */
-
+-- ----------------------------
+-- Table structure for process_step_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_rel`;
-
 CREATE TABLE `process_step_rel` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程uuid',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id',
@@ -5843,20 +5906,20 @@ CREATE TABLE `process_step_rel` (
   KEY `idx_process_uuid` (`process_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤之间连线表';
 
-/*Table structure for table `process_step_sla` */
-
+-- ----------------------------
+-- Table structure for process_step_sla
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_sla`;
-
 CREATE TABLE `process_step_sla` (
   `sla_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'sla uuid',
   `step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '步骤uuid',
   PRIMARY KEY (`sla_uuid`,`step_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤时效表';
 
-/*Table structure for table `process_step_tag` */
-
+-- ----------------------------
+-- Table structure for process_step_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_tag`;
-
 CREATE TABLE `process_step_tag` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '流程uuid',
   `process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '步骤uuid',
@@ -5866,20 +5929,20 @@ CREATE TABLE `process_step_tag` (
   KEY `idx_tag_id` (`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤打标签表';
 
-/*Table structure for table `process_step_task_config` */
-
+-- ----------------------------
+-- Table structure for process_step_task_config
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_task_config`;
-
 CREATE TABLE `process_step_task_config` (
   `process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程步骤uuid',
   `task_config_id` bigint NOT NULL COMMENT '任务id',
   PRIMARY KEY (`process_step_uuid`,`task_config_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤子任务表';
 
-/*Table structure for table `process_step_worker_dispatcher` */
-
+-- ----------------------------
+-- Table structure for process_step_worker_dispatcher
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_worker_dispatcher`;
-
 CREATE TABLE `process_step_worker_dispatcher` (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
   `handler` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '处理器',
@@ -5889,10 +5952,10 @@ CREATE TABLE `process_step_worker_dispatcher` (
   PRIMARY KEY (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤分派器表';
 
-/*Table structure for table `process_step_worker_policy` */
-
+-- ----------------------------
+-- Table structure for process_step_worker_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `process_step_worker_policy`;
-
 CREATE TABLE `process_step_worker_policy` (
   `process_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '流程uuid',
   `process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '步骤uuid',
@@ -5903,10 +5966,10 @@ CREATE TABLE `process_step_worker_policy` (
   KEY `idx_process_uuid` (`process_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='流程步骤分配策略表';
 
-/*Table structure for table `process_tag` */
-
+-- ----------------------------
+-- Table structure for process_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `process_tag`;
-
 CREATE TABLE `process_tag` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标签名',
@@ -5914,10 +5977,10 @@ CREATE TABLE `process_tag` (
   UNIQUE KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='ITSM模块标签表';
 
-/*Table structure for table `process_workcenter` */
-
+-- ----------------------------
+-- Table structure for process_workcenter
+-- ----------------------------
 DROP TABLE IF EXISTS `process_workcenter`;
-
 CREATE TABLE `process_workcenter` (
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '分类唯一标识',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '分类名',
@@ -5933,10 +5996,10 @@ CREATE TABLE `process_workcenter` (
   KEY `idx_type` (`type`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=301 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单中心分类表';
 
-/*Table structure for table `process_workcenter_authority` */
-
+-- ----------------------------
+-- Table structure for process_workcenter_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `process_workcenter_authority`;
-
 CREATE TABLE `process_workcenter_authority` (
   `workcenter_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '工单分类uuid',
   `type` enum('common','user','role','team') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
@@ -5946,10 +6009,10 @@ CREATE TABLE `process_workcenter_authority` (
   KEY `index_user` (`type`,`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单中心分类授权表';
 
-/*Table structure for table `process_workcenter_catalog` */
-
+-- ----------------------------
+-- Table structure for process_workcenter_catalog
+-- ----------------------------
 DROP TABLE IF EXISTS `process_workcenter_catalog`;
-
 CREATE TABLE `process_workcenter_catalog` (
   `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '菜单类型唯一标识',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '菜单名称',
@@ -5957,10 +6020,10 @@ CREATE TABLE `process_workcenter_catalog` (
   KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单中心菜单类型表';
 
-/*Table structure for table `process_workcenter_owner` */
-
+-- ----------------------------
+-- Table structure for process_workcenter_owner
+-- ----------------------------
 DROP TABLE IF EXISTS `process_workcenter_owner`;
-
 CREATE TABLE `process_workcenter_owner` (
   `workcenter_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '分类唯一标识uuid',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '如果属于私人分类，分类所属人',
@@ -5968,10 +6031,10 @@ CREATE TABLE `process_workcenter_owner` (
   KEY `idx_user_uuid` (`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单中心分类所属人表';
 
-/*Table structure for table `process_workcenter_thead` */
-
+-- ----------------------------
+-- Table structure for process_workcenter_thead
+-- ----------------------------
 DROP TABLE IF EXISTS `process_workcenter_thead`;
-
 CREATE TABLE `process_workcenter_thead` (
   `workcenter_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '分类唯一标识',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字段名（表单属性则存属性uuid）',
@@ -5984,20 +6047,20 @@ CREATE TABLE `process_workcenter_thead` (
   PRIMARY KEY (`workcenter_uuid`,`name`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户自定义thead 显示排序';
 
-/*Table structure for table `process_workcenter_user_profile` */
-
+-- ----------------------------
+-- Table structure for process_workcenter_user_profile
+-- ----------------------------
 DROP TABLE IF EXISTS `process_workcenter_user_profile`;
-
 CREATE TABLE `process_workcenter_user_profile` (
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
   `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '用户个性化配置，如排序等',
   PRIMARY KEY (`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='process_workcenter_user_profile';
 
-/*Table structure for table `processtask` */
-
+-- ----------------------------
+-- Table structure for processtask
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask`;
-
 CREATE TABLE `processtask` (
   `id` bigint NOT NULL COMMENT '工单id',
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标题',
@@ -6031,10 +6094,10 @@ CREATE TABLE `processtask` (
   KEY `idx_worktime` (`worktime_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单信息表';
 
-/*Table structure for table `processtask_agent` */
-
+-- ----------------------------
+-- Table structure for processtask_agent
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_agent`;
-
 CREATE TABLE `processtask_agent` (
   `id` bigint NOT NULL COMMENT '主键ID',
   `from_user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '来源用户uuid',
@@ -6047,10 +6110,10 @@ CREATE TABLE `processtask_agent` (
   KEY `idx_to_user_uuid` (`to_user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单代理';
 
-/*Table structure for table `processtask_agent_target` */
-
+-- ----------------------------
+-- Table structure for processtask_agent_target
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_agent_target`;
-
 CREATE TABLE `processtask_agent_target` (
   `processtask_agent_id` bigint NOT NULL COMMENT '代办id',
   `target` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标uuid,目录或服务',
@@ -6059,10 +6122,10 @@ CREATE TABLE `processtask_agent_target` (
   PRIMARY KEY (`processtask_agent_id`,`target`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单代理目标';
 
-/*Table structure for table `processtask_assignworker` */
-
+-- ----------------------------
+-- Table structure for processtask_assignworker
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_assignworker`;
-
 CREATE TABLE `processtask_assignworker` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `processtask_step_id` bigint NOT NULL COMMENT '被指派步骤id',
@@ -6075,10 +6138,10 @@ CREATE TABLE `processtask_assignworker` (
   PRIMARY KEY (`processtask_id`,`processtask_step_id`,`from_processtask_step_id`,`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单指派处理人表';
 
-/*Table structure for table `processtask_auto_score` */
-
+-- ----------------------------
+-- Table structure for processtask_auto_score
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_auto_score`;
-
 CREATE TABLE `processtask_auto_score` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `trigger_time` timestamp NULL DEFAULT NULL COMMENT '自动评分时间',
@@ -6086,30 +6149,30 @@ CREATE TABLE `processtask_auto_score` (
   PRIMARY KEY (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单自动评分表';
 
-/*Table structure for table `processtask_config` */
-
+-- ----------------------------
+-- Table structure for processtask_config
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_config`;
-
 CREATE TABLE `processtask_config` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '通过process表中config生成的md5唯一标识',
   `config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '历史流程配置',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单配置信息压缩表';
 
-/*Table structure for table `processtask_content` */
-
+-- ----------------------------
+-- Table structure for processtask_content
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_content`;
-
 CREATE TABLE `processtask_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单活动内容表';
 
-/*Table structure for table `processtask_converge` */
-
+-- ----------------------------
+-- Table structure for processtask_converge
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_converge`;
-
 CREATE TABLE `processtask_converge` (
   `converge_id` bigint NOT NULL COMMENT '汇集',
   `processtask_step_id` bigint NOT NULL COMMENT '作业步骤id',
@@ -6120,10 +6183,10 @@ CREATE TABLE `processtask_converge` (
   KEY `idx_stepid` (`processtask_step_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤汇合表';
 
-/*Table structure for table `processtask_file` */
-
+-- ----------------------------
+-- Table structure for processtask_file
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_file`;
-
 CREATE TABLE `processtask_file` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6135,20 +6198,20 @@ CREATE TABLE `processtask_file` (
   KEY `idx_file_id` (`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单文件表';
 
-/*Table structure for table `processtask_focus` */
-
+-- ----------------------------
+-- Table structure for processtask_focus
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_focus`;
-
 CREATE TABLE `processtask_focus` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户UUID',
   PRIMARY KEY (`processtask_id`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单关注人表';
 
-/*Table structure for table `processtask_form` */
-
+-- ----------------------------
+-- Table structure for processtask_form
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_form`;
-
 CREATE TABLE `processtask_form` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `form_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '工单绑定的表单uuid',
@@ -6157,20 +6220,20 @@ CREATE TABLE `processtask_form` (
   PRIMARY KEY (`processtask_id`,`form_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单关联的表单';
 
-/*Table structure for table `processtask_form_content` */
-
+-- ----------------------------
+-- Table structure for processtask_form_content
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_form_content`;
-
 CREATE TABLE `processtask_form_content` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单表单内容表';
 
-/*Table structure for table `processtask_formattribute_data` */
-
+-- ----------------------------
+-- Table structure for processtask_formattribute_data
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_formattribute_data`;
-
 CREATE TABLE `processtask_formattribute_data` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '插件类型',
@@ -6182,10 +6245,10 @@ CREATE TABLE `processtask_formattribute_data` (
   KEY `idx_attribute_uuid` (`attribute_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单关联的属性当前值';
 
-/*Table structure for table `processtask_import_audit` */
-
+-- ----------------------------
+-- Table structure for processtask_import_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_import_audit`;
-
 CREATE TABLE `processtask_import_audit` (
   `id` bigint NOT NULL COMMENT '主键',
   `processtask_id` bigint DEFAULT NULL COMMENT '工单ID',
@@ -6198,10 +6261,10 @@ CREATE TABLE `processtask_import_audit` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单批量导入审计表';
 
-/*Table structure for table `processtask_old_form_prop` */
-
+-- ----------------------------
+-- Table structure for processtask_old_form_prop
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_old_form_prop`;
-
 CREATE TABLE `processtask_old_form_prop` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `form` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '工单表单html',
@@ -6209,10 +6272,10 @@ CREATE TABLE `processtask_old_form_prop` (
   PRIMARY KEY (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='processtask_old_form_prop';
 
-/*Table structure for table `processtask_operation_content` */
-
+-- ----------------------------
+-- Table structure for processtask_operation_content
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_operation_content`;
-
 CREATE TABLE `processtask_operation_content` (
   `id` bigint NOT NULL COMMENT 'id',
   `processtask_id` bigint DEFAULT NULL COMMENT '工单ID',
@@ -6228,10 +6291,10 @@ CREATE TABLE `processtask_operation_content` (
   KEY `idx_processtask_id` (`processtask_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单操作内容表';
 
-/*Table structure for table `processtask_relation` */
-
+-- ----------------------------
+-- Table structure for processtask_relation
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_relation`;
-
 CREATE TABLE `processtask_relation` (
   `id` bigint NOT NULL COMMENT '唯一标识',
   `channel_type_relation_id` bigint NOT NULL COMMENT '关系类型',
@@ -6243,10 +6306,10 @@ CREATE TABLE `processtask_relation` (
   KEY `idx_target` (`target`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单关联关系表';
 
-/*Table structure for table `processtask_repeat` */
-
+-- ----------------------------
+-- Table structure for processtask_repeat
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_repeat`;
-
 CREATE TABLE `processtask_repeat` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `repeat_group_id` bigint NOT NULL COMMENT '重复组id',
@@ -6254,10 +6317,10 @@ CREATE TABLE `processtask_repeat` (
   KEY `idx_repeat_group_id` (`repeat_group_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='重复工单表';
 
-/*Table structure for table `processtask_score` */
-
+-- ----------------------------
+-- Table structure for processtask_score
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_score`;
-
 CREATE TABLE `processtask_score` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `score_template_id` bigint NOT NULL COMMENT '评分模版ID',
@@ -6269,10 +6332,10 @@ CREATE TABLE `processtask_score` (
   PRIMARY KEY (`processtask_id`,`score_template_id`,`score_dimension_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单评分表';
 
-/*Table structure for table `processtask_score_content` */
-
+-- ----------------------------
+-- Table structure for processtask_score_content
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_score_content`;
-
 CREATE TABLE `processtask_score_content` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `content_hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '评价内容hash',
@@ -6281,10 +6344,10 @@ CREATE TABLE `processtask_score_content` (
   PRIMARY KEY (`processtask_id`,`content_hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单评价内容表';
 
-/*Table structure for table `processtask_score_template` */
-
+-- ----------------------------
+-- Table structure for processtask_score_template
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_score_template`;
-
 CREATE TABLE `processtask_score_template` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `score_template_id` bigint DEFAULT NULL COMMENT '评分模版ID',
@@ -6293,20 +6356,20 @@ CREATE TABLE `processtask_score_template` (
   PRIMARY KEY (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单评分模版表';
 
-/*Table structure for table `processtask_score_template_config` */
-
+-- ----------------------------
+-- Table structure for processtask_score_template_config
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_score_template_config`;
-
 CREATE TABLE `processtask_score_template_config` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '内容hash',
   `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '配置',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单评分模版配置表';
 
-/*Table structure for table `processtask_serial_number` */
-
+-- ----------------------------
+-- Table structure for processtask_serial_number
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_serial_number`;
-
 CREATE TABLE `processtask_serial_number` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `serial_number` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '工单序列号',
@@ -6314,10 +6377,10 @@ CREATE TABLE `processtask_serial_number` (
   KEY `idx_serial_number` (`serial_number`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单号表';
 
-/*Table structure for table `processtask_serial_number_policy` */
-
+-- ----------------------------
+-- Table structure for processtask_serial_number_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_serial_number_policy`;
-
 CREATE TABLE `processtask_serial_number_policy` (
   `channel_type_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '服务类型uuid',
   `handler` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '工单号生成策略类名',
@@ -6328,10 +6391,10 @@ CREATE TABLE `processtask_serial_number_policy` (
   PRIMARY KEY (`channel_type_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单号生成策略表';
 
-/*Table structure for table `processtask_sla` */
-
+-- ----------------------------
+-- Table structure for processtask_sla
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_sla`;
-
 CREATE TABLE `processtask_sla` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -6342,10 +6405,10 @@ CREATE TABLE `processtask_sla` (
   KEY `idx_pt_id` (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=378 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单sla表';
 
-/*Table structure for table `processtask_sla_notify` */
-
+-- ----------------------------
+-- Table structure for processtask_sla_notify
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_sla_notify`;
-
 CREATE TABLE `processtask_sla_notify` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `sla_id` bigint NOT NULL COMMENT 'sla id',
@@ -6356,10 +6419,10 @@ CREATE TABLE `processtask_sla_notify` (
   UNIQUE KEY `idx_sla_id` (`sla_id`,`hash`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='sla通知表';
 
-/*Table structure for table `processtask_sla_time` */
-
+-- ----------------------------
+-- Table structure for processtask_sla_time
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_sla_time`;
-
 CREATE TABLE `processtask_sla_time` (
   `sla_id` bigint NOT NULL COMMENT 'id',
   `time_sum` bigint DEFAULT NULL COMMENT '总耗时，毫秒',
@@ -6372,10 +6435,10 @@ CREATE TABLE `processtask_sla_time` (
   PRIMARY KEY (`sla_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='sla时间表';
 
-/*Table structure for table `processtask_sla_transfer` */
-
+-- ----------------------------
+-- Table structure for processtask_sla_transfer
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_sla_transfer`;
-
 CREATE TABLE `processtask_sla_transfer` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `sla_id` bigint NOT NULL COMMENT 'sla id',
@@ -6386,10 +6449,10 @@ CREATE TABLE `processtask_sla_transfer` (
   UNIQUE KEY `sla_id_hash_idx` (`sla_id`,`hash`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤时效转交设置表';
 
-/*Table structure for table `processtask_step` */
-
+-- ----------------------------
+-- Table structure for processtask_step
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step`;
-
 CREATE TABLE `processtask_step` (
   `id` bigint NOT NULL COMMENT 'id',
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
@@ -6412,10 +6475,10 @@ CREATE TABLE `processtask_step` (
   KEY `idx_active_time` (`active_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤表';
 
-/*Table structure for table `processtask_step_agent` */
-
+-- ----------------------------
+-- Table structure for processtask_step_agent
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_agent`;
-
 CREATE TABLE `processtask_step_agent` (
   `processtask_id` bigint DEFAULT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6425,10 +6488,10 @@ CREATE TABLE `processtask_step_agent` (
   KEY `idx_processtask_id` (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤代理表';
 
-/*Table structure for table `processtask_step_audit` */
-
+-- ----------------------------
+-- Table structure for processtask_step_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_audit`;
-
 CREATE TABLE `processtask_step_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
@@ -6445,10 +6508,10 @@ CREATE TABLE `processtask_step_audit` (
   KEY `idx_action` (`action`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤审计表';
 
-/*Table structure for table `processtask_step_audit_detail` */
-
+-- ----------------------------
+-- Table structure for processtask_step_audit_detail
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_audit_detail`;
-
 CREATE TABLE `processtask_step_audit_detail` (
   `audit_id` bigint NOT NULL COMMENT 'id',
   `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
@@ -6457,10 +6520,10 @@ CREATE TABLE `processtask_step_audit_detail` (
   PRIMARY KEY (`audit_id`,`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤活动详细表';
 
-/*Table structure for table `processtask_step_automatic_request` */
-
+-- ----------------------------
+-- Table structure for processtask_step_automatic_request
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_automatic_request`;
-
 CREATE TABLE `processtask_step_automatic_request` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `processtask_id` bigint NOT NULL COMMENT '工单id',
@@ -6470,10 +6533,10 @@ CREATE TABLE `processtask_step_automatic_request` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤自动节点请求';
 
-/*Table structure for table `processtask_step_change_create` */
-
+-- ----------------------------
+-- Table structure for processtask_step_change_create
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_change_create`;
-
 CREATE TABLE `processtask_step_change_create` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤id',
@@ -6483,10 +6546,10 @@ CREATE TABLE `processtask_step_change_create` (
   UNIQUE KEY `idx_processtask_step_id` (`processtask_step_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤与变更创建关系表';
 
-/*Table structure for table `processtask_step_change_handle` */
-
+-- ----------------------------
+-- Table structure for processtask_step_change_handle
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_change_handle`;
-
 CREATE TABLE `processtask_step_change_handle` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤id',
@@ -6495,20 +6558,20 @@ CREATE TABLE `processtask_step_change_handle` (
   UNIQUE KEY `idx_processtask_step_id` (`processtask_step_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤与变更处理关系表';
 
-/*Table structure for table `processtask_step_config` */
-
+-- ----------------------------
+-- Table structure for processtask_step_config
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_config`;
-
 CREATE TABLE `processtask_step_config` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'config',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单配置表';
 
-/*Table structure for table `processtask_step_content` */
-
+-- ----------------------------
+-- Table structure for processtask_step_content
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_content`;
-
 CREATE TABLE `processtask_step_content` (
   `id` bigint NOT NULL COMMENT 'id',
   `processtask_id` bigint DEFAULT NULL COMMENT '工单ID',
@@ -6526,10 +6589,10 @@ CREATE TABLE `processtask_step_content` (
   KEY `idx_processtaskstepid` (`processtask_step_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤内容表';
 
-/*Table structure for table `processtask_step_data` */
-
+-- ----------------------------
+-- Table structure for processtask_step_data
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_data`;
-
 CREATE TABLE `processtask_step_data` (
   `id` bigint NOT NULL COMMENT '唯一标识',
   `processtask_id` bigint NOT NULL COMMENT '工单id',
@@ -6541,10 +6604,10 @@ CREATE TABLE `processtask_step_data` (
   UNIQUE KEY `task_step_type_fcu_idx` (`processtask_id`,`processtask_step_id`,`type`,`fcu`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤数据表';
 
-/*Table structure for table `processtask_step_event` */
-
+-- ----------------------------
+-- Table structure for processtask_step_event
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_event`;
-
 CREATE TABLE `processtask_step_event` (
   `processtask_id` bigint DEFAULT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6553,10 +6616,10 @@ CREATE TABLE `processtask_step_event` (
   UNIQUE KEY `idx_event_id` (`event_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤-事件关联表';
 
-/*Table structure for table `processtask_step_formattribute` */
-
+-- ----------------------------
+-- Table structure for processtask_step_formattribute
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_formattribute`;
-
 CREATE TABLE `processtask_step_formattribute` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `processtask_step_id` bigint NOT NULL COMMENT '工单步骤id',
@@ -6566,10 +6629,10 @@ CREATE TABLE `processtask_step_formattribute` (
   PRIMARY KEY (`processtask_id`,`processtask_step_id`,`attribute_uuid`,`action`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤可查看的表单属性';
 
-/*Table structure for table `processtask_step_in_operation` */
-
+-- ----------------------------
+-- Table structure for processtask_step_in_operation
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_in_operation`;
-
 CREATE TABLE `processtask_step_in_operation` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
@@ -6579,12 +6642,12 @@ CREATE TABLE `processtask_step_in_operation` (
   `expire_time` timestamp(3) NULL DEFAULT NULL COMMENT '过期时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_processtask_id` (`processtask_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=16772 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤正在后台执行操作记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=16778 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤正在后台执行操作记录表';
 
-/*Table structure for table `processtask_step_notify_policy` */
-
+-- ----------------------------
+-- Table structure for processtask_step_notify_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_notify_policy`;
-
 CREATE TABLE `processtask_step_notify_policy` (
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
   `policy_id` bigint NOT NULL COMMENT '通知策略ID',
@@ -6594,20 +6657,20 @@ CREATE TABLE `processtask_step_notify_policy` (
   PRIMARY KEY (`processtask_step_id`,`policy_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤通知策略表';
 
-/*Table structure for table `processtask_step_notify_policy_config` */
-
+-- ----------------------------
+-- Table structure for processtask_step_notify_policy_config
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_notify_policy_config`;
-
 CREATE TABLE `processtask_step_notify_policy_config` (
   `hash` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `config` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT 'config',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤通知策略配置表';
 
-/*Table structure for table `processtask_step_reapproval_restore_backup` */
-
+-- ----------------------------
+-- Table structure for processtask_step_reapproval_restore_backup
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_reapproval_restore_backup`;
-
 CREATE TABLE `processtask_step_reapproval_restore_backup` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤id',
@@ -6617,10 +6680,10 @@ CREATE TABLE `processtask_step_reapproval_restore_backup` (
   PRIMARY KEY (`backup_step_id`,`processtask_step_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤审批恢复备份';
 
-/*Table structure for table `processtask_step_rel` */
-
+-- ----------------------------
+-- Table structure for processtask_step_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_rel`;
-
 CREATE TABLE `processtask_step_rel` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `from_process_step_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '源步骤uuid',
@@ -6639,10 +6702,10 @@ CREATE TABLE `processtask_step_rel` (
   KEY `idx_process_task_uuid` (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤之间的连线表';
 
-/*Table structure for table `processtask_step_remind` */
-
+-- ----------------------------
+-- Table structure for processtask_step_remind
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_remind`;
-
 CREATE TABLE `processtask_step_remind` (
   `processtask_id` bigint DEFAULT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6655,10 +6718,10 @@ CREATE TABLE `processtask_step_remind` (
   KEY `idx_processtask_id` (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤特殊提醒信息表';
 
-/*Table structure for table `processtask_step_sla` */
-
+-- ----------------------------
+-- Table structure for processtask_step_sla
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_sla`;
-
 CREATE TABLE `processtask_step_sla` (
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
   `sla_id` bigint NOT NULL COMMENT 'sla id',
@@ -6666,10 +6729,10 @@ CREATE TABLE `processtask_step_sla` (
   KEY `idx_slaid` (`sla_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤时效表';
 
-/*Table structure for table `processtask_step_sla_time` */
-
+-- ----------------------------
+-- Table structure for processtask_step_sla_time
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_sla_time`;
-
 CREATE TABLE `processtask_step_sla_time` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤id',
@@ -6683,10 +6746,10 @@ CREATE TABLE `processtask_step_sla_time` (
   KEY `idx_sla_id` (`sla_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='步骤sla耗时表';
 
-/*Table structure for table `processtask_step_tag` */
-
+-- ----------------------------
+-- Table structure for processtask_step_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_tag`;
-
 CREATE TABLE `processtask_step_tag` (
   `processtask_id` bigint DEFAULT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6696,10 +6759,10 @@ CREATE TABLE `processtask_step_tag` (
   KEY `idx_tag_id` (`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤标签表';
 
-/*Table structure for table `processtask_step_task` */
-
+-- ----------------------------
+-- Table structure for processtask_step_task
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_task`;
-
 CREATE TABLE `processtask_step_task` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '任务id',
   `processtask_id` bigint NOT NULL COMMENT '工单id',
@@ -6715,10 +6778,10 @@ CREATE TABLE `processtask_step_task` (
   KEY `idx_processtask_id` (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=907740878012433 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='processtask_step_task';
 
-/*Table structure for table `processtask_step_task_user` */
-
+-- ----------------------------
+-- Table structure for processtask_step_task_user
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_task_user`;
-
 CREATE TABLE `processtask_step_task_user` (
   `id` bigint NOT NULL COMMENT 'id',
   `processtask_step_task_id` bigint DEFAULT NULL COMMENT '任务id',
@@ -6729,10 +6792,10 @@ CREATE TABLE `processtask_step_task_user` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='processtask_step_task_user';
 
-/*Table structure for table `processtask_step_task_user_agent` */
-
+-- ----------------------------
+-- Table structure for processtask_step_task_user_agent
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_task_user_agent`;
-
 CREATE TABLE `processtask_step_task_user_agent` (
   `processtask_step_task_user_id` bigint NOT NULL COMMENT '步骤任务用户ID',
   `processtask_step_task_id` bigint DEFAULT NULL COMMENT '步骤任务ID',
@@ -6742,10 +6805,10 @@ CREATE TABLE `processtask_step_task_user_agent` (
   KEY `idx_processtask_step_task_id` (`processtask_step_task_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤任务代理表';
 
-/*Table structure for table `processtask_step_task_user_content` */
-
+-- ----------------------------
+-- Table structure for processtask_step_task_user_content
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_task_user_content`;
-
 CREATE TABLE `processtask_step_task_user_content` (
   `id` bigint NOT NULL COMMENT 'id',
   `processtask_step_task_id` bigint DEFAULT NULL COMMENT '步骤任务id',
@@ -6758,10 +6821,10 @@ CREATE TABLE `processtask_step_task_user_content` (
   KEY `idx_user_id` (`processtask_step_task_user_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='processtask_step_task_user_content';
 
-/*Table structure for table `processtask_step_task_user_file` */
-
+-- ----------------------------
+-- Table structure for processtask_step_task_user_file
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_task_user_file`;
-
 CREATE TABLE `processtask_step_task_user_file` (
   `processtask_step_task_id` bigint NOT NULL COMMENT '步骤任务id',
   `processtask_step_task_user_id` bigint NOT NULL COMMENT '步骤任务用户id',
@@ -6771,10 +6834,10 @@ CREATE TABLE `processtask_step_task_user_file` (
   KEY `idx_file_id` (`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='processtask_step_task_user_content';
 
-/*Table structure for table `processtask_step_timeaudit` */
-
+-- ----------------------------
+-- Table structure for processtask_step_timeaudit
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_timeaudit`;
-
 CREATE TABLE `processtask_step_timeaudit` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `processtask_step_id` bigint DEFAULT NULL COMMENT '工单ID',
@@ -6786,12 +6849,12 @@ CREATE TABLE `processtask_step_timeaudit` (
   `pause_time` timestamp(3) NULL DEFAULT NULL COMMENT '挂起时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_processtask_step_id` (`processtask_step_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13637 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤操作时间审计表';
+) ENGINE=InnoDB AUTO_INCREMENT=13642 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤操作时间审计表';
 
-/*Table structure for table `processtask_step_timer` */
-
+-- ----------------------------
+-- Table structure for processtask_step_timer
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_timer`;
-
 CREATE TABLE `processtask_step_timer` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤id',
@@ -6799,10 +6862,10 @@ CREATE TABLE `processtask_step_timer` (
   PRIMARY KEY (`processtask_step_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤定时';
 
-/*Table structure for table `processtask_step_user` */
-
+-- ----------------------------
+-- Table structure for processtask_step_user
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_user`;
-
 CREATE TABLE `processtask_step_user` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6821,10 +6884,10 @@ CREATE TABLE `processtask_step_user` (
   KEY `idx_useruuid` (`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤处理人表';
 
-/*Table structure for table `processtask_step_worker` */
-
+-- ----------------------------
+-- Table structure for processtask_step_worker
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_worker`;
-
 CREATE TABLE `processtask_step_worker` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6837,10 +6900,10 @@ CREATE TABLE `processtask_step_worker` (
   KEY `idx_uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='记录当前流程谁可以处理';
 
-/*Table structure for table `processtask_step_worker_policy` */
-
+-- ----------------------------
+-- Table structure for processtask_step_worker_policy
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_step_worker_policy`;
-
 CREATE TABLE `processtask_step_worker_policy` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `processtask_step_id` bigint NOT NULL COMMENT '步骤ID',
@@ -6852,20 +6915,20 @@ CREATE TABLE `processtask_step_worker_policy` (
   KEY `idx_processtask_id` (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单步骤分配策略表';
 
-/*Table structure for table `processtask_tag` */
-
+-- ----------------------------
+-- Table structure for processtask_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_tag`;
-
 CREATE TABLE `processtask_tag` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `tag_id` bigint NOT NULL COMMENT '标签id',
   PRIMARY KEY (`processtask_id`,`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单打标签表';
 
-/*Table structure for table `processtask_time_cost` */
-
+-- ----------------------------
+-- Table structure for processtask_time_cost
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_time_cost`;
-
 CREATE TABLE `processtask_time_cost` (
   `processtask_id` bigint NOT NULL COMMENT '工单id',
   `time_cost` bigint NOT NULL COMMENT '耗时，毫秒，根据工作日历计算',
@@ -6873,10 +6936,10 @@ CREATE TABLE `processtask_time_cost` (
   PRIMARY KEY (`processtask_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单耗时表';
 
-/*Table structure for table `processtask_tranfer_report` */
-
+-- ----------------------------
+-- Table structure for processtask_tranfer_report
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_tranfer_report`;
-
 CREATE TABLE `processtask_tranfer_report` (
   `id` bigint NOT NULL COMMENT 'id',
   `channel_type_relation_id` bigint NOT NULL COMMENT '服务类型关系id',
@@ -6888,10 +6951,10 @@ CREATE TABLE `processtask_tranfer_report` (
   KEY `idx_channel_type_relation_id` (`channel_type_relation_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='工单转报关系表';
 
-/*Table structure for table `processtask_urge` */
-
+-- ----------------------------
+-- Table structure for processtask_urge
+-- ----------------------------
 DROP TABLE IF EXISTS `processtask_urge`;
-
 CREATE TABLE `processtask_urge` (
   `processtask_id` bigint NOT NULL COMMENT '工单ID',
   `lcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '催办用户',
@@ -6899,10 +6962,10 @@ CREATE TABLE `processtask_urge` (
   PRIMARY KEY (`processtask_id`,`lcu`,`lcd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_app` */
-
+-- ----------------------------
+-- Table structure for rdm_app
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_app`;
-
 CREATE TABLE `rdm_app` (
   `id` bigint NOT NULL COMMENT '对象id',
   `app_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标题',
@@ -6913,10 +6976,10 @@ CREATE TABLE `rdm_app` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_app_attr` */
-
+-- ----------------------------
+-- Table structure for rdm_app_attr
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_app_attr`;
-
 CREATE TABLE `rdm_app_attr` (
   `id` bigint NOT NULL COMMENT 'id',
   `app_id` bigint NOT NULL COMMENT '引用rdm_object的id',
@@ -6936,10 +6999,10 @@ CREATE TABLE `rdm_app_attr` (
   KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='cmdb配置项属性表';
 
-/*Table structure for table `rdm_app_catalog` */
-
+-- ----------------------------
+-- Table structure for rdm_app_catalog
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_app_catalog`;
-
 CREATE TABLE `rdm_app_catalog` (
   `id` bigint NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -6952,10 +7015,10 @@ CREATE TABLE `rdm_app_catalog` (
   KEY `idx_parent_id` (`parent_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_app_priority` */
-
+-- ----------------------------
+-- Table structure for rdm_app_priority
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_app_priority`;
-
 CREATE TABLE `rdm_app_priority` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '唯一标识',
@@ -6964,10 +7027,10 @@ CREATE TABLE `rdm_app_priority` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_app_status` */
-
+-- ----------------------------
+-- Table structure for rdm_app_status
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_app_status`;
-
 CREATE TABLE `rdm_app_status` (
   `id` bigint NOT NULL COMMENT '主键',
   `app_id` bigint DEFAULT NULL COMMENT '对象id',
@@ -6982,10 +7045,10 @@ CREATE TABLE `rdm_app_status` (
   KEY `idx_obejct_id` (`app_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_app_status_rel` */
-
+-- ----------------------------
+-- Table structure for rdm_app_status_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_app_status_rel`;
-
 CREATE TABLE `rdm_app_status_rel` (
   `id` bigint DEFAULT NULL,
   `from_status_id` bigint NOT NULL,
@@ -6996,10 +7059,10 @@ CREATE TABLE `rdm_app_status_rel` (
   UNIQUE KEY `uk_id` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_app_usersetting` */
-
+-- ----------------------------
+-- Table structure for rdm_app_usersetting
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_app_usersetting`;
-
 CREATE TABLE `rdm_app_usersetting` (
   `user_id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `app_id` bigint NOT NULL,
@@ -7008,10 +7071,10 @@ CREATE TABLE `rdm_app_usersetting` (
   KEY `idx_app_id` (`app_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_favoriteissue` */
-
+-- ----------------------------
+-- Table structure for rdm_favoriteissue
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_favoriteissue`;
-
 CREATE TABLE `rdm_favoriteissue` (
   `issue_id` bigint NOT NULL,
   `user_id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -7019,10 +7082,10 @@ CREATE TABLE `rdm_favoriteissue` (
   KEY `idx_userid` (`user_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue` */
-
+-- ----------------------------
+-- Table structure for rdm_issue
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue`;
-
 CREATE TABLE `rdm_issue` (
   `id` bigint NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -7037,6 +7100,7 @@ CREATE TABLE `rdm_issue` (
   `iteration` bigint DEFAULT NULL COMMENT '迭代',
   `start_date` date DEFAULT NULL COMMENT '预计开始',
   `end_date` date DEFAULT NULL COMMENT '预计结束',
+  `timecost` int DEFAULT NULL COMMENT '预计耗时',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_objectid` (`app_id`) USING BTREE,
   KEY `idx_createdate` (`create_date`) USING BTREE,
@@ -7047,10 +7111,10 @@ CREATE TABLE `rdm_issue` (
   KEY `idx_create_date` (`create_date`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue_audit` */
-
+-- ----------------------------
+-- Table structure for rdm_issue_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue_audit`;
-
 CREATE TABLE `rdm_issue_audit` (
   `id` bigint NOT NULL COMMENT 'Id',
   `issue_id` bigint DEFAULT NULL COMMENT '任务id',
@@ -7067,10 +7131,10 @@ CREATE TABLE `rdm_issue_audit` (
   KEY `idx_input_user` (`input_user`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue_comment` */
-
+-- ----------------------------
+-- Table structure for rdm_issue_comment
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue_comment`;
-
 CREATE TABLE `rdm_issue_comment` (
   `id` bigint NOT NULL,
   `issue_id` bigint DEFAULT NULL COMMENT '任务id',
@@ -7084,10 +7148,25 @@ CREATE TABLE `rdm_issue_comment` (
   KEY `idx_issue_id` (`issue_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue_file` */
+-- ----------------------------
+-- Table structure for rdm_issue_cost
+-- ----------------------------
+DROP TABLE IF EXISTS `rdm_issue_cost`;
+CREATE TABLE `rdm_issue_cost` (
+  `id` bigint NOT NULL,
+  `issue_id` bigint DEFAULT NULL,
+  `cost_date` date DEFAULT NULL,
+  `timecost` int DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`id`),
+  KEY `idx_issue_id` (`issue_id`) USING BTREE,
+  KEY `idx_cost_date` (`cost_date`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- ----------------------------
+-- Table structure for rdm_issue_file
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue_file`;
-
 CREATE TABLE `rdm_issue_file` (
   `issue_id` bigint NOT NULL,
   `file_id` bigint NOT NULL,
@@ -7095,10 +7174,10 @@ CREATE TABLE `rdm_issue_file` (
   KEY `idx_file_id` (`file_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue_rel` */
-
+-- ----------------------------
+-- Table structure for rdm_issue_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue_rel`;
-
 CREATE TABLE `rdm_issue_rel` (
   `from_issue_id` bigint NOT NULL,
   `to_issue_id` bigint NOT NULL,
@@ -7111,10 +7190,10 @@ CREATE TABLE `rdm_issue_rel` (
   KEY `idx_from_app_id` (`from_app_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue_tag` */
-
+-- ----------------------------
+-- Table structure for rdm_issue_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue_tag`;
-
 CREATE TABLE `rdm_issue_tag` (
   `issue_id` bigint NOT NULL,
   `tag_id` bigint NOT NULL,
@@ -7122,10 +7201,10 @@ CREATE TABLE `rdm_issue_tag` (
   KEY `idx_tag_id` (`tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue_user` */
-
+-- ----------------------------
+-- Table structure for rdm_issue_user
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue_user`;
-
 CREATE TABLE `rdm_issue_user` (
   `issue_id` bigint NOT NULL,
   `user_id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -7133,20 +7212,20 @@ CREATE TABLE `rdm_issue_user` (
   KEY `idx_userid` (`user_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_issue_webhookdata` */
-
+-- ----------------------------
+-- Table structure for rdm_issue_webhookdata
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_issue_webhookdata`;
-
 CREATE TABLE `rdm_issue_webhookdata` (
   `issue_id` bigint NOT NULL,
   `data_id` bigint NOT NULL,
   PRIMARY KEY (`issue_id`,`data_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_iteration` */
-
+-- ----------------------------
+-- Table structure for rdm_iteration
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_iteration`;
-
 CREATE TABLE `rdm_iteration` (
   `id` bigint NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -7158,10 +7237,10 @@ CREATE TABLE `rdm_iteration` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_priority` */
-
+-- ----------------------------
+-- Table structure for rdm_priority
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_priority`;
-
 CREATE TABLE `rdm_priority` (
   `id` bigint NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -7170,10 +7249,10 @@ CREATE TABLE `rdm_priority` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_project` */
-
+-- ----------------------------
+-- Table structure for rdm_project
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_project`;
-
 CREATE TABLE `rdm_project` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -7191,10 +7270,10 @@ CREATE TABLE `rdm_project` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_project_status` */
-
+-- ----------------------------
+-- Table structure for rdm_project_status
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_project_status`;
-
 CREATE TABLE `rdm_project_status` (
   `id` bigint NOT NULL,
   `project_id` bigint DEFAULT NULL,
@@ -7208,10 +7287,10 @@ CREATE TABLE `rdm_project_status` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_project_status_rel` */
-
+-- ----------------------------
+-- Table structure for rdm_project_status_rel
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_project_status_rel`;
-
 CREATE TABLE `rdm_project_status_rel` (
   `id` bigint NOT NULL,
   `from_status_id` bigint NOT NULL,
@@ -7221,10 +7300,10 @@ CREATE TABLE `rdm_project_status_rel` (
   UNIQUE KEY `uk_idx` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_project_template` */
-
+-- ----------------------------
+-- Table structure for rdm_project_template
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_project_template`;
-
 CREATE TABLE `rdm_project_template` (
   `id` bigint NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '模板名称',
@@ -7232,10 +7311,10 @@ CREATE TABLE `rdm_project_template` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_project_template_apptype` */
-
+-- ----------------------------
+-- Table structure for rdm_project_template_apptype
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_project_template_apptype`;
-
 CREATE TABLE `rdm_project_template_apptype` (
   `template_id` bigint NOT NULL COMMENT '模板id',
   `app_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '应用类型',
@@ -7244,10 +7323,10 @@ CREATE TABLE `rdm_project_template_apptype` (
   PRIMARY KEY (`template_id`,`app_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_project_user` */
-
+-- ----------------------------
+-- Table structure for rdm_project_user
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_project_user`;
-
 CREATE TABLE `rdm_project_user` (
   `project_id` bigint NOT NULL,
   `user_id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -7255,10 +7334,10 @@ CREATE TABLE `rdm_project_user` (
   PRIMARY KEY (`project_id`,`user_id`,`user_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_tag` */
-
+-- ----------------------------
+-- Table structure for rdm_tag
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_tag`;
-
 CREATE TABLE `rdm_tag` (
   `id` bigint NOT NULL,
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -7266,10 +7345,10 @@ CREATE TABLE `rdm_tag` (
   UNIQUE KEY `idx_tag` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_webhook_config` */
-
+-- ----------------------------
+-- Table structure for rdm_webhook_config
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_webhook_config`;
-
 CREATE TABLE `rdm_webhook_config` (
   `app_id` bigint NOT NULL,
   `webhook_url` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -7278,10 +7357,10 @@ CREATE TABLE `rdm_webhook_config` (
   KEY `idx_url` (`webhook_url`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `rdm_webhook_data` */
-
+-- ----------------------------
+-- Table structure for rdm_webhook_data
+-- ----------------------------
 DROP TABLE IF EXISTS `rdm_webhook_data`;
-
 CREATE TABLE `rdm_webhook_data` (
   `id` bigint NOT NULL,
   `app_id` bigint DEFAULT NULL,
@@ -7295,10 +7374,10 @@ CREATE TABLE `rdm_webhook_data` (
   KEY `idx_app_id` (`app_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `report` */
-
+-- ----------------------------
+-- Table structure for report
+-- ----------------------------
 DROP TABLE IF EXISTS `report`;
-
 CREATE TABLE `report` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -7316,10 +7395,10 @@ CREATE TABLE `report` (
   KEY `idx_type` (`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表模版表';
 
-/*Table structure for table `report_auth` */
-
+-- ----------------------------
+-- Table structure for report_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `report_auth`;
-
 CREATE TABLE `report_auth` (
   `report_id` bigint NOT NULL COMMENT '报表模版ID',
   `type` enum('user','role','team','common') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'common：公共，user：用户,role：角色,team：分组',
@@ -7328,10 +7407,10 @@ CREATE TABLE `report_auth` (
   KEY `idx_uuid` (`auth_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表模版授权表';
 
-/*Table structure for table `report_blackwhitelist` */
-
+-- ----------------------------
+-- Table structure for report_blackwhitelist
+-- ----------------------------
 DROP TABLE IF EXISTS `report_blackwhitelist`;
-
 CREATE TABLE `report_blackwhitelist` (
   `id` bigint NOT NULL COMMENT 'id',
   `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '说明',
@@ -7342,10 +7421,10 @@ CREATE TABLE `report_blackwhitelist` (
   UNIQUE KEY `uk` (`item_name`,`item_type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表黑白名单表';
 
-/*Table structure for table `report_china_country` */
-
+-- ----------------------------
+-- Table structure for report_china_country
+-- ----------------------------
 DROP TABLE IF EXISTS `report_china_country`;
-
 CREATE TABLE `report_china_country` (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '国家名称',
   `adcode` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '区号',
@@ -7355,10 +7434,10 @@ CREATE TABLE `report_china_country` (
   PRIMARY KEY (`adcode`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表国家配置';
 
-/*Table structure for table `report_param` */
-
+-- ----------------------------
+-- Table structure for report_param
+-- ----------------------------
 DROP TABLE IF EXISTS `report_param`;
-
 CREATE TABLE `report_param` (
   `report_id` bigint NOT NULL COMMENT '报表id',
   `id` bigint DEFAULT NULL COMMENT '主键',
@@ -7372,10 +7451,10 @@ CREATE TABLE `report_param` (
   KEY `idx_id` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表模版参数表';
 
-/*Table structure for table `report_receiver` */
-
+-- ----------------------------
+-- Table structure for report_receiver
+-- ----------------------------
 DROP TABLE IF EXISTS `report_receiver`;
-
 CREATE TABLE `report_receiver` (
   `report_send_job_id` bigint NOT NULL COMMENT '报表发送计划ID',
   `receiver` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '接收人UUID或邮箱地址',
@@ -7383,10 +7462,10 @@ CREATE TABLE `report_receiver` (
   PRIMARY KEY (`report_send_job_id`,`receiver`,`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表发送接收人表';
 
-/*Table structure for table `report_send_job` */
-
+-- ----------------------------
+-- Table structure for report_send_job
+-- ----------------------------
 DROP TABLE IF EXISTS `report_send_job`;
-
 CREATE TABLE `report_send_job` (
   `id` bigint NOT NULL COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -7401,10 +7480,10 @@ CREATE TABLE `report_send_job` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表发送计划表';
 
-/*Table structure for table `report_send_job_relation` */
-
+-- ----------------------------
+-- Table structure for report_send_job_relation
+-- ----------------------------
 DROP TABLE IF EXISTS `report_send_job_relation`;
-
 CREATE TABLE `report_send_job_relation` (
   `report_send_job_id` bigint NOT NULL COMMENT '报表发送计划ID',
   `report_id` bigint NOT NULL COMMENT '报表ID',
@@ -7414,10 +7493,10 @@ CREATE TABLE `report_send_job_relation` (
   PRIMARY KEY (`report_send_job_id`,`report_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表发送计划-报表关联表';
 
-/*Table structure for table `report_statement` */
-
+-- ----------------------------
+-- Table structure for report_statement
+-- ----------------------------
 DROP TABLE IF EXISTS `report_statement`;
-
 CREATE TABLE `report_statement` (
   `id` bigint DEFAULT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -7433,10 +7512,10 @@ CREATE TABLE `report_statement` (
   `lcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '最近修改人'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表配置';
 
-/*Table structure for table `reportinstance` */
-
+-- ----------------------------
+-- Table structure for reportinstance
+-- ----------------------------
 DROP TABLE IF EXISTS `reportinstance`;
-
 CREATE TABLE `reportinstance` (
   `id` bigint NOT NULL COMMENT 'id',
   `report_id` bigint DEFAULT NULL COMMENT '报表id',
@@ -7451,10 +7530,10 @@ CREATE TABLE `reportinstance` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表实例表';
 
-/*Table structure for table `reportinstance_auth` */
-
+-- ----------------------------
+-- Table structure for reportinstance_auth
+-- ----------------------------
 DROP TABLE IF EXISTS `reportinstance_auth`;
-
 CREATE TABLE `reportinstance_auth` (
   `reportinstance_id` bigint NOT NULL COMMENT '报表实例ID',
   `type` enum('user','role','team','common') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'user：用户,role：角色,team：分组',
@@ -7463,10 +7542,10 @@ CREATE TABLE `reportinstance_auth` (
   KEY `idx_uuid` (`auth_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表实例授权表';
 
-/*Table structure for table `reportinstance_table_column` */
-
+-- ----------------------------
+-- Table structure for reportinstance_table_column
+-- ----------------------------
 DROP TABLE IF EXISTS `reportinstance_table_column`;
-
 CREATE TABLE `reportinstance_table_column` (
   `reportinstance_id` bigint NOT NULL COMMENT '报表实例ID',
   `table_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表格ID',
@@ -7475,10 +7554,10 @@ CREATE TABLE `reportinstance_table_column` (
   PRIMARY KEY (`reportinstance_id`,`table_id`,`column`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='报表实例中含有的表格列表';
 
-/*Table structure for table `role` */
-
+-- ----------------------------
+-- Table structure for role
+-- ----------------------------
 DROP TABLE IF EXISTS `role`;
-
 CREATE TABLE `role` (
   `id` bigint NOT NULL COMMENT '自增ID',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'uuid',
@@ -7488,10 +7567,10 @@ CREATE TABLE `role` (
   KEY `id` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='角色表';
 
-/*Table structure for table `role_authority` */
-
+-- ----------------------------
+-- Table structure for role_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `role_authority`;
-
 CREATE TABLE `role_authority` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `role_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色名称',
@@ -7501,12 +7580,12 @@ CREATE TABLE `role_authority` (
   UNIQUE KEY `idx_role_auth` (`role_uuid`,`auth_group`,`auth`) USING BTREE,
   KEY `id` (`id`) USING BTREE,
   KEY `idx_auth` (`auth`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1059 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='角色授权表';
+) ENGINE=InnoDB AUTO_INCREMENT=1060 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='角色授权表';
 
-/*Table structure for table `runner` */
-
+-- ----------------------------
+-- Table structure for runner
+-- ----------------------------
 DROP TABLE IF EXISTS `runner`;
-
 CREATE TABLE `runner` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -7529,10 +7608,10 @@ CREATE TABLE `runner` (
   KEY `idx_is_delete` (`is_delete`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=933806994210819 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='autoexec_runner';
 
-/*Table structure for table `runner_map` */
-
+-- ----------------------------
+-- Table structure for runner_map
+-- ----------------------------
 DROP TABLE IF EXISTS `runner_map`;
-
 CREATE TABLE `runner_map` (
   `id` bigint NOT NULL COMMENT '抽象id',
   `runner_id` bigint NOT NULL COMMENT 'runnerId',
@@ -7540,10 +7619,10 @@ CREATE TABLE `runner_map` (
   KEY `idx_runner_id` (`runner_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='autoexec_runner_map';
 
-/*Table structure for table `runnergroup` */
-
+-- ----------------------------
+-- Table structure for runnergroup
+-- ----------------------------
 DROP TABLE IF EXISTS `runnergroup`;
-
 CREATE TABLE `runnergroup` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '组名称',
@@ -7551,10 +7630,10 @@ CREATE TABLE `runnergroup` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=933995385569281 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='runner组';
 
-/*Table structure for table `runnergroup_network` */
-
+-- ----------------------------
+-- Table structure for runnergroup_network
+-- ----------------------------
 DROP TABLE IF EXISTS `runnergroup_network`;
-
 CREATE TABLE `runnergroup_network` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
   `group_id` bigint DEFAULT NULL COMMENT '组id',
@@ -7563,19 +7642,19 @@ CREATE TABLE `runnergroup_network` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=848394243072002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='autoexec_runnergroup_network';
 
-/*Table structure for table `runnergroup_runner` */
-
+-- ----------------------------
+-- Table structure for runnergroup_runner
+-- ----------------------------
 DROP TABLE IF EXISTS `runnergroup_runner`;
-
 CREATE TABLE `runnergroup_runner` (
   `runnergroup_id` bigint DEFAULT NULL COMMENT 'runner组id',
   `runner_id` bigint DEFAULT NULL COMMENT 'runnerId'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='runner组和runner关系表';
 
-/*Table structure for table `schedule_job` */
-
+-- ----------------------------
+-- Table structure for schedule_job
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule_job`;
-
 CREATE TABLE `schedule_job` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '名称',
@@ -7589,10 +7668,10 @@ CREATE TABLE `schedule_job` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业信息表';
 
-/*Table structure for table `schedule_job_audit` */
-
+-- ----------------------------
+-- Table structure for schedule_job_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule_job_audit`;
-
 CREATE TABLE `schedule_job_audit` (
   `id` bigint NOT NULL COMMENT 'id',
   `job_uuid` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '引用schedule_job的uuid',
@@ -7608,20 +7687,20 @@ CREATE TABLE `schedule_job_audit` (
   KEY `idx_end_time` (`end_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业日志表';
 
-/*Table structure for table `schedule_job_audit_detail` */
-
+-- ----------------------------
+-- Table structure for schedule_job_audit_detail
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule_job_audit_detail`;
-
 CREATE TABLE `schedule_job_audit_detail` (
   `hash` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'hash',
   `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '内容',
   PRIMARY KEY (`hash`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业日志详情表';
 
-/*Table structure for table `schedule_job_load_time` */
-
+-- ----------------------------
+-- Table structure for schedule_job_load_time
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule_job_load_time`;
-
 CREATE TABLE `schedule_job_load_time` (
   `job_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'schedule_job表的uuid',
   `job_group` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'job组',
@@ -7630,10 +7709,10 @@ CREATE TABLE `schedule_job_load_time` (
   PRIMARY KEY (`job_name`,`job_group`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业锁表';
 
-/*Table structure for table `schedule_job_lock` */
-
+-- ----------------------------
+-- Table structure for schedule_job_lock
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule_job_lock`;
-
 CREATE TABLE `schedule_job_lock` (
   `job_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'schedule_job表的uuid',
   `job_group` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'job组',
@@ -7644,10 +7723,10 @@ CREATE TABLE `schedule_job_lock` (
   KEY `idx_server_id` (`server_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业锁表';
 
-/*Table structure for table `schedule_job_prop` */
-
+-- ----------------------------
+-- Table structure for schedule_job_prop
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule_job_prop`;
-
 CREATE TABLE `schedule_job_prop` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `job_uuid` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '引用schedule_job的uuid',
@@ -7657,10 +7736,10 @@ CREATE TABLE `schedule_job_prop` (
   KEY `idx_jobuuid` (`job_uuid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业参数表';
 
-/*Table structure for table `schedule_job_status` */
-
+-- ----------------------------
+-- Table structure for schedule_job_status
+-- ----------------------------
 DROP TABLE IF EXISTS `schedule_job_status`;
-
 CREATE TABLE `schedule_job_status` (
   `job_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'job uuid',
   `job_group` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'job组',
@@ -7674,10 +7753,10 @@ CREATE TABLE `schedule_job_status` (
   PRIMARY KEY (`job_name`,`job_group`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='定时作业状态表';
 
-/*Table structure for table `score_template` */
-
+-- ----------------------------
+-- Table structure for score_template
+-- ----------------------------
 DROP TABLE IF EXISTS `score_template`;
-
 CREATE TABLE `score_template` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '评分模版名称',
@@ -7690,10 +7769,10 @@ CREATE TABLE `score_template` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=573816916729857 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='评分模版表';
 
-/*Table structure for table `score_template_dimension` */
-
+-- ----------------------------
+-- Table structure for score_template_dimension
+-- ----------------------------
 DROP TABLE IF EXISTS `score_template_dimension`;
-
 CREATE TABLE `score_template_dimension` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `score_template_id` bigint NOT NULL COMMENT '评分模版ID',
@@ -7702,10 +7781,10 @@ CREATE TABLE `score_template_dimension` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=573817185165313 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='评分模版维度表';
 
-/*Table structure for table `system_notice` */
-
+-- ----------------------------
+-- Table structure for system_notice
+-- ----------------------------
 DROP TABLE IF EXISTS `system_notice`;
-
 CREATE TABLE `system_notice` (
   `id` bigint NOT NULL COMMENT 'id',
   `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '标题',
@@ -7724,10 +7803,10 @@ CREATE TABLE `system_notice` (
   KEY `idx_issue_time` (`issue_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统公告表';
 
-/*Table structure for table `system_notice_recipient` */
-
+-- ----------------------------
+-- Table structure for system_notice_recipient
+-- ----------------------------
 DROP TABLE IF EXISTS `system_notice_recipient`;
-
 CREATE TABLE `system_notice_recipient` (
   `system_notice_id` bigint NOT NULL COMMENT '系统公告ID',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '通知对象uuid',
@@ -7735,10 +7814,10 @@ CREATE TABLE `system_notice_recipient` (
   PRIMARY KEY (`system_notice_id`,`uuid`,`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统公告通知对象表';
 
-/*Table structure for table `system_notice_user` */
-
+-- ----------------------------
+-- Table structure for system_notice_user
+-- ----------------------------
 DROP TABLE IF EXISTS `system_notice_user`;
-
 CREATE TABLE `system_notice_user` (
   `system_notice_id` bigint NOT NULL COMMENT '系统公告ID',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
@@ -7749,20 +7828,20 @@ CREATE TABLE `system_notice_user` (
   KEY `idx_notice_id_and_user_uuid` (`system_notice_id`,`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='系统公告用户接收表';
 
-/*Table structure for table `tag` */
-
+-- ----------------------------
+-- Table structure for tag
+-- ----------------------------
 DROP TABLE IF EXISTS `tag`;
-
 CREATE TABLE `tag` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '标签名',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='标签表';
 
-/*Table structure for table `tagent` */
-
+-- ----------------------------
+-- Table structure for tagent
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent`;
-
 CREATE TABLE `tagent` (
   `id` bigint unsigned NOT NULL COMMENT 'tagent Id',
   `ip` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'tagentIP',
@@ -7789,49 +7868,49 @@ CREATE TABLE `tagent` (
   UNIQUE KEY `idx_ip_port` (`ip`,`port`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent信息表';
 
-/*Table structure for table `tagent_account` */
-
+-- ----------------------------
+-- Table structure for tagent_account
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_account`;
-
 CREATE TABLE `tagent_account` (
   `id` bigint NOT NULL COMMENT '主键id',
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '名称',
-  `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '密码',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
+  `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '密码',
   `protocol_id` bigint NOT NULL COMMENT 'tgent协议id',
-  `fcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建人',
+  `fcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
   `fcd` timestamp NULL DEFAULT NULL COMMENT '创建时间',
-  `lcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '修改人',
+  `lcu` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '修改人',
   `lcd` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent账号表';
 
-/*Table structure for table `tagent_account_ip` */
-
+-- ----------------------------
+-- Table structure for tagent_account_ip
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_account_ip`;
-
 CREATE TABLE `tagent_account_ip` (
   `account_id` bigint NOT NULL COMMENT '账号id',
   `ip` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '账号对应的ip',
   PRIMARY KEY (`account_id`,`ip`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent账号ip表';
 
-/*Table structure for table `tagent_ip` */
-
+-- ----------------------------
+-- Table structure for tagent_ip
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_ip`;
-
 CREATE TABLE `tagent_ip` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `tagent_id` bigint NOT NULL COMMENT 'tagentId',
   `ip` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '目标主机的网卡IP',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `idx_id_ip` (`tagent_id`,`ip`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2231951 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent ip表（多网卡）';
+) ENGINE=InnoDB AUTO_INCREMENT=2231966 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent ip表（多网卡）';
 
-/*Table structure for table `tagent_os` */
-
+-- ----------------------------
+-- Table structure for tagent_os
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_os`;
-
 CREATE TABLE `tagent_os` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '操作系统名称',
@@ -7844,19 +7923,19 @@ CREATE TABLE `tagent_os` (
   UNIQUE KEY `uk_name` (`name`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=788 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent os';
 
-/*Table structure for table `tagent_osbit` */
-
+-- ----------------------------
+-- Table structure for tagent_osbit
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_osbit`;
-
 CREATE TABLE `tagent_osbit` (
   `osbit` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'tagent cpu架构',
   PRIMARY KEY (`osbit`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent cpu架构表';
 
-/*Table structure for table `tagent_upgrade_audit` */
-
+-- ----------------------------
+-- Table structure for tagent_upgrade_audit
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_upgrade_audit`;
-
 CREATE TABLE `tagent_upgrade_audit` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `count` bigint DEFAULT NULL COMMENT '升级个数',
@@ -7866,10 +7945,10 @@ CREATE TABLE `tagent_upgrade_audit` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=735473471119361 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent升级';
 
-/*Table structure for table `tagent_upgrade_detail` */
-
+-- ----------------------------
+-- Table structure for tagent_upgrade_detail
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_upgrade_detail`;
-
 CREATE TABLE `tagent_upgrade_detail` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `audit_id` bigint DEFAULT NULL COMMENT '记录id,关联 flow_tagent_upgrade_audit表',
@@ -7883,10 +7962,10 @@ CREATE TABLE `tagent_upgrade_detail` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=735473471119365 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent升级';
 
-/*Table structure for table `tagent_version` */
-
+-- ----------------------------
+-- Table structure for tagent_version
+-- ----------------------------
 DROP TABLE IF EXISTS `tagent_version`;
-
 CREATE TABLE `tagent_version` (
   `id` bigint NOT NULL COMMENT '主键',
   `os_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'os类型',
@@ -7897,10 +7976,10 @@ CREATE TABLE `tagent_version` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='tagent版本';
 
-/*Table structure for table `task_config` */
-
+-- ----------------------------
+-- Table structure for task_config
+-- ----------------------------
 DROP TABLE IF EXISTS `task_config`;
-
 CREATE TABLE `task_config` (
   `id` bigint NOT NULL COMMENT '自增id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '任务名称',
@@ -7916,10 +7995,10 @@ CREATE TABLE `task_config` (
   UNIQUE KEY `uniq_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='task_config';
 
-/*Table structure for table `team` */
-
+-- ----------------------------
+-- Table structure for team
+-- ----------------------------
 DROP TABLE IF EXISTS `team`;
-
 CREATE TABLE `team` (
   `id` bigint NOT NULL COMMENT 'id',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
@@ -7941,10 +8020,10 @@ CREATE TABLE `team` (
   KEY `id` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='分组信息表';
 
-/*Table structure for table `team_role` */
-
+-- ----------------------------
+-- Table structure for team_role
+-- ----------------------------
 DROP TABLE IF EXISTS `team_role`;
-
 CREATE TABLE `team_role` (
   `team_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '引用team的uuid',
   `role_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '引用role的uuid',
@@ -7952,10 +8031,10 @@ CREATE TABLE `team_role` (
   PRIMARY KEY (`team_uuid`,`role_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='分组与角色关系表';
 
-/*Table structure for table `team_user_title` */
-
+-- ----------------------------
+-- Table structure for team_user_title
+-- ----------------------------
 DROP TABLE IF EXISTS `team_user_title`;
-
 CREATE TABLE `team_user_title` (
   `team_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '组uuid',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
@@ -7964,10 +8043,10 @@ CREATE TABLE `team_user_title` (
   KEY `idx` (`title_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='分组领导职务关系表';
 
-/*Table structure for table `test` */
-
+-- ----------------------------
+-- Table structure for test
+-- ----------------------------
 DROP TABLE IF EXISTS `test`;
-
 CREATE TABLE `test` (
   `A` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `B` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -7976,10 +8055,10 @@ CREATE TABLE `test` (
   `E` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Table structure for table `theme` */
-
+-- ----------------------------
+-- Table structure for theme
+-- ----------------------------
 DROP TABLE IF EXISTS `theme`;
-
 CREATE TABLE `theme` (
   `id` bigint NOT NULL COMMENT '主键 id',
   `config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '主题配置',
@@ -7988,10 +8067,10 @@ CREATE TABLE `theme` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='主题配置表';
 
-/*Table structure for table `user` */
-
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
 DROP TABLE IF EXISTS `user`;
-
 CREATE TABLE `user` (
   `id` bigint NOT NULL COMMENT 'ID',
   `uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '全局唯一id，跨环境导入用',
@@ -8012,10 +8091,10 @@ CREATE TABLE `user` (
   KEY `email` (`email`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户信息表';
 
-/*Table structure for table `user_agent` */
-
+-- ----------------------------
+-- Table structure for user_agent
+-- ----------------------------
 DROP TABLE IF EXISTS `user_agent`;
-
 CREATE TABLE `user_agent` (
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
   `agent_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '代理人uuid',
@@ -8025,10 +8104,10 @@ CREATE TABLE `user_agent` (
   KEY `idx_user_uuid` (`user_uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户授权代理表';
 
-/*Table structure for table `user_authority` */
-
+-- ----------------------------
+-- Table structure for user_authority
+-- ----------------------------
 DROP TABLE IF EXISTS `user_authority`;
-
 CREATE TABLE `user_authority` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '用户ID',
@@ -8038,12 +8117,12 @@ CREATE TABLE `user_authority` (
   UNIQUE KEY `idx_user_auth` (`user_uuid`,`auth_group`,`auth`) USING BTREE,
   KEY `id` (`id`) USING BTREE,
   KEY `idx_auth` (`auth`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=12596 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户授权表';
+) ENGINE=InnoDB AUTO_INCREMENT=12866 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户授权表';
 
-/*Table structure for table `user_data` */
-
+-- ----------------------------
+-- Table structure for user_data
+-- ----------------------------
 DROP TABLE IF EXISTS `user_data`;
-
 CREATE TABLE `user_data` (
   `user_uuid` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
   `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '数据',
@@ -8051,10 +8130,10 @@ CREATE TABLE `user_data` (
   PRIMARY KEY (`user_uuid`,`type`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户数据';
 
-/*Table structure for table `user_password` */
-
+-- ----------------------------
+-- Table structure for user_password
+-- ----------------------------
 DROP TABLE IF EXISTS `user_password`;
-
 CREATE TABLE `user_password` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增主键',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
@@ -8063,12 +8142,12 @@ CREATE TABLE `user_password` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `is_active` tinyint(1) DEFAULT NULL COMMENT '有效性',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8446 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户密码表';
+) ENGINE=InnoDB AUTO_INCREMENT=8447 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户密码表';
 
-/*Table structure for table `user_profile` */
-
+-- ----------------------------
+-- Table structure for user_profile
+-- ----------------------------
 DROP TABLE IF EXISTS `user_profile`;
-
 CREATE TABLE `user_profile` (
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
   `module_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模块id',
@@ -8076,10 +8155,10 @@ CREATE TABLE `user_profile` (
   PRIMARY KEY (`user_uuid`,`module_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户个性化配置';
 
-/*Table structure for table `user_role` */
-
+-- ----------------------------
+-- Table structure for user_role
+-- ----------------------------
 DROP TABLE IF EXISTS `user_role`;
-
 CREATE TABLE `user_role` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
@@ -8087,22 +8166,22 @@ CREATE TABLE `user_role` (
   PRIMARY KEY (`user_uuid`,`role_uuid`) USING BTREE,
   KEY `id` (`id`) USING BTREE,
   KEY `idx_role_uuid` (`role_uuid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=37512 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='角色成员关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=37518 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='角色成员关系表';
 
-/*Table structure for table `user_session` */
-
+-- ----------------------------
+-- Table structure for user_session
+-- ----------------------------
 DROP TABLE IF EXISTS `user_session`;
-
 CREATE TABLE `user_session` (
   `user_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户uuid',
   `visit_time` timestamp(3) NULL DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`user_uuid`) USING HASH
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户session表';
 
-/*Table structure for table `user_team` */
-
+-- ----------------------------
+-- Table structure for user_team
+-- ----------------------------
 DROP TABLE IF EXISTS `user_team`;
-
 CREATE TABLE `user_team` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `team_uuid` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '引用flow_team的uuid',
@@ -8111,12 +8190,12 @@ CREATE TABLE `user_team` (
   PRIMARY KEY (`team_uuid`,`user_uuid`) USING BTREE,
   KEY `id` (`id`) USING BTREE,
   KEY `idx_flow_user_team` (`user_uuid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8679 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='分组成员关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=8680 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='分组成员关系表';
 
-/*Table structure for table `user_title` */
-
+-- ----------------------------
+-- Table structure for user_title
+-- ----------------------------
 DROP TABLE IF EXISTS `user_title`;
-
 CREATE TABLE `user_title` (
   `id` bigint NOT NULL COMMENT '唯一id',
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '头衔名，如果不被引用则自动删除',
@@ -8124,10 +8203,10 @@ CREATE TABLE `user_title` (
   UNIQUE KEY `unique_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户职务表';
 
-/*Table structure for table `worktime` */
-
+-- ----------------------------
+-- Table structure for worktime
+-- ----------------------------
 DROP TABLE IF EXISTS `worktime`;
-
 CREATE TABLE `worktime` (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'id',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '名称',
@@ -8139,10 +8218,10 @@ CREATE TABLE `worktime` (
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务窗口';
 
-/*Table structure for table `worktime_range` */
-
+-- ----------------------------
+-- Table structure for worktime_range
+-- ----------------------------
 DROP TABLE IF EXISTS `worktime_range`;
-
 CREATE TABLE `worktime_range` (
   `worktime_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'worktime表的uuid',
   `year` int NOT NULL COMMENT '年份',
