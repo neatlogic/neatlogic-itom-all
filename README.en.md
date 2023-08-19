@@ -52,7 +52,7 @@ To enhance the efficiency of research and development, we have developed the fol
 - 🚀 [i18nhelper-vscode](../../../i18nhelper-vscode/blob/main/README.en.md) is used for automatic replacement of i18n key-value pairs and text translation, exclusively for vscode.
 
 ## About Branch
-- 📌 deveploy x.x.x: Development branch, has not been deployed and finalized in key customers yet. The main features are basically stable, and new features are continuously being added. Some features may be adjusted but will not affect usage.
+- 📌 develop x.x.x: Development branch, has not been deployed and finalized in key customers yet. The main features are basically stable, and new features are continuously being added. Some features may be adjusted but will not affect usage.
 - 📌 release x.x.x: Release branch, has been deployed and finalized in key customers. Core features will not be largely adjusted, only functional adjustments and defect fixes will be made.
 - 🏁 (tag) x.x.x: Each version adjustment of release will be tagged correspondingly, usually after feature adjustments or major defect fixes.
 
