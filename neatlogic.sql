@@ -164,6 +164,13 @@ CREATE TABLE `server_status` (
   `host` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '服务器ip地址',
   `server_id` int NOT NULL COMMENT 'config.properties文件的schedule.server.id',
   `status` enum('startup','stop') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'startup' COMMENT '服务器状态，启动或停机',
+  `heartbeat_rate` int DEFAULT NULL COMMENT '心跳频率（分钟）',
+  `heartbeat_threshold` int DEFAULT NULL COMMENT '心跳阈值',
+  `heartbeat_time` timestamp(3) NULL DEFAULT NULL COMMENT '心跳时间',
+  `fcu` char(32) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `fcd` timestamp(3) NULL DEFAULT NULL COMMENT '创建时间',
+  `lcu` char(32) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '修改人',
+  `lcd` timestamp(3) NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`server_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='服务器状态';
 
@@ -171,7 +178,7 @@ CREATE TABLE `server_status` (
 -- Records of server_status
 -- ----------------------------
 BEGIN;
-INSERT INTO `server_status` VALUES ('192.168.0.104', 1, 'startup');
+INSERT INTO `server_status` VALUES ('http://192.168.0.104:8282', 1, 'startup');
 INSERT INTO `server_status` VALUES ('http://192.168.0.97:8282', 97, 'startup');
 INSERT INTO `server_status` VALUES (NULL, 8341, 'startup');
 COMMIT;
