@@ -178,9 +178,9 @@ CREATE TABLE `server_status` (
 -- Records of server_status
 -- ----------------------------
 BEGIN;
-INSERT INTO `server_status` VALUES ('http://192.168.0.104:8282', 1, 'startup');
-INSERT INTO `server_status` VALUES ('http://192.168.0.97:8282', 97, 'startup');
-INSERT INTO `server_status` VALUES (NULL, 8341, 'startup');
+INSERT INTO `server_status` (`host`, `server_id`, `status`, `heartbeat_rate`, `heartbeat_threshold`, `heartbeat_time`, `fcu`, `fcd`, `lcu`, `lcd`) VALUES ('http://192.168.0.104:8282', 1, 'startup', 3, 5, NOW(3), 'system', NOW(3), 'system', NOW(3));
+INSERT INTO `server_status` (`host`, `server_id`, `status`, `heartbeat_rate`, `heartbeat_threshold`, `heartbeat_time`, `fcu`, `fcd`, `lcu`, `lcd`) VALUES ('http://192.168.0.97:8282', 97, 'startup', 3, 5, NOW(3), 'system', NOW(3), 'system', NOW(3));
+INSERT INTO `server_status` (`host`, `server_id`, `status`, `heartbeat_rate`, `heartbeat_threshold`, `heartbeat_time`, `fcu`, `fcd`, `lcu`, `lcd`) VALUES (NULL, 8341, 'startup', 3, 5, NOW(3), 'system', NOW(3), 'system', NOW(3));
 COMMIT;
 
 -- ----------------------------
