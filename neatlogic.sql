@@ -197,6 +197,8 @@ CREATE TABLE `tenant` (
   `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '描述',
   `error_msg` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '创建租户异常',
   `is_need_demo` tinyint(1) DEFAULT NULL COMMENT '创建租户是否携带demo数据',
+  `visit_time` timestamp(3) NULL DEFAULT NULL COMMENT '当天第一次访问时间',
+  `fcd` timestamp(3) NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `uk_uuid` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='租户信息表';
@@ -205,7 +207,7 @@ CREATE TABLE `tenant` (
 -- Records of tenant
 -- ----------------------------
 BEGIN;
-INSERT INTO `tenant` VALUES (1, 'demo', 'demo', 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tenant` (`id`, `uuid`, `name`, `is_active`, `status`, `expire_date`, `description`, `error_msg`, `is_need_demo`, `visit_time`, `fcd`) VALUES (1, 'demo', 'demo', 1, NULL, NULL, NULL, NULL, NULL, now(), NULL);
 COMMIT;
 
 -- ----------------------------
