@@ -13,16 +13,11 @@ git clone https://gitee.com/neat-logic/neatlogic-itom-all.git  --recurse-submodu
 ```
 cd neatlogic-itom-all
 ```
-# 3.install neatlogic-parent父模块
-```
-cd neatlogic-parent
-mvn install
-```
+# 3.执行install脚本
 
-# 4.install neatlogic-webroot 生成war包
-```
-cd ../neatlogic-webroot
-mvn clean compile -U install -P develop
-```
+将这个[mvn_install_neatlogic_war.sh](mvn_install_neatlogic_war.sh)脚本放到neatlogic-itom-all目录下
 
-
+```
+sh mvn_install_neatlogic_war.sh
+```
+![输入图片说明](README_IMAGES/BUILD/mvn_install.png)
