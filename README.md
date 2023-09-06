@@ -256,8 +256,8 @@ Neatlogic通过maven profile管理不同分支的版本号以及社区版和商�
  >- 注册后如果没有额度,则会在有名额时邮件通知
  >- 如果连续3天没使用,则会回收资源,如仍需使用则需要重新发邮件激活
 
-## install neatlogic 后端服务 war
-[点击查看install教程](WAR_INSTALL.md)
+## 构建教程
+[点击查看构建说明](WAR_INSTALL.md)
 
 ## 本地部署
 
