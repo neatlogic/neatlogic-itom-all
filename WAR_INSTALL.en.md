@@ -13,7 +13,7 @@ git clone https://gitee.com/neat-logic/neatlogic-itom-all.git  --recurse-submodu
 ```
 cd neatlogic-itom-all
 ```
-# 3.execute "install" script
+# 3.Execute "install" script
 
 Put the script [mvn_install_neatlogic_war.sh](mvn_install_neatlogic_war.sh) into the "neatlogic-itom-all" directory.
 
