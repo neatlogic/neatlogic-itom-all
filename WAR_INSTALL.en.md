@@ -15,7 +15,7 @@ cd neatlogic-itom-all
 ```
 # 3.execute "install" script
 
-Put the script "mvn_install_neatlogic_war.sh" into the "neatlogic-itom-all" directory.
+Put the script [mvn_install_neatlogic_war.sh](mvn_install_neatlogic_war.sh) into the "neatlogic-itom-all" directory.
 
 ```
 sh mvn_install_neatlogic_war.sh
