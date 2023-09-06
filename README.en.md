@@ -255,6 +255,9 @@ Neatlogic manages different branch version numbers and module dependencies for t
 >- If there is no quota after registration, you will be notified by email when there is an available quota.
 >- If you don’t use it for 3 consecutive days, the resources will be reclaimed. If you still want to use it, you will need to reactivate by sending an email again.
 
+## Building Tutorial
+[Click to view building Tutorial](WAR_INSTALL.md)
+
 ## Local Deployment
 Coming soon...
 
