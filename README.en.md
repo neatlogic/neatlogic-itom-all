@@ -265,7 +265,5 @@ Coming soon...
 [Click to view docker deployment manual](QUICK_START.en.md)
 
 ## Contact us
-- **slack** <br>
-    [Neatlogic in Slack](https://join.slack.com/t/neatlogichome/shared_invite/zt-1w037axf8-r_i2y4pPQ1Z8FxOkAbb64w)
 - **Enterprise WeChat** <br>
 <p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" width="200" /></p>
