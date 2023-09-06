@@ -1,4 +1,4 @@
-中文 / [English](CODE-BUILD.en.md)
+中文 / [English](WAR_INSTALL.en.md)
 
 # 构建教程
 
