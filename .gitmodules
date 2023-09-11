@@ -100,3 +100,6 @@
 [submodule "neatlogic-document-online"]
 	path = neatlogic-document-online
 	url = ../neatlogic-document-online.git
+[submodule "neatlogic-database"]
+	path = neatlogic-database
+	url = ../neatlogic-database.git
