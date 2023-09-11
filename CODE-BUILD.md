@@ -23,6 +23,7 @@
 git submodule foreach 'git checkout develop3.0.0'
 ```
 ### 配置maven(版本3.8+)
+> 使用maven自带的setting.xml文件即可，如果存在网络问题，则需要通过私有nexus仓库或者别的方式下载第三方依赖了
 ![](README_IMAGES/BUILD/idea-projectStructure.png)
 ![](README_IMAGES/BUILD/idea-mavenSetting1.png)
 ### 配置JDK8
