@@ -42,8 +42,8 @@ git submodule foreach 'git checkout develop3.0.0'
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
+#### VM Options
 ```
-//VM Option
 //nacos配置，会优先使用nacos，获取不到config则会从config.properties中获取
 -Dnacos.home=192.168.0.10:8848 
 -Dnacos.namespace=lvzk_local 
