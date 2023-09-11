@@ -91,43 +91,30 @@ heartbeat.threshold = 5
 #### 将config目录定义为资源目录
 ![](README_IMAGES/BUILD/idea-config.png)
 
-### 创建数据库
+### 创建mysql8数据库
 #### neatlogic需要使用3个库，字符集采用utf8mb4，排序规则采用utf8mb4_general_ci，由于neatlogic需要动态创建、删除表和视图，请授予数据库连接用户适当的权限。
-  + neatlogic：管理库，所用租户共用，用于管理租户信息，管理系统的健康状态等。
-  + neatlogic_xxx：xxx租户的主库，租户的核心数据都保存在这个库。
+  + neatlogic：管理库，所用租户共用，用于管理租户信息（租户数据库配置信息等），管理系统的健康状态等。
+  + neatlogic_xxx：xxx租户库，xxx租户的数据都保存在这个库。
   + neatlogic_xxx_data：xxx租户的扩展库，用于存放所有由系统自动生成的表和视图。人工构建时需要手动创建这个空库
-#### 为了方便构建，目前提供了[neatlogic.sql](neatlogic.sql)和[neatlogic_demo.sql](neatlogic_demo.sql)两个SQL文件，请按照上述说明创建了空库再执行脚本，执行完会自动创建demo租户，如果想把demo改成别的名称，需要修改neatlogic库中的tenant表，修改neatlogic_demo的库名为neatlogic_新的租户名称
->注意:还需要修改neatlogic数据库datasource表对应租户的数据库连接信息(password、host、port)
+#### 为了方便理解，以下使用demo租户作为演示。
+  1. 请先按照上述说明创建了3个空库neatlogic、neatlogic_demo和neatlogic_demo_data,如下图。
+   ![](README_IMAGES/BUILD/database.png)
+  2. 导入样例数据:[neatlogic-database/mysql](../../../neatlogic-database/blob/develop3.0.0/mysql) 将三个sql文件按名字分别导入到三个库。
+  3. 修改neatlogic库的datasource表，找到tenant_uuid=demo的那行数据，核对username、password、host和port是否正确配置
 
-![](README_IMAGES/BUILD/database.png)
-### 导入样例数据作为参考
-#### 如果熟悉的用户可以按需执行对应模块的dml sql.每个模块提供了dml sql文件,用于导入demo数据.如果是xxx_data后缀的sql,则需要到租户data库执行. 
-![输入图片说明](README_IMAGES/BUILD/dmlsql.png)
->注意:ddldemo_data.sql 也是需要执行的,里面存放的是租户data库需要的schema,如:矩阵、cmdb的配置项动态表(通过租户库固定的表的数据动态生成租户data库动态表)
+### 创建mongodb数据库（如果涉及cmdb配置管理、自动化、巡检和发布模块则需要操作该步骤）
+  用于存储自动化作业、采集和巡检等数据。
+#### 为了方便理解，一下使用demo租户作业演示
+  1. 创建neatlogic_demo空库
+  2. 导入定义数据:[neatlogic-database/mongodb](../../../neatlogic-database/blob/develop3.0.0/mongodb/autoexec) ,通过mongostore导入即可
+  3. 修改 **mysql** 数据库中的neatlogic_demo库的mongodb表,找到tenant_uuid=demo的那行数据，核对database、username、password、host和option是否正确配置
 
-#### 如果是不熟悉我们项目的导入所有模块的样例数据导入到对应的租户库,以下例子用的是demo租户
-请自行将[demo(ddl+dml).sql](demo(ddl+dml).sql)导入到neatlogic_demo库;
-将[demo_data(ddl+dml).sql](demo_data(ddl+dml).sql)导入到neatlogic_demo_data库.
-
-#### 初始化创建用户、分组、角色授权
-VM options 添加-DenableSuperAdmin=true 参数
-![输入图片说明](README_IMAGES/BUILD/vmoptions-maintain.png)
-配置文件config.properties 增加
-```
-#超级管理员账号
-superadmin = neatlogic
-#超级管理员密码
-superadmin.password = 123456
-```
-然后启动后使用上面的超级管理员账号 创建用户、角色、分组 授权等操作,好了,再通过创建的用户登录即可
 ### 启动Tomcat
 如果出现一下日志，说明后端已经启动成功.
 ![](README_IMAGES/BUILD/startTomcatSuccess.png)
 > 检查后端服务是否正常
 > 浏览器访问 http://localhost:8080/neatlogic/tenant/check/demo
 > ![输入图片说明](README_IMAGES/BUILD/checkhealth.png)
-### 初始化视图
-需要初始化视图,否则部分模块功能会提示data租户库找不到scence_xxx、resource_xxx视图
-![输入图片说明](README_IMAGES/BUILD/rebuild_views.pngimage.png)
+
 ## 前端构建 
 [点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)
