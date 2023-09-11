@@ -49,11 +49,8 @@ git submodule foreach 'git checkout develop3.0.0'
 -Dnacos.namespace=lvzk_local 
 //日志级别
 -Dlog4j.priority=ERROR 
--Drunmode=develop 
 //设为true，输入用户名后可使用任意密码登录，只能在研发阶段使用！
 -DenableNoSecret=false 
-//设为true开启运维模式，能用超级管理员身份登录进行紧急干预和授权，此用户权限很大，只能在研发阶段使用！
--DenableSuperAdmin=true
 ```
 #### 配置自动构建的时机
 ![idea-tomcat6.png](README_IMAGES/BUILD/idea-tomcat6.png)
