@@ -29,7 +29,9 @@ git submodule foreach 'git checkout develop3.0.0'
 ![](README_IMAGES/BUILD/idea-jdk.png)
 ![](README_IMAGES/BUILD/idea-jdk1.png)
 ### 刷新maven依赖
-![](README_IMAGES/BUILD/idea-mavenRefreshDependencies.png)
+![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
+>如果刷新后提示Could not find artifact 以下商业模块，则是正常的，执行后续步骤即可
+![输入图片说明](README_IMAGES/BUILD/CommercialModuleNotFound.png)
 ### 配置Tomcat9
 ![](README_IMAGES/BUILD/idea-tomcat.png)
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
