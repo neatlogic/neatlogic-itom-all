@@ -51,7 +51,9 @@ git submodule foreach 'git checkout develop3.0.0'
 //日志级别
 -Dlog4j.priority=ERROR 
 //设为true，输入用户名后可使用任意密码登录，只能在研发阶段使用！
--DenableNoSecret=false 
+-DenableNoSecret=false
+//确保JVM使用UTF-8编码来解释和处理文本数据,否则可能会导致中文乱码
+-Dfile.encoding=UTF-8 
 ```
 #### 配置自动构建的时机
 ![idea-tomcat6.png](README_IMAGES/BUILD/idea-tomcat6.png)
