@@ -49,7 +49,7 @@ neatlogic-db
     - /app/logs/neatlogicdb/:/app/logs/neatlogicdb/
     - type: volume
       source: db_data
-      target: /app/databases/neatlogicdb/ #宿主机路径
+      target: /app/databases/neatlogicdb/ 
 ```
 neatlogic-collectdb
 ```
@@ -57,7 +57,7 @@ neatlogic-collectdb
       - /app/logs/collectdb/:/app/logs/collectdb/
       - type: volume
         source: collectdb_data
-        target: /app/databases/collectdb/ #宿主机路径
+        target: /app/databases/collectdb/ 
 ```
 neatlogic-runner
 ```
@@ -65,7 +65,7 @@ neatlogic-runner
       - /app/logs/neatlogic-runner/:/app/logs/autoexec-runner/
       - type: volume
         source: autoexec_data
-        target: /app/autoexec/data/ #宿主机路径
+        target: /app/autoexec/data/ 
 ```
 
 **2、宿主机端口冲突**
