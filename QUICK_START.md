@@ -41,32 +41,7 @@ docker-compose -f docker-compose.yml logs -f neatlogic-app
 ## 按需修改配置 docker-compose.yml
 ### 一般常见需要修改的场景:
 **1、数据持久化**
-默认是没有配置持久化的,如果需要则参考以下配置修改即可:
-
-neatlogic-db 
-```
-  volumes:
-    - /app/logs/neatlogicdb/:/app/logs/neatlogicdb/
-    - type: volume
-      source: db_data
-      target: /app/databases/neatlogicdb/ 
-```
-neatlogic-collectdb
-```
-  volumes:
-      - /app/logs/collectdb/:/app/logs/collectdb/
-      - type: volume
-        source: collectdb_data
-        target: /app/databases/collectdb/ 
-```
-neatlogic-runner
-```
-  volumes:
-      - /app/logs/neatlogic-runner/:/app/logs/autoexec-runner/
-      - type: volume
-        source: autoexec_data
-        target: /app/autoexec/data/ 
-```
+默认是没有配置持久化的,持久化配置国庆后更新...
 
 **2、宿主机端口冲突**
 
