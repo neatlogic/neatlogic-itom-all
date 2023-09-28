@@ -152,6 +152,8 @@ neatlogic-runner
 ```
 
 ## demo样例数据参考
-由于考虑到环境的干净,镜像只保留了核心数据.如果仍需要更多的样例数据作为参考,
-请自行将[demo(ddl+dml).sql](demo(ddl+dml).sql)导入到neatlogic_demo库;
-将[demo_data(ddl+dml).sql](demo_data(ddl+dml).sql)导入到neatlogic_demo_data库.
+由于考虑到环境的干净,镜像只保留了核心数据.如果仍需要更多的样例数据作为参考,可执行一下步骤
+  1. 请先创建了3个空库neatlogic、neatlogic_demo和neatlogic_demo_data,字符集采用utf8mb4，排序规则采用utf8mb4_general_ci，由于neatlogic需要动态创建、删除表和视图，请授予数据库连接用户适当的权限，如下图。
+   ![](README_IMAGES/BUILD/database.png)
+  2. 导入样例数据:[neatlogic-database/mysql](../../../neatlogic-database/blob/develop3.0.0/mysql) 将三个sql文件按名字分别导入到三个库。
+  3. 修改neatlogic库的datasource表，找到tenant_uuid=demo的那行数据，核对username、password、host和port是否正确配置
