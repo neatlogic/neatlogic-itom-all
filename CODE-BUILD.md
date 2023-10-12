@@ -103,6 +103,7 @@ heartbeat.threshold = 5
    ![](README_IMAGES/BUILD/database.png)
   2. 导入样例数据:[neatlogic-database/mysql](../../../neatlogic-database/blob/develop3.0.0/mysql) 将三个sql文件按名字分别导入到三个库。
   3. 修改neatlogic库的datasource表，找到tenant_uuid=demo的那行数据，核对username、password、host和port是否正确配置
+  >部署完前端后可以使用账号:admin 密码:neatlogic@901 登录demo租户
 
 ### 创建mongodb数据库（如果涉及cmdb配置管理、自动化、巡检和发布模块则需要操作该步骤）
   用于存储自动化作业、采集和巡检等数据。
