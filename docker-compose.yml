@@ -14,6 +14,11 @@ services:
       - /app/logs/neatlogicdb/:/app/logs/neatlogicdb/
     ports:
       - "3306:3306"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
     environment:
       NEATLOGIC_HOME: "/app"
       NEATLOGIC_RUNNER_HOST: "neatlogic-runner"
@@ -29,13 +34,18 @@ services:
       - /app/logs/collectdb/:/app/logs/collectdb/
     ports:
       - "27017:27017"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
     environment:
       - NEATLOGIC_HOME:/app
     networks:
       - neatlogic
       
   neatlogic-runner:
-    image: neatlogic/neatlogic-runner:3.0.0
+    image: neatlogic/neatlogic-runner:3.1.0
     container_name: neatlogic-runner
     stdin_open: true
     tty: true
@@ -46,11 +56,18 @@ services:
       - "8084:8084"
       #心跳端口
       - "8888:8888"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
     restart: always
     environment:
       - NEATLOGIC_HOME:/app
     networks:
       - neatlogic
+    depends_on:
+      - neatlogic-app
   
   neatlogic-nacos:
     image: neatlogic/neatlogic-nacos:3.0.0
@@ -61,6 +78,11 @@ services:
       - /app/logs/neatlogic-nacos/:/home/nacos/logs
     ports:
       - "8848:8848"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
     depends_on:
       - neatlogic-db
     restart: always
@@ -75,7 +97,7 @@ services:
       - neatlogic
     
   neatlogic-app:
-    image: neatlogic/neatlogic-app:3.0.0
+    image: neatlogic/neatlogic-app:3.1.0
     container_name: neatlogic-app
     stdin_open: true
     tty: true
@@ -84,10 +106,14 @@ services:
     ports:
       #宿主端口:容器端口
       - "8282:8282"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
     depends_on:
       - neatlogic-db
       - neatlogic-collectdb
-      - neatlogic-runner
       - neatlogic-nacos
     restart: always
     environment:
@@ -105,7 +131,7 @@ services:
       
     
   neatlogic-web:
-    image: neatlogic/neatlogic-web:3.0.0
+    image: neatlogic/neatlogic-web:3.1.0
     container_name: neatlogic-web
     stdin_open: true
     tty: true
@@ -113,8 +139,11 @@ services:
       - /app/logs/neatlogic-web/:/app/logs/nginx/
     ports:
       - "8090:8090"
-      - "8080:8080"
-      - "9099:9099"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
     restart: always
     environment:
       - NEATLOGIC_HOME:/app
