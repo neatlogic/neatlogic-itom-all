@@ -269,5 +269,5 @@ Neatlogic通过maven profile管理不同分支的版本号以及社区版和商�
 ## 技术交流
 - **企业微信** <br>
 <p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" width="200" /></p>
- ** 原交流群用户已满，正在处理中，如需交流请加以下微信群目前企业微信。** 
+ **原交流群用户已满，正在处理中，如需交流请加以下微信群目前企业微信。** 
 <p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/wechat.jpg" width="250" /></p>
