@@ -1,7 +1,5 @@
 中文 / [English](QUICK_START.en.md)
 # 项目部署教程
->  :tw-2705:  目前仅 验证通过 **Centos7** . <br>
->  :tw-274c:  Centos8/9 还在验证中,验证后更新 
 
 ## Docker环境检查
 
@@ -24,9 +22,9 @@ docker-compose --version
 | ----  | ----  | ----  | ---- | ---- | ---- |
 |  neatlogic-db  |  3306  | - | - |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |mysql数据库|
 |  neatlogic-collectdb |  27017  | - | - |   启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |mongodb,如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
-|  neatlogic-runner  |  8084、8888 | - | - | 启：deployadmin -s autoexec-runner -a startall<br>停：deployadmin -s autoexec-runner -a stopall  |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
-|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | 启：deployadmin -s neatlogic -a startall<br>停：deployadmin -s neatlogic -a stopall | 后端服务|
-|  neatlogic-web  |  8090、8080、9099  | neatlogic-app | 宿主机IP:8090/租户名 #前端页面 <br> 宿主机IP:9099 #租户管理页面 登录帐号:admin 密码:123456 |启：/app/systems/nginx/sbin/nginx<br>重启：/app/systems/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
+|  neatlogic-runner  |  8084、8888 | - | - | 启：java -jar -Xbootclasspath/a:/app/config/ -Dspring.config.location=/app/config/application.properties /app/neatlogic-runner.jar<br>停：kill 掉对应的neatlogic-runner 进程 |执行器,如果使用发布、巡检、自动化、tagent则需要该服务 |
+|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | 启：sh /app/apache-tomcat-9.0.73/bin/startup.sh<br>停：kill 掉对应的tomcat实例进程 | 后端服务|
+|  neatlogic-web  |  8090  | neatlogic-app | 宿主机IP:8090  |启：/app/nginx/sbin/nginx<br>重启：/app/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
 |  neatlogic-nacos | 8848 | neatlogic-db | 宿主机IP:8848/nacos |启: deployadmin -s nacos -a startall <br>停： deployadmin -s nacos -a stopall| 后端服务 config ,账号/密码 nacos/nacos|
 
 ## 验证
@@ -36,7 +34,12 @@ docker-compose --version
 ```
 docker-compose -f docker-compose.yml logs -f neatlogic-app
 ```
-如果日志中出现error,则将最后的截图联系我们[Neatlogic in Slack](https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA)
+如果日志中出现error,则将最后的截图联系我们:
+- **企业微信** <br>
+<p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" width="150" /></p>
+<p><b>原交流群用户已满，正在处理中，如需交流请加入以下临时交流群。</b></p>
+<p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/wechat.jpg" width="200" /></p>
+
 
 ## 按需修改配置 docker-compose.yml
 ### 一般常见需要修改的场景:
@@ -45,12 +48,10 @@ docker-compose -f docker-compose.yml logs -f neatlogic-app
 
 **2、宿主机端口冲突**
 
-修改 ports 字段即可,例如neatlogic-web的8080端口冲突,则需要将左侧的宿主机端口改成非占用端口即可,如我要改成8081:
+修改 ports 字段即可,例如neatlogic-web的8090端口冲突,则需要将左侧的宿主机端口改成非占用端口即可,如我要改成8081:
 ```
   ports:
-    - "8090:8090"
-    - "8081:8080"
-    - "9099:9099"
+    - "8090:8081"
 ```
 
 **3、不使用自带的容器服务**
