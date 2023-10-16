@@ -34,8 +34,8 @@ docker-compose --version
 ```
 docker-compose -f docker-compose.yml logs -f neatlogic-web
 ```
-如果日志出现neatlogic-web service start.那就需要进入neatlogic-app容器，查看错误日志/app/logs/neatlogic/error.log
-如果日志中出现error,则将最后的截图（最好是整个error.log文件）联系我们:
+如果日志出现neatlogic-web service start.那就需要进入neatlogic-app容器，查看错误日志/app/logs/neatlogic/error.log 和启动日志/app/apache-tomcat-9.0.73/logs/catalina.out 
+如果日志中出现error,则将最后的截图（最好是整个日志文件）联系我们:
 - **企业微信** <br>
 <p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" width="150" /></p>
 <p><b>原交流群用户已满，正在处理中，如需交流请加入以下临时交流群。</b></p>
