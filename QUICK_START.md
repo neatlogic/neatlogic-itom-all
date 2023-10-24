@@ -128,7 +128,7 @@ docker-compose -f docker-compose.yml logs -f neatlogic-web
   docker-compose -f docker-compose.yml pull
 ```
 
-## demo样例数据参考
+## demo样例数据参考（注意：确保登录界面出来后，已经可以登录系统，还想要更具体的数据才执行以下步骤）
 由于考虑到环境的干净,镜像只保留了核心数据.如果仍需要更多的样例数据作为参考,可执行一下步骤
   1. 请先创建了3个空库neatlogic、neatlogic_demo和neatlogic_demo_data,字符集采用utf8mb4，排序规则采用utf8mb4_general_ci，由于neatlogic需要动态创建、删除表和视图，请授予数据库连接用户适当的权限，如下图。
    ![](README_IMAGES/BUILD/database.png)
