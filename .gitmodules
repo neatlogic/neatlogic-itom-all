@@ -98,3 +98,4 @@
 [submodule "neatlogic-database"]
 	path = neatlogic-database
 	url = ../neatlogic-database.git
+	branch = develop3.0.0
