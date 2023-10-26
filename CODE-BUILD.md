@@ -20,7 +20,7 @@
 ![](README_IMAGES/BUILD/idea-openProject4.png)
 如上图,如果分支模块右侧的git分支号显示不是develop3.0.0则需要在neatlogic-itom-all目录下执行命令
 ```
-git submodule foreach 'git checkout develop3.0.0'
+git submodule foreach 'git checkout develop3.0.0  origin/develop3.0.0'
 ```
 ### 配置maven(版本3.8+)
 > 使用maven自带的setting.xml文件即可，如果存在网络问题，则需要通过私有nexus仓库或者别的方式下载第三方依赖了
