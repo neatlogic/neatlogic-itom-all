@@ -10,6 +10,18 @@ body:
         - https://gitee.com/neat-logic/neatlogic-itom-all 的readme,对neatlogic系统服务架构有个整体认知.
           然后再浏览下neatlogic其它对应模块的readme介绍.
         - 社区版在线文档在系统右上角的“问号”图标,文档持续更新中,敬请期待.
+  - type: dropdown
+    id: env
+    attributes:
+      label: 环境
+      description: 你在哪个环境发现这个bug？
+      options:
+        - 代码构建 (默认)
+        - docker
+        - 演示环境
+        - 本地部署
+    validations:
+      required: true
   - type: checkboxes
     attributes:
       label: 这个问题是否已经存在？
