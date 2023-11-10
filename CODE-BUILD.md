@@ -126,6 +126,11 @@ heartbeat.threshold = 5
 > 检查后端服务是否正常
 > 浏览器访问 http://localhost:8080/neatlogic/tenant/check/demo
 > ![输入图片说明](README_IMAGES/BUILD/checkhealth.png)
+#### 启动异常处理
+- 乱码问题
+  先解决工具控制台编码问题，我们统一用UTF-8,然后按错误提示操作解决即可
+![输入图片说明](QUICK_START_IMAGES/tomcat-start-failed.png)
+
 
 ## 前端构建 
 [点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)
