@@ -6,7 +6,7 @@ networks:
 services:
 
   neatlogic-db:
-    image: neatlogic/neatlogic-db:1.0.0
+    image: neatlogic/neatlogic-db:community-3.1.1
     container_name: neatlogic-db
     stdin_open: true
     tty: true
@@ -21,12 +21,12 @@ services:
         hard: 65535
     environment:
       NEATLOGIC_HOME: "/app"
-      NEATLOGIC_RUNNER_HOST: "neatlogic-runner"
+      NEATLOGIC_RUNNER_HOST: "192.168.1.93"
     networks:
       - neatlogic
       
   neatlogic-collectdb:
-    image: neatlogic/neatlogic-collectdb:1.0.0
+    image: neatlogic/neatlogic-collectdb:community-3.1.1
     container_name: neatlogic-collectdb
     stdin_open: true
     tty: true
@@ -45,7 +45,7 @@ services:
       - neatlogic
       
   neatlogic-runner:
-    image: neatlogic/neatlogic-runner:3.1.0
+    image: neatlogic/neatlogic-runner:community-3.1.1
     container_name: neatlogic-runner
     stdin_open: true
     tty: true
@@ -68,9 +68,9 @@ services:
       - neatlogic
     depends_on:
       - neatlogic-app
-  
+ 
   neatlogic-nacos:
-    image: neatlogic/neatlogic-nacos:3.0.0
+    image: neatlogic/neatlogic-nacos:community-3.1.1
     container_name: neatlogic-nacos
     stdin_open: true
     tty: true
@@ -95,9 +95,9 @@ services:
       MYSQL_SERVICE_PASSWORD: "neatlogic@901"
     networks:
       - neatlogic
-    
+
   neatlogic-app:
-    image: neatlogic/neatlogic-app:3.1.0
+    image: neatlogic/neatlogic-app:community-3.1.1
     container_name: neatlogic-app
     stdin_open: true
     tty: true
@@ -115,23 +115,17 @@ services:
       - neatlogic-db
       - neatlogic-collectdb
       - neatlogic-nacos
-    restart: always
     environment:
-      #默认nacos
       NACOS_SERVICE_HOST: "neatlogic-nacos"
       NACOS_SERVICE_PORT: "8848"
       NACOS_SERVICE_NAMESPACE: "neatlogic-docker"
-      #不使用nacos,使用config.properties 才需要通过这个配置自定义mysql db
-      #MYSQL_SERVICE_HOST: "neatlogic-db"
-      #MYSQL_SERVICE_PORT: 3306
-      #MYSQL_SERVICE_USER: root
-      #MYSQL_SERVICE_PASSWORD: "neatlogic@901"
+    restart: always
     networks:
       - neatlogic
       
     
   neatlogic-web:
-    image: neatlogic/neatlogic-web:3.1.0
+    image: neatlogic/neatlogic-web:community-3.1.1
     container_name: neatlogic-web
     stdin_open: true
     tty: true
@@ -151,4 +145,3 @@ services:
       - neatlogic
     depends_on:
       - neatlogic-app
-
