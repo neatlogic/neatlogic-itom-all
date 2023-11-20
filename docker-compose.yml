@@ -21,7 +21,7 @@ services:
         hard: 65535
     environment:
       NEATLOGIC_HOME: "/app"
-      NEATLOGIC_RUNNER_HOST: "192.168.1.93"
+      NEATLOGIC_RUNNER_HOST: "neatlogic-runner"
     networks:
       - neatlogic
       
