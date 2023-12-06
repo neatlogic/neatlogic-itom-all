@@ -260,7 +260,7 @@ Neatlogic通过maven profile管理不同分支的版本号以及社区版和商�
 
 ## 本地部署
 
-准备中...
+[点击查看本地部署说明](LOCAL_INSTALL.md)
 
 ## Docker部署
 
