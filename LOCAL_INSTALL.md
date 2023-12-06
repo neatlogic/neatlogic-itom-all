@@ -23,7 +23,12 @@
 		tar -xvf neatlogic_all_install_community_x86_64.tar.gz
 	3.进入install目录执行setup.sh脚本
 		cd /app/install && sh setup.sh
+        4.脚本执行完后，可以chrome浏览器访问http://虚拟机ip:8090/demo 前端页面，账号密码： admin/neatlogic@901
 ```
+如有问题，将日志中出现error的截图（最好是整个日志文件）联系我们:
+- **企业微信** <br>
+<p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" width="150" /></p>
+
 
 ## 服务详细
 |  服务名  |  端口  | 访问地址 | 服务启停命令 | 部署路径(更新版本) | 描述 |
