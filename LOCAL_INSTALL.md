@@ -6,7 +6,14 @@
   - 更专注于体验产品使用
   - 部署环境统一，便于定位并解决异常
 
-# <div style="color:red"> 注意：安装包内的服务代码并不是当下最新的，有问题请按需自行编译打包到具体服务部署目录替换更新 </div>
+# ❗❗❗ 注意
+```js
+ ❗❗❗" 安装包内的服务代码并不是当下最新的 "
+      如发现问题：
+        请本地研发环境更新最新代码后，再确认是否重现，
+          》如果无法重现，需自行编译打包到具体服务部署路径替换更新(目前只有neatlogic、neatlogic-web、neatlogic-runner、neatlogic-autoexec-backend 这几个服务需要更新)
+          》如果重现，请联系我们，提issue，谢谢
+```
 
 ## 详细步骤（使用root用户执行）
 下载一键部署安装包（目前仅开放支持x86架构的系统，建议在centos7环境下安装）
@@ -30,4 +37,3 @@
 | collectdb | 27017 | - | service collectdb start/stop/restart | /app/databases/collectdb | mongodb数据库 |
 | neatlogic-autoexec-backend | - | - | - | /app/systems/autoexec/ | - |
 
-> 目前只有neatlogic、neatlogic-web、neatlogic-runner、neatlogic-autoexec-backend 这几个服务需要更新，按部署路径更新版本
