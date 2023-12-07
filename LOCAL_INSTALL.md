@@ -47,12 +47,12 @@
 
 
 ## FAQ
-- 乱码
+### 乱码
 ![输入图片说明](QUICK_START_IMAGES/faq1.png)
 原因：java_options 缺少-Dfile.encoding=UTF-8，安装包下个版本更新<br>
 解决办法：vim /app/systems/neatlogic/sysconfig/serveradmin/neatlogic.env
 ![输入图片说明](QUICK_START_IMAGES/faq11.png)
-- deployadmin: command not found<br>
+### deployadmin: command not found<br>
 原因：一般客户安装好环境之后 不会给root用户的，所以需要用app用户执行<br>
 解决办法：app用户执行或在root用户的.bash_profile PATH加上/app/serveradmin/bin<br>
 
