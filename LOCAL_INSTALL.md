@@ -46,7 +46,7 @@
 ## FAQ
 - 乱码
 ![输入图片说明](QUICK_START_IMAGES/faq1.png)
-原因：java_options 缺少-Dfile.encoding=UTF-8，下个版本更新
+原因：java_options 缺少-Dfile.encoding=UTF-8，安装包下个版本更新<br>
 解决办法：vim /app/systems/neatlogic/sysconfig/serveradmin/neatlogic.env
 ![输入图片说明](QUICK_START_IMAGES/faq11.png)
 
