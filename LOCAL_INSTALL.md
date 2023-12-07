@@ -25,7 +25,8 @@
 		cd /app/install && sh setup.sh
         4.脚本执行完后，可以chrome浏览器访问http://虚拟机ip:8090/demo 前端页面，账号密码： admin/neatlogic@901
 ```
-如有问题，将日志中出现error的截图（最好是整个日志文件）联系我们:
+如有问题，因为环境问题，可能会有很多原因导致，可以先自己排查一下。
+联系我们:
 - **企业微信** <br>
 <p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" width="150" /></p>
 
@@ -40,4 +41,12 @@
 | neatlogicdb | 3306 | - | service neatlogicdb start/stop/restart | /app/databases/neatlogicdb | mysql8数据库 |
 | collectdb | 27017 | - | service collectdb start/stop/restart | /app/databases/collectdb | mongodb数据库 |
 | neatlogic-autoexec-backend | - | - | - | /app/systems/autoexec/ | - |
+
+
+## FAQ
+- 乱码
+![输入图片说明](QUICK_START_IMAGES/faq1.png)
+原因：java_options 缺少-Dfile.encoding=UTF-8，下个版本更新
+解决办法：vim /app/systems/neatlogic/sysconfig/serveradmin/neatlogic.env
+![输入图片说明](QUICK_START_IMAGES/faq11.png)
 
