@@ -32,6 +32,9 @@
 
 
 ## 服务详细
+```js
+ 📌" deployadmin命令需要切app用户才能执行 "   
+```
 |  服务名  |  端口  | 访问地址 | 服务启停命令 | 部署路径(更新版本) | 描述 |
 | ----  | ----  | ----  | ---- | ---- | ---- | 
 | neatlogic | 8282 | - | deployadmin -s neatlogic -a startall/stopall/restartall | /app/systems/neatlogic/apps/neatlogic.war |tomcat后端服务 ,通过http://虚拟机ip:8282/neatlogic/tenant/check/demo 验证服务是否正常 |
@@ -49,4 +52,7 @@
 原因：java_options 缺少-Dfile.encoding=UTF-8，安装包下个版本更新<br>
 解决办法：vim /app/systems/neatlogic/sysconfig/serveradmin/neatlogic.env
 ![输入图片说明](QUICK_START_IMAGES/faq11.png)
+- deployadmin: command not found
+原因：一般客户安装好环境之后 不会给root用户的，所以需要用app用户执行
+解决办法：app用户执行或在root用户的.bash_profile PATH加上/app/serveradmin/bin
 
