@@ -1,5 +1,10 @@
 中文 / [English](QUICK_START.en.md)
 # 项目部署教程
+## ❗❗❗注意
+```js
+ ❗❗❗"目前镜像支持 centos7/8/9"
+
+```
 
 ## Docker环境检查
 
