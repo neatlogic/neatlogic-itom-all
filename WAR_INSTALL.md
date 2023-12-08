@@ -8,6 +8,8 @@
 # 1.拉取项目代码
 ```
 git clone https://gitee.com/neat-logic/neatlogic-itom-all.git  --recurse-submodules
+#切换分支
+git submodule foreach 'git checkout develop3.0.0'
 ```
 # 2.进入 neatlogic-itom-all 文件夹
 ```
