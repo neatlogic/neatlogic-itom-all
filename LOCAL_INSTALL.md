@@ -35,15 +35,15 @@
 ```js
  📌" deployadmin命令需要切app用户才能执行 "   
 ```
-|  服务名  |  端口  | 访问地址 | 服务启停命令 | 部署路径(更新版本) | 描述 |
-| ----  | ----  | ----  | ---- | ---- | ---- | 
-| neatlogic | 8282 | - | deployadmin -s neatlogic -a startall/stopall/restartall | /app/systems/neatlogic/apps/neatlogic.war |tomcat后端服务 ,通过http://虚拟机ip:8282/neatlogic/tenant/check/demo 验证服务是否正常 |
-| neatlogic-web | 8090 | http://虚拟机ip:8090/demo | service nginx start/stop/restart | /app/systems/neatlogic-web/dist | 前端服务 |
-| neatlogic-runner | 8084、tagent心跳端口：8888 | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall | /app/systems/neatlogic-runner/lib/neatlogic-runner.jar |执行器runner后端服务，通过http://虚拟机ip:8084/autoexecrunner/anonymous/api/rest/server/health/check/demo 验证服务是否正常|
-| nginx | - | - | service nginx start/stop/restart | /app/systems/nginx/ | - |
-| neatlogicdb | 3306 | - | service neatlogicdb start/stop/restart | /app/databases/neatlogicdb | mysql8数据库 |
-| collectdb | 27017 | - | service collectdb start/stop/restart | /app/databases/collectdb | mongodb数据库 |
-| neatlogic-autoexec-backend | - | - | - | /app/systems/autoexec/ | - |
+|  服务名  |  端口  | 访问地址 | 服务启停命令 | 部署路径(更新版本) | 配置文件路径 | 描述 |
+| ----  | ----  | ----  | ---- | ---- | ---- | ---- |
+| neatlogic | 8282 | - | deployadmin -s neatlogic -a startall/stopall/restartall | /app/systems/neatlogic/apps/neatlogic.war | /app/systems/neatlogic/config/ |tomcat后端服务 ,通过http://虚拟机ip:8282/neatlogic/tenant/check/demo 验证服务是否正常 |
+| neatlogic-web | 8090 | http://虚拟机ip:8090/demo | service nginx start/stop/restart | /app/systems/neatlogic-web/dist | - | 前端服务 |
+| neatlogic-runner | 8084、tagent心跳端口：8888 | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall | /app/systems/neatlogic-runner/lib/neatlogic-runner.jar | /app/systems/neatlogic-runner/config |执行器runner后端服务，通过http://虚拟机ip:8084/autoexecrunner/anonymous/api/rest/server/health/check/demo 验证服务是否正常|
+| nginx | - | - | service nginx start/stop/restart | /app/systems/nginx/ | /app/systems/nginx/conf | - |
+| neatlogicdb | 3306 | - | service neatlogicdb start/stop/restart | /app/databases/neatlogicdb | /app/databases/neatlogicdb/conf | mysql8数据库 , client连接通过命令： /app/databases/neatlogicdb/mysql/bin/mysql -uroot -p'neatlogic@901' --socket=/app/databases/neatlogicdb/data/mysql.sock |
+| collectdb | 27017 | - | service collectdb start/stop/restart | /app/databases/collectdb | /app/databases/collectdb/conf | mongodb数据库 |
+| neatlogic-autoexec-backend | - | - | - |  /app/systems/autoexec/ | /app/systems/autoexec/conf | - |
 
 
 ## FAQ
