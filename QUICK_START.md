@@ -43,8 +43,6 @@ docker-compose -f docker-compose.yml logs -f neatlogic-web
 如果日志中出现error,则将最后的截图（最好是整个日志文件）联系我们:
 - **企业微信** <br>
 <p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/contact_me.png" width="150" /></p>
-<p><b>原交流群用户已满，正在处理中，如需交流请加入以下临时交流群。</b></p>
-<p align="left"><img src="https://gitee.com/neat-logic/neatlogic-itom-all/raw/develop3.0.0/README_IMAGES/wechat.jpg" width="200" /></p>
 
 ## 按需修改配置 docker-compose.yml
 ### 一般常见需要修改的场景:
