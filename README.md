@@ -264,7 +264,7 @@ Neatlogic通过maven profile管理不同分支的版本号以及社区版和商�
 
 ## Docker部署
 
-[点击查看Docker部署说明](QUICK_START.md)
+维护中，请稍后
 
 ## 技术交流
 - **企业微信** <br>
