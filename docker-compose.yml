@@ -6,7 +6,7 @@ networks:
 services:
 
   neatlogic-db:
-    image: neatlogic/neatlogic-db:community-3.1.1
+    image: neatlogic/neatlogic-db:community-3.2.0
     container_name: neatlogic-db
     stdin_open: true
     tty: true
@@ -22,11 +22,12 @@ services:
     environment:
       NEATLOGIC_HOME: "/app"
       NEATLOGIC_RUNNER_HOST: "neatlogic-runner"
+      MYSQL_SERVICE_PASSWORD: "neatlogic@901"
     networks:
       - neatlogic
       
   neatlogic-collectdb:
-    image: neatlogic/neatlogic-collectdb:community-3.1.1
+    image: neatlogic/neatlogic-collectdb:community-3.2.0
     container_name: neatlogic-collectdb
     stdin_open: true
     tty: true
@@ -45,7 +46,7 @@ services:
       - neatlogic
       
   neatlogic-runner:
-    image: neatlogic/neatlogic-runner:community-3.1.1
+    image: neatlogic/neatlogic-runner:community-3.2.0
     container_name: neatlogic-runner
     stdin_open: true
     tty: true
@@ -70,7 +71,7 @@ services:
       - neatlogic-app
  
   neatlogic-nacos:
-    image: neatlogic/neatlogic-nacos:community-3.1.1
+    image: neatlogic/neatlogic-nacos:community-3.2.0
     container_name: neatlogic-nacos
     stdin_open: true
     tty: true
@@ -97,7 +98,7 @@ services:
       - neatlogic
 
   neatlogic-app:
-    image: neatlogic/neatlogic-app:community-3.1.1
+    image: neatlogic/neatlogic-app:community-3.2.0
     container_name: neatlogic-app
     stdin_open: true
     tty: true
@@ -125,7 +126,7 @@ services:
       
     
   neatlogic-web:
-    image: neatlogic/neatlogic-web:community-3.1.1
+    image: neatlogic/neatlogic-web:community-3.2.0
     container_name: neatlogic-web
     stdin_open: true
     tty: true
