@@ -25,12 +25,12 @@ docker-compose --version
 默认会安装一下容器服务:
 |  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 | 访问地址 |容器内服务启停命令 |   描述 |
 | ----  | ----  | ----  | ---- | ---- | ---- |
-|  neatlogic-db  |  3306  | - | - |  启： /app/databases/neatlogicdb/scripts/neatlogicdb start<br>停： /app/databases/neatlogicdb/scripts/neatlogicdb stop  |mysql数据库|
-|  neatlogic-collectdb |  27017  | - | - |   启：/app/databases/collectdb/bin/mongod --config /app/databases/collectdb/conf/mongodb.conf<br>停：<br>mongo 127.0.0.1:27017/admin -uadmin -p u1OPgeInMhxsNkNl << EOF<br>db.shutdownServer();<br>exit;<br>EOF  |mongodb,如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
-|  neatlogic-runner  |  8084、8888 | - | - | 启：java -jar -Xbootclasspath/a:/app/config/ -Dspring.config.location=/app/config/application.properties /app/neatlogic-runner.jar<br>停：kill 掉对应的neatlogic-runner 进程 |执行器,如果使用发布、巡检、自动化、tagent则需要该服务.注意：为了镜像简洁精干，自动化工具某些场景里作业日志提示的额外依赖问题，需要自己在容器里额外解决。 |
-|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | 启：sh /app/apache-tomcat-9.0.73/bin/startup.sh<br>停：kill 掉对应的tomcat实例进程 | 后端服务|
-|  neatlogic-web  |  8090  | neatlogic-app | 宿主机IP:8090  |启：/app/nginx/sbin/nginx<br>重启：/app/nginx/sbin/nginx -s reload <br>停：kill xx | 前端服务|
-|  neatlogic-nacos | 8848 | neatlogic-db | 宿主机IP:8848/nacos |启: deployadmin -s nacos -a startall <br>停： deployadmin -s nacos -a stopall| 后端服务 config ,账号/密码 nacos/nacos|
+|  neatlogic-db  |  3306  | - | - |  service neatlogicdb start/stop/restart  |mysql数据库, 账号/密码 root/neatlogic@901, client连接通过命令： /app/databases/neatlogicdb/mysql/bin/mysql -uroot -p'neatlogic@901' --socket=/app/databases/neatlogicdb/data/mysql.sock|
+|  neatlogic-collectdb |  27017  | - | - |   service collectdb start/stop/restart  |mongodb,如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
+|  neatlogic-runner  |  8084、8888 | - | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall |执行器,如果使用发布、巡检、自动化、tagent则需要该服务.注意：为了镜像简洁精干，自动化工具某些场景里作业日志提示的额外依赖问题，需要自己在容器里额外解决。 |
+|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | deployadmin -s neatlogic -a startall/stopall/restartall | 后端服务|
+|  neatlogic-web  |  8090  | neatlogic-app | 宿主机IP:8090  |service nginx start/stop/restart | 前端服务, 账号/密码 admin/neatlogic@901|
+|  neatlogic-nacos | 8848 | neatlogic-db | 宿主机IP:8848/nacos | deployadmin -s nacos -a startall/stopall| 后端服务 config ,账号/密码 nacos/nacos|
 
 ## 验证
 因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
