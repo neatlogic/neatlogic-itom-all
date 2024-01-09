@@ -142,3 +142,8 @@ docker-compose -f docker-compose.yml logs -f neatlogic-web
   2. 将neatlogic_demo表和数据同步到neatlogic_uat，neatlogic_demo_data只需要把表数据同步到neatlogic_uat_data，视图无需同步，启动服务是会自动重建
   3. 进入neatlogic库将tenant表、datasource表、mongodb表和tenant_modulegroup表中的“demo”字眼的数据都替换成“uat”
   4. 重启neatlogic-app服务即可
+
+## FAQ常见问题
+1. 日志出现 Permission denied
+![输入图片说明](QUICK_START_IMAGES/docker-faq1.png)
+解决办法：关闭SELinux或AppArmor
