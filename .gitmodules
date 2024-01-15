@@ -89,9 +89,6 @@
 [submodule "neatlogic-rdm-base"]
 	path = neatlogic-rdm-base
 	url = ../neatlogic-rdm-base.git
-[submodule "neatlogic-master"]
-	path = neatlogic-master
-	url = ../neatlogic-master.git
 [submodule "neatlogic-document-online"]
 	path = neatlogic-document-online
 	url = ../neatlogic-document-online.git
