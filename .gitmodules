@@ -96,3 +96,9 @@
 	path = neatlogic-database
 	url = ../neatlogic-database.git
 	branch = develop3.0.0
+[submodule "neatlogic-runner"]
+	path = neatlogic-runner
+	url = git@gitee.com:neat-logic/neatlogic-runner.git
+[submodule "neatlogic-autoexec-backend"]
+	path = neatlogic-autoexec-backend
+	url = git@gitee.com:neat-logic/neatlogic-autoexec-backend.git
