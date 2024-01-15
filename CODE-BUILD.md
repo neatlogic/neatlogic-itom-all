@@ -40,8 +40,6 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
 #### 指定本地Tomcat
 ![](README_IMAGES/BUILD/idea-tomcat2.png)
-#### 将mysql8的jdbc驱动放入Tomcat的lib目录
-![](README_IMAGES/BUILD/idea-tomcat2-1.png)
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
