@@ -144,6 +144,16 @@ docker-compose -f docker-compose.yml logs -f neatlogic-web
   4. 重启neatlogic-app服务即可
 
 ## FAQ常见问题
-1. 日志出现 Permission denied
+### 1. 日志出现 Permission denied
 ![输入图片说明](QUICK_START_IMAGES/docker-faq1.png)
 解决办法：关闭SELinux或AppArmor
+### 2. 执行自动化作业出现 sudo: command not found
+```
+yum install sudo
+```
+### 3.执行自动化作业作业出现 Execute nmap failed, check the sudoers setting for user app to execute command nmap.
+```
+vi /etc/sudoers 
+//在最后增加一行授权 
+app ALL=(root) NOPASSWD:ALL 
+```
