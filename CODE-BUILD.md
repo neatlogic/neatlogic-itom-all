@@ -84,6 +84,9 @@ home.url = http://localhost:8099/
 
 #active MQ地址，没有可以不用配
 jms.url = tcp://localhost:61616
+#如果mq需要认证，则需要配置认证账号密码，否则无需配置
+jms.user = neatlogic
+jms.password = 123456
 
 #心跳设置
 heartbeat.rate = 3
