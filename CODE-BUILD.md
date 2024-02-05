@@ -83,7 +83,7 @@ data.home = /app/data
 home.url = http://localhost:8099/
 
 #active MQ地址，没有可以不用配
-jms.url = tcp://localhost:8161
+jms.url = tcp://localhost:61616
 
 #心跳设置
 heartbeat.rate = 3
