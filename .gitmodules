@@ -53,9 +53,6 @@
 [submodule "neatlogic-parent"]
 	path = neatlogic-parent
 	url = ../neatlogic-parent.git
-[submodule "neatlogic-pbc"]
-	path = neatlogic-pbc
-	url = ../neatlogic-pbc.git
 [submodule "neatlogic-itsm"]
 	path = neatlogic-itsm
 	url = ../neatlogic-itsm.git
