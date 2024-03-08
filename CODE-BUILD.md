@@ -139,8 +139,8 @@ heartbeat.threshold = 5
 ## 使用干净的租户，完全重新初始化
 为了方便介绍以创建uat租户为例
 ### mysql库
-清空neatlogic_uat_data库中所有表和视图（结构和数据）
-仅清空neatlogic库和neatlogic_uat中所有数据
+- 这里是列表文本清空neatlogic_uat_data库中所有表和视图（结构和数据）
+- 这里是列表文本仅清空neatlogic库和neatlogic_uat中所有数据
 执行以下语句：
 > 注意需调整sql，即datasource表 核对username、password、host和port是否正确配置，其它字段不要修改！另外mongodb表的数据需要按自己的情况修改正确
 ```
