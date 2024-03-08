@@ -136,11 +136,11 @@ heartbeat.threshold = 5
 ## 前端构建 
 [点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)
 
-## 使用干净的租户，完全重新初始化
+## 使用干净的租户，完全重新初始化（为减少不必要的错误， <span style="color:red;">_新搭建环境请跳过该步骤，请勿执行！请勿执行！请勿执行！_</span> 建议先用上述demo租户启动成功并熟悉后，再来清空数据）
 为了方便介绍以创建uat租户为例
 ### mysql库
-- 这里是列表文本清空neatlogic_uat_data库中所有表和视图（结构和数据）
-- 这里是列表文本仅清空neatlogic库和neatlogic_uat中所有数据
+- 清空neatlogic_uat_data库中所有表和视图（结构和数据）
+- 仅清空neatlogic库和neatlogic_uat中所有数据
 执行以下语句：
 > 注意需调整sql，即datasource表 核对username、password、host和port是否正确配置，其它字段不要修改！另外mongodb表的数据需要按自己的情况修改正确
 ```
