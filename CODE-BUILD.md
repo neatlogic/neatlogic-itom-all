@@ -119,7 +119,7 @@ heartbeat.threshold = 5
 #### 为了方便理解，一下使用demo租户作业演示
   1. 创建neatlogic_demo空库
   2. 导入定义数据:[neatlogic-database/mongodb](../../../neatlogic-database/blob/develop3.0.0/mongodb/autoexec) ,通过mongostore导入即可
-  3. 修改 **mysql** 数据库中的neatlogic_demo库的mongodb表,找到tenant_uuid=demo的那行数据，核对database、username、password、host和option是否正确配置
+  3. 修改 **mysql** 数据库中的neatlogic库的mongodb表,找到tenant_uuid=demo的那行数据，核对database、username、password、host和option是否正确配置
 
 ### 启动Tomcat
 如果出现一下日志，说明后端已经启动成功.
