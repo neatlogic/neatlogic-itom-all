@@ -135,3 +135,48 @@ heartbeat.threshold = 5
 
 ## 前端构建 
 [点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)
+
+## 使用干净的租户，完全重新初始化
+为了方便介绍以创建uat租户为例
+### mysql库
+清空neatlogic_uat_data库中所有表和视图（结构和数据）
+仅清空neatlogic库和neatlogic_uat中所有数据
+执行以下语句：
+> 注意需调整sql，即datasource表 核对username、password、host和port是否正确配置，其它字段不要修改！另外mongodb表的数据需要按自己的情况修改正确
+```
+INSERT INTO `neatlogic`.`tenant` (`uuid`, `name`, `is_active`, `status`, `expire_date`, `description`, `error_msg`, `is_need_demo`, `visit_time`, `fcd`) VALUES ('uat', 'uat环境', 1, NULL, NULL, NULL, NULL, 0, NULL, NULL);
+
+INSERT INTO `neatlogic`.`datasource` (`tenant_uuid`, `url`, `username`, `password`, `driver`, `host`, `port`) VALUES ('uat', 'jdbc:mysql://{host}:{port}/{dbname}?characterEncoding=UTF-8&jdbcCompliantTruncation=false&allowMultiQueries=true&useSSL=false&&serverTimeZone=Asia/Shanghai', 'root', 'password', 'com.mysql.cj.jdbc.Driver', 'localhost', 3306);
+
+INSERT INTO `neatlogic`.`mongodb` (`tenant_uuid`, `database`, `username`, `password`, `host`, `option`, `auth_config`) VALUES ('uat', 'autoexec', 'autoexec', 'u1OPgeInMhxsNkNl', '192.168.4.140:27017,192.168.2.2:27017,192.168.3.1:27017', 'authSource=admin', NULL);
+
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'autoexec');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'cmdb');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'dashboard');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'deploy');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'framework');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'inspect');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'knowledge');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'process');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'rdm');
+INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VALUES ('uat', 'report');
+```
+### mongodb库
+保留下划线"_"开头的集合即可
+### 修改JVM OPTION以及配置文件，再重新启动后端tomcat服务
+#### 修改JVM OPTION
+```
+enableMaintenance=true
+```
+#### 修改config.properties或者nacos
+```
+maintenance=maintenance
+maintenance.password=123456ab 
+```
+重启tomcat，并确保服务正常启动
+使用 http://localhost:8080/neatlogic/tenant/check/demo 校验
+### 前端登录页面
+使用上面配置的maintenance用户登录页面
+账号：maintenance 密码：123456ab <br>
+登录后可以添加用户、组、角色，以及授权。添加完用户后就可以把上述的JVM OPTION以及配置文件删除，重启后端tomcat服务，使用刚添加好的用户登录
+
