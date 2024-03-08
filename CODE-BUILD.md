@@ -177,6 +177,7 @@ maintenance.password=123456ab
 使用 http://localhost:8080/neatlogic/tenant/check/uat 校验
 ### 前端登录页面
 > 注意如果是本地研发环境仍需修改neatlogic-web项目的apiconfig.json中的tenantName为uat
+
 使用上面配置的maintenance用户登录页面
 账号：maintenance 密码：123456ab <br>
 登录后可以添加用户、组、角色，以及授权。添加完用户后就可以把上述的JVM OPTION以及配置文件删除，重启后端tomcat服务，使用刚添加好的用户登录
