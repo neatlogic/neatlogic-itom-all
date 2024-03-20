@@ -1,12 +1,5 @@
 ![NeaLogic](README_IMAGES/logo.png)
 
-<p align="left">
-    <a href="https://opensource.org/licenses/Apache-2.0" alt="License">
-        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
-<a target="_blank" href="https://join.slack.com/t/neatlogichome/shared_invite/zt-1w037axf8-r_i2y4pPQ1Z8FxOkAbb64w">
-<img src="https://img.shields.io/badge/Slack-Neatlogic-orange" /></a>
-</p>
-
 中文 / [English](README.en.md)
 
 ## 关于
