@@ -101,4 +101,4 @@
 	url = ../neatlogic-autoexec-backend.git
 [submodule "neatlogic-resources"]
 	path = neatlogic-resources
-	url = git@gitee.com:neat-logic/neatlogic-resources.git
+	url = ../neatlogic-resources.git
