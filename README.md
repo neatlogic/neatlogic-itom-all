@@ -31,7 +31,8 @@ NeatLogic 采用模块化方式管理代码。
 
 - 🌎 neatlogic-itom-all 方便用户一次性获取所有代码。
 - neatlogic-parent 用于管理全局 pom 文件，管理所有公共第三方包引用。
-- neatlogic-webroot 用于生成 war 包和管理子模块引用，可根据需要修改 pom 文件加载不同子模块生成最终的 war 包。
+- neatlogic-webroot 中间件部署模式，用于生成 war 包和管理子模块引用，可根据需要修改 pom 文件加载不同子模块生成最终的 war 包。
+- neatlogic-springboot springboot部署模式，可根据需要修改 pom 文件加载不同子模块生成最终的 jar 包。
 - neatlogic-framework 是基础模块，所有子模块都需要引用 neatlogic-framework，neatlogic-framework 的 bean 所有子模块均可织入。
 - neatlogic-tenant 是基础功能的 api 部分 bean，其他子模块不可见。
 - neatlogic-web 是前端代码。
