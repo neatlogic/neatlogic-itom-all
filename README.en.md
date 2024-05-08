@@ -1,11 +1,5 @@
 ![NeaLogic](README_IMAGES/logo.png)
 
-<p align="left">
-    <a href="https://opensource.org/licenses/Apache-2.0" alt="License">
-        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
-<a target="_blank" href="https://join.slack.com/t/slack-lyi2045/shared_invite/zt-1sok6dlv5-WzpKDpnXQLXc92taC1qMFA">
-<img src="https://img.shields.io/badge/Slack-Neatlogic-orange" /></a>
-</p>
 
 [中文](README.md) / English
 
@@ -24,6 +18,7 @@ NeatLogic manages code in a modular fashion.
 * neatlogic-itom-all is convenient for users to obtain all codes at one time.
 * neatlogic-parent is used to manage global pom files and manage all public third-party package references.
 * neatlogic-webroot is used to generate war packages and manage submodule references. The pom file can be modified as needed to load different submodules to generate the final war package.
+* neatlogic-springboot Springboot deployment mode, it allows for modifying the pom file as needed to load different sub-modules, generating the final jar package.
 * neatlogic-framework is the basic module, all submodules need to refer to neatlogic-framework, and all submodules of neatlogic-framework beans can be woven into.
 * neatlogic-tenant is the bean of the api part of the basic function, and other sub-modules are not visible.
 * neatlogic-web is the front-end code.
