@@ -102,3 +102,6 @@
 [submodule "neatlogic-resources"]
 	path = neatlogic-resources
 	url = ../neatlogic-resources.git
+[submodule "neatlogic-springboot"]
+	path = neatlogic-springboot
+	url = ../neatlogic-springboot.git
