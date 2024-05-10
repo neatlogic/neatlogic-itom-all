@@ -12,7 +12,12 @@
 ```
  如发现问题:<br>
 >请本地研发环境更新最新代码后,再确认是否重现<br>
-> **如果无法重现,需自行编译打包到具体服务部署路径替换更新(目前只有neatlogic neatlogic-web neatlogic-runner neatlogic-autoexec-backend 这几个服务需要更新)<br>
+> **如果无法重现,需自行编译打包到具体服务部署路径替（查看“服务详细”有介绍）换更新,目前只有<br>
+> neatlogic ： <a href="https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/WAR_INSTALL.md">打包教程点此查看</a><br>
+> neatlogic-web ： <a href="https://gitee.com/neat-logic/neatlogic-web/blob/develop3.0.0/README.md">打包教程点此查看</a><br>
+> neatlogic-runner ：mvn install 出jar 替换即可<br>
+> neatlogic-autoexec-backend ：纯脚本，直接替换文件即可<br>
+> 这几个服务需要更新<br>
 > **如果重现,请联系我们,提issue,谢谢!<br>
 ## 详细步骤（使用root用户执行）
 下载一键部署安装包（目前仅开放支持x86架构的系统，建议在centos7环境下安装）
