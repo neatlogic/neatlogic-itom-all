@@ -12,7 +12,7 @@
 ```
  如发现问题:<br>
 >请本地研发环境更新最新代码后,再确认是否重现<br>
-> **如果无法重现,需自行编译打包到具体服务部署路径替（查看“服务详细”有介绍）换更新,目前只有<br>
+> **如果无法重现,需自行编译打包到具体服务部署路径（查看本文“服务详细”有介绍）替换更新,目前只有<br>
 > neatlogic ： <a href="https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/WAR_INSTALL.md">打包教程点此查看</a><br>
 > neatlogic-web ： <a href="https://gitee.com/neat-logic/neatlogic-web/blob/develop3.0.0/README.md">打包教程点此查看</a><br>
 > neatlogic-runner ：mvn install 出jar 替换即可<br>
