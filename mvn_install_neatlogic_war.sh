@@ -31,6 +31,7 @@ projects=(
   "neatlogic-report"
   "neatlogic-tagent"
   "neatlogic-tenant"
+  "neatlogic-resources"
 )
 
 # 进入每个项目目录并执行mvn install命令
