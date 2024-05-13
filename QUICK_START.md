@@ -162,7 +162,7 @@ vi /etc/sudoers
 //在最后增加一行授权 
 app ALL=(root) NOPASSWD:ALL 
 ```
-### 如果浏览器出现空白无法访问
+### 4.如果浏览器出现空白无法访问
 ![输入图片说明](QUICK_START_IMAGES/faq-docker-error.png)
 1. 先检查浏览器，要求chrome 90+版本
 2. 如果看neatlogic-web启动日志提示"neatlogic-web service start." 浏览器还是空白页 就进到neatlogic-web容器检查 nginx 服务是否正常
