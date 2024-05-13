@@ -33,6 +33,11 @@ docker-compose --version
 |  neatlogic-nacos | 8848 | neatlogic-db | 宿主机IP:8848/nacos | deployadmin -s nacos -a startall/stopall| 后端服务 config ,账号/密码 nacos/nacos|
 
 ## 验证
+## ❗❗❗注意
+```js
+ ❗❗❗"请用chrome 90+"
+
+```
 因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
 仍需要等待几分钟时间后访问前端服务:http://宿主机ip:8090/ 如果出现登录页面,恭喜你服务部署成功.登录账号:admin 密码:neatlogic@901<br>
 如果提示租户不存在,则需要查看下日志,可能是服务还在等待启动中
@@ -157,3 +162,9 @@ vi /etc/sudoers
 //在最后增加一行授权 
 app ALL=(root) NOPASSWD:ALL 
 ```
+### 如果浏览器出现空白无法访问
+![输入图片说明](QUICK_START_IMAGES/faq-docker-error.png)
+1、先检查浏览器，要求chrome 90+版本
+2、如果看neatlogic-web启动日志提示"neatlogic-web service start." 浏览器还是空白页 就进到neatlogic-web容器检查 nginx 服务是否正常
+3、到docker的宿主机器lsof -i:8090 看下端口是否正常 telnet localhost 8090
+4、到本地电脑  telnet docker的宿主机器ip 8090 是否通
