@@ -35,7 +35,7 @@ docker-compose --version
 ## 验证
 ## ❗❗❗注意
 ```js
- ❗❗❗"请用chrome 90+"
+ ❗❗❗"浏览器请用chrome 90+，其他浏览器或版本可能存在兼容问题"
 
 ```
 因为docker容器服务启动是异步的,所以以上提到的启动命令执行完也不代表服务都正常启动完了.<br>
@@ -164,7 +164,7 @@ app ALL=(root) NOPASSWD:ALL
 ```
 ### 如果浏览器出现空白无法访问
 ![输入图片说明](QUICK_START_IMAGES/faq-docker-error.png)
-1、先检查浏览器，要求chrome 90+版本
-2、如果看neatlogic-web启动日志提示"neatlogic-web service start." 浏览器还是空白页 就进到neatlogic-web容器检查 nginx 服务是否正常
-3、到docker的宿主机器lsof -i:8090 看下端口是否正常 telnet localhost 8090
-4、到本地电脑  telnet docker的宿主机器ip 8090 是否通
+1. 先检查浏览器，要求chrome 90+版本
+2. 如果看neatlogic-web启动日志提示"neatlogic-web service start." 浏览器还是空白页 就进到neatlogic-web容器检查 nginx 服务是否正常
+3. 到docker的宿主机器lsof -i:8090 看下端口是否正常 telnet localhost 8090
+4. 到本地电脑  telnet docker的宿主机器ip 8090 是否通
