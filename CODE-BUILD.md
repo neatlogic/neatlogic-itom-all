@@ -166,7 +166,7 @@ INSERT INTO `neatlogic`.`tenant_modulegroup` (`tenant_uuid`, `module_group`) VAL
 ### 修改JVM OPTION以及配置文件，再重新启动后端tomcat服务
 #### 修改JVM OPTION
 ```
-enableMaintenance=true
+-DenableMaintenance=true
 ```
 #### 修改config.properties或者nacos
 ```
