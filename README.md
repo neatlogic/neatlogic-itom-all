@@ -254,7 +254,9 @@ Neatlogic通过maven profile管理不同分支的版本号以及社区版和商�
 
 ## 本地部署
 
-[点击查看本地部署说明](LOCAL_INSTALL.md)
+[点击查看一键安装包本地部署说明，装好即用](LOCAL_INSTALL.md)
+
+[点击查看自主部署说明，仅提供部分核心配置](LOCAL_PRIVATE_INSTALL.md)
 
 ## Docker部署
 
