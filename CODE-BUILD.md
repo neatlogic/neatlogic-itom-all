@@ -228,6 +228,7 @@ EsLint、vetur、Prettier - Code formatter、i18nhelper(自动进行i18n键值�
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "eslint.codeActionsOnSave.rules": null
 } 
+```
 ### 启动项目
 ```
 cnpm run serve
