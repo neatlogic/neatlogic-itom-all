@@ -60,10 +60,12 @@ git branch -d develop3.0.0
 //确保JVM使用UTF-8编码来解释和处理文本数据,否则可能会导致中文乱码
 -Dfile.encoding=UTF-8 
 ```
+###### 配置deployment
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
+###### 配置context
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
-##### 配置自动构建的时机
+###### 配置自动构建的时机
 ![idea-tomcat6.png](README_IMAGES/BUILD/idea-tomcat6.png)
 ##### 配置config.properties
 nacos的配置文件模板如下，如果不使用nacos，则需要配置在config.properties中：
@@ -304,10 +306,10 @@ npm install cnpm@8.2.0 -g --registry=https://registry.npm.taobao.org
 ```
 #### 其它常用的命令
 ```
-# 升级依赖包
+##### 升级依赖包
 cnpm update <package-name>
 
-# 查看已安装的包
+##### 查看已安装的包
 cnpm list
 ```
 
