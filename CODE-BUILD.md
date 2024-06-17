@@ -393,6 +393,8 @@ data.home=${runner.home}/data
 #tagent 安装包下载目录，将文件放在这个目录，就可以通过“http://ip:8084/autoexecrunner/tagent/download/” +文件名下载文件
 tagent.download.path=/app/autoexec/data/tagent/
 ```
+### 添加neatlogic-tagent-client.jar到项目中，或者私有的nexus仓库
+![输入图片说明](README_IMAGES/BUILD/runner-tegentjar.png)
 ### 启动即可
 
 
