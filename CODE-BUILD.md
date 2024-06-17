@@ -39,7 +39,16 @@ git branch -d develop3.0.0
 ![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
 >如果刷新后提示Could not find artifact 以下商业模块，则是正常的，执行后续步骤即可
 ![输入图片说明](README_IMAGES/BUILD/CommercialModuleNotFound.png)
-#### VM Options
+### 配置后端
+>  :star:   **其中页面后端可以通过两种方式启动，按需配置其中一种即可** 
+> - :point_right:  neatlogic-webroot : 外置tomcat9启动
+> - :point_right:  neatlogic-springboot : springboot启动
+#### 通过外置Tomcat9启动后端 neatlogic-webroot
+![](README_IMAGES/BUILD/idea-tomcat.png)
+![](README_IMAGES/BUILD/idea-tomcat1.png)
+##### 指定本地Tomcat
+![](README_IMAGES/BUILD/idea-tomcat2.png)
+###### 配置VM Options
 ```
 //nacos配置，会优先使用nacos，获取不到config则会从config.properties中获取
 -Dnacos.home=192.168.0.10:8848 
@@ -51,15 +60,6 @@ git branch -d develop3.0.0
 //确保JVM使用UTF-8编码来解释和处理文本数据,否则可能会导致中文乱码
 -Dfile.encoding=UTF-8 
 ```
-### 配置后端
->  :star:   **其中页面后端可以通过两种方式启动，按需配置其中一种即可** 
-> - :point_right:  neatlogic-webroot : 外置tomcat9启动
-> - :point_right:  neatlogic-springboot : springboot启动
-#### 通过外置Tomcat9启动后端 neatlogic-webroot
-![](README_IMAGES/BUILD/idea-tomcat.png)
-![](README_IMAGES/BUILD/idea-tomcat1.png)
-##### 指定本地Tomcat
-![](README_IMAGES/BUILD/idea-tomcat2.png)
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
