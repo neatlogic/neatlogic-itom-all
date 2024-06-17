@@ -52,7 +52,7 @@ git branch -d develop3.0.0
 -Dfile.encoding=UTF-8 
 ```
 
-### 通过外置Tomcat9启动neatlogic-webroot
+### 通过外置Tomcat9启动后端 neatlogic-webroot
 ![](README_IMAGES/BUILD/idea-tomcat.png)
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
 #### 指定本地Tomcat
@@ -101,6 +101,26 @@ heartbeat.threshold = 5
 #### 将config目录定义为资源目录
 ![](README_IMAGES/BUILD/idea-config.png)
 
+### 通过neatlogic-springboot来启动neatlogic后端
+#### 需要将config目录标记为资源根目录
+![输入图片说明](https://foruda.gitee.com/images/1715155326732798649/bd6d72a4_12375900.png "屏幕截图")
+#### 设置VM options如下：
+```
+    //nacos配置，会优先使用nacos，获取不到config则会从config.properties中获取
+    -Dnacos.home=192.168.0.10:8848
+    -Dnacos.namespace=neatlogic
+    //日志目录
+    -Dlog4j.home=D:\logs2
+    //日志级别
+    -Dlog4j.priority=ERROR
+    //设为true，输入用户名后可使用任意密码登录，只能在研发阶段使用！
+    -DenableNoSecret=false
+    //确保JVM使用UTF-8编码来解释和处理文本数据,否则可能会导致中文乱码
+    -Dfile.encoding=UTF-8
+```
+![输入图片说明](https://gitee.com/neat-logic/neatlogic-springboot/raw/develop3.0.0/readme/configurations.png)
+
+
 ### 创建mysql8数据库
 #### neatlogic需要使用3个库，字符集采用utf8mb4，排序规则采用utf8mb4_general_ci，由于neatlogic需要动态创建、删除表和视图，请授予数据库连接用户适当的权限。
   + neatlogic：管理库，所用租户共用，用于管理租户信息（租户数据库配置信息等），管理系统的健康状态等。
@@ -126,12 +146,16 @@ heartbeat.threshold = 5
   2. 导入定义数据:[neatlogic-database/mongodb](../../../neatlogic-database/blob/develop3.0.0/mongodb/autoexec) ,通过mongostore导入即可
   3. 修改 **mysql** 数据库中的neatlogic库的mongodb表,找到tenant_uuid=demo的那行数据，核对database、username、password、host和option是否正确配置
 
-### 启动Tomcat
+### 启动后端服务
 如果出现一下日志，说明后端已经启动成功.
+#### 如果是外置tomcat9
 ![](README_IMAGES/BUILD/startTomcatSuccess.png)
+#### 如果是springboot
+![输入图片说明](https://gitee.com/neat-logic/neatlogic-springboot/raw/develop3.0.0/readme/start.png)
 > 检查后端服务是否正常
 > 浏览器访问 http://localhost:8080/neatlogic/tenant/check/demo
 > ![输入图片说明](README_IMAGES/BUILD/checkhealth.png)
+
 
 ## 前端vue项目研发搭建
 ### 安装使用v18.x版本的node
