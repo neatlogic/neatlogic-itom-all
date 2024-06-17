@@ -167,6 +167,7 @@ heartbeat.threshold = 5
 
 
 ## 前端vue项目研发搭建
+>  :boom: 后端服务正常后再执行后续操作
 ### 安装使用v18.x版本的node
 ```
 英文网址：https://nodejs.org/en/download
@@ -269,6 +270,7 @@ EsLint、vetur、Prettier - Code formatter、i18nhelper(自动进行i18n键值�
 ```
 ### 修改前端访问后端的ip:port，以及租户
 >需修改apiconfig.json配置文件,将tenantName的值修改为在用的租户（如果使用的是官方提供的用例数据，则租户就是demo），urlPrefix改成neatlogic后端tomcat服务的http://ip:port
+![输入图片说明](README_IMAGES/BUILD/apiconfig.png)
 
 ### 启动项目
 ```
