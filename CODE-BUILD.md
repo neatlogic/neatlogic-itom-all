@@ -1,7 +1,11 @@
 中文 / [English](CODE-BUILD.en.md)
 
 # 研发环境搭建
-
+本文档讲解neatlogic-webroot(neatlogic-springboot)、neatlogic-runner、neatlogic-web 三个项目的研发环境搭建，neatlogic业务模块较多，其中关系请查阅下面的服务架构图：
+![架构图](README_IMAGES/inf.jpeg)
+>  :star:   **其中页面后端可以通过两种方式启动** 
+> - :point_right:  neatlogic-webroot : 外置tomcat9启动
+> - :point_right:  neatlogic-springboot : springboot启动
 ## 下载项目所有代码
 获取代码 签出neatlogic-itom-all可以一次性获取所有模块代码，由于neatlogic-itom-all使用submodule引入模块，签出代码时需加上--recurse-submodules参数。范例：
 ```
@@ -35,14 +39,6 @@ git branch -d develop3.0.0
 ![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
 >如果刷新后提示Could not find artifact 以下商业模块，则是正常的，执行后续步骤即可
 ![输入图片说明](README_IMAGES/BUILD/CommercialModuleNotFound.png)
-### 配置Tomcat9
-![](README_IMAGES/BUILD/idea-tomcat.png)
-![](README_IMAGES/BUILD/idea-tomcat1.png)
-#### 指定本地Tomcat
-![](README_IMAGES/BUILD/idea-tomcat2.png)
-![](README_IMAGES/BUILD/idea-tomcat3.png)
-![](README_IMAGES/BUILD/idea-tomcat4.png)
-![](README_IMAGES/BUILD/idea-tomcat5.png)
 #### VM Options
 ```
 //nacos配置，会优先使用nacos，获取不到config则会从config.properties中获取
@@ -54,10 +50,19 @@ git branch -d develop3.0.0
 -DenableNoSecret=false
 //确保JVM使用UTF-8编码来解释和处理文本数据,否则可能会导致中文乱码
 -Dfile.encoding=UTF-8 
+
+### 通过外置Tomcat9启动neatlogic-webroot
+![](README_IMAGES/BUILD/idea-tomcat.png)
+![](README_IMAGES/BUILD/idea-tomcat1.png)
+#### 指定本地Tomcat
+![](README_IMAGES/BUILD/idea-tomcat2.png)
+![](README_IMAGES/BUILD/idea-tomcat3.png)
+![](README_IMAGES/BUILD/idea-tomcat4.png)
+![](README_IMAGES/BUILD/idea-tomcat5.png)
 ```
 #### 配置自动构建的时机
 ![idea-tomcat6.png](README_IMAGES/BUILD/idea-tomcat6.png)
-### 配置config.properties
+#### 配置config.properties
 nacos的配置文件模板如下，如果不使用nacos，则需要配置在config.properties中：
 ``` properties
 #database properties
@@ -271,6 +276,10 @@ cnpm update <package-name>
 # 查看已安装的包
 cnpm list
 ```
+
+## neatlogic-runner项目IntellJ IDEA环境搭建（如果不涉及到CMDB采集、自动化、巡检相关功能此项目请忽略）
+
+
 
 ## 使用干净的租户，完全重新初始化（为减少不必要的错误， <span style="color:red;">_新搭建环境请跳过该步骤，请勿执行！请勿执行！请勿执行！_</span> 建议先用上述demo租户启动成功并熟悉后，再来清空数据）
 为了方便介绍以创建uat租户为例
