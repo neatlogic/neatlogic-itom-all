@@ -38,7 +38,8 @@ git branch -d develop3.0.0
 ### 刷新maven依赖
 ![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
 
- **:exclamation: :exclamation: 如果提示找不到neatlogic-parent,就先install下neatlogic-parent这个模块** 
+> **:exclamation: :exclamation: 如果提示找不到neatlogic-parent,就先install下neatlogic-parent这个模块后，重新执行上图“刷新maven依赖”操作** 
+
 > :grey_exclamation: 如果刷新后提示Could not find artifact 以下商业模块，则是正常的，执行后续步骤即可
 ![输入图片说明](README_IMAGES/BUILD/CommercialModuleNotFound.png)
 
@@ -265,6 +266,7 @@ EsLint、vetur、Prettier - Code formatter、i18nhelper(自动进行i18n键值�
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "eslint.codeActionsOnSave.rules": null
 } 
+```
 ### 修改前端ip:port，以及租户
 >需修改apiconfig.json配置文件,将tenantName的值修改为在用的租户（如果使用的是官方提供的用例数据，则租户就是demo），urlPrefix改成neatlogic后端tomcat服务的http://ip:port
 
@@ -317,7 +319,7 @@ cnpm list
 ```
 
 ## neatlogic-runner项目IntellJ IDEA环境搭建（如果不涉及到CMDB采集、自动化、巡检相关功能此项目请忽略）
-
+### 添加
 
 
 ## 使用干净的租户，完全重新初始化（为减少不必要的错误， <span style="color:red;">_新搭建环境请跳过该步骤，请勿执行！请勿执行！请勿执行！_</span> 建议先用上述demo租户启动成功并熟悉后，再来清空数据）
