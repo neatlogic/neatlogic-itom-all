@@ -260,11 +260,18 @@ EsLint、vetur、Prettier - Code formatter、i18nhelper(自动进行i18n键值�
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "eslint.codeActionsOnSave.rules": null
 } 
-```
+### 修改前端ip:port，以及租户
+>需修改apiconfig.json配置文件,将tenantName的值修改为在用的租户（如果使用的是官方提供的用例数据，则租户就是demo），urlPrefix改成neatlogic后端tomcat服务的http://ip:port
+
 ### 启动项目
 ```
 cnpm run serve
 ```
+> 检查前端服务是否正常
+> 浏览器访问 http://前端ip:前端port/demo #其中demo是租户
+> ![输入图片说明](README_IMAGES/BUILD/login.png)
+> 账号/密码： admin/neatlogic@901
+
 
 ### 其它
 #### 升降级级node版本
