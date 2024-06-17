@@ -144,7 +144,7 @@ npm install cnpm@8.2.0 -g --registry=https://registry.npm.taobao.org
 cnpm install
 ```
 
-## 设置vscode的个人配置
+### 设置vscode的个人配置
 为了统一代码风格，多人开发时不会出现格式错乱，进行二开时请使用相同的代码风格配置。
 #### 安装插件
 EsLint、vetur、Prettier - Code formatter、i18nhelper(自动进行i18n键值替换和多语言翻译)
