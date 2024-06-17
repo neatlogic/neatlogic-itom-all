@@ -50,6 +50,7 @@ git branch -d develop3.0.0
 -DenableNoSecret=false
 //确保JVM使用UTF-8编码来解释和处理文本数据,否则可能会导致中文乱码
 -Dfile.encoding=UTF-8 
+```
 
 ### 通过外置Tomcat9启动neatlogic-webroot
 ![](README_IMAGES/BUILD/idea-tomcat.png)
@@ -59,7 +60,6 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
-```
 #### 配置自动构建的时机
 ![idea-tomcat6.png](README_IMAGES/BUILD/idea-tomcat6.png)
 #### 配置config.properties
