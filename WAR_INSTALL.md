@@ -1,9 +1,10 @@
 中文 / [English](WAR_INSTALL.en.md)
 
 # 构建教程
-此脚本仅构建后端tomcat服务war包
-
-## 前提条件
+## 构建前端vue
+[点击查看](../../../neatlogic-web/blob/develop3.0.0/README.md)
+## 构建后端tomcat服务war包
+### 前提条件
 先安装好jdk1.8、maven3.8+和git
 
 # 1.拉取项目代码
