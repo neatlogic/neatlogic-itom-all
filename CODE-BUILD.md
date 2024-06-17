@@ -276,11 +276,14 @@ EsLint、vetur、Prettier - Code formatter、i18nhelper(自动进行i18n键值�
 ```
 cnpm run serve
 ```
-> 检查前端服务是否正常
-> 浏览器访问 http://前端ip:前端port/demo #其中demo是租户（前端ip:前端port 可以从vscode的控制台日志获取）
-> ![输入图片说明](README_IMAGES/BUILD/login.png)
-> 账号/密码： admin/neatlogic@901
-
+#### 检查前端服务是否正常
+浏览器访问 http://前端ip:前端port/demo #其中demo是租户（前端ip:前端port 可以从vscode的控制台日志获取）
+![输入图片说明](README_IMAGES/BUILD/login.png)
+账号/密码： admin/neatlogic@901
+> 如果前端控制台Compiled successfully 成功启动，访问还是异常
+1. 后端服务没有启动。浏览器访问http://后端ip:后端port/neatlogic/tenant/check/demo 是否正常返回
+2. 前端项目的配置文件改错了（只需要按要求修改apiconfig文件，其它文件无需改动）。浏览器访问http://前端ip:前端port/demo/tenant/check 是否正常返回。 确认前端服务是否正常启动
+3. 防火墙没有开通（当然前后端浏览器都是localhost就排除这个原因）。到部署前端服务的服务器上请求后端http://后端ip:后端port/neatlogic/tenant/check/demo 是否正常返回
 
 ### 其它
 #### 升降级级node版本
@@ -375,6 +378,7 @@ maintenance.password=123456ab
 ```
 npm config set strict-ssl false
 ```
+
 ### 后端tomcat启动异常处理
 - 乱码问题
   先解决工具控制台编码问题，我们统一用UTF-8,然后按错误提示操作解决即可
