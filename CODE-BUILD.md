@@ -51,18 +51,21 @@ git branch -d develop3.0.0
 //确保JVM使用UTF-8编码来解释和处理文本数据,否则可能会导致中文乱码
 -Dfile.encoding=UTF-8 
 ```
-
-### 通过外置Tomcat9启动后端 neatlogic-webroot
+### 配置后端
+>  :star:   **其中页面后端可以通过两种方式启动，按需配置其中一种即可** 
+> - :point_right:  neatlogic-webroot : 外置tomcat9启动
+> - :point_right:  neatlogic-springboot : springboot启动
+#### 通过外置Tomcat9启动后端 neatlogic-webroot
 ![](README_IMAGES/BUILD/idea-tomcat.png)
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
-#### 指定本地Tomcat
+##### 指定本地Tomcat
 ![](README_IMAGES/BUILD/idea-tomcat2.png)
 ![](README_IMAGES/BUILD/idea-tomcat3.png)
 ![](README_IMAGES/BUILD/idea-tomcat4.png)
 ![](README_IMAGES/BUILD/idea-tomcat5.png)
-#### 配置自动构建的时机
+##### 配置自动构建的时机
 ![idea-tomcat6.png](README_IMAGES/BUILD/idea-tomcat6.png)
-#### 配置config.properties
+##### 配置config.properties
 nacos的配置文件模板如下，如果不使用nacos，则需要配置在config.properties中：
 ``` properties
 #database properties
@@ -98,13 +101,13 @@ heartbeat.rate = 3
 heartbeat.threshold = 5
 
 ```
-#### 将config目录定义为资源目录
+##### 将config目录定义为资源目录
 ![](README_IMAGES/BUILD/idea-config.png)
 
-### 通过neatlogic-springboot来启动neatlogic后端
-#### 需要将config目录标记为资源根目录
+#### 通过neatlogic-springboot来启动neatlogic后端
+##### 需要将config目录标记为资源根目录
 ![输入图片说明](https://foruda.gitee.com/images/1715155326732798649/bd6d72a4_12375900.png "屏幕截图")
-#### 设置VM options如下：
+##### 设置VM options如下：
 ```
     //nacos配置，会优先使用nacos，获取不到config则会从config.properties中获取
     -Dnacos.home=192.168.0.10:8848
