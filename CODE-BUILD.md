@@ -37,8 +37,11 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-jdk1.png)
 ### 刷新maven依赖
 ![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
->如果刷新后提示Could not find artifact 以下商业模块，则是正常的，执行后续步骤即可
+
+ **:exclamation: :exclamation: 如果提示找不到neatlogic-parent,就先install下neatlogic-parent这个模块** 
+> :grey_exclamation: 如果刷新后提示Could not find artifact 以下商业模块，则是正常的，执行后续步骤即可
 ![输入图片说明](README_IMAGES/BUILD/CommercialModuleNotFound.png)
+
 ### 配置后端
 >  :star:   **其中页面后端可以通过两种方式启动，按需配置其中一种即可** 
 > - :point_right:  neatlogic-webroot : 外置tomcat9启动
