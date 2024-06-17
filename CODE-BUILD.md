@@ -281,9 +281,9 @@ cnpm run serve
 ![输入图片说明](README_IMAGES/BUILD/login.png)
 账号/密码： admin/neatlogic@901
 > 如果前端控制台Compiled successfully 成功启动，访问还是异常
-1. 后端服务没有启动。浏览器访问http://后端ip:后端port/neatlogic/tenant/check/demo 是否正常返回
-2. 前端项目的配置文件改错了（只需要按要求修改apiconfig文件，其它文件无需改动）。浏览器访问http://前端ip:前端port/demo/tenant/check 是否正常返回。 确认前端服务是否正常启动
-3. 防火墙没有开通（当然前后端浏览器都是localhost就排除这个原因）。到部署前端服务的服务器上请求后端http://后端ip:后端port/neatlogic/tenant/check/demo 是否正常返回
+>1. 后端服务没有启动。浏览器访问http://后端ip:后端port/neatlogic/tenant/check/demo 是否正常返回
+>2. 前端项目的配置文件改错了（只需要按要求修改apiconfig文件，其它文件无需改动）。浏览器访问http://前端ip:前端port/demo/tenant/check 是否正常返回。 确认前端服务是否正常启动
+>3. 防火墙没有开通（当然前后端浏览器都是localhost就排除这个原因）。到部署前端服务的服务器上请求后端http://后端ip:后端port/neatlogic/tenant/check/demo 是否正常返回
 
 ### 其它
 #### 升降级级node版本
@@ -324,7 +324,77 @@ cnpm list
 ```
 
 ## neatlogic-runner项目IntellJ IDEA环境搭建（如果不涉及到CMDB采集、自动化、巡检相关功能此项目请忽略）
-### 添加
+** :exclamation:  仅支持mac或linux操作系统** 
+### 配置
+![输入图片说明](README_IMAGES/BUILD/runner-addService.png)
+确保下图中的“Add VM Option”和“Environment variables”被钩选上
+![输入图片说明](README_IMAGES/BUILD/runner-modifyAction.png)
+配置VM Option
+```
+//项目配置文件
+-Dspring.config.location=/Users/cocokong/autoexec-runner/config/application.properties 
+//启动类路径
+-Xbootclasspath/a:/Users/cocokong/autoexec-runner/config/
+```
+配置环境变量
+```
+PATH 需加上 neatlogic-autoexec-backend项目的bin路径，否则执行作业会抛“找不到autoexec program”异常
+如：/Users/cocokong/IdeaProjects/neatlogic-autoexec-backend/bin
+```
+![输入图片说明](README_IMAGES/BUILD/runner-serviceConfig.png)
+### 配置文件
+```
+#SERVER
+#应用名
+spring.application.name=autoexecrunner
+server.port=8084
+server.servlet.context-path=/${spring.application.name}
+
+# SPRING AOP CONFIG
+spring.aop.auto=true
+spring.aop.proxy-target-class=true
+
+# UPLOAD FILE CONFIG
+#上传限制
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-request-size=100MB
+spring.servlet.multipart.max-file-size=100MB
+
+#NEATLOGIC WEB
+#neatlogic后端应用地址
+neatlogic.root=http://127.0.0.1:8080/neatlogic
+#认证 连接时校验
+auth.type=basic
+access.key=neatlogic
+access.secret=x15wDEzSbBL6tV1W
+
+
+#RUNNER
+#runner根路径
+runner.home=/Users/cocokong/autoexec-runner
+
+#LOGGER
+#日志级别
+logging.config=${runner.home}/config/logback-spring.xml
+logging.home=${runner.home}/logs/autoexec-runner
+logging.level.root=DEBUG
+
+#NEATLOGIC-AUTOEXEC-BACKEND
+#neatlogic-autoexec-backend自动化作业数据路径
+autoexec.home=/Users/cocokong/IdeaProjects/autoexec/data/job
+
+#DEPLOY
+#neatlogic--autoexec-backend发布版本数据路径
+deploy.home=/app/autoexec/data/verdata
+ 
+#neatlogic--autoexec-backend数据根路径
+data.home=${runner.home}/data
+
+#tagent 安装包下载目录，将文件放在这个目录，就可以通过“http://ip:8084/autoexecrunner/tagent/download/” +文件名下载文件
+tagent.download.path=/app/autoexec/data/tagent/
+```
+### 启动即可
+
 
 
 ## 使用干净的租户，完全重新初始化（为减少不必要的错误， <span style="color:red;">_新搭建环境请跳过该步骤，请勿执行！请勿执行！请勿执行！_</span> 建议先用上述demo租户启动成功并熟悉后，再来清空数据）
