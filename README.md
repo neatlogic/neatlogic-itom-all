@@ -20,7 +20,7 @@ NeatLogic 提供 docker 镜像部署模式和安装包部署模式，自带所�
 |[Tomcat](https://tomcat.apache.org/)|9.0.75|✅|Servlet容器|
 |[Mysql](https://www.mysql.com/)|8.0.27|✅|数据库|
 |[Nginx](https://www.nginx-cn.net/)|1.16.1|✅|前端服务器|
-|[MongoDb](https://www.mongodb.com/)|4.4.3|✖️|自动采集临时数据库，如果使用CMDB自动采集功能必须使用|
+|[MongoDb](https://www.mongodb.com/)|4.4.3|✖️|自动采集和巡检定义数据库，如果使用巡检和CMDB自动采集功能必须使用|
 |[MinIO](https://www.minio.org.cn/)|5.0.6(2020-05-08T02:40:49Z)|✖️|附件存储，如果不部署自动切换成本地存储模式，多服务共享附件时需要把上传目录设到共享目录上，例如Nas|
 |[Nacos](https://nacos.io/zh-cn/)|2.1.0|✖️|配置统一管理，如果不部署nacos，配置改为读取本地config.properties文件|
 |[ActiveMQ Artemis](https://activemq.apache.org/components/artemis/)|2.17.0|✖️|消息队列，没有第三方系统消费消息可以不部署|
