@@ -13,9 +13,9 @@
 ```
 
 ##  后端IntelliJ IDEA配置(2022.2.4+)
-### ❗❗❗ 注意
+### ❗❗❗  注意
 ```js
- ❗❗❗" idea版本必须大于 **2022.2.4**，否则maven的profile特性不兼容，导致maven依赖问题 "   
+ ❗❗❗" idea版本必须大于 2022.2.4，否则maven的profile特性不兼容，导致maven依赖问题 "   
 ```
 ### 新建workspace,并引入所有项目
 > 打开项目
@@ -35,7 +35,7 @@ git branch -d develop3.0.0
 ### 配置maven(版本3.8+)
 #### ❗❗❗ 注意
 ```js
- ❗❗❗" maven版本必须大于 **3.8**，否则maven的profile特性不兼容，导致maven依赖问题 "   
+ ❗❗❗" maven版本必须大于 3.8，否则maven的profile特性不兼容，导致maven依赖问题 "   
 ```
 > 使用maven自带的setting.xml文件即可，如果存在网络问题，则需要通过私有nexus仓库或者别的方式下载第三方依赖了
 ![](README_IMAGES/BUILD/idea-projectStructure.png)
@@ -65,7 +65,7 @@ git branch -d develop3.0.0
 ##### 指定本地Tomcat
 ###### ❗❗❗ 注意
 ```js
- ❗❗❗" tomcat版本必须是 **9** "   
+ ❗❗❗" tomcat版本必须是 9 "   
 ```
 ![](README_IMAGES/BUILD/idea-tomcat2.png)
 ###### 配置VM Options
