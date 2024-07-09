@@ -13,6 +13,10 @@
 ```
 
 ##  后端IntelliJ IDEA配置(2022.2.4+)
+### ❗❗❗  注意
+```js
+ ❗❗❗" idea版本必须大于 2022.2.4，否则maven的profile特性不兼容，导致maven依赖问题 "   
+```
 ### 新建workspace,并引入所有项目
 > 打开项目
 ![](README_IMAGES/BUILD/idea-openProject.png)
@@ -29,10 +33,18 @@ git submodule foreach 'git checkout develop3.0.0'
 git branch -d develop3.0.0
 ```
 ### 配置maven(版本3.8+)
+#### ❗❗❗ 注意
+```js
+ ❗❗❗" maven版本必须大于 3.8，否则maven的profile特性不兼容，导致maven依赖问题 "   
+```
 > 使用maven自带的setting.xml文件即可，如果存在网络问题，则需要通过私有nexus仓库或者别的方式下载第三方依赖了
 ![](README_IMAGES/BUILD/idea-projectStructure.png)
 ![](README_IMAGES/BUILD/idea-mavenSetting1.png)
 ### 配置JDK8
+#### ❗❗❗ 注意
+```js
+ ❗❗❗" jdk版本必须是 8 "   
+```
 ![](README_IMAGES/BUILD/idea-jdk.png)
 ![](README_IMAGES/BUILD/idea-jdk1.png)
 ### 刷新maven依赖
@@ -51,6 +63,10 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-tomcat.png)
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
 ##### 指定本地Tomcat
+###### ❗❗❗ 注意
+```js
+ ❗❗❗" tomcat版本必须是 9 "   
+```
 ![](README_IMAGES/BUILD/idea-tomcat2.png)
 ###### 配置VM Options
 ```
@@ -107,10 +123,14 @@ heartbeat.rate = 3
 heartbeat.threshold = 5
 
 ```
+##### 将neatlogic-resources的localconfig目录定义为资源目录
+![输入图片说明](README_IMAGES/BUILD/resource-localconfig.png)
 ##### 将config目录定义为资源目录
 ![](README_IMAGES/BUILD/idea-config.png)
 
 #### 通过neatlogic-springboot来启动neatlogic后端
+##### 将neatlogic-resources的localconfig目录定义为资源目录
+![输入图片说明](README_IMAGES/BUILD/resource-localconfig.png)
 ##### 需要将config目录标记为资源根目录
 ![输入图片说明](https://foruda.gitee.com/images/1715155326732798649/bd6d72a4_12375900.png "屏幕截图")
 ##### 设置VM options如下：
@@ -324,7 +344,10 @@ cnpm list
 ```
 
 ## neatlogic-runner项目IntellJ IDEA环境搭建（如果不涉及到CMDB采集、自动化、巡检相关功能此项目请忽略）
-** :exclamation:  仅支持mac或linux操作系统** 
+### ❗❗❗  注意
+```js
+ ❗❗❗" 仅支持mac或linux环境下研发 "   
+```
 ### 配置
 ![输入图片说明](README_IMAGES/BUILD/runner-addService.png)
 确保下图中的“Add VM Option”和“Environment variables”被钩选上
@@ -342,6 +365,7 @@ PATH 需加上 neatlogic-autoexec-backend项目的bin路径，否则执行作业
 如：/Users/cocokong/IdeaProjects/neatlogic-autoexec-backend/bin
 ```
 ![输入图片说明](README_IMAGES/BUILD/runner-serviceConfig.png)
+
 ### 配置文件
 ```
 #SERVER
@@ -393,8 +417,20 @@ data.home=${runner.home}/data
 #tagent 安装包下载目录，将文件放在这个目录，就可以通过“http://ip:8084/autoexecrunner/tagent/download/” +文件名下载文件
 tagent.download.path=/app/autoexec/data/tagent/
 ```
-### 添加neatlogic-tagent-client.jar到项目中，或者私有的nexus仓库
+### 添加neatlogic-tagent-client.jar到本地maven库或者私有的nexus仓库
 ![输入图片说明](README_IMAGES/BUILD/runner-tegentjar.png)
+#### 手动导入jar到本地maven库
+```
+mvn install:install-file -Dfile=neatlogic-tagent-client.jar -DgroupId=com.neatlogic -DartifactId=tagent -Dversion=1.2.2.2 -Dpackaging=jar
+```
+#### pom补充配置
+```
+<dependency>
+	<groupId>com.neatlogic</groupId>
+	<artifactId>tagent</artifactId>
+	<version>1.2.2.2</version>
+</dependency>
+```
 ### 启动即可
 
 
