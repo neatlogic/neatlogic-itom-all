@@ -344,7 +344,10 @@ cnpm list
 ```
 
 ## neatlogic-runner项目IntellJ IDEA环境搭建（如果不涉及到CMDB采集、自动化、巡检相关功能此项目请忽略）
-** :exclamation:  仅支持mac或linux操作系统** 
+### ❗❗❗  注意
+```js
+ ❗❗❗" 仅支持mac或linux环境下研发 "   
+```
 ### 配置
 ![输入图片说明](README_IMAGES/BUILD/runner-addService.png)
 确保下图中的“Add VM Option”和“Environment variables”被钩选上
