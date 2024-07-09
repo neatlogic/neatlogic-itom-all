@@ -123,10 +123,14 @@ heartbeat.rate = 3
 heartbeat.threshold = 5
 
 ```
+##### 将neatlogic-resources的localconfig目录定义为资源目录
+![输入图片说明](README_IMAGES/BUILD/resource-localconfig.png)
 ##### 将config目录定义为资源目录
 ![](README_IMAGES/BUILD/idea-config.png)
 
 #### 通过neatlogic-springboot来启动neatlogic后端
+##### 将neatlogic-resources的localconfig目录定义为资源目录
+![输入图片说明](README_IMAGES/BUILD/resource-localconfig.png)
 ##### 需要将config目录标记为资源根目录
 ![输入图片说明](https://foruda.gitee.com/images/1715155326732798649/bd6d72a4_12375900.png "屏幕截图")
 ##### 设置VM options如下：
