@@ -365,6 +365,7 @@ PATH 需加上 neatlogic-autoexec-backend项目的bin路径，否则执行作业
 如：/Users/cocokong/IdeaProjects/neatlogic-autoexec-backend/bin
 ```
 ![输入图片说明](README_IMAGES/BUILD/runner-serviceConfig.png)
+
 ### 配置文件
 ```
 #SERVER
@@ -416,8 +417,20 @@ data.home=${runner.home}/data
 #tagent 安装包下载目录，将文件放在这个目录，就可以通过“http://ip:8084/autoexecrunner/tagent/download/” +文件名下载文件
 tagent.download.path=/app/autoexec/data/tagent/
 ```
-### 添加neatlogic-tagent-client.jar到项目中，或者私有的nexus仓库
+### 添加neatlogic-tagent-client.jar到本地maven库或者私有的nexus仓库
 ![输入图片说明](README_IMAGES/BUILD/runner-tegentjar.png)
+#### 手动导入jar到本地maven库
+```
+mvn install:install-file -Dfile=neatlogic-tagent-client.jar -DgroupId=com.neatlogic -DartifactId=tagent -Dversion=1.2.2.2 -Dpackaging=jar
+```
+#### pom补充配置
+```
+<dependency>
+	<groupId>com.neatlogic</groupId>
+	<artifactId>tagent</artifactId>
+	<version>1.2.2.2</version>
+</dependency>
+```
 ### 启动即可
 
 
