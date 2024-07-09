@@ -41,9 +41,9 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-projectStructure.png)
 ![](README_IMAGES/BUILD/idea-mavenSetting1.png)
 ### 配置JDK8
-####❗❗❗ 注意
+#### ❗❗❗ 注意
 ```js
- ❗❗❗" jdk版本必须是 **8** "   
+ ❗❗❗" jdk版本必须是 8 "   
 ```
 ![](README_IMAGES/BUILD/idea-jdk.png)
 ![](README_IMAGES/BUILD/idea-jdk1.png)
