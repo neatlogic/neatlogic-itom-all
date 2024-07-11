@@ -134,7 +134,7 @@ docker-compose -f docker-compose.yml logs -f neatlogic-web
 ```
   docker-compose -f docker-compose.yml pull
 ```
-## ❗❗❗注意如果用到自动化相关的功能（采集、巡检等）需要额外进入neatlogic-runner容器执行以下命令，否则会出现perl第三方模块依赖问题
+## ❗❗❗ **注意如果用到自动化相关的功能（采集、巡检等）需要额外进入neatlogic-runner容器执行以下命令，否则会出现perl第三方模块依赖问题** 
 ```js
 yum install sudo
  yum install perl perl-devel
