@@ -134,6 +134,14 @@ docker-compose -f docker-compose.yml logs -f neatlogic-web
 ```
   docker-compose -f docker-compose.yml pull
 ```
+## ❗❗❗注意如果用到自动化相关的功能（采集、巡检等）需要额外进入neatlogic-runner容器执行以下命令，否则会出现perl第三方模块依赖问题
+```js
+yum install sudo
+ yum install perl perl-devel
+cd /app/autoexec/plugins/local/media
+./setup.sh
+
+```
 
 ## demo样例数据参考（注意：确保登录界面出来后，已经可以登录系统，还想要更具体的数据才执行以下步骤）
 由于考虑到环境的干净,镜像只保留了核心数据.如果仍需要更多的样例数据作为参考,可执行一下步骤
