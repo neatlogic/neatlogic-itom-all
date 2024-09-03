@@ -13,8 +13,8 @@
  如发现问题:<br>
 >请本地研发环境更新最新代码后,再确认是否重现<br>
 > **如果无法重现,需自行编译打包到具体服务部署路径（查看本文“服务详细”有介绍）替换更新,目前只有<br>
-> neatlogic ： <a href="https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/WAR_INSTALL.md">打包教程,点此查看</a> 或 <a href="https://gitee.com/neat-logic/neatlogic-itom-all/releases">使用最新封板提供的war包,点此查看</a>，覆盖war后重启服务即可<br>
-> neatlogic-web ： <a href="https://gitee.com/neat-logic/neatlogic-web/blob/develop3.0.0/README.md">打包教程,点此查看</a> 或 <a href="https://gitee.com/neat-logic/neatlogic-itom-all/releases">使用最新封板提供的dist包,点此查看</a>，替换dist目录即可<br>
+> neatlogic ： <a href="https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/WAR_INSTALL.md">打包教程,点此查看</a> 或 <a href="https://gitee.com/neat-logic/neatlogic-itom-all/releases">使用最新封板提供的war包,点此查看</a>，停止服务，并删除/app/systems/neatlogic/apps下面的所有文件后，将新的war包copy过来，重启服务即可<br>
+> neatlogic-web ： <a href="https://gitee.com/neat-logic/neatlogic-web/blob/develop3.0.0/README.md">打包教程,点此查看</a> 或 <a href="https://gitee.com/neat-logic/neatlogic-itom-all/releases">使用最新封板提供的dist包,点此查看</a>，删除/app/systems/neatlogic-web/dist目录，将新的dist目录copy过来即可<br>
 > neatlogic-runner ：mvn install 出jar 替换重启服务即可<br>
 > neatlogic-autoexec-backend ：纯脚本，直接替换文件即可<br>
 > 这几个服务需要更新<br>
