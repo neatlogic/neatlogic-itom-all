@@ -65,8 +65,14 @@
 ![输入图片说明](README_IMAGES/BUILD/tomcatFailed2.png)
  **原因** ： 后端服务没启动或有异常导致启动失败<br>
  **解决办法** ：停止服务 deployadmin -s neatlogic -a stopall,再启动服务 deployadmin -s neatlogic -a startall
-观察日志没有异常，成功启动服务后（INFO: [xxxxx]毫秒后服务器启动）.如果前后端服务不在一个服务器上则在前端的服务器curl一下这个http://后端虚拟机ip:8282/neatlogic/tenant/check/demo <br>
-确保前端服务器和后端服务器网络是正常的。如果在同一个服务器上则在浏览器上访问下这个http://后端虚拟机ip:8282/neatlogic/tenant/check/demo <br>
+观察日志没有异常，成功启动服务后（INFO: [xxxxx]毫秒后服务器启动）.如果前后端服务不在一个服务器上则在前端的服务器curl一下
+```
+http://后端虚拟机ip:8282/neatlogic/tenant/check/demo
+```
+确保前端服务器和后端服务器网络是正常的。如果在同一个服务器上则在浏览器上访问下
+```
+http://后端虚拟机ip:8282/neatlogic/tenant/check/demo
+```
 看能否正常返回数据,类似如下：
 ```
 {"Status":"OK","encrypt":"md5","themeConfig":{},"mobileFileDownloadEnabled":"0","commercialModuleSet":["pbc","process","cmdb","tenant"]}
