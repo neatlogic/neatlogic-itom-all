@@ -54,17 +54,17 @@
 ## FAQ
 ### 乱码
 ![输入图片说明](QUICK_START_IMAGES/faq1.png)
-原因：java_options 缺少-Dfile.encoding=UTF-8，安装包下个版本更新<br>
-解决办法：vim /app/systems/neatlogic/sysconfig/serveradmin/neatlogic.env
+ **原因** ：java_options 缺少-Dfile.encoding=UTF-8，安装包下个版本更新<br>
+ **解决办法** ：vim /app/systems/neatlogic/sysconfig/serveradmin/neatlogic.env
 ![输入图片说明](QUICK_START_IMAGES/faq11.png)
 ### deployadmin: command not found<br>
-原因：一般客户安装好环境之后 不会给root用户的，所以需要用app用户执行<br>
-解决办法：app用户执行或在root用户的.bash_profile PATH加上/app/serveradmin/bin<br>
+ **原因** ：一般客户安装好环境之后 不会给root用户的，所以需要用app用户执行<br>
+ **解决办法** ：app用户执行或在root用户的.bash_profile PATH加上/app/serveradmin/bin<br>
 ### 页面提示租户不存在
 ![输入图片说明](README_IMAGES/BUILD/tomcatFailed.png)
 ![输入图片说明](README_IMAGES/BUILD/tomcatFailed2.png)
-原因： 后端服务没启动或有异常导致启动失败
-解决办法：停止服务 deployadmin -s neatlogic -a stopall,再启动服务 deployadmin -s neatlogic -a startall
+ **原因** ： 后端服务没启动或有异常导致启动失败
+ **解决办法** ：停止服务 deployadmin -s neatlogic -a stopall,再启动服务 deployadmin -s neatlogic -a startall
 观察日志没有异常，成功启动服务后（INFO: [xxxxx]毫秒后服务器启动）.如果前后端服务不在一个服务器上则在前端的服务器curl一下这个http://后端虚拟机ip:8282/neatlogic/tenant/check/demo，确保前端服务器和后端服务器网络是正常的。如果在同一个服务器上则在浏览器上访问下这个http://后端虚拟机ip:8282/neatlogic/tenant/check/demo看能否正常返回数据,类似如下：
 ```
 {"Status":"OK","encrypt":"md5","themeConfig":{},"mobileFileDownloadEnabled":"0","commercialModuleSet":["pbc","process","cmdb","tenant"]}
