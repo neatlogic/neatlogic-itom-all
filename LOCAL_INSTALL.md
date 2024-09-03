@@ -42,7 +42,7 @@
 ```
 |  服务名  |  端口  | 访问地址 | 服务启停命令 | 部署路径(更新版本) | 配置文件路径 | 描述 |
 | ----  | ----  | ----  | ---- | ---- | ---- | ---- |
-| neatlogic | 8282 | - | deployadmin -s neatlogic -a startall/stopall/restartall | /app/systems/neatlogic/apps/neatlogic.war | /app/systems/neatlogic/config/ |tomcat后端服务 ,通过http://虚拟机ip:8282/neatlogic/tenant/check/demo 验证服务是否正常 |
+| neatlogic | 8282 | - | deployadmin -s neatlogic -a startall/stopall/restartall | /app/systems/neatlogic/apps/neatlogic.war | /app/systems/neatlogic/config/ |tomcat后端服务 ,通过http://后端虚拟机ip:8282/neatlogic/tenant/check/demo 验证服务是否正常 |
 | neatlogic-web | 8090 | http://虚拟机ip:8090/demo | service nginx start/stop/restart | /app/systems/neatlogic-web/dist | - | 前端服务 |
 | neatlogic-runner | 8084、tagent心跳端口：8888 | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall | /app/systems/neatlogic-runner/lib/neatlogic-runner.jar | /app/systems/neatlogic-runner/config |执行器runner后端服务，通过http://虚拟机ip:8084/autoexecrunner/anonymous/api/rest/server/health/check/demo 验证服务是否正常|
 | nginx | - | - | service nginx start/stop/restart | /app/systems/nginx/ | /app/systems/nginx/conf | - |
@@ -60,4 +60,13 @@
 ### deployadmin: command not found<br>
 原因：一般客户安装好环境之后 不会给root用户的，所以需要用app用户执行<br>
 解决办法：app用户执行或在root用户的.bash_profile PATH加上/app/serveradmin/bin<br>
-
+### 页面提示租户不存在
+![输入图片说明](README_IMAGES/BUILD/tomcatFailed.png)
+![输入图片说明](README_IMAGES/BUILD/tomcatFailed2.png)
+原因： 后端服务没启动或有异常导致启动失败
+解决办法：停止服务 deployadmin -s neatlogic -a stopall,再启动服务 deployadmin -s neatlogic -a startall
+观察日志没有异常，成功启动服务后（INFO: [xxxxx]毫秒后服务器启动）.如果前后端服务不在一个服务器上则在前端的服务器curl一下这个http://后端虚拟机ip:8282/neatlogic/tenant/check/demo，确保前端服务器和后端服务器网络是正常的。如果在同一个服务器上则在浏览器上访问下这个http://后端虚拟机ip:8282/neatlogic/tenant/check/demo看能否正常返回数据,类似如下：
+```
+{"Status":"OK","encrypt":"md5","themeConfig":{},"mobileFileDownloadEnabled":"0","commercialModuleSet":["pbc","process","cmdb","tenant"]}
+```
+说明tomcat后端服务正常启动了,然后重新在浏览器访问http://虚拟机ip:8090/demo
