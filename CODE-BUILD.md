@@ -103,7 +103,9 @@ conn.maxActive = 50
 conn.initialSize = 4
 conn.maxIdle=16
 #minio配置，如果不配置，默认使用本地存储
+file.handler = MINIO
 minio.url = http://localhost:8989
+minio.bucket = neatlogic
 minio.accesskey = minioadmin
 minio.secretkey = minioadmin
 #本地存储起始文件夹，如果调用minio失败，会自动转存到这里，如果需要多服务共享附件，此路径请配置到nas卷上。
