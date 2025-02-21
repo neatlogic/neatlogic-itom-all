@@ -31,8 +31,8 @@ git submodule foreach 'git checkout develop3.0.0'
 #如果提示分支已存在，就先删除本地develop3.0.0分支
 git branch -d develop3.0.0
 ```
-### 配置maven(版本3.8+)
-> **❗ 注意**：maven版本必须大于 3.8，否则maven的profile特性不兼容，导致maven依赖问题
+### 配置maven
+> **❗版本**：须大于3.8，低版本的maven不支持profile功能，无法使用本项目
  
 > 使用maven自带的setting.xml文件即可，如使用私有库请自行修改。
 
@@ -40,12 +40,14 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-mavenSetting1.png)
 
 ### 配置JDK
-> **❗ 注意**：本系统使用JDK8
+> **❗版本**：JDK8
 
 ![](README_IMAGES/BUILD/idea-jdk.png)
 ![](README_IMAGES/BUILD/idea-jdk1.png)
 
 ### 刷新maven依赖
+profile仅需选择develop，release目前不存在不要选择，commercial用于商业模块的开发，社区用户无选则。
+
 ![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
 
 > **:exclamation: :exclamation: 如果提示找不到neatlogic-parent,就先install下neatlogic-parent这个模块后，重新执行上图“刷新maven依赖”操作** 
@@ -55,10 +57,10 @@ git branch -d develop3.0.0
 
 ### 启动配置
 >  :star:   **其中页面后端可以通过两种方式启动，按需配置其中一种即可** 
-> - :point_right:  neatlogic-webroot : 外置tomcat9启动
-> - :point_right:  neatlogic-springboot : springboot启动
+> - :point_right:  neatlogic-webroot : 用于Tomcat9启动
+> - :point_right:  neatlogic-springboot : 用于SpringBoot启动
 #### 使用Tomcat启动
-> **❗ 注意**：请使用Tomcat9
+> **❗版本**：Tomcat9
 ![](README_IMAGES/BUILD/idea-tomcat.png)
 ![](README_IMAGES/BUILD/idea-tomcat1.png)
 ![](README_IMAGES/BUILD/idea-tomcat2.png)
