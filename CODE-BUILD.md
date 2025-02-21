@@ -1,7 +1,7 @@
 中文 / [English](CODE-BUILD.en.md)
 
 # 研发环境搭建
-本文档讲解neatlogic-webroot(neatlogic-springboot)、neatlogic-runner、neatlogic-web 三个项目的研发环境搭建，neatlogic业务模块较多，其中关系请查阅下面的服务架构图：
+本文档讲解neatlogic-webroot(neatlogic-springboot)、neatlogic-runner、neatlogic-web 三个项目的研发环境搭建，neatlogic业务模块较多，请使用以下架构图理解各组件的部署方式和调用关系：
 ![架构图](README_IMAGES/inf.jpeg)
 >  :star:   **其中页面后端可以通过两种方式启动** 
 > - :point_right:  neatlogic-webroot : 外置tomcat9启动
@@ -14,7 +14,7 @@
 
 ##  配置IntelliJ IDEA
 
-> **❗ 注意**：idea版本必须大于 2022.2.4，否则maven的profile特性不兼容，导致maven依赖问题
+> **❗ 注意**：idea版本须大于 2022.2.4，低版本不支持Maven的profile功能，无法使用本项目
 
 ### 创建workspace
 > 打开项目
