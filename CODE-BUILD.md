@@ -46,7 +46,7 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-jdk1.png)
 
 ### 刷新maven依赖
-profile仅需选择develop，release目前不存在不要选择，commercial用于商业模块的开发，社区用户无选则。
+profile仅需选择develop，代表当前进行开发分支代码的开发。由于目前项目不存在release分支，因此无需选择。commercial用于商业模块的开发，社区版用户无需选择。
 
 ![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
 
