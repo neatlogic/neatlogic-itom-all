@@ -4,8 +4,8 @@
 本文档讲解neatlogic-webroot(neatlogic-springboot)、neatlogic-runner、neatlogic-web 三个项目的研发环境搭建，neatlogic业务模块较多，请使用以下架构图理解各组件的部署方式和调用关系：
 ![架构图](README_IMAGES/inf.jpeg)
 >  :star:   **其中页面后端可以通过两种方式启动** 
-> - :point_right:  neatlogic-webroot : 外置tomcat9启动
-> - :point_right:  neatlogic-springboot : springboot启动
+> - :point_right:  neatlogic-webroot : 用于Tomcat9启动
+> - :point_right:  neatlogic-springboot : 用于SpringBoot启动
 ## 下载代码
 获取代码 签出neatlogic-itom-all可以一次性获取所有模块代码，由于neatlogic-itom-all使用submodule引入模块，签出代码时需加上--recurse-submodules参数。范例：
 ```
