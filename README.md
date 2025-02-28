@@ -24,8 +24,7 @@ NeatLogic 提供 docker 镜像部署模式和安装包部署模式，自带所�
 |[MinIO](https://www.minio.org.cn/)|5.0.6(2020-05-08T02:40:49Z)|✖️|附件存储，如果不部署自动切换成本地存储模式，多服务共享附件时需要把上传目录设到共享目录上，例如Nas|
 |[Nacos](https://nacos.io/zh-cn/)|2.1.0|✖️|配置统一管理，如果不部署nacos，配置改为读取本地config.properties文件|
 |[ActiveMQ Artemis](https://activemq.apache.org/components/artemis/)|2.17.0|✖️|消息队列，支持订阅和发送主题，没有第三方系统消费消息可以不部署|
-|[Apache Kafka](https://kafka.apache.org/)|3.8.0|✖️|消息队列，仅支持订阅，官方功能不会主动发送主题，但自定义功能可以发送，没有第三方系统消费消息可以不部署|
-|[Apache Kafka](https://kafka.apache.org/)|3.8.0|✖️|消息队列，仅支持订阅，官方功能不会主动发送主题，但自定义功能可以发送，没有第三方系统消费消息可以不部署|
+|[Apache Kafka](https://kafka.apache.org/)|3.8.0|✖️|消息队列，仅支持订阅，官方功能不会主动发送主题，但自定义功能可以发送，不使用可以不部署|
 |[Elasticsearch](https://www.elastic.co/)|7.17.25|✖️|目前仅用于告警中心模块，将来不排除会扩大应用范围|
 
 
