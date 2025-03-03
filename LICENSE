@@ -667,6 +667,7 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 依据 AGPLv3 §7，项目附加了一份《COMMERCIAL_TERMS.md》文件中的商业使用条款。  
 该附加条款对商业化使用和二次销售行为进行了补充说明。  
 如需将本软件用于商业目的，包括但不限于二次销售、收费服务、商业产品集成等，  
-请务必遵守 COMMERCIAL_TERMS.md 中的规定，或联系官方获取商业授权。  
-COMMERCIAL_TERMS.md 不影响您在 AGPLv3 下所享有的自由使用、修改、分发权利，但对商业化行为提出了额外要求。  
-COMMERCIAL_TERMS.md 文件为本 LICENSE 的有效组成部分。 
+请务必遵守《COMMERCIAL_TERMS.md》中的规定，或联系官方获取商业授权。  
+《COMMERCIAL_TERMS.md》不影响您在 AGPLv3 下所享有的自由使用、修改、分发权利，但对商业化行为提出了额外要求。  
+本项目包含多个模块，所有模块均受AGPLv3许可证和《COMMERCIAL_TERMS.md》附加条款约束。  
+如需了解商业条款，请参见主项目根目录下的《COMMERCIAL_TERMS.md》。
