@@ -105,3 +105,9 @@
 [submodule "neatlogic-springboot"]
 	path = neatlogic-springboot
 	url = ../neatlogic-springboot.git
+[submodule "neatlogic-alert-base"]
+	path = neatlogic-alert-base
+	url = ../neatlogic-alert-base
+[submodule "neatlogic-alert"]
+	path = neatlogic-alert
+	url = ../neatlogic-alert
