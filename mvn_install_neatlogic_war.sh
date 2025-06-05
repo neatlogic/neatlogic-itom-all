@@ -33,7 +33,7 @@ projects=(
   "neatlogic-report"
   "neatlogic-tagent"
   "neatlogic-tenant"
-  "neatlogic-alert“
+  "neatlogic-alert"
   "neatlogic-resources"
 )
 
