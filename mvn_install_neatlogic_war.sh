@@ -16,6 +16,8 @@ projects=(
   "neatlogic-itsm-base"
   "neatlogic-event-base"
   "neatlogic-change-base"
+  "neatlogic-alert-plugin-base"
+  "neatlogic-alert-base"
   "neatlogic-autoexec"
   "neatlogic-change"
   "neatlogic-cmdb"
@@ -31,6 +33,7 @@ projects=(
   "neatlogic-report"
   "neatlogic-tagent"
   "neatlogic-tenant"
+  "neatlogic-alert"
   "neatlogic-resources"
 )
 
