@@ -1,9 +1,7 @@
-# 后端部署请查看[一键部署方案](https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/LOCAL_INSTALL.md)
+# 后端部署请查看[本地部署方案](https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/LOCAL_INSTALL.md)
 
 # nginx配置：
-
-[下载地址](https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/nginx.conf)
-内容：
+以下配置内容主要展示如何转发前端请求到后端接口，其他配置例如端口请根据实际情况修改：
 ```
 user root;
 worker_processes 1;
