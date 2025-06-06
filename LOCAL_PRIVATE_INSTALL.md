@@ -1,5 +1,113 @@
-# 有兴趣通过自己部署的朋友，需自行研究解决安装环境遇到的种种问题（官方成本精力有限，望理解）或移步官方提供的[一键部署方案](https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/LOCAL_INSTALL.md)
+# 后端部署请查看[一键部署方案](https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/LOCAL_INSTALL.md)
 
-## 以下为提供的核心配置文件：
+# nginx配置：
 
-[nginx配置文件](https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/nginx.conf)
+[下载地址](https://gitee.com/neat-logic/neatlogic-itom-all/blob/develop3.0.0/nginx.conf)
+内容：
+```
+user root;
+worker_processes 1;
+
+pid logs/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+
+http {
+    include mime.types;
+    default_type application/octet-stream;
+    client_max_body_size 1024m;
+
+    log_format main '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for"';
+    log_format postdata $request_body;
+    access_log /app/logs/nginx/access.log postdata;
+
+    sendfile on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+
+    #gzip  on;
+    server {
+        listen 8090;
+        server_name localhost;
+
+        charset utf-8;
+
+        set $appaddr 127.0.0.1:8080;
+        set $webroot /app/neatlogic-web/dist;
+        #access_log /app/logs/nginx/host.access.log main;
+
+        #client_body_temp_path /var/log/nginx/client_request;
+        client_body_in_file_only clean;
+
+        location ~ /anonymous/api/(.*) {
+                proxy_pass http://127.0.0.1:8080/neatlogic/anonymous/api/$1?$args;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
+
+        location ~ /([^\/]+)/public/api/(.*) {
+            set $modified_uri $request_uri;
+            if ($modified_uri ~ "^/([^\/]+)/public/api/([^\?]+)") {}
+            proxy_pass http://127.0.0.1:8080/neatlogic/public/api/$2?$args;
+            proxy_set_header Tenant $1;
+            proxy_set_header Cookie $http_cookie;
+            proxy_set_header X-Forwarded-For $remote_addr;
+        }
+   
+        location ~ /([^\/]+)/api/(.*) {
+            proxy_pass http://$appaddr/neatlogic/api/$2?$args;
+            proxy_set_header Tenant $1;
+            proxy_set_header Cookie $http_cookie;
+            proxy_set_header X-Forwarded-For $remote_addr;
+        }
+
+        location ~ /([^\/]+)/([^\/]+)/check$ {
+            proxy_pass http://$appaddr/neatlogic/$2/check/$1?$args;
+            proxy_set_header Tenant $1;
+        }
+
+   
+        location ~ ^.*/resource/(.*)$ {
+            alias $webroot/resource/$1;
+            break;
+        }
+
+        location ~ .*/login.html {
+            root $webroot;
+            rewrite .* /login.html break;
+        }
+
+        location ~ /([^\/]*).html {
+            add_header Cache-Control 'private, no-store, max-age=0';
+            add_header Access-Control-Allow-Origin *;
+            alias $webroot;
+            try_files /$1.html break;
+        }
+
+        #match default route
+        location = / {
+            #设置默认租户导航，当访问根路径时重定向到默认租户
+            rewrite ^.*$ /demo/ permanent;
+        }
+
+        location / {
+            alias $webroot;
+            try_files /index.html break;
+        }
+
+        error_page 404 404.html;
+        location ~ /404.html$ {
+            alias $webroot/;
+        }
+
+        error_page 500 502 503 504 50x.html;
+        location ~ /50x.html$ {
+            #root html;
+            alias html/;
+        }
+    }
+}
+```
