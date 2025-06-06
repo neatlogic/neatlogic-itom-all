@@ -44,6 +44,7 @@ http {
         location ~ /anonymous/api/(.*) {
                 proxy_pass http://127.0.0.1:8080/neatlogic/anonymous/api/$1?$args;
                 proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header source pc;
         }
 
         location ~ /([^\/]+)/public/api/(.*) {
@@ -53,6 +54,7 @@ http {
             proxy_set_header Tenant $1;
             proxy_set_header Cookie $http_cookie;
             proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header source pc;
         }
    
         location ~ /([^\/]+)/api/(.*) {
@@ -60,6 +62,7 @@ http {
             proxy_set_header Tenant $1;
             proxy_set_header Cookie $http_cookie;
             proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header source pc;
         }
 
         location ~ /([^\/]+)/([^\/]+)/check$ {
