@@ -94,7 +94,8 @@ http://后端虚拟机ip:8282/neatlogic/tenant/check/demo
 ```
 说明tomcat后端服务正常启动了,然后重新在浏览器访问http://虚拟机ip:8090/demo<br>
 ### tagent注册 This MongoDB deployment does not support retryable writes. Please add retryWrites=false to your connection string
-需要启用副本集
+**原因** ：事务需要开启副本集支持
+**解决办法** ：开启副本集
 1. 修改 mongodb.conf，放开 replSet=autoexec-rs
 2. 重启mongodb 
 3. 进入MongoDB终端
