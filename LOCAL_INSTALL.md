@@ -93,3 +93,18 @@ http://后端虚拟机ip:8282/neatlogic/tenant/check/demo
 {"Status":"OK","encrypt":"md5","themeConfig":{},"mobileFileDownloadEnabled":"0","commercialModuleSet":["pbc","process","cmdb","tenant"]}
 ```
 说明tomcat后端服务正常启动了,然后重新在浏览器访问http://虚拟机ip:8090/demo<br>
+### tagent注册 This MongoDB deployment does not support retryable writes. Please add retryWrites=false to your connection string
+需要启用副本集
+1. 修改 mongodb.conf，放开 replSet=autoexec-rs
+2. 重启mongodb 
+3. 进入MongoDB终端
+```
+/app/databases/collectdb/bin/mongo --host 127.0.0.1 --port 27017 -u admin -p u1OPgeInMhxsNkNl
+```
+4. 在MongoDB命令行模式下，修改127.0.0.1 为本机的真实IP（否则别的runner连不上MongoDB）
+```
+cfg = rs.conf()
+cfg.members[0].host = "实际IP:端口号"  // 例如："192.168.1.100:27017"
+rs.reconfig(cfg, {force: true})
+```
+5. 继续输入rs.conf()，查看副本集的最新配置， 若members里面已经改成了真实的IP，则已经生效。
