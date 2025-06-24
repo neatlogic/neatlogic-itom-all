@@ -29,7 +29,7 @@
 > 	<version>1.2.2.2</version>
 > </dependency>
 > ```
-> neatlogic-autoexec-backend ：纯脚本，直接替换文件即可<br>
+> neatlogic-autoexec-backend ：纯脚本，直接替换文件即可（git上面这个项目的所有文件都要覆盖，其它不存在的文件保留不要动）<br>
 > 这几个服务需要更新<br>
 > **如果重现,请联系我们,提issue,谢谢!<br>
 ## 详细步骤（使用root用户执行）
