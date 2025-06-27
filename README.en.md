@@ -11,7 +11,7 @@ NeatLogic natively supports multi-tenancy (middleware sharing, database sub-tena
 NeatLogic provides docker image deployment mode and installation package deployment mode. It comes with all databases and middleware. All key services are encapsulated with start and stop commands. Middleware, software packages and configuration files are separated to facilitate users' daily maintenance.
 
 ## Runtime
-Operating system: Linux, java version: 8+, process memory: 4G or more, 8G is recommended, file storage supports local storage, NAS or MiniIo by default, and can connect to third-party object storage services. Back-end middleware: Tomcat9.X+, front-end middleware: Nginx, database: Mysql8+, Mongodb4+.
+Operating system: Linux, java version: 8+, process memory: 4G or more, 8G is recommended, file storage supports local storage, NAS or MiniIo by default, and can connect to third-party object storage services. Back-end middleware: Tomcat9.X+, front-end middleware: Nginx, database: Mysql8+, Mongodb7+.
 
 ## Project Structure
 NeatLogic manages code in a modular fashion.
