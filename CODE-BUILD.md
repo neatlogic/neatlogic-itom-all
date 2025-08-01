@@ -166,7 +166,7 @@ heartbeat.threshold = 5
   1. 按照上述说明创建了3个空库neatlogic、neatlogic_demo和neatlogic_demo_data,如下图。
    ![](README_IMAGES/BUILD/database.png)
   2. 导入初始数据:[neatlogic-database/mysql](../../../neatlogic-database/blob/develop3.0.0/mysql) 将三个sql文件按名字分别导入到三个库。
-  3. 修改neatlogic库的datasource表数据，修改tenant_uuid=demo行的相关字段。
+  3. 修改neatlogic库的datasource表数据，修改tenant_uuid=demo行的相关字段(核对username、password、host和port是否正确配置，其它字段不要修改！)。
   4. 修改neatlogic库的mongodb表数据，修改tenant_uuid=demo行的相关字段。
   5. 修改neatlogic库的elasticsearch表数据，修改tenant_uuid=demo行的相关字段。（如果没有部署es可以不用理会此表数据）。
   >部署完前端后可以使用账号:admin 密码:neatlogic@901 登录demo租户
