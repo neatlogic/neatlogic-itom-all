@@ -15,7 +15,7 @@ git submodule foreach 'git checkout develop3.0.0'
 中文网址：https://nodejs.cn/en/download
 ```
 
-# 设置淘宝镜像源
+### 设置淘宝镜像源
 ```
 npm config set registry https://registry.npmmirror.com/
 ```
