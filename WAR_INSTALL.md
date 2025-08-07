@@ -31,7 +31,7 @@ npm install
 ```
 npm run build
 ```
-# 支持pnpm
+## 支持pnpm
 ```js
  📌" 研发环境建议使用pnpm效率更高，生产出包使用npm。pnpm需自行科普使用"   
 ```
