@@ -56,15 +56,7 @@ n stable（最新稳定版本）
 ```
 n 18.16.0
 ```
-#### 降低cnpm版本
-1. 这里是列表文本先卸载cnpm 
-```
-npm uninstall -g cnpm
-```
-2. 这里是列表文本再安装低版本的cnpm 
-```
-npm install cnpm@8.2.0 -g --registry=https://registry.npm.taobao.org
-```
+
 #### 其它常用的命令
 ```
 # 升级依赖包
