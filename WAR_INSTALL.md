@@ -14,22 +14,26 @@ git submodule foreach 'git checkout develop3.0.0'
 英文网址：https://nodejs.org/en/download
 中文网址：https://nodejs.cn/en/download
 ```
-### 安装使用v8.2.0 cnpm
+
+# 设置淘宝镜像源
 ```
-npm install cnpm@8.2.0 -g --registry=https://registry.npmmirror.com
+npm config set registry https://registry.npmmirror.com/
 ```
-> 如果启动时发现大量不明报错，可能原因是npm install阶段加载的依赖包不完整导致，可以对npm进行降级再次install，目前测试v18的npm可以正常install。或者通过cnpm install加载依赖包也可以。cnpm版本也不能太高，建议使用v8.2.0。建议使用nvm管理多版本的node，使用v18.x版本的node会比较稳定。
+
+### 安装依赖
 进入 neatlogic-itom-all/neatlogic-web 文件夹
 ```
 cd neatlogic-itom-all/neatlogic-web
+npm install
 ```
-### 安装依赖
-```
-cnpm install
-```
+> 如果启动时发现大量不明报错，可能原因是npm install阶段加载的依赖包不完整导致，可以对npm进行降级再次install，目前测试v18的npm可以正常install。建议使用nvm管理多版本的node，使用v18.x版本的node会比较稳定。
 ### 构建打包项目dist
 ```
-cnpm run build
+npm run build
+```
+# 支持pnpm
+```js
+ 📌" 研发环境建议使用pnpm效率更高，生产出包使用npm。pnpm需自行科普使用"   
 ```
 
 ### 其它
@@ -64,10 +68,10 @@ npm install cnpm@8.2.0 -g --registry=https://registry.npm.taobao.org
 #### 其它常用的命令
 ```
 # 升级依赖包
-cnpm update <package-name>
+npm update <package-name>
 
 # 查看已安装的包
-cnpm list
+npm list
 ```
 ## 构建后端tomcat服务war包
 ### 前提条件
