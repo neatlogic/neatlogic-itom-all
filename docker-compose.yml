@@ -1,19 +1,100 @@
 version: "3.2"
+
 networks:
   neatlogic:
     driver: bridge
-  
-services:
 
+services:
   neatlogic-db:
-    image: neatlogic/neatlogic-db:community-3.2.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-db:V3.0.0
     container_name: neatlogic-db
+    restart: always
     stdin_open: true
     tty: true
-    volumes:
-      - /app/logs/neatlogicdb/:/app/logs/neatlogicdb/
     ports:
       - "3306:3306"
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -uroot -pneatlogic@901 -e 'USE neatlogic;USE neatlogic_demo;USE neatlogic_demo_data'"]
+      interval: 5s
+      timeout: 3s
+      retries: 50
+      start_period: 10s
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
+    volumes:
+      - /app/neatlogic-db/data:/var/lib/mysql
+      - /app/neatlogic-db/conf:/etc/mysql/conf.d
+      - /app/neatlogic-db/logs:/var/log/mysql
+      - /app/neatlogic-db/mysql-files:/var/lib/mysql-files
+    environment:
+      MYSQL_ROOT_PASSWORD: "neatlogic@901" # 设置数据库root密码
+      NEATLOGIC_RUNNER_HOST: "192.168.1.93" # 设置宿主机IP地址，请根据实际情况修改
+      MONGO_INITDB_ROOT_PASSWORD: "neatlogic901"
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+    networks:
+      - neatlogic
+      
+  neatlogic-collectdb:
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-collectdb:V3.0.0
+    container_name: neatlogic-collectdb
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - type: volume
+        source: collectdb_data
+        target: /data/db
+    ports:
+      - "27017:27017"
+    extra_hosts:
+      - "neatlogic-collectdb:127.0.0.1"
+
+    #command: ["mongod", "--replSet", "autoexec-rs"]
+    healthcheck:
+      test: ["CMD-SHELL", "/bin/mongosh --host 127.0.0.1 --port 27017 -u admin -p neatlogic901 --authenticationDatabase admin --quiet --eval 'dbs = db.getMongo().getDBNames(); if([\"autoexec\"].every(dbname => dbs.indexOf(dbname)>=0)){quit(0)} else {quit(1)}'"]
+      interval: 3s
+      timeout: 3s
+      retries: 50
+      start_period: 10s
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535    
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: "neatlogic901"
+      MONGO_INITDB_ROOT_USERNAME: "admin" 
+    networks:
+      - neatlogic
+      
+  neatlogic-app:
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-app:V3.0.0
+    container_name: neatlogic-app
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - /app/neatlogic-app/logs/:/app/logs/neatlogic/
+    ports:
+      - "8282:8282"
+      - "9977:9977"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://neatlogic-app:8282/neatlogic/tenant/check/demo"]
+      interval: 10s
+      timeout: 3s
+      retries: 50
+      start_period: 100s
+    depends_on:
+      neatlogic-db:
+        condition: service_healthy
+      neatlogic-collectdb:
+        condition: service_healthy
+      neatlogic-nacos:
+        condition: service_healthy
     ulimits:
       nproc: 65535
       nofile:
@@ -21,72 +102,110 @@ services:
         hard: 65535
     environment:
       NEATLOGIC_HOME: "/app"
-      NEATLOGIC_RUNNER_HOST: "neatlogic-runner"
+      NACOS_SERVICE_HOST: "neatlogic-nacos"
+      NACOS_SERVICE_PORT: "8848"
+      NACOS_SERVICE_NAMESPACE: "neatlogic"
       MYSQL_SERVICE_PASSWORD: "neatlogic@901"
+      TENANT_NAME: "demo"
     networks:
       - neatlogic
-      
-  neatlogic-collectdb:
-    image: neatlogic/neatlogic-collectdb:community-3.2.0
-    container_name: neatlogic-collectdb
-    stdin_open: true
-    tty: true
-    volumes:
-      - /app/logs/collectdb/:/app/logs/collectdb/
-    ports:
-      - "27017:27017"
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 65535
-        hard: 65535
-    environment:
-      - NEATLOGIC_HOME:/app
-    networks:
-      - neatlogic
-      
+
   neatlogic-runner:
-    image: neatlogic/neatlogic-runner:community-3.2.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-runner:V3.0.0
     container_name: neatlogic-runner
     stdin_open: true
     tty: true
+    restart: always
     volumes:
-      - /app/logs/neatlogic-runner/:/app/logs/autoexec-runner/
+      - /app/neatlogic-runner/logs/:/app/logs/neatlogic-runner/
+      - /app/neatlogic-runner/autoexec/tools/:/app/autoexec/tools/
+      - type: volume
+        source: autoexec_data
+        target: /app/autoexec/data/
     ports:
-      #连接端口
       - "8084:8084"
-      #心跳端口
       - "8888:8888"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://neatlogic-runner:8084/autoexecrunner/anonymous/api/rest/server/health/check/demo"]
+      interval: 10s
+      timeout: 3s
+      retries: 50
+      start_period: 100s
     ulimits:
       nproc: 65535
       nofile:
         soft: 65535
         hard: 65535
-    restart: always
     environment:
-      - NEATLOGIC_HOME:/app
+      - NEATLOGIC_HOME=/app
     networks:
       - neatlogic
     depends_on:
-      - neatlogic-app
- 
+      neatlogic-db:
+        condition: service_healthy
+      neatlogic-collectdb:
+        condition: service_healthy
+      neatlogic-app:
+        condition: service_healthy  
+      
+  neatlogic-web:
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-web:V3.0.0
+    container_name: neatlogic-web
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - /app/neatlogic-web/logs/:/app/logs/nginx/
+    ports:
+      - "8090:8090"
+      - "9098:9098"
+      - "9099:9099"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://neatlogic-web:8090/demo/tenant/check"]
+      interval: 10s
+      timeout: 3s
+      retries: 50
+      start_period: 100s
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
+    environment:
+      - NEATLOGIC_HOME=/app
+    networks:
+      - neatlogic
+    depends_on:
+      neatlogic-app:
+        condition: service_healthy
+
   neatlogic-nacos:
-    image: neatlogic/neatlogic-nacos:community-3.2.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-nacos:V3.0.0
     container_name: neatlogic-nacos
     stdin_open: true
     tty: true
     volumes:
-      - /app/logs/neatlogic-nacos/:/home/nacos/logs
+      - /app/logs/neatlogic-nacos/:/app/logs/nacos
     ports:
       - "8848:8848"
+      - "7848:7848"
+      - "9848:9848"
+      - "9849:9849"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://neatlogic-nacos:8848/nacos/v1/cs/configs?dataId=config&group=neatlogic.framework&tenant=neatlogic"]
+      interval: 10s
+      timeout: 3s
+      retries: 50
+      start_period: 100s
+    depends_on:
+      neatlogic-db:
+        condition: service_healthy
+    restart: always
     ulimits:
       nproc: 65535
       nofile:
-        soft: 65535
-        hard: 65535
-    depends_on:
-      - neatlogic-db
-    restart: always
+       soft: 65535
+       hard: 65535
     environment:
       #连接的mysql配置
       MYSQL_SERVICE_HOST: "neatlogic-db"
@@ -97,52 +216,7 @@ services:
     networks:
       - neatlogic
 
-  neatlogic-app:
-    image: neatlogic/neatlogic-app:community-3.2.0
-    container_name: neatlogic-app
-    stdin_open: true
-    tty: true
-    volumes:
-      - /app/logs/neatlogic-app/:/app/logs/neatlogic/
-    ports:
-      #宿主端口:容器端口
-      - "8282:8282"
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 65535
-        hard: 65535
-    depends_on:
-      - neatlogic-db
-      - neatlogic-collectdb
-      - neatlogic-nacos
-    environment:
-      NACOS_SERVICE_HOST: "neatlogic-nacos"
-      NACOS_SERVICE_PORT: "8848"
-      NACOS_SERVICE_NAMESPACE: "neatlogic-docker"
-    restart: always
-    networks:
-      - neatlogic
-      
-    
-  neatlogic-web:
-    image: neatlogic/neatlogic-web:community-3.2.0
-    container_name: neatlogic-web
-    stdin_open: true
-    tty: true
-    volumes:
-      - /app/logs/neatlogic-web/:/app/logs/nginx/
-    ports:
-      - "8090:8090"
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 65535
-        hard: 65535
-    restart: always
-    environment:
-      - NEATLOGIC_HOME:/app
-    networks:
-      - neatlogic
-    depends_on:
-      - neatlogic-app
+
+volumes:
+  collectdb_data: 
+  autoexec_data: 
