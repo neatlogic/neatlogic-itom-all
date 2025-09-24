@@ -15,7 +15,20 @@ docker-compose --version
 ```
 ## ❗❗❗ 注意请确保docker已安装,才能进行后续步骤
 ```js
- ❗❗❗" 为了适配healthcheck condition,docker-compose的版本必须是1.28.6+
+ ❗❗❗ "为了适配healthcheck condition,docker-compose的版本必须是1.28.6+"
+```
+```js
+ ❗❗❗ "绕过harbor的证书验证，需编辑Docker配置（文件不存在则新建）,否则会导致仓库域名无法访问"
+
+    vi /etc/docker/daemon.json，加入配置："insecure-registries": ["harbor.neatlogic.com:8033"]
+    #文件内容示例：
+    {
+        "insecure-registries": ["harbor.neatlogic.com:8033"]
+    }
+    #配置生效和重启Docker服务
+    systemctl daemon-reload
+    systemctl restart docker
+
 ```
 ## 安装
 先下载 [docker-compose.yml](docker-compose.yml),该配置文件是docker compose的核心，用于定义服务、网络和数据卷。此yml文件已经声明了容器持久化
