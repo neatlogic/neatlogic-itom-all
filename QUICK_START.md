@@ -18,7 +18,7 @@ docker-compose --version
  ❗❗❗" 为了适配healthcheck condition,docker-compose的版本必须是1.28.6+
 ```
 ## 安装
-先下载 [docker-compose.yml](docker-compose.yml),该配置文件是docker compose的核心，用于定义服务、网络和数据卷。
+先下载 [docker-compose.yml](docker-compose.yml),该配置文件是docker compose的核心，用于定义服务、网络和数据卷。此yml文件已经声明了容器持久化
 > 注意:如果需要用到 [neatlogic-runner](../../../neatlogic-runner/blob/develop3.0.0/README.md) ,还需要修改[docker-compose.yml](docker-compose.yml)文件中NEATLOGIC_RUNNER_HOST环境变量,设置为runner容器所在的宿主机ip
 
 如果不做修改,直接执行启动命令
@@ -29,7 +29,7 @@ docker-compose --version
 |  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 | 访问地址 |容器内服务启停命令 |   描述 |
 | ----  | ----  | ----  | ---- | ---- | ---- |
 |  neatlogic-db  |  3306  | - | - |  service neatlogicdb start/stop/restart  |mysql数据库, 账号/密码 root/neatlogic@901, client连接通过命令： /app/databases/neatlogicdb/mysql/bin/mysql -uroot -p'neatlogic@901' --socket=/app/databases/neatlogicdb/data/mysql.sock|
-|  neatlogic-collectdb |  27017  | - | - |   service collectdb start/stop/restart  |mongodb,账号/密码 autoexec/u1OPgeInMhxsNkNl 如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
+|  neatlogic-collectdb |  27017  | - | - |   service collectdb start/stop/restart  |mongodb,账号/密码 autoexec/neatlogic901 如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
 |  neatlogic-runner  |  8084、8888 | - | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall |执行器,如果使用发布、巡检、自动化、tagent则需要该服务.注意：为了镜像简洁精干，自动化工具某些场景里作业日志提示的额外依赖问题，需要自己在容器里额外解决。 |
 |  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | deployadmin -s neatlogic -a startall/stopall/restartall | 后端服务|
 |  neatlogic-web  |  8090  | neatlogic-app | 宿主机IP:8090  |service nginx start/stop/restart | 前端服务, 账号/密码 admin/neatlogic@901|
