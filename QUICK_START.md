@@ -40,7 +40,7 @@ docker compose version
 
 如果不做修改,直接执行启动命令
 ```
-  docker-compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
+  docker compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
 ```
 默认会安装以下容器服务:
 |  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 | 访问地址 |容器内服务启停命令 |   描述 |
