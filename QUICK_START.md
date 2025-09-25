@@ -40,7 +40,12 @@ docker compose version
 
 如果不做修改,直接执行启动命令
 ```
-  docker compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
+  #拉取最新镜像
+  docker compose -f docker-compose.yml pull
+  #删除容器（-v 表示删除持久化column,请谨慎操作。另外注意neatlogic-db的持久化在docker-compose.yml上设置路径为/app/neatlogic-db,如果需要删除，则需要手动rm）
+  docker compose -f docker-compose.yml down 
+  #创建并启动容器（-f 表示执行指定yml, -d 表示后台执行并返回）
+  docker compose -f docker-compose.yml up -d 
 ```
 默认会安装以下容器服务:
 |  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 | 访问地址 |容器内服务启停命令 |   描述 |
