@@ -7,16 +7,20 @@
 ```
 
 ## Docker环境检查
+## ❗❗❗ 注意请确保docker已安装,才能进行后续步骤
+```js
+ ❗❗❗ "为了适配healthcheck condition, docker-compose的版本必须是v1.10.0+，建议使用v2版本(解决v1版本启动日志中文乱码问题)，目前这边用的是v2.29.1"
+
+ ❗❗❗ "注意v2版本的命令由v1的docker-compose改成了docker compose，看习惯可以用alias解决。此文档命令给予v2版本编写"
+```
 
 检查docker版本(返回版本信息，说明docker已安装)
 ```
 docker --version
-docker-compose --version
+#v2版本 
+docker compose version
 ```
-## ❗❗❗ 注意请确保docker已安装,才能进行后续步骤
-```js
- ❗❗❗ "为了适配healthcheck condition,docker-compose的版本必须是1.28.6+"
-```
+
 ```js
  ❗❗❗ "绕过harbor的证书验证，需编辑Docker配置（文件不存在则新建）,否则会导致仓库域名无法访问"
 
@@ -58,7 +62,7 @@ docker-compose --version
 确保所有容器都是 **healthy** 状态，如果容器启动太久可以执行以下命令查看对应容器启动日志. 全部容器启动成功（healthy）后,谷歌浏览器访问前端服务:http://宿主机ip:8090/ ，登录账号:admin 密码:neatlogic@901<br>
 ```
 #比如neatlogic-app
-docker-compose -f docker-compose.yml logs -f neatlogic-app
+docker compose -f docker-compose.yml logs -f neatlogic-app
 ```
 如果日志中出现error,则将最后的截图（最好是整个日志文件）联系我们:
 - **企业微信** <br>
@@ -94,59 +98,59 @@ docker-compose -f docker-compose.yml logs -f neatlogic-app
 ## 启动
 根据yml创建容器并启动所有容器服务
 ```
-  docker-compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
+  docker compose -f docker-compose.yml up -d  #-f 表示执行指定yml, -d 表示后台执行并返回
 ```
 如果只需要处理某个容器服务,只需要在命令后补充容器服务名即可,如:
 ```
-  docker-compose -f docker-compose.yml up -d neatlogic-app #单独重新创建并启动neatlogic-app服务
+  docker compose -f docker-compose.yml up -d neatlogic-app #单独重新创建并启动neatlogic-app服务
 ```
 
 ## 查看日志
 查看所有容器服务的日志
 ```
-  docker-compose -f docker-compose.yml logs
+  docker compose -f docker-compose.yml logs
 ```
 如果只需要查看某个容器服务的日志,只需要在命令后补充容器服务名即可,如:
 ```
-  docker-compose -f docker-compose.yml logs neatlogic-app
+  docker compose -f docker-compose.yml logs neatlogic-app
 ```
 ### 实时查看日志
 ```
-  docker-compose -f docker-compose.yml logs -f
+  docker compose -f docker-compose.yml logs -f
 ```
 
 ## 查看启动成功的容器
 ```
-  docker-compose -f docker-compose.yml ps
+  docker compose -f docker-compose.yml ps
 ```
 
 ## 启停容器
 ### 启容器
 ```
-  docker-compose -f docker-compose.yml start
+  docker compose -f docker-compose.yml start
 ```
 ### 停容器
 ```
-  docker-compose -f docker-compose.yml stop 
+  docker compose -f docker-compose.yml stop 
 ```
 如果只需要启某个容器,只需要在命令后补充容器服务名即可,如:
 ```
-  docker-compose -f docker-compose.yml start neatlogic-app
+  docker compose -f docker-compose.yml start neatlogic-app
 ```
 
 ## 进入容器服务
 >非必要用户无需进入容器服务,如进去neatlogic-app容器服务:
 ```
-  docker-compose -f docker-compose.yml exec neatlogic-app sh
+  docker compose -f docker-compose.yml exec neatlogic-app sh
 ```
 ## 停止并移除容器，网络，镜像和卷
 ```
-  docker-compose -f docker-compose.yml down 
+  docker compose -f docker-compose.yml down 
 ```
 
 ## 批量拉取镜像
 ```
-  docker-compose -f docker-compose.yml pull
+  docker compose -f docker-compose.yml pull
 ```
 ## ❗❗❗ **注意如果用到自动化相关的功能（采集、巡检等）需要额外进入neatlogic-runner容器执行以下命令，否则会出现perl第三方模块依赖问题** 
 ```js
