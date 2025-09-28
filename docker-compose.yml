@@ -29,6 +29,7 @@ services:
       - /app/neatlogic-db/conf:/etc/mysql/conf.d
       - /app/neatlogic-db/logs:/var/log/mysql
       - /app/neatlogic-db/mysql-files:/var/lib/mysql-files
+      - /etc/localtime:/etc/localtime:ro
     environment:
       MYSQL_ROOT_PASSWORD: "neatlogic@901" # 设置数据库root密码
       NEATLOGIC_RUNNER_HOST: "192.168.1.93" # 设置宿主机IP地址，请根据实际情况修改
@@ -55,7 +56,14 @@ services:
 
     #command: ["mongod", "--replSet", "autoexec-rs"]
     healthcheck:
-      test: ["CMD-SHELL", "/bin/mongosh --host 127.0.0.1 --port 27017 -u admin -p neatlogic901 --authenticationDatabase admin --quiet --eval 'dbs = db.getMongo().getDBNames(); if([\"autoexec\"].every(dbname => dbs.indexOf(dbname)>=0)){quit(0)} else {quit(1)}'"]
+      test: ["CMD-SHELL", "/bin/mongosh --host 127.0.0.1 --port 27017 -u admin -p neatlogic901 --authenticationDatabase admin --quiet --eval '\
+        dbs = db.getMongo().getDBNames(); \
+        rsOK = false; \
+        try { \
+          rsStatus = rs.status(); \
+          rsOK = rsStatus.ok === 1; \
+        } catch(e) {} \
+        if([\"autoexec\"].every(dbname => dbs.indexOf(dbname) >= 0) && rsOK){quit(0)} else {quit(1)}'"]
       interval: 3s
       timeout: 3s
       retries: 50
