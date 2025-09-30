@@ -17,7 +17,7 @@ services:
       test: ["CMD-SHELL", "mysql -uroot -pneatlogic@901 -e 'USE neatlogic;USE neatlogic_demo;USE neatlogic_demo_data'"]
       interval: 5s
       timeout: 3s
-      retries: 50
+      retries: 300
       start_period: 10s
     ulimits:
       nproc: 65535
@@ -64,9 +64,9 @@ services:
           rsOK = rsStatus.ok === 1; \
         } catch(e) {} \
         if([\"autoexec\"].every(dbname => dbs.indexOf(dbname) >= 0) && rsOK){quit(0)} else {quit(1)}'"]
-      interval: 3s
+      interval: 5s
       timeout: 3s
-      retries: 50
+      retries: 300
       start_period: 10s
     ulimits:
       nproc: 65535
@@ -94,7 +94,7 @@ services:
       test: ["CMD", "curl", "-f", "http://neatlogic-app:8282/neatlogic/tenant/check/demo"]
       interval: 10s
       timeout: 3s
-      retries: 50
+      retries: 300
       start_period: 100s
     depends_on:
       neatlogic-db:
@@ -137,7 +137,7 @@ services:
       test: ["CMD", "curl", "-f", "http://neatlogic-runner:8084/autoexecrunner/anonymous/api/rest/server/health/check/demo"]
       interval: 10s
       timeout: 3s
-      retries: 50
+      retries: 300
       start_period: 100s
     ulimits:
       nproc: 65535
@@ -172,7 +172,7 @@ services:
       test: ["CMD", "curl", "-f", "http://neatlogic-web:8090/demo/tenant/check"]
       interval: 10s
       timeout: 3s
-      retries: 50
+      retries: 300
       start_period: 100s
     ulimits:
       nproc: 65535
@@ -203,7 +203,7 @@ services:
       test: ["CMD", "curl", "-f", "http://neatlogic-nacos:8848/nacos/v1/cs/configs?dataId=config&group=neatlogic.framework&tenant=neatlogic"]
       interval: 10s
       timeout: 3s
-      retries: 50
+      retries: 300
       start_period: 100s
     depends_on:
       neatlogic-db:
