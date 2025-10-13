@@ -40,10 +40,10 @@ git branch -d develop3.0.0
 ![](README_IMAGES/BUILD/idea-mavenSetting1.png)
 
 ### 配置JDK
-> **❗版本**：JDK8
+> **❗版本**：JDK17
 
 ![](README_IMAGES/BUILD/idea-jdk.png)
-![](README_IMAGES/BUILD/idea-jdk1.png)
+![输入图片说明](README_IMAGES/BUILD/idea-jdk17.png)
 
 ### 刷新maven依赖
 profile仅需选择develop，代表当前进行开发分支代码的开发。由于目前项目不存在release分支，因此无需选择。commercial用于商业模块的开发，社区版用户无需选择。
