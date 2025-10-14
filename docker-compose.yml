@@ -6,7 +6,7 @@ networks:
 
 services:
   neatlogic-db:
-    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-db:V3.0.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-db:V4.0.0
     container_name: neatlogic-db
     restart: always
     stdin_open: true
@@ -40,7 +40,7 @@ services:
       - neatlogic
       
   neatlogic-collectdb:
-    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-collectdb:V3.0.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-collectdb:V4.0.0
     container_name: neatlogic-collectdb
     stdin_open: true
     tty: true
@@ -80,7 +80,7 @@ services:
       - neatlogic
       
   neatlogic-app:
-    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-app:V3.0.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-app:V4.0.0
     container_name: neatlogic-app
     stdin_open: true
     tty: true
@@ -119,7 +119,7 @@ services:
       - neatlogic
 
   neatlogic-runner:
-    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-runner:V3.0.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-runner:V4.0.0
     container_name: neatlogic-runner
     stdin_open: true
     tty: true
@@ -157,7 +157,7 @@ services:
         condition: service_healthy  
       
   neatlogic-web:
-    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-web:V3.0.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-web:V4.0.0
     container_name: neatlogic-web
     stdin_open: true
     tty: true
@@ -188,7 +188,7 @@ services:
         condition: service_healthy
 
   neatlogic-nacos:
-    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-nacos:V3.0.0
+    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-nacos:V4.0.0
     container_name: neatlogic-nacos
     stdin_open: true
     tty: true
