@@ -33,14 +33,17 @@
 > 这几个服务需要更新<br>
 > **如果重现,请联系我们,提issue,谢谢!<br>
 ## 详细步骤（使用root用户执行）
-下载一键部署安装包（目前仅支持 x86 架构，并在 CentOS 7 环境下提供安装支持。若使用其他系统版本，需针对 Python、MongoDB 等组件进行重新编译，以生成与目标系统兼容的安装介质。）
+下载一键部署安装包（目前仅支持 x86 架构，并在 centos7或centos8 环境下提供安装支持。若使用其他系统版本，需针对 Python、MongoDB 等组件进行重新编译，以生成与目标系统兼容的安装介质。）
 [点击下载](https://t2.znas.cn/iNW6s2Xvsve)
 ```
-	1.拷贝安装包到目标机器的“/”根目录（如果条件不满足，在/目录加软连接对应目录，如： ln -s /home/app/app  /app）
+	1.拷贝centos7或centos8安装包到目标机器的“/”根目录（如果条件不满足，在/目录加软连接对应目录，如： ln -s /home/app/app  /app）
 	2.解压安装包
-		tar -xvf neatlogic_all_install_community_x86_64.tar.gz
-	3.进入install目录执行setup.sh脚本
-		cd /app/install && sh setup.sh
+                #如果操作系统是centos7执行命令
+                tar -xvf neatlogic_community_contos7_x86_64.tar.gz && tar -xvf neatlogic_pack.tar.gz
+                #如果操作系统是centos8执行命令
+		tar -xvf neatlogic_community_contos8_x86_64.tar.gz && tar -xvf neatlogic_pack.tar.gz
+	3.执行setup.sh脚本
+		sh setup.sh
         4.脚本执行完后，可以chrome浏览器访问http://虚拟机ip:8090/demo 前端页面，账号密码： admin/neatlogic@901
 ```
 如有问题，因为环境问题，可能会有很多原因导致，可以先自己排查一下。
