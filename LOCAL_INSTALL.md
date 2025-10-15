@@ -42,7 +42,7 @@
                 #如果操作系统是centos8执行命令
                 tar -xvf neatlogic_community_contos8_x86_64.tar.gz && tar -xvf neatlogic_pack.tar.gz
 	3.执行setup.sh脚本
-		sh setup.sh
+                sh setup.sh
         4.脚本执行完后，可以chrome浏览器访问http://虚拟机ip:8090/demo 前端页面，账号密码： admin/neatlogic@901
 ```
 如有问题，因为环境问题，可能会有很多原因导致，可以先自己排查一下。
