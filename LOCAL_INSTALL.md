@@ -33,7 +33,7 @@
 > **如果重现,请联系我们,提issue,谢谢!<br>
 ## 详细步骤（使用root用户执行）
 下载一键部署安装包（目前仅支持 x86 架构，并在 centos7或centos8 环境下提供安装支持（使用对应安装包安装）。若使用其他系统版本，需针对 Python、MongoDB 等组件进行重新编译，以生成与目标系统兼容的安装介质。）
-[点击下载](https://t2.znas.cn/iNW6s2Xvsve)
+[点击下载](http://harbor.neatlogic.com:8093/download)
 ```
 	1.拷贝centos7或centos8安装包到目标机器的“/”根目录（如果条件不满足，在/目录加软连接对应目录，如： ln -s /home/app/app  /app）
 	2.解压安装包
