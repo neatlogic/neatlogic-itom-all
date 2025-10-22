@@ -101,8 +101,6 @@ services:
         condition: service_healthy
       neatlogic-collectdb:
         condition: service_healthy
-      neatlogic-nacos:
-        condition: service_healthy
     ulimits:
       nproc: 65535
       nofile:
@@ -110,9 +108,6 @@ services:
         hard: 65535
     environment:
       NEATLOGIC_HOME: "/app"
-      NACOS_SERVICE_HOST: "neatlogic-nacos"
-      NACOS_SERVICE_PORT: "8848"
-      NACOS_SERVICE_NAMESPACE: "neatlogic"
       MYSQL_SERVICE_PASSWORD: "neatlogic@901"
       TENANT_NAME: "demo"
     networks:
@@ -187,42 +182,6 @@ services:
       neatlogic-app:
         condition: service_healthy
 
-  neatlogic-nacos:
-    image: harbor.neatlogic.com:8033/library/neatlogic/neatlogic-nacos:V4.0.0
-    container_name: neatlogic-nacos
-    stdin_open: true
-    tty: true
-    volumes:
-      - /app/logs/neatlogic-nacos/:/app/logs/nacos
-    ports:
-      - "8848:8848"
-      - "7848:7848"
-      - "9848:9848"
-      - "9849:9849"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://neatlogic-nacos:8848/nacos/v1/cs/configs?dataId=config&group=neatlogic.framework&tenant=neatlogic"]
-      interval: 10s
-      timeout: 3s
-      retries: 300
-      start_period: 100s
-    depends_on:
-      neatlogic-db:
-        condition: service_healthy
-    restart: always
-    ulimits:
-      nproc: 65535
-      nofile:
-       soft: 65535
-       hard: 65535
-    environment:
-      #连接的mysql配置
-      MYSQL_SERVICE_HOST: "neatlogic-db"
-      MYSQL_SERVICE_PORT: 3306
-      MYSQL_SERVICE_DB_NAME: "nacos"
-      MYSQL_SERVICE_USER: root
-      MYSQL_SERVICE_PASSWORD: "neatlogic@901"
-    networks:
-      - neatlogic
 
 
 volumes:
