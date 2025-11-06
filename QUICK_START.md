@@ -199,3 +199,7 @@ app ALL=(root) NOPASSWD:ALL
 2. 如果看neatlogic-web启动日志提示"neatlogic-web service start." 浏览器还是空白页 就进到neatlogic-web容器检查 nginx 服务是否正常
 3. 到docker的宿主机器lsof -i:8090 看下端口是否正常 telnet localhost 8090
 4. 到本地电脑  telnet docker的宿主机器ip 8090 是否通
+
+# 额外配置
+## 镜像构建
+[Dockerfile](../../../docker)
