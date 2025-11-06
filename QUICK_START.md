@@ -202,4 +202,4 @@ app ALL=(root) NOPASSWD:ALL
 
 # 额外配置
 ## 镜像构建
-[Dockerfile](../../../docker)
+[Dockerfile](docker)
