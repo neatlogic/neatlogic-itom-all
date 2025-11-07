@@ -67,7 +67,7 @@ npm list
 ```
 ## 构建后端tomcat服务war包
 ### 前提条件
-先安装好jdk1.8、maven3.8+和git
+先安装好jdk17、maven3.8+和git
 
 #### 1.进入 neatlogic-itom-all 文件夹
 ```
