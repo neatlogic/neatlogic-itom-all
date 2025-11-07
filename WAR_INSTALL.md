@@ -5,7 +5,7 @@
 ```
 git clone https://gitee.com/neat-logic/neatlogic-itom-all.git  --recurse-submodules
 #切换分支
-git submodule foreach 'git checkout develop3.0.0'
+git submodule foreach 'git checkout develop4.0.0'
 ```
 
 ## 构建前端vue
