@@ -10,6 +10,14 @@ NeatLogic 是一套渐进式 ITOM 平台，致力为不同类型不同规模用�
 NeatLogic 原生支持多租户（中间件共享，数据库分租户模式），模块化扩展，已包含流程引擎、表单引擎、报表引擎、大屏、仪表板等关键核心功能，对数据规模敏感的功能，例如 CMDB 在设计上做了充分考虑，同时兼顾报表和日常使用的性能要求。仅使用基本功能情况下，仅需要 Tomcat、Nginx 和 Mysql8+，部分高级功能，例如自动采集需要使用 MongoDb。\
 NeatLogic 提供 docker 镜像部署模式和安装包部署模式，自带所有数据库和中间件，所有关键服务都封装了启停命令，中间件、软件包和配置文件都做了分离，方便用户日常维护。
 
+## 许可说明
+
+Neatlogic 采用公平代码（Fair-code）模式发布，遵循Neatlogic可持续使用许可（[Neatlogic Sustainable Use License](LICENSE.md)）和Neatlogic企业版许可（[Neatlogic Enterprise License](LICENSE.ee.md)）。
+- 源代码可见（Source Available）：始终开放源代码。
+- 可自建部署（Self-Hostable）：可在任何环境中部署使用。
+- 可扩展（Extensible）：可添加自定义模块扩展定制化需求。
+- 企业版许可（Enterprise License）：提供额外功能与技术支持。
+
 ## 在线演示
 
  [点击注册使用](http://demo.neatlogic.com:9098/neatlogic)
