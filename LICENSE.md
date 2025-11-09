@@ -2,12 +2,13 @@
 
 Portions of this software are licensed as follows:
 
-Source code files that are located in a directory containing cs in its name are NOT licensed under the Sustainable Use License.
-To use source code files that are located in a directory containing cs in its name, you must hold a valid NeatLogic Enterprise License, specifically granting access to such source code files and as defined in “LICENSE_EE.md”.
-All third-party components incorporated into the NeatLogic Software are licensed under the original license provided by the owner of the applicable component.
-Content outside of the above mentioned files or restrictions is available under the “NeatLogic Sustainable Use License” defined below.
+Source code files located in directories containing cs are not covered by the Sustainable Use License (SUL).
+To use source code files under any directory containing cs, you must hold a valid NeatLogic Enterprise License, which explicitly grants access to such source code files.
+Details are provided in LICENSE_EE.md.
+All third-party components integrated into the NeatLogic software are governed by their original licenses provided by their respective copyright holders.
+All other content not subject to the above files or restrictions is covered by the NeatLogic Sustainable Use License (SUL) defined below.
 
-## Neatlogic Sustainable Use License (NSUL)
+## Sustainable Use License (SUL)
 
 Version 4.x — 2025
 
