@@ -40,6 +40,7 @@ Neatlogic 采用公平代码（Fair-code）模式发布，遵循可持续使用�
 |[ActiveMQ Artemis](https://activemq.apache.org/components/artemis/)|2.17.0|✖️|消息队列，支持订阅和发送主题，没有第三方系统消费消息可以不部署|
 |[Apache Kafka](https://kafka.apache.org/)|3.8.0|✖️|消息队列，仅支持订阅，官方功能不会主动发送主题，但自定义功能可以发送，不使用可以不部署|
 |[Elasticsearch](https://www.elastic.co/)|7.17.25|✖️|目前仅用于告警中心模块，将来不排除会扩大应用范围|
+|[Qdrant](https://qdrant.tech/)|1.13.2|✖️|向量数据库，目前仅用于告警中心模块，用于做相似性分析，仅限商业模块|
 
 
 ## 项目组织
