@@ -4,14 +4,23 @@
 [中文](README.md) / English
 
 ## About
-NeatLogic is a progressive ITOM platform dedicated to providing ITOM solutions for users of different types and sizes. In addition to the open source version, we also provide secondary development, consulting and other services for enterprise customers. For inquiries, please contact chenqw@neatlogic.com
-![index](README_IMAGES/index.png)
 
-NeatLogic natively supports multi-tenancy (middleware sharing, database sub-tenant mode), modular expansion, already includes key core functions such as process engine, form engine, report engine, large screen, dashboard, etc., functions sensitive to data scale, such as CMDB Fully considered in the design, taking into account the performance requirements of reports and daily use. When only basic functions are used, only Tomcat, Nginx, and Mysql8+ are required, and some advanced functions, such as automatic collection, require MongoDb. \
-NeatLogic provides docker image deployment mode and installation package deployment mode. It comes with all databases and middleware. All key services are encapsulated with start and stop commands. Middleware, software packages and configuration files are separated to facilitate users' daily maintenance.
+NeatLogic is a progressive ITOM platform designed to provide ITOM solutions for users of different types and scales. In addition to the community edition, we also offer enterprise clients secondary development, consulting, and related services. For inquiries, please contact zhangzm@neatlogic.com or join our Enterprise WeChat for further communication.
+
+NeatLogic natively supports multi-tenancy (shared middleware with tenant-isolated databases), modular extensions, and already includes key core features such as a process engine, form engine, report engine, large screen, and dashboard. For functions sensitive to data scale—such as CMDB—the design has been carefully optimized to balance performance for both reporting and daily usage.
+When using only the basic features, NeatLogic requires only Tomcat, Nginx, and MySQL 8+. Some advanced features, such as automatic data collection, require MongoDB.
+NeatLogic provides both Docker image deployment and installation package deployment. All databases and middleware are included, with start/stop scripts for all key services. Middleware, software packages, and configuration files are fully separated for easier maintenance.
+
+## License
+
+NeatLogic is distributed under a Fair-code model, following the Sustainable Use License￼ and the NeatLogic Enterprise License￼.
+- Source Available: Source code is always visible.
+- Self-Hostable: Can be deployed and used in any environment.
+- Extensible: Supports adding custom modules to meet personalized needs.
+- Enterprise License: Provides additional features and technical support.
 
 ## Runtime
-Operating system: Linux, java version: 8+, process memory: 4G or more, 8G is recommended, file storage supports local storage, NAS or MiniIo by default, and can connect to third-party object storage services. Back-end middleware: Tomcat9.X+, front-end middleware: Nginx, database: Mysql8+, Mongodb7+.
+Operating system: Linux, java version: 17+, process memory: 4G or more, 8G is recommended, file storage supports local storage, NAS or MiniIo by default, and can connect to third-party object storage services. Back-end middleware: Tomcat9.X+, front-end middleware: Nginx, database: Mysql8+, Mongodb7+，Elasticsearch7.3+.
 
 ## Project Structure
 NeatLogic manages code in a modular fashion.
