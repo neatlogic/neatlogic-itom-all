@@ -19,8 +19,10 @@ NeatLogic is distributed under a Fair-code model, following the Sustainable Use 
 - Extensible: Supports adding custom modules to meet personalized needs.
 - Enterprise License: Provides additional features and technical support.
 
-## Runtime
-Operating system: Linux, java version: 17+, process memory: 4G or more, 8G is recommended, file storage supports local storage, NAS or MiniIo by default, and can connect to third-party object storage services. Back-end middleware: Tomcat9.X+, front-end middleware: Nginx, database: Mysql8+, Mongodb7+，Elasticsearch7.3+.
+## Runtime Environment
+Operating System: Linux
+Java Version: 17+
+Process Memory: at least 4 GB (8 GB recommended)
 
 ## Project Structure
 NeatLogic manages code in a modular fashion.
