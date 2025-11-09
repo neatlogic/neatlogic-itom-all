@@ -11,7 +11,7 @@ NeatLogic 提供 docker 镜像部署模式和安装包部署模式，自带所�
 
 ## 许可说明
 
-Neatlogic 采用公平代码（Fair-code）模式发布，遵循Neatlogic可持续使用许可（[Neatlogic Sustainable Use License](LICENSE.md)）和Neatlogic企业版许可（[Neatlogic Enterprise License](LICENSE.ee.md)）。
+Neatlogic 采用公平代码（Fair-code）模式发布，遵循可持续使用许可（[Sustainable Use License](LICENSE.md)）和Neatlogic企业版许可（[Neatlogic Enterprise License](LICENSE.ee.md)）。
 - 源代码可见（Source Available）：始终开放源代码。
 - 可自建部署（Self-Hostable）：可在任何环境中部署使用。
 - 可扩展（Extensible）：可添加自定义模块扩展定制化需求。
