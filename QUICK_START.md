@@ -200,8 +200,9 @@ app ALL=(root) NOPASSWD:ALL
 3. 到docker的宿主机器lsof -i:8090 看下端口是否正常 telnet localhost 8090
 4. 到本地电脑  telnet docker的宿主机器ip 8090 是否通
 
-### 5.一直处于容器一直处于wait状态
-看启动日志有“Interrupted operation as its client disconnected”关键字,说明 docker 的 health check timeout 了，可以通过一下命令验证yml 里面定义的 healthcheck test命令，
+### 5.容器一直处于waiting状态
+看启动日志有“Interrupted operation as its client disconnected”关键字,说明docker的healthcheck timeout了<br/>
+可以通过一下命令验证docker-compose.yml里面对应镜像定义的 healthcheck test命令，
 比如：neatlogic-collectdb有以上问题
 ```
 #进入neatlogic-collectdb容器
@@ -217,7 +218,7 @@ start=$(date +%s)
   '
 end=$(date +%s)
 echo "elapsed: $((end - start))s"  
-#看返回结果，比如elapsed: 40s ，然后核对 yml 定义的 timeout时间，如果比 timeout 大，要么调大 timeout 的时间，要么换个性能更好的服务器重新部署
+#看返回结果，比如elapsed: 40s ，然后核对docker-compose.yml定义的timeout时间，如果比timeout大，要么调大timeout的时间，要么换个性能更好的服务器重新部署
 ```
 
 # 额外配置
