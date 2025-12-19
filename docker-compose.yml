@@ -16,7 +16,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "mysql -uroot -pneatlogic@901 -e 'USE neatlogic;USE neatlogic_demo;USE neatlogic_demo_data'"]
       interval: 5s
-      timeout: 3s
+      timeout: 30s
       retries: 300
       start_period: 10s
     ulimits:
@@ -65,7 +65,7 @@ services:
         } catch(e) {} \
         if([\"autoexec\"].every(dbname => dbs.indexOf(dbname) >= 0) && rsOK){quit(0)} else {quit(1)}'"]
       interval: 5s
-      timeout: 3s
+      timeout: 30s
       retries: 300
       start_period: 10s
     ulimits:
@@ -93,7 +93,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://neatlogic-app:8282/neatlogic/tenant/check/demo"]
       interval: 10s
-      timeout: 3s
+      timeout: 30s
       retries: 300
       start_period: 100s
     depends_on:
@@ -131,7 +131,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://neatlogic-runner:8084/autoexecrunner/anonymous/api/rest/server/health/check/demo"]
       interval: 10s
-      timeout: 3s
+      timeout: 30s
       retries: 300
       start_period: 100s
     ulimits:
@@ -166,7 +166,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://neatlogic-web:8090/demo/tenant/check"]
       interval: 10s
-      timeout: 3s
+      timeout: 30s
       retries: 300
       start_period: 100s
     ulimits:
