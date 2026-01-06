@@ -50,7 +50,7 @@ docker compose version
 默认会安装以下容器服务:
 |  容器服务名  |  默认宿主机端口  | 启动容器服务依赖 | 访问地址 |容器内服务启停命令 | 配置文件路径 |  描述 |
 | ----  | ----  | ----  | ---- | ---- | ---- |---- |
-|  neatlogic-db  |  3306  | - | - |  service neatlogicdb start/stop/restart  | /app/databases/neatlogicdb/conf | mysql数据库, 账号/密码 root/neatlogic@901, client连接通过命令： /app/databases/neatlogicdb/mysql/bin/mysql -uroot -p'neatlogic@901' --socket=/app/databases/neatlogicdb/data/mysql.sock|
+|  neatlogic-db  |  3306  | - | - |  service neatlogicdb start/stop/restart  | /app/databases/neatlogicdb/conf | mysql数据库, 账号/密码 root/neatlogic901, client连接通过命令： /app/databases/neatlogicdb/mysql/bin/mysql -uroot -p'neatlogic@901' --socket=/app/databases/neatlogicdb/data/mysql.sock|
 |  neatlogic-collectdb |  27017  | - | - |  service collectdb start/stop/restart  |/app/databases/collectdb/conf|mongodb,账号/密码 autoexec/neatlogic901 如果使用cmdb自动采集、自动化、巡检、发布则需要该服务. client链接通过命令：mongosh --host 127.0.0.1 --port 27017 -u admin -p neatlogic901 --authenticationDatabase admin |
 |  neatlogic-runner  |  8084、8888 | - | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall |/app/systems/neatlogic-runner/config和/app/systems/autoexec/conf|执行器,如果使用发布、巡检、自动化、tagent则需要该服务.注意：为了镜像简洁精干，自动化工具某些场景里作业日志提示的额外依赖问题，需要自己在容器里额外解决。 |
 |  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner| - | deployadmin -s neatlogic -a startall/stopall/restartall | /app/systems/neatlogic/config/ | 后端服务|
