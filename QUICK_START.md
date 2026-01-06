@@ -53,9 +53,8 @@ docker compose version
 |  neatlogic-db  |  3306  | - | - |  service neatlogicdb start/stop/restart  |mysql数据库, 账号/密码 root/neatlogic@901, client连接通过命令： /app/databases/neatlogicdb/mysql/bin/mysql -uroot -p'neatlogic@901' --socket=/app/databases/neatlogicdb/data/mysql.sock|
 |  neatlogic-collectdb |  27017  | - | - |   service collectdb start/stop/restart  |mongodb,账号/密码 autoexec/neatlogic901 如果使用cmdb自动采集、自动化、巡检、发布则需要该服务 |
 |  neatlogic-runner  |  8084、8888 | - | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall |执行器,如果使用发布、巡检、自动化、tagent则需要该服务.注意：为了镜像简洁精干，自动化工具某些场景里作业日志提示的额外依赖问题，需要自己在容器里额外解决。 |
-|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner<br>neatlogic-nacos| - | deployadmin -s neatlogic -a startall/stopall/restartall | 后端服务|
+|  neatlogic-app  |  8282  | neatlogic-db <br> neatlogic-collectdb <br>neatlogic-runner| - | deployadmin -s neatlogic -a startall/stopall/restartall | 后端服务|
 |  neatlogic-web  |  8090  | neatlogic-app | 宿主机IP:8090  |service nginx start/stop/restart | 前端服务, 账号/密码 admin/neatlogic@901|
-|  neatlogic-nacos | 8848 | neatlogic-db | 宿主机IP:8848/nacos | deployadmin -s nacos -a startall/stopall| 后端服务 config ,账号/密码 nacos/nacos|
 
 ## 验证
 ## ❗❗❗注意
@@ -86,9 +85,8 @@ docker compose -f docker-compose.yml logs -f neatlogic-app
 **2、不使用自带的容器服务**
 
 如无需某容器服务则只需要删除对应容器服务配置,且修改对应被依赖的容器服务的environment属性<br>
-如无需neatlogic-db,因neatlogic-db被neatlogic-app和neatlogic-nacos依赖，需做一下修改：
-- 这里是列表文本neatlogic-nacos需要将neatlogic-db容器里的nacos数据库导入到你自己的mysql库
-- neatlogic-app和neatlogic-nacos都需要修改environment的MYSQL_SERVICE_HOST、MYSQL_SERVICE_PORT、MYSQL_SERVICE_USER、MYSQL_SERVICE_PASSWORD,如:<br>
+如无需neatlogic-db,因neatlogic-db被neatlogic-app依赖，需做一下修改：
+- neatlogic-app都需要修改environment的MYSQL_SERVICE_HOST、MYSQL_SERVICE_PORT、MYSQL_SERVICE_USER、MYSQL_SERVICE_PASSWORD,如:<br>
     自定义使用外部mysqldb 192.168.1.33:3306,帐号/密码:app/123456
     ```
       environment:
