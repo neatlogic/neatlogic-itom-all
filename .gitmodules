@@ -117,3 +117,6 @@
 [submodule "neatlogic-modules-dev"]
 	path = neatlogic-modules-dev
 	url = git@gitee.com:neat-logic/neatlogic-modules-dev.git
+[submodule "neatlogic-modules-release"]
+	path = neatlogic-modules-release
+	url = git@gitee.com:neat-logic/neatlogic-modules-release.git
