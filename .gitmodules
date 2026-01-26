@@ -120,3 +120,6 @@
 [submodule "neatlogic-modules-release"]
 	path = neatlogic-modules-release
 	url = git@gitee.com:neat-logic/neatlogic-modules-release.git
+[submodule "neatlogic-build-root"]
+	path = neatlogic-build-root
+	url = git@gitee.com:neat-logic/neatlogic-build-root.git
