@@ -79,7 +79,7 @@ cd neatlogic-build-root
  ❗❗❗"必须包含neatlogic-build-root pom.xml定义的所有模块，否则编译会报错"
 ```
 ```
-mvn clean compile -U install -pl ../neatlogic-webroot -am -P develop,commercial
+mvn clean compile -U install -pl ../neatlogic-webroot -am -P develop
 ```
 
 #### FAQ常见问题
