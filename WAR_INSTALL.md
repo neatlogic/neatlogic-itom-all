@@ -69,18 +69,18 @@ npm list
 ### 前提条件
 先安装好jdk17、maven3.8+和git
 
-#### 1.进入 neatlogic-itom-all 文件夹
+#### 1.进入 neatlogic-build-root 文件夹
 ```
-cd neatlogic-itom-all
+cd neatlogic-build-root
 ```
-#### 2.执行install脚本
+#### 2.编译
 
-将这个[mvn_install_neatlogic_war.sh](mvn_install_neatlogic_war.sh)脚本放到neatlogic-itom-all目录下
-
+```js 
+ ❗❗❗"必须包含neatlogic-build-root pom.xml定义的所有模块，否则编译会报错"
 ```
-sh mvn_install_neatlogic_war.sh
 ```
-![输入图片说明](README_IMAGES/BUILD/mvn_install.png)
+mvn clean compile -U install -pl ../neatlogic-webroot -am -P develop,commercial
+```
 
 #### FAQ常见问题
 ##### 脚本执行异常
