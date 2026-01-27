@@ -50,7 +50,11 @@ profile仅需选择develop，代表当前进行开发分支代码的开发。由
 
 ![输入图片说明](README_IMAGES/BUILD/MAVEN_REFRESH.png)
 
-> **:exclamation: :exclamation: 如果提示找不到neatlogic-parent,就先install下neatlogic-parent这个模块后，重新执行上图“刷新maven依赖”操作** 
+> **:exclamation: :exclamation: 如果提示找不到neatlogic-parent等异常,就先install下neatlogic-build-root这个模块后，重新执行上图“刷新maven依赖”操作** 
+```
+cd neatlogic-build-root && mvn clean compile -U install -pl ../neatlogic-webroot -am -P develop
+
+```
 
 > :grey_exclamation: 如果刷新后提示Could not find artifact 以下商业模块，则是正常的，执行后续步骤即可
 ![输入图片说明](README_IMAGES/BUILD/CommercialModuleNotFound.png)
@@ -155,6 +159,11 @@ heartbeat.threshold = 5
 ```
 ![输入图片说明](https://gitee.com/neat-logic/neatlogic-springboot/raw/develop3.0.0/readme/configurations.png)
 
+> **:exclamation: :exclamation: 如果提示找不到neatlogic-parent等异常,就先install下neatlogic-build-root这个模块后，重新执行上图“刷新maven依赖”操作** 
+```
+cd neatlogic-build-root && mvn clean compile -U install -pl ../neatlogic-webroot -am -P develop
+
+```
 
 ## 创建数据库
 数据库需使用Mysql8以上版本。neatlogic需要使用3个库，字符集采用utf8mb4，排序规则采用utf8mb4_general_ci，由于neatlogic需要动态创建、删除表和视图，请授予数据库连接用户适当的权限。
