@@ -25,11 +25,11 @@
 ![](README_IMAGES/BUILD/idea-openProject2.png)
 ![](README_IMAGES/BUILD/idea-openProject3.png)
 ![](README_IMAGES/BUILD/idea-openProject4.png)
-如上图,如果分支模块右侧的git分支号显示不是develop3.0.0则需要在neatlogic-itom-all目录下执行命令
+如上图,如果分支模块右侧的git分支号显示不是develop4.0.0则需要在neatlogic-itom-all目录下执行命令
 ```
-git submodule foreach 'git checkout develop3.0.0'
-#如果提示分支已存在，就先删除本地develop3.0.0分支
-git branch -d develop3.0.0
+git submodule foreach 'git checkout develop4.0.0'
+#如果提示分支已存在，就先删除本地develop4.0.0分支
+git branch -d develop4.0.0
 ```
 ### 配置maven
 > **❗版本**：须大于3.8，低版本的maven不支持profile功能，无法使用本项目
