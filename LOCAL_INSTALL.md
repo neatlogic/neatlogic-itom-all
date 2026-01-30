@@ -35,8 +35,10 @@
 下载一键部署安装包（目前仅支持 x86 架构，并在 centos7或centos8 环境下提供安装支持（使用对应安装包安装）。若使用其他系统版本，需针对 Python、MongoDB 等组件进行重新编译，以生成与目标系统兼容的安装介质。）
 [点击下载](http://harbor.neatlogic.com:8093/download)
 ```
-	1.拷贝centos7或centos8安装包到目标机器的“/”根目录（如果条件不满足，在/目录加软连接对应目录，如： ln -s /home/app/app  /app）
-	2.解压安装包
+	1.cd /tmp  
+        2.拷贝安装包到/tmp目录
+        3.安装到/app 目录（如果条件不满足，在/目录加软连接对应目录，如： ln -s /home/app/app  /app）
+	4.解压安装包
                 #如果操作系统是centos7执行命令
                 tar -xvf neatlogic_community_contos7_x86_64.tar.gz
                 #如果操作系统是centos8执行命令
