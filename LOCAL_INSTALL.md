@@ -38,9 +38,9 @@
 	1.拷贝centos7或centos8安装包到目标机器的“/”根目录（如果条件不满足，在/目录加软连接对应目录，如： ln -s /home/app/app  /app）
 	2.解压安装包
                 #如果操作系统是centos7执行命令
-                tar -xvf neatlogic_community_contos7_x86_64.tar.gz && tar -xvf neatlogic_pack.tar.gz
+                tar -xvf neatlogic_community_contos7_x86_64.tar.gz
                 #如果操作系统是centos8执行命令
-                tar -xvf neatlogic_community_contos8_x86_64.tar.gz && tar -xvf neatlogic_pack.tar.gz
+                tar -xvf neatlogic_community_contos8_x86_64.tar.gz
 	3.执行setup.sh脚本
                 sh setup.sh
 	4.脚本执行完后，可以chrome浏览器访问http://虚拟机ip:8090/demo 前端页面，账号密码： admin/neatlogic@901
