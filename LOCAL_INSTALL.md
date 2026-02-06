@@ -10,6 +10,7 @@
 ```js 
  ❗❗❗" 目前支持centos7 x86、centos8 x86和centos8 aarch64环境下提供安装支持（使用对应安装包安装）。若使用其他系统版本，需针对 Python、MongoDB 等组件进行重新编译，以生成与目标系统兼容的安装介质。"
 ```
+ :interrobang:   **文档** 在系统右上角❓图标，如果文档为空，则需要自行导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download),详情请查看本文档 FAQ
  如发现问题:<br>
 >请本地研发环境更新最新代码后,再确认是否重现<br>
 > **如果无法重现,需自行编译打包到具体服务部署路径（查看本文“服务详细”有介绍）替换更新,目前只有<br>
@@ -113,3 +114,8 @@ cfg.members[0].host = "实际IP:端口号"  // 例如："192.168.1.100:27017"
 rs.reconfig(cfg, {force: true})
 ```
 5. 继续输入rs.conf()，查看副本集的最新配置， 若members里面已经改成了真实的IP，则已经生效。
+### 系统帮助文档不存在
+**解决办法** ：导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download)（注意不支持英文，查看文档时需切中文）
+![输入图片说明](README_IMAGES/SETUP/e8d9e1da4c1d74540426aaffe54e113a.png)
+![输入图片说明](README_IMAGES/SETUP/0749d02680aab1d32d2b366e2e8a2ecf.png)
+![输入图片说明](README_IMAGES/SETUP/089e8dfe4024c3275545faeb842fc956.png)
