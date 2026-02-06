@@ -10,7 +10,7 @@
 ```js 
  ❗❗❗" 目前支持centos7 x86、centos8 x86和centos8 aarch64环境下提供安装支持（使用对应安装包安装）。若使用其他系统版本，需针对 Python、MongoDB 等组件进行重新编译，以生成与目标系统兼容的安装介质。"
 ```
- :interrobang:   **文档** 在系统右上角❓图标，如果文档为空，则需要自行导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download),详情请查看本文档 FAQ
+ :interrobang:   **文档** 在系统右上角❓图标，如果文档为空，则需要自行“打开帮助中心-》关系维护-》导入”导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download),详情请查看本文档 FAQ
  如发现问题:<br>
 >请本地研发环境更新最新代码后,再确认是否重现<br>
 > **如果无法重现,需自行编译打包到具体服务部署路径（查看本文“服务详细”有介绍）替换更新,目前只有<br>
