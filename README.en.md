@@ -32,7 +32,7 @@ Process Memory: at least 4 GB (8 GB recommended)
 | [MySQL](https://www.mysql.com/) | 8.0.27 | ✅ | Database |
 | [Nginx](https://www.nginx-cn.net/) | 1.16.1 | ✅ | Front-end server |
 | [MongoDB](https://www.mongodb.com/) | 7.x | ✖️ | Database for automatic collection and inspection definitions; required if using inspection or CMDB auto-collection features |
-| [MinIO](https://www.minio.org.cn/) | RELEASE.2025-04-08T15-41-24Z (minio-java8.5.17) | ✖️ | Attachment storage; if not deployed, it switches to local storage mode automatically. When multiple services share attachments, set the upload directory to a shared location (e.g., NAS). |
+| [RustFs](https://rustfs.cn/) | latest | ✖️ | Attachment storage; if not deployed, it switches to local storage mode automatically. When multiple services share attachments, set the upload directory to a shared location (e.g., NAS). |
 | [Nacos](https://nacos.io/zh-cn/) | 2.1.0 | ✖️ | Centralized configuration management; if not deployed, configurations will be read from the local `config.properties` file |
 | [ActiveMQ Artemis](https://activemq.apache.org/components/artemis/) | 2.17.0 | ✖️ | Message queue supporting topic publishing and subscription; optional if no third-party systems consume messages |
 | [Apache Kafka](https://kafka.apache.org/) | 3.8.0 | ✖️ | Message queue supporting only subscription; official features do not publish topics, but custom features can. Optional if not used. |
