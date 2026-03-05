@@ -65,7 +65,7 @@
 | neatlogic-runner | 8084、tagent心跳端口：8888 | - | deployadmin -s neatlogic-runner -a startall/stopall/restartall | /app/systems/neatlogic-runner/lib/neatlogic-runner.jar | /app/systems/neatlogic-runner/config |执行器runner后端服务，通过http://虚拟机ip:8084/autoexecrunner/anonymous/api/rest/server/health/check/demo 验证服务是否正常|
 | nginx | - | - | service nginx start/stop/restart | /app/systems/nginx/ | /app/systems/nginx/conf | - |
 | neatlogicdb | 3306 | - | service neatlogicdb start/stop/restart | /app/databases/neatlogicdb | /app/databases/neatlogicdb/conf | mysql8数据库 , client连接通过命令： /app/databases/neatlogicdb/mysql/bin/mysql -uroot -p'neatlogic@901' --socket=/app/databases/neatlogicdb/data/mysql.sock |
-| collectdb | 27017 | - | service collectdb start/stop/restart | /app/databases/collectdb | /app/databases/collectdb/conf | mongodb数据库 |
+| collectdb | 27017 | - | service collectdb start/stop/restart | /app/databases/collectdb | /app/databases/collectdb/conf | /app/databases/collectdb/mongosh --host 127.0.0.1 --port 27017 -u admin -p u1OPgeInMhxsNkNl --authenticationDatabase admin |
 | neatlogic-autoexec-backend | - | - | - |  /app/systems/autoexec/ | /app/systems/autoexec/conf | - |
 
 
