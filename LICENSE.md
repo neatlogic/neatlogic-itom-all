@@ -3,7 +3,7 @@
 Certain parts of this Software are subject to the following licensing terms:
 
 Source code files located in the `cs` directory are **not** governed by the *Sustainable Use License* (SUL).
-To use the source code files under the `cs` directory, you must hold a valid **NeatLogic Enterprise License**, which must explicitly grant access rights to such source code files. Detailed provisions are set forth in `LICENSE_EE.md`.
+To use the source code files under the `cs` directory, you must hold a valid **NeatLogic Enterprise License**, which must explicitly grant access rights to such source code files. Detailed provisions are set forth in [NeatLogic Enterprise License](LICENSE_EE.md).
 
 All third-party components integrated into the NeatLogic Software are subject to the original license terms provided by their respective copyright holders.
 
