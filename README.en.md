@@ -13,7 +13,7 @@ NeatLogic provides both Docker image deployment and installation package deploym
 
 ## License
 
-NeatLogic is distributed under a Fair-code model, following the Sustainable Use License￼ and the NeatLogic Enterprise License￼.
+NeatLogic is distributed under a Fair-code model, following the [Sustainable Use License](LICENSE.md)￼ and the [NeatLogic Enterprise License](LICENSE.ee.md)￼.
 - Source Available: Source code is always visible.
 - Self-Hostable: Can be deployed and used in any environment.
 - Extensible: Supports adding custom modules to meet personalized needs.
