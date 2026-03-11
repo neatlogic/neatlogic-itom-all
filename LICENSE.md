@@ -1,77 +1,91 @@
-# License
+# License Agreement
 
-Portions of this software are licensed as follows:
+Certain parts of this Software are subject to the following licensing terms:
 
-Source code files located in directories containing cs are not covered by the Sustainable Use License (SUL).
-To use source code files under any directory containing cs, you must hold a valid NeatLogic Enterprise License, which explicitly grants access to such source code files.
-Details are provided in LICENSE_EE.md.
-All third-party components integrated into the NeatLogic software are governed by their original licenses provided by their respective copyright holders.
-All other content not subject to the above files or restrictions is covered by the NeatLogic Sustainable Use License (SUL) defined below.
+Source code files located in the `cs` directory are **not** governed by the *Sustainable Use License* (SUL).
+To use the source code files under the `cs` directory, you must hold a valid **NeatLogic Enterprise License**, which must explicitly grant access rights to such source code files. Detailed provisions are set forth in `LICENSE_EE.md`.
+
+All third-party components integrated into the NeatLogic Software are subject to the original license terms provided by their respective copyright holders.
+
+Except for the files and restrictions stated above, all other parts of the Software are governed by the *Sustainable Use License (SUL)* defined below.
+
+---
 
 ## Sustainable Use License (SUL)
 
-Version 4.x — 2025
+Version: 4.x — 2025
 
-### Acceptance
+### 1. Acceptance of Terms
 
-By using the software, you agree to all of the terms and conditions below.
+By using this Software, you agree to all the terms and conditions set forth herein.
 
-### Copyright License
+### 2. Copyright License
 
-The licensor grants you a non-exclusive, royalty-free, worldwide, non-sublicensable, non-transferable license to use, copy, distribute, make available, and prepare derivative works of the software, in each case subject to the limitations below.
+The Licensor grants you a non-exclusive, royalty-free, worldwide, non-sublicensable, and non-transferable license to use the Software subject to the restrictions set forth in this Agreement.
 
-### Limitations
+### 3. Restrictions
 
-You may use or modify the software only for your own internal business purposes or for non-commercial or personal use.
-You may distribute the software or provide it to others only if you do so free of charge and for non-commercial purposes.
-You may not:
-	1.	Offer the software, in original or modified form, as a hosted or managed service to third parties;
-	2.	Integrate or embed the software into a product that provides similar functionality or competes with NeatLogic;
-	3.	Redistribute, rebrand, or sell the software, in whole or in part, for commercial gain;
-	4.	Alter, remove, or obscure any licensing, copyright, or other notices of the licensor in the software.
+You may use the Software solely for your internal business purposes or for non-commercial personal use.
 
-Any use of the licensor’s trademarks is subject to applicable law.
+You shall not:
 
-### Patents
+1. Provide the Software to any third party in the form of hosting services, managed services, or similar offerings, whether in original or modified form;
+2. Integrate or embed the Software into products that provide similar functionality to or compete with NeatLogic;
+3. Redistribute, rebrand, or sell the Software, in whole or in part, for commercial gain;
+4. Remove, alter, or conceal any license notices, copyright notices, or other proprietary notices contained in the Software.
 
-The licensor grants you a license, under any patent claims the licensor can license, or becomes able to license, to make, have made, use, sell, offer for sale, import and have imported the software, in each case subject to the limitations and conditions in this license.
-This license does not cover any patent claims that you cause to be infringed by modifications or additions to the software.
-If you or your company make any written claim that the software infringes or contributes to infringement of any patent, your patent license for the software granted under these terms ends immediately.
-If your company makes such a claim, your patent license ends immediately for work on behalf of your company.
+Any use of the Licensor’s trademarks shall comply with applicable laws and regulations.
 
-### Notices
+### 4. Patents
 
-You must ensure that anyone who gets a copy of any part of the software from you also gets a copy of these terms.
-If you modify the software, you must include in any modified copies of the software a prominent notice stating that you have modified the software.
+To the extent that the Licensor holds or may hereafter obtain the right to grant patent licenses, the Licensor grants you the right to use the Software under such patent rights as necessary for the purposes permitted by this Agreement.
 
-### Commercial Licensing
+This patent license does not cover any patent infringement arising from modifications or extensions made by you.
 
-To obtain rights for commercial distribution, SaaS hosting, OEM embedding, or other commercial use, you must acquire a NeatLogic Enterprise License from TechSure Co., Ltd.
+If you or your organization assert in writing that the Software infringes or contributes to the infringement of any patent, all patent rights granted to you under this Agreement shall immediately terminate.
 
-### No Other Rights
+If such assertion is made by your organization, your patent license to use the Software on behalf of the organization shall also immediately terminate.
 
-These terms do not imply any licenses other than those expressly granted in these terms.
+### 5. Notices and Attribution
 
-### Termination
+You must ensure that any individual or entity receiving the Software from you also receives a copy of this License Agreement.
 
-If you use the software in violation of these terms, such use is not licensed, and your license will automatically terminate.
-If the licensor provides you with a notice of your violation, and you cease all violation of this license no later than 30 days after you receive that notice, your license will be reinstated retroactively.
-However, if you violate these terms again after such reinstatement, any additional violation will cause your license to terminate automatically and permanently.
+If you modify the Software, you must clearly indicate that modifications have been made in the modified version.
 
-### No Liability
+### 6. Commercial Authorization
 
-As far as the law allows, the software comes “as is,” without any warranty or condition, and the licensor will not be liable to you for any damages arising out of these terms or the use or nature of the software, under any kind of legal claim.
+For any commercial distribution, SaaS hosting, OEM integration, or other commercial use, you must obtain a NeatLogic Enterprise License from **Shenzhen Zanyue Technology Co., Ltd.**
 
-### Definitions
-	•	Licensor: TechSure Co., Ltd., the entity offering these terms.
-	•	Software: the NeatLogic software made available under these terms, including any portion of it.
-	•	You: the individual or entity agreeing to these terms.
-	•	Your company: any legal entity, sole proprietorship, or other organization that you work for, plus all organizations that have control over, are under the control of, or are under common control with that organization. “Control” means ownership of substantially all the assets of an entity, or the power to direct its management and policies by vote, contract, or otherwise, whether direct or indirect.
-	•	Your license: the license granted to you for the software under these terms.
-	•	Use: anything you do with the software requiring your license.
-	•	Trademark: trademarks, service marks, and similar rights.
+### 7. Scope of Rights
 
-### Notice:
-This license is source-available but not an open-source license approved by the Open Source Initiative (OSI).
-It is designed to ensure sustainable use, transparency, and fair compensation for the creators of NeatLogic.
+Except for the rights expressly granted under this Agreement, no other rights or licenses are implied.
 
+### 8. Termination
+
+Any use of the Software in violation of this Agreement shall be deemed unauthorized, and your license shall automatically terminate.
+
+If the Licensor notifies you of a violation and you cease all violating activities within thirty (30) days of receiving such notice, your license may be reinstated retroactively.
+
+However, any subsequent violation shall result in permanent termination of the license without reinstatement.
+
+### 9. Disclaimer of Warranty
+
+To the maximum extent permitted by law, the Software is provided “AS IS” without any express or implied warranties.
+
+The Licensor shall not be liable for any damages arising from this Agreement or from the use of the Software.
+
+### 10. Definitions
+
+- **Licensor**: Refers to TechSure Co., Ltd., the entity providing this License Agreement.
+- **Software**: Refers to the NeatLogic Software and any portion thereof released under this Agreement.
+- **You**: Refers to any individual or legal entity that agrees to this Agreement.
+- **Your Company**: Refers to the legal entity, sole proprietorship, or other organization for which you work, and any entity that controls, is controlled by, or is under common control with such organization. “Control” means ownership of the majority of assets of an entity or the ability to direct its management and policies, whether by voting, contract, or otherwise.
+- **Your License**: Refers to the license granted to you under this Agreement.
+- **Use**: Refers to any activity involving the Software that requires a license under this Agreement.
+- **Trademark**: Refers to trademarks, service marks, and similar proprietary identifiers.
+
+### 11. Statement
+
+This license is a *source-available* license and is **not** an open-source license approved by the *Open Source Initiative (OSI)*.
+
+It is designed to ensure sustainable usage, transparency, and fair returns to the creators of NeatLogic.
