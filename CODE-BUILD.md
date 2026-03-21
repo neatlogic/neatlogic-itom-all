@@ -12,6 +12,11 @@
   git clone url --recurse-submodules
 ```
 
+## 更新代码
+```
+  git submodule foreach 'git checkout develop4.0.0 && git pull'  
+```
+
 ##  配置IntelliJ IDEA
 
 > **❗ 注意**：idea版本须大于 2022.2.4，低版本不支持Maven的profile功能，无法使用本项目
