@@ -14,6 +14,7 @@
 
 ## 更新代码
 ```
+  git pull
   git submodule foreach 'git checkout develop4.0.0 && git pull'  
 ```
 
