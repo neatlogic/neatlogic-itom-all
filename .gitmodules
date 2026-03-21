@@ -113,13 +113,13 @@
 	url = ../neatlogic-alert
 [submodule "neatlogic-alert-plugin-base"]
 	path = neatlogic-alert-plugin-base
-	url = git@gitee.com:neat-logic/neatlogic-alert-plugin-base.git
+	url = ../neatlogic-alert-plugin-base.git
 [submodule "neatlogic-modules-dev"]
 	path = neatlogic-modules-dev
-	url = git@gitee.com:neat-logic/neatlogic-modules-dev.git
+	url = ../neatlogic-modules-dev.git
 [submodule "neatlogic-modules-release"]
 	path = neatlogic-modules-release
-	url = git@gitee.com:neat-logic/neatlogic-modules-release.git
+	url = ../neatlogic-modules-release.git
 [submodule "neatlogic-build-root"]
 	path = neatlogic-build-root
-	url = git@gitee.com:neat-logic/neatlogic-build-root.git
+	url = ../neatlogic-build-root.git
