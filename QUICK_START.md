@@ -63,8 +63,8 @@ docker compose version
 
 ```
 ![输入图片说明](QUICK_START_IMAGES/image.png)
-确保所有容器都是 **healthy** 状态，如果容器启动太久或者error可以执行以下命令查看对应容器启动日志. 全部容器启动成功（healthy）后,谷歌浏览器访问前端服务:http://宿主机ip:8090/ ，登录账号:admin 密码:neatlogic@901<br>
- :interrobang:   **文档** 在系统右上角❓图标，如果文档为空，则需要自行“打开帮助中心-》关系维护-》导入”导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download),详情请查看本文档 FAQ
+确保所有容器都是 **healthy** 状态，如果容器启动太久或者error可以执行以下命令查看对应容器启动日志. <br>全部容器启动成功（healthy）后,谷歌浏览器访问前端服务:http://宿主机ip:8090/ ，登录账号:admin 密码:neatlogic@901<br>
+❗❗❗ **文档** 在系统右上角❓图标，如果文档为空，则需要自行“打开帮助中心-》关系维护-》导入”导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download),详情请查看本文档 FAQ
 ```
 #比如neatlogic-app启动太久或者error，查看日志
 docker compose -f docker-compose.yml logs -f neatlogic-app
