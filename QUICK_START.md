@@ -64,6 +64,7 @@ docker compose version
 ```
 ![输入图片说明](QUICK_START_IMAGES/image.png)
 确保所有容器都是 **healthy** 状态，如果容器启动太久或者error可以执行以下命令查看对应容器启动日志. 全部容器启动成功（healthy）后,谷歌浏览器访问前端服务:http://宿主机ip:8090/ ，登录账号:admin 密码:neatlogic@901<br>
+ :interrobang:   **文档** 在系统右上角❓图标，如果文档为空，则需要自行“打开帮助中心-》关系维护-》导入”导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download),详情请查看本文档 FAQ
 ```
 #比如neatlogic-app启动太久或者error，查看日志
 docker compose -f docker-compose.yml logs -f neatlogic-app
@@ -218,6 +219,11 @@ end=$(date +%s)
 echo "elapsed: $((end - start))s"  
 #看返回结果，比如elapsed: 40s ，然后核对docker-compose.yml定义的timeout时间，如果比timeout大，要么调大timeout的时间，要么换个性能更好的服务器重新部署
 ```
+### 6.系统帮助文档不存在
+**解决办法** ：导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download)（注意：不支持英文，查看文档时需切中文。最新的文档需要打包neatlogic-document-online模块）
+![输入图片说明](README_IMAGES/SETUP/e8d9e1da4c1d74540426aaffe54e113a.png)
+![输入图片说明](README_IMAGES/SETUP/0749d02680aab1d32d2b366e2e8a2ecf.png)
+![输入图片说明](README_IMAGES/SETUP/089e8dfe4024c3275545faeb842fc956.png)
 
 # 额外配置
 ## 镜像构建
