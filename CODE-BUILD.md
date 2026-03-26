@@ -112,13 +112,14 @@ conn.testOnBorrow = true
 conn.maxActive = 50
 conn.initialSize = 4
 conn.maxIdle=16
-#minio配置，如果不配置，默认使用本地存储
-file.handler = MINIO
-minio.url = http://localhost:8989
-minio.bucket = neatlogic
-minio.accesskey = minioadmin
-minio.secretkey = minioadmin
-#本地存储起始文件夹，如果调用minio失败，会自动转存到这里，如果需要多服务共享附件，此路径请配置到nas卷上。
+#默认使用本地存储。支持对象存储，有需要支持rustfs的，才配置
+file.handler=RUSTFS
+rustfs.url=http://10.1.xxx.xxx:9000
+rustfs.accesskey=xxx
+rustfs.secretkey=xxx
+rustfs.region=us-east-1
+rustfs.bucket=neatlogic
+#如果配置了rustfs，如果存储rustfs失败，会自动转存到这里
 data.home = /app/data
 
 #自己的服务地址，主要用于内部跳转
