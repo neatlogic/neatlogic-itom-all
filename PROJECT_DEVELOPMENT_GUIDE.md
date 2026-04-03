@@ -239,6 +239,14 @@
 - 不应编写未加 `scoped` 的页面级样式，避免样式影响范围扩大到其他页面。
 - 开发时应尽量减少页面内新增 class 数量，优先通过已有通用 class 组合完成布局和展示。
 
+### 9.4.1 全局组件使用约束
+
+- 对于已经在前端基础层全局注册的通用组件，页面内不要再次通过 `import` 或异步组件方式重复注册。
+- 特别是 `Loading` 组件，禁止在页面中使用以下方式：
+  - `Loading: () => import('@/resources/components/Loading/Loading.vue')`
+  - `import Loading from '@/resources/components/Loading/Loading.vue'`
+- `Loading` 应直接按全局组件使用，避免页面内重复注册导致运行时报错。
+
 ### 9.5 前端组件化组织约定
 
 - 当页面需要根据“类型”切换不同配置界面、展示界面或运行时组件时，禁止在主页面中用大段 `if / else-if / else` 或多个 `v-if` 直接展开不同类型实现。
