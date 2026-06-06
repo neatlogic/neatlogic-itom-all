@@ -36,8 +36,7 @@ Process Memory: at least 4 GB (8 GB recommended)
 | [Nacos](https://nacos.io/zh-cn/) | 2.1.0 | ✖️ | Centralized configuration management; if not deployed, configurations will be read from the local `config.properties` file |
 | [ActiveMQ Artemis](https://activemq.apache.org/components/artemis/) | 2.17.0 | ✖️ | Message queue supporting topic publishing and subscription; optional if no third-party systems consume messages |
 | [Apache Kafka](https://kafka.apache.org/) | 3.8.0 | ✖️ | Message queue supporting only subscription; official features do not publish topics, but custom features can. Optional if not used. |
-| [Elasticsearch](https://www.elastic.co/) | 8.17.4 | ✖️ | Currently used only in the Alert Center module; may be expanded in future releases |
-| [Qdrant](https://qdrant.tech/) | 1.13.2 | ✖️ | Vector database, currently used only in the Alert Center module for similarity analysis; limited to commercial modules |
+| [Elasticsearch](https://www.elastic.co/) | 8.17.4 | ✖️ | Vector Database and Unstructured Data Store |
 
 ## Project Structure
 NeatLogic manages code in a modular fashion.
