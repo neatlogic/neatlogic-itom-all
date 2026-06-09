@@ -123,3 +123,6 @@
 [submodule "neatlogic-build-root"]
 	path = neatlogic-build-root
 	url = ../neatlogic-build-root.git
+[submodule "neatlogic-web-knowledge"]
+	path = neatlogic-web-knowledge
+	url = ../neatlogic-web-knowledge.git
