@@ -215,7 +215,8 @@ SpringBoot启动成功的日志示例：
 > ![输入图片说明](README_IMAGES/BUILD/checkhealth.png)
 
 
-## 前端Vue项目搭建
+## 前端Vue项目搭建（neatlogic-web）
+> **❗ 如果需要知识库模块**：则需要将 neatlogic-web-knowledge 模块移到 neatlogic-web/src/community-module/下，并将neatlogic-web-knowledge文件夹改名knowledge
 
 ### 安装node
 > **❗ 版本**：v18.x
