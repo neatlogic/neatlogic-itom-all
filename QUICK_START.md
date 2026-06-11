@@ -220,7 +220,7 @@ echo "elapsed: $((end - start))s"
 #看返回结果，比如elapsed: 40s ，然后核对docker-compose.yml定义的timeout时间，如果比timeout大，要么调大timeout的时间，要么换个性能更好的服务器重新部署
 ```
 ### 6.系统帮助文档不存在
-**解决办法** ：导入文档[neatlogic-document-online-0.3.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download)（注意：不支持英文，查看文档时需切中文。最新的文档需要打包neatlogic-document-online模块）
+**解决办法** ：导入文档[neatlogic-document-online-0.4.0.0-SNAPSHOT.jar](http://harbor.neatlogic.com:8093/download)（注意：不支持英文，查看文档时需切中文。最新的文档需要打包neatlogic-document-online模块）
 ![输入图片说明](README_IMAGES/SETUP/e8d9e1da4c1d74540426aaffe54e113a.png)
 ![输入图片说明](README_IMAGES/SETUP/0749d02680aab1d32d2b366e2e8a2ecf.png)
 ![输入图片说明](README_IMAGES/SETUP/089e8dfe4024c3275545faeb842fc956.png)
