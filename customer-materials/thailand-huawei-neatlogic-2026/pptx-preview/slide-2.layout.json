@@ -1,0 +1,83 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/dqjssc",
+    "id": "dqjssc",
+    "slide": 2,
+    "layoutId": "4e2d988e-306f-4d74-bfb0-18e732fafe19",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "3c735049-89ce-4ceb-b850-d2e3a3227840",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    }
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "4e2d988e-306f-4d74-bfb0-18e732fafe19",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "3c735049-89ce-4ceb-b850-d2e3a3227840",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "3c735049-89ce-4ceb-b850-d2e3a3227840",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/1orytsvu",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "alt": "NeatLogic capability map and financial customer PoC proof path covering incident intelligence and controlled change release.",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "asset": {
+        "assetId": "ce913e6d-7337-418b-9f65-1ba5f23d4a72",
+        "contentType": "image/png",
+        "byteLength": 293622
+      }
+    }
+  ],
+  "composeRuns": []
+}

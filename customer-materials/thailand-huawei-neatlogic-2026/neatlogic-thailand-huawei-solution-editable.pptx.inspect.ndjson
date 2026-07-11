@@ -1,0 +1,173 @@
+{"kind":"deck","id":"pr/7b1hfd","name":"Deck"}
+{"kind":"layout","layoutId":"a5984dab-905b-47cf-836a-cb3335bc776f","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"0f0649c5-bffb-4531-901c-e06637d7cf68","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/lm3eof","slide":1,"title":"NeatLogic","textShapes":44}
+{"kind":"shape","id":"sh/gvy90je9","slide":1,"bbox":[0,0,2560,16]}
+{"kind":"textbox","id":"sh/ra5gbq1o","slide":1,"text":"NeatLogic","textPreview":"NeatLogic","textChars":9,"textLines":1,"bbox":[96,52,160,40]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":1,"text":"Customer Solution Draft","textPreview":"Customer Solution Draft","textChars":23,"textLines":1,"bbox":[278,56,360,32]}
+{"kind":"textbox","id":"sh/94fu18jq","slide":1,"text":"Page 1 / 2","textPreview":"Page 1 / 2","textChars":10,"textLines":1,"bbox":[2340,58,124,30]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":1,"text":"NeatLogic for Financial IT Operations","textPreview":"NeatLogic for Financial IT Operations","textChars":37,"textLines":1,"bbox":[96,126,1500,86]}
+{"kind":"textbox","id":"sh/r2p8nqxs","slide":1,"text":"From fragmented operations to AI-assisted service resilience","textPreview":"From fragmented operations to AI-assisted service resilience","textChars":60,"textLines":1,"bbox":[96,214,1400,44]}
+{"kind":"shape","id":"sh/2hwfyxob","slide":1,"bbox":[96,295,520,845]}
+{"kind":"textbox","id":"sh/9w3m94fu","slide":1,"text":"Customer Pain Points","textPreview":"Customer Pain Points","textChars":20,"textLines":1,"bbox":[128,335,400,48]}
+{"kind":"shape","id":"sh/kb6xkf6d","slide":1,"bbox":[132,403,10,10]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":1,"text":"Slow response: manual dispatch and unclear ownership","textPreview":"Slow response: manual dispatch and unclear ownership","textChars":52,"textLines":1,"bbox":[160,392,392,76]}
+{"kind":"shape","id":"sh/ra5gbq1o","slide":1,"bbox":[132,487,10,10]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":1,"text":"High operating cost: repetitive checks, releases and recovery","textPreview":"High operating cost: repetitive checks, releases and recovery","textChars":61,"textLines":1,"bbox":[160,476,392,76]}
+{"kind":"shape","id":"sh/9gr2p8nq","slide":1,"bbox":[132,571,10,10]}
+{"kind":"textbox","id":"sh/2hwfyxob","slide":1,"text":"Fragmented data: assets, tickets, alerts and changes are disconnected","textPreview":"Fragmented data: assets, tickets, alerts and changes are disconnected","textChars":69,"textLines":1,"bbox":[160,560,392,76]}
+{"kind":"shape","id":"sh/r2p8nqxs","slide":1,"bbox":[132,655,10,10]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":1,"text":"Late risk detection: noisy alerts without business context","textPreview":"Late risk detection: noisy alerts without business context","textChars":58,"textLines":1,"bbox":[160,644,392,76]}
+{"kind":"shape","id":"sh/94fu18jq","slide":1,"bbox":[132,739,10,10]}
+{"kind":"textbox","id":"sh/25kb6xkf","slide":1,"text":"Compliance pressure: evidence is hard to trace end to end","textPreview":"Compliance pressure: evidence is hard to trace end to end","textChars":57,"textLines":1,"bbox":[160,728,392,76]}
+{"kind":"textbox","id":"sh/rqd4vmtw","slide":1,"text":"Business Pain -> Platform Capability -> Huawei Foundation -> Outcome","textPreview":"Business Pain -> Platform Capability -> Huawei Foundation -> Outcome","textChars":68,"textLines":1,"bbox":[668,300,1440,48]}
+{"kind":"shape","id":"sh/jm1cfa9w","slide":1,"bbox":[668,362,312,50]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":1,"text":"Pain Point","textPreview":"Pain Point","textChars":10,"textLines":1,"bbox":[686,376,276,24]}
+{"kind":"shape","id":"sh/1orytsvu","slide":1,"bbox":[994,362,406,50]}
+{"kind":"textbox","id":"sh/c7u54zid","slide":1,"text":"NeatLogic Capability","textPreview":"NeatLogic Capability","textChars":20,"textLines":1,"bbox":[1012,376,370,24]}
+{"kind":"shape","id":"sh/judg7ads","slide":1,"bbox":[1414,362,376,50]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":1,"text":"Huawei ICT / AI","textPreview":"Huawei ICT / AI","textChars":15,"textLines":1,"bbox":[1432,376,340,24]}
+{"kind":"shape","id":"sh/1032lszq","slide":1,"bbox":[1804,362,416,50]}
+{"kind":"textbox","id":"sh/cfa9w3m9","slide":1,"text":"Business Effect","textPreview":"Business Effect","textChars":15,"textLines":1,"bbox":[1822,376,380,24]}
+{"kind":"shape","id":"sh/nyd0z610","slide":1,"bbox":[668,426,312,132]}
+{"kind":"shape","id":"sh/udg7adsj","slide":1,"bbox":[668,426,8,132]}
+{"kind":"textbox","id":"sh/4fu18jqh","slide":1,"text":"Service response is slow","textPreview":"Service response is slow","textChars":24,"textLines":1,"bbox":[692,448,264,96]}
+{"kind":"shape","id":"sh/x0nuxc3y","slide":1,"bbox":[994,426,406,132]}
+{"kind":"textbox","id":"sh/m94fu18j","slide":1,"text":"ITSM service catalog, workflow, SLA, smart assignment, mobile handling","textPreview":"ITSM service catalog, workflow, SLA, smart assignment, mobile handling","textChars":70,"textLines":1,"bbox":[1018,448,358,96]}
+{"kind":"shape","id":"sh/fu18jqh0","slide":1,"bbox":[1414,426,376,132]}
+{"kind":"textbox","id":"sh/83itgfml","slide":1,"text":"Cloud, network, compute, storage and AI service foundation","textPreview":"Cloud, network, compute, storage and AI service foundation","textChars":58,"textLines":1,"bbox":[1438,448,328,96]}
+{"kind":"shape","id":"sh/xobm58z2","slide":1,"bbox":[1804,426,416,132]}
+{"kind":"textbox","id":"sh/qxs72x4n","slide":1,"text":"Faster routing, visible SLA control, better user experience","textPreview":"Faster routing, visible SLA control, better user experience","textChars":59,"textLines":1,"bbox":[1828,448,368,96]}
+{"kind":"shape","id":"sh/fil0rqd4","slide":1,"bbox":[668,574,312,132]}
+{"kind":"shape","id":"sh/4zidonyd","slide":1,"bbox":[668,574,8,132]}
+{"kind":"textbox","id":"sh/xkf6dcbu","slide":1,"text":"Asset and application data are incomplete","textPreview":"Asset and application data are incomplete","textChars":41,"textLines":1,"bbox":[692,596,264,96]}
+{"kind":"shape","id":"sh/p8nqxs72","slide":1,"bbox":[994,574,406,132]}
+{"kind":"textbox","id":"sh/0nuxc3yl","slide":1,"text":"CMDB, auto discovery, topology, transaction records, audit trail","textPreview":"CMDB, auto discovery, topology, transaction records, audit trail","textChars":64,"textLines":1,"bbox":[1018,596,358,96]}
+{"kind":"shape","id":"sh/72x4nap4","slide":1,"bbox":[1414,574,376,132]}
+{"kind":"textbox","id":"sh/ih4byhgn","slide":1,"text":"Trusted ICT resource data and integration capability","textPreview":"Trusted ICT resource data and integration capability","textChars":52,"textLines":1,"bbox":[1438,596,328,96]}
+{"kind":"shape","id":"sh/pkzupwb2","slide":1,"bbox":[1804,574,416,132]}
+{"kind":"textbox","id":"sh/0z61032l","slide":1,"text":"Faster impact analysis and stronger change risk control","textPreview":"Faster impact analysis and stronger change risk control","textChars":55,"textLines":1,"bbox":[1828,596,368,96]}
+{"kind":"shape","id":"sh/7ed8bat4","slide":1,"bbox":[668,722,312,132]}
+{"kind":"shape","id":"sh/itgfmlkj","slide":1,"bbox":[668,722,8,132]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":1,"text":"Alerts are noisy and risk is late","textPreview":"Alerts are noisy and risk is late","textChars":33,"textLines":1,"bbox":[692,744,264,96]}
+{"kind":"shape","id":"sh/0bi9s36h","slide":1,"bbox":[994,722,406,132]}
+{"kind":"textbox","id":"sh/ulwval87","slide":1,"text":"Alert center, event plugins, suppression, subscription, topology, AI analysis","textPreview":"Alert center, event plugins, suppression, subscription, topology, AI analysis","textChars":77,"textLines":1,"bbox":[1018,744,358,96]}
+{"kind":"shape","id":"sh/j6tovaho","slide":1,"bbox":[1414,722,376,132]}
+{"kind":"textbox","id":"sh/crmhk3q5","slide":1,"text":"AI platform/model services plus monitoring data","textPreview":"AI platform/model services plus monitoring data","textChars":47,"textLines":1,"bbox":[1438,744,328,96]}
+{"kind":"shape","id":"sh/1cfa9w3m","slide":1,"bbox":[1804,722,416,132]}
+{"kind":"textbox","id":"sh/uxc3ylc7","slide":1,"text":"Lower alert noise and earlier risk recognition","textPreview":"Lower alert noise and earlier risk recognition","textChars":46,"textLines":1,"bbox":[1828,744,368,96]}
+{"kind":"shape","id":"sh/ji5snelo","slide":1,"bbox":[668,870,312,132]}
+{"kind":"shape","id":"sh/c3ylc7u5","slide":1,"bbox":[668,870,8,132]}
+{"kind":"textbox","id":"sh/1kre1w7m","slide":1,"text":"Operations and releases are manual","textPreview":"Operations and releases are manual","textChars":34,"textLines":1,"bbox":[692,892,264,96]}
+{"kind":"shape","id":"sh/q5o7qpg3","slide":1,"bbox":[994,870,406,132]}
+{"kind":"textbox","id":"sh/jqh0fepk","slide":1,"text":"Automation orchestration, runner execution, gray/batch release, super pipeline","textPreview":"Automation orchestration, runner execution, gray/batch release, super pipeline","textChars":78,"textLines":1,"bbox":[1018,892,358,96]}
+{"kind":"shape","id":"sh/bulwval8","slide":1,"bbox":[1414,870,376,132]}
+{"kind":"textbox","id":"sh/i9s36hcr","slide":1,"text":"Compute, network, storage, security and cloud resources","textPreview":"Compute, network, storage, security and cloud resources","textChars":55,"textLines":1,"bbox":[1438,892,328,96]}
+{"kind":"shape","id":"sh/p0bi9s36","slide":1,"bbox":[1804,870,416,132]}
+{"kind":"textbox","id":"sh/0fepkzup","slide":1,"text":"Shorter cycles, fewer manual errors, repeatable execution","textPreview":"Shorter cycles, fewer manual errors, repeatable execution","textChars":57,"textLines":1,"bbox":[1828,892,368,96]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":1,"text":"Customer Value to Validate in PoC","textPreview":"Customer Value to Validate in PoC","textChars":33,"textLines":1,"bbox":[668,1010,780,50]}
+{"kind":"shape","id":"sh/ixczed8v","slide":1,"bbox":[668,1066,330,154]}
+{"kind":"textbox","id":"sh/tovahoza","slide":1,"text":"30-50%","textPreview":"30-50%","textChars":6,"textLines":1,"bbox":[692,1104,282,56]}
+{"kind":"textbox","id":"sh/032lszqt","slide":1,"text":"less manual incident triage effort","textPreview":"less manual incident triage effort","textChars":34,"textLines":1,"bbox":[692,1158,282,52]}
+{"kind":"shape","id":"sh/b6xkf6dc","slide":1,"bbox":[1020,1066,330,154]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":1,"text":"20-40%","textPreview":"20-40%","textChars":6,"textLines":1,"bbox":[1044,1104,282,56]}
+{"kind":"textbox","id":"sh/sneloj2t","slide":1,"text":"shorter incident or change lead time","textPreview":"shorter incident or change lead time","textChars":36,"textLines":1,"bbox":[1044,1158,282,52]}
+{"kind":"shape","id":"sh/l87ed8ba","slide":1,"bbox":[1372,1066,330,154]}
+{"kind":"textbox","id":"sh/ahoza1gv","slide":1,"text":"40-60%","textPreview":"40-60%","textChars":6,"textLines":1,"bbox":[1396,1104,282,56]}
+{"kind":"textbox","id":"sh/32lszqtc","slide":1,"text":"automation coverage for selected repetitive tasks","textPreview":"automation coverage for selected repetitive tasks","textChars":49,"textLines":1,"bbox":[1396,1158,282,52]}
+{"kind":"shape","id":"sh/szqtcj6t","slide":1,"bbox":[1724,1066,330,154]}
+{"kind":"textbox","id":"sh/lkjm1cfa","slide":1,"text":"60-80%","textPreview":"60-80%","textChars":6,"textLines":1,"bbox":[1748,1104,282,56]}
+{"kind":"textbox","id":"sh/at47y1kr","slide":1,"text":"faster asset and impact analysis","textPreview":"faster asset and impact analysis","textChars":32,"textLines":1,"bbox":[1748,1158,282,52]}
+{"kind":"shape","id":"sh/3ex0nuxc","slide":1,"bbox":[2076,1066,330,154]}
+{"kind":"textbox","id":"sh/w3m94fu1","slide":1,"text":"100%","textPreview":"100%","textChars":4,"textLines":1,"bbox":[2100,1104,282,56]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":1,"text":"traceable approval, execution and audit evidence","textPreview":"traceable approval, execution and audit evidence","textChars":48,"textLines":1,"bbox":[2100,1158,282,52]}
+{"kind":"shape","id":"sh/dg7adsji","slide":1,"bbox":[96,1364,2368,0]}
+{"kind":"textbox","id":"sh/ovahoza1","slide":1,"text":"Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results","textPreview":"Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results","textChars":116,"textLines":1,"bbox":[96,1395,1250,26]}
+{"kind":"notes","id":"nt/lm3eof","slide":1,"text":""}
+{"kind":"slide","id":"sl/dksqek","slide":2,"title":"NeatLogic","textShapes":49}
+{"kind":"shape","id":"sh/pwb2hwfy","slide":2,"bbox":[0,0,2560,16]}
+{"kind":"textbox","id":"sh/i5sneloj","slide":2,"text":"NeatLogic","textPreview":"NeatLogic","textChars":9,"textLines":1,"bbox":[96,52,160,40]}
+{"kind":"textbox","id":"sh/7qpg3ex0","slide":2,"text":"Customer Solution Draft","textPreview":"Customer Solution Draft","textChars":23,"textLines":1,"bbox":[278,56,360,32]}
+{"kind":"textbox","id":"sh/wjudg7ad","slide":2,"text":"Page 2 / 2","textPreview":"Page 2 / 2","textChars":10,"textLines":1,"bbox":[2340,58,124,30]}
+{"kind":"textbox","id":"sh/p4r65wju","slide":2,"text":"Capability Map & PoC Proof Path","textPreview":"Capability Map & PoC Proof Path","textChars":31,"textLines":1,"bbox":[96,126,1500,86]}
+{"kind":"textbox","id":"sh/ed8v6psf","slide":2,"text":"One platform for service, operations, change, knowledge and AI-assisted decisioning","textPreview":"One platform for service, operations, change, knowledge and AI-assisted decisioning","textChars":83,"textLines":1,"bbox":[96,214,1400,44]}
+{"kind":"textbox","id":"sh/7y1kre1w","slide":2,"text":"NeatLogic Capability Coverage","textPreview":"NeatLogic Capability Coverage","textChars":29,"textLines":1,"bbox":[96,292,600,44]}
+{"kind":"shape","id":"sh/0nuxc3yl","slide":2,"bbox":[96,350,520,150]}
+{"kind":"shape","id":"sh/p8nqxs72","slide":2,"bbox":[96,350,9,150]}
+{"kind":"textbox","id":"sh/xobm58z2","slide":2,"text":"Customer & Employee Service","textPreview":"Customer & Employee Service","textChars":27,"textLines":1,"bbox":[122,376,468,38]}
+{"kind":"textbox","id":"sh/83itgfml","slide":2,"text":"Service catalog, work order center, workflow, SLA, satisfaction, notification, mobile access","textPreview":"Service catalog, work order center, workflow, SLA, satisfaction, notification, mobile access","textChars":92,"textLines":1,"bbox":[122,428,468,64]}
+{"kind":"shape","id":"sh/fil0rqd4","slide":2,"bbox":[640,350,520,150]}
+{"kind":"shape","id":"sh/qxs72x4n","slide":2,"bbox":[640,350,9,150]}
+{"kind":"textbox","id":"sh/x0nuxc3y","slide":2,"text":"CMDB & Resource Center","textPreview":"CMDB & Resource Center","textChars":22,"textLines":1,"bbox":[666,376,468,38]}
+{"kind":"textbox","id":"sh/4fu18jqh","slide":2,"text":"Dynamic CI model, topology, transaction, discovery, collection, authorization, APIs and messages","textPreview":"Dynamic CI model, topology, transaction, discovery, collection, authorization, APIs and messages","textChars":96,"textLines":1,"bbox":[666,428,468,64]}
+{"kind":"shape","id":"sh/fu18jqh0","slide":2,"bbox":[96,522,520,150]}
+{"kind":"shape","id":"sh/m94fu18j","slide":2,"bbox":[96,522,9,150]}
+{"kind":"textbox","id":"sh/xc3ylc7u","slide":2,"text":"Monitoring & Risk Detection","textPreview":"Monitoring & Risk Detection","textChars":27,"textLines":1,"bbox":[122,548,468,38]}
+{"kind":"textbox","id":"sh/4r65wjud","slide":2,"text":"Inspection, latest problem list, config comparison, alert lifecycle, suppression and subscription","textPreview":"Inspection, latest problem list, config comparison, alert lifecycle, suppression and subscription","textChars":97,"textLines":1,"bbox":[122,600,468,64]}
+{"kind":"shape","id":"sh/032lszqt","slide":2,"bbox":[640,522,520,150]}
+{"kind":"shape","id":"sh/tovahoza","slide":2,"bbox":[640,522,9,150]}
+{"kind":"textbox","id":"sh/ixczed8v","slide":2,"text":"Automation & Release","textPreview":"Automation & Release","textChars":20,"textLines":1,"bbox":[666,548,468,38]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":2,"text":"Custom tools, orchestration, runner execution, batch/parallel/gray execution, one-click release, super pipeline","textPreview":"Custom tools, orchestration, runner execution, batch/parallel/gray execution, one-click release, super pipeline","textChars":111,"textLines":1,"bbox":[666,600,468,64]}
+{"kind":"shape","id":"sh/0fepkzup","slide":2,"bbox":[96,694,520,150]}
+{"kind":"shape","id":"sh/p0bi9s36","slide":2,"bbox":[96,694,9,150]}
+{"kind":"textbox","id":"sh/i9s36hcr","slide":2,"text":"Delivery Governance","textPreview":"Delivery Governance","textChars":19,"textLines":1,"bbox":[122,720,468,38]}
+{"kind":"textbox","id":"sh/bulwval8","slide":2,"text":"Requirements, tasks, defects, iterations, test plans/cases, code and release association, state transitions","textPreview":"Requirements, tasks, defects, iterations, test plans/cases, code and release association, state transitions","textChars":107,"textLines":1,"bbox":[122,772,468,64]}
+{"kind":"shape","id":"sh/0je9cvix","slide":2,"bbox":[640,694,520,150]}
+{"kind":"shape","id":"sh/t47y1kre","slide":2,"bbox":[640,694,9,150]}
+{"kind":"textbox","id":"sh/zqtcj6to","slide":2,"text":"Knowledge & Visibility","textPreview":"Knowledge & Visibility","textChars":22,"textLines":1,"bbox":[666,720,468,38]}
+{"kind":"textbox","id":"sh/65wjudg7","slide":2,"text":"Knowledge approval and versioning, ITSM-to-knowledge conversion, reports, dashboard and large screen","textPreview":"Knowledge approval and versioning, ITSM-to-knowledge conversion, reports, dashboard and large screen","textChars":100,"textLines":1,"bbox":[666,772,468,64]}
+{"kind":"shape","id":"sh/hwfyxobm","slide":2,"bbox":[96,866,520,150]}
+{"kind":"shape","id":"sh/obm58z25","slide":2,"bbox":[96,866,9,150]}
+{"kind":"textbox","id":"sh/zed8v6ps","slide":2,"text":"AI-assisted Operations","textPreview":"AI-assisted Operations","textChars":22,"textLines":1,"bbox":[122,892,468,38]}
+{"kind":"textbox","id":"sh/6xkf6dcb","slide":2,"text":"AI agents, tool/workflow invocation, RAG knowledge retrieval, alert analysis, structured outputs","textPreview":"AI agents, tool/workflow invocation, RAG knowledge retrieval, alert analysis, structured outputs","textChars":96,"textLines":1,"bbox":[122,944,468,64]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":2,"text":"Financial Customer PoC Proof Path","textPreview":"Financial Customer PoC Proof Path","textChars":33,"textLines":1,"bbox":[1230,292,800,44]}
+{"kind":"shape","id":"sh/oza1gvy9","slide":2,"bbox":[1230,350,592,680]}
+{"kind":"textbox","id":"sh/z61032ls","slide":2,"text":"PoC 1: Incident-to-Resolution Intelligence","textPreview":"PoC 1: Incident-to-Resolution Intelligence","textChars":42,"textLines":1,"bbox":[1260,382,532,78]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":2,"text":"Connect monitoring alerts, CMDB context, ITSM workflow, knowledge base and approved automation for one high-value banking application.","textPreview":"Connect monitoring alerts, CMDB context, ITSM workflow, knowledge base and approved automation for one high-value banking application.","textChars":134,"textLines":1,"bbox":[1260,470,532,96]}
+{"kind":"textbox","id":"sh/qpg3ex0n","slide":2,"text":"Implementation path","textPreview":"Implementation path","textChars":19,"textLines":1,"bbox":[1260,580,532,28]}
+{"kind":"shape","id":"sh/fa9w3m94","slide":2,"bbox":[1264,632,9,9]}
+{"kind":"textbox","id":"sh/8v6psfil","slide":2,"text":"Ingest alerts into Alert Center","textPreview":"Ingest alerts into Alert Center","textChars":31,"textLines":1,"bbox":[1290,622,498,47]}
+{"kind":"shape","id":"sh/xczed8v6","slide":2,"bbox":[1264,679,9,9]}
+{"kind":"textbox","id":"sh/qd4vmtwr","slide":2,"text":"Correlate application, owner and topology through CMDB","textPreview":"Correlate application, owner and topology through CMDB","textChars":54,"textLines":1,"bbox":[1290,669,498,47]}
+{"kind":"shape","id":"sh/fyxobm58","slide":2,"bbox":[1264,726,9,9]}
+{"kind":"textbox","id":"sh/8jqh0fep","slide":2,"text":"Use AI to classify severity, probable cause and action","textPreview":"Use AI to classify severity, probable cause and action","textChars":54,"textLines":1,"bbox":[1290,716,498,47]}
+{"kind":"shape","id":"sh/x4nap4r6","slide":2,"bbox":[1264,773,9,9]}
+{"kind":"textbox","id":"sh/q1orytsv","slide":2,"text":"Create/update ticket, assign team and attach runbook","textPreview":"Create/update ticket, assign team and attach runbook","textChars":52,"textLines":1,"bbox":[1290,763,498,47]}
+{"kind":"shape","id":"sh/fmlkjm1c","slide":2,"bbox":[1264,820,9,9]}
+{"kind":"textbox","id":"sh/5sneloj2","slide":2,"text":"Report SLA, MTTA/MTTR and closure evidence","textPreview":"Report SLA, MTTA/MTTR and closure evidence","textChars":42,"textLines":1,"bbox":[1290,810,498,47]}
+{"kind":"textbox","id":"sh/cbulwval","slide":2,"text":"Suggested validation metrics","textPreview":"Suggested validation metrics","textChars":28,"textLines":1,"bbox":[1260,869,532,28]}
+{"kind":"shape","id":"sh/nqxs72x4","slide":2,"bbox":[1264,921,9,9]}
+{"kind":"textbox","id":"sh/u54zidon","slide":2,"text":"Alert noise reduction ratio","textPreview":"Alert noise reduction ratio","textChars":27,"textLines":1,"bbox":[1290,911,498,35]}
+{"kind":"shape","id":"sh/5kb6xkf6","slide":2,"bbox":[1264,956,9,9]}
+{"kind":"textbox","id":"sh/czed8v6p","slide":2,"text":"Correct assignment ratio","textPreview":"Correct assignment ratio","textChars":24,"textLines":1,"bbox":[1290,946,498,35]}
+{"kind":"shape","id":"sh/neloj2t8","slide":2,"bbox":[1264,991,9,9]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":2,"text":"MTTA and MTTR improvement","textPreview":"MTTA and MTTR improvement","textChars":25,"textLines":1,"bbox":[1290,981,498,35]}
+{"kind":"shape","id":"sh/58z25kb6","slide":2,"bbox":[1264,1026,9,9]}
+{"kind":"textbox","id":"sh/gn29gr2p","slide":2,"text":"Evidence completeness per incident","textPreview":"Evidence completeness per incident","textChars":34,"textLines":1,"bbox":[1290,1016,498,35]}
+{"kind":"shape","id":"sh/cvixczed","slide":2,"bbox":[1872,350,592,680]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":2,"text":"PoC 2: Controlled Change and Release","textPreview":"PoC 2: Controlled Change and Release","textChars":36,"textLines":1,"bbox":[1902,382,532,78]}
+{"kind":"textbox","id":"sh/upwb2hwf","slide":2,"text":"Standardize a core banking or channel-system change flow from request, approval, risk assessment, release, verification and rollback evidence.","textPreview":"Standardize a core banking or channel-system change flow from request, approval, risk assessment, release, verification and rollback evid...","textChars":142,"textLines":1,"bbox":[1902,470,532,96]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":2,"text":"Implementation path","textPreview":"Implementation path","textChars":19,"textLines":1,"bbox":[1902,580,532,28]}
+{"kind":"shape","id":"sh/cj6tovah","slide":2,"bbox":[1906,632,9,9]}
+{"kind":"textbox","id":"sh/54zidony","slide":2,"text":"Submit change through ITSM service catalog","textPreview":"Submit change through ITSM service catalog","textChars":42,"textLines":1,"bbox":[1932,622,498,47]}
+{"kind":"shape","id":"sh/udg7adsj","slide":2,"bbox":[1906,679,9,9]}
+{"kind":"textbox","id":"sh/nyd0z610","slide":2,"text":"Use CMDB topology to show impacted services","textPreview":"Use CMDB topology to show impacted services","textChars":43,"textLines":1,"bbox":[1932,669,498,47]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":2,"bbox":[1906,726,9,9]}
+{"kind":"textbox","id":"sh/1032lszq","slide":2,"text":"Run automated pre-check, release, post-check and rollback steps","textPreview":"Run automated pre-check, release, post-check and rollback steps","textChars":63,"textLines":1,"bbox":[1932,716,498,47]}
+{"kind":"shape","id":"sh/r2p8nqxs","slide":2,"bbox":[1906,773,9,9]}
+{"kind":"textbox","id":"sh/2hwfyxob","slide":2,"text":"Show status, logs, failure reason and compliance evidence","textPreview":"Show status, logs, failure reason and compliance evidence","textChars":57,"textLines":1,"bbox":[1932,763,498,47]}
+{"kind":"textbox","id":"sh/94fu18jq","slide":2,"text":"Suggested validation metrics","textPreview":"Suggested validation metrics","textChars":28,"textLines":1,"bbox":[1902,822,532,28]}
+{"kind":"shape","id":"sh/kjm1cfa9","slide":2,"bbox":[1906,874,9,9]}
+{"kind":"textbox","id":"sh/ra5gbq1o","slide":2,"text":"Lead time from request to verified completion","textPreview":"Lead time from request to verified completion","textChars":45,"textLines":1,"bbox":[1932,864,498,35]}
+{"kind":"shape","id":"sh/2p8nqxs7","slide":2,"bbox":[1906,909,9,9]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":2,"text":"Manual steps replaced by automation","textPreview":"Manual steps replaced by automation","textChars":35,"textLines":1,"bbox":[1932,899,498,35]}
+{"kind":"shape","id":"sh/gvy90je9","slide":2,"bbox":[1906,944,9,9]}
+{"kind":"textbox","id":"sh/re1w7mp0","slide":2,"text":"Release success and rollback readiness","textPreview":"Release success and rollback readiness","textChars":38,"textLines":1,"bbox":[1932,934,498,35]}
+{"kind":"shape","id":"sh/2t83itgf","slide":2,"bbox":[1906,979,9,9]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":2,"text":"Audit evidence completeness","textPreview":"Audit evidence completeness","textChars":27,"textLines":1,"bbox":[1932,969,498,35]}
+{"kind":"shape","id":"sh/jm1cfa9w","slide":2,"bbox":[1230,1076,1234,149]}
+{"kind":"textbox","id":"sh/c7u54zid","slide":2,"text":"Recommended customer-facing message","textPreview":"Recommended customer-facing message","textChars":35,"textLines":1,"bbox":[1262,1112,600,38]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":2,"text":"NeatLogic does not replace existing banking systems. It connects requests, assets, alerts, changes, automation and knowledge into one operational loop, then uses Huawei ICT/AI foundation to make the loop faster, more traceable and easier to scale.","textPreview":"NeatLogic does not replace existing banking systems. It connects requests, assets, alerts, changes, automation and knowledge into one ope...","textChars":247,"textLines":1,"bbox":[1262,1156,1140,58]}
+{"kind":"shape","id":"sh/u9knih4b","slide":2,"bbox":[96,1364,2368,0]}
+{"kind":"textbox","id":"sh/judg7ads","slide":2,"text":"Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results","textPreview":"Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results","textChars":116,"textLines":1,"bbox":[96,1395,1250,26]}
+{"kind":"notes","id":"nt/dksqek","slide":2,"text":""}

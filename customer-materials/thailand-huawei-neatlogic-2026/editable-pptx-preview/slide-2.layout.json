@@ -1,0 +1,3661 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/dksqek",
+    "id": "dksqek",
+    "slide": 2,
+    "layoutId": "0f0649c5-bffb-4531-901c-e06637d7cf68",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "a5984dab-905b-47cf-836a-cb3335bc776f",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F8FAFC",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 2560,
+      "height": 1440
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "0f0649c5-bffb-4531-901c-e06637d7cf68",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "a5984dab-905b-47cf-836a-cb3335bc776f",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "a5984dab-905b-47cf-836a-cb3335bc776f",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pwb2hwfy",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        2560,
+        16
+      ],
+      "geometry": "rect",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i5sneloj",
+      "id": "2",
+      "bbox": [
+        96,
+        52,
+        160,
+        40
+      ],
+      "geometry": "roundRect",
+      "text": "NeatLogic",
+      "textPreview": "NeatLogic",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "NeatLogic"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "NeatLogic",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "NeatLogic",
+              "fontSize": 20,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#1A2B45",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qpg3ex0",
+      "id": "3",
+      "bbox": [
+        278,
+        56,
+        360,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Customer Solution Draft",
+      "textPreview": "Customer Solution Draft",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Customer Solution Draft"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Customer Solution Draft",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#52617A",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Customer Solution Draft",
+              "fontSize": 22,
+              "color": "#52617A",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjudg7ad",
+      "id": "4",
+      "bbox": [
+        2340,
+        58,
+        124,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Page 2 / 2",
+      "textPreview": "Page 2 / 2",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Page 2 / 2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Page 2 / 2",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "color": "#52617A",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Page 2 / 2",
+              "fontSize": 18,
+              "color": "#52617A",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4r65wju",
+      "id": "5",
+      "bbox": [
+        96,
+        126,
+        1500,
+        86
+      ],
+      "geometry": "rect",
+      "text": "Capability Map & PoC Proof Path",
+      "textPreview": "Capability Map & PoC Proof Path",
+      "resolvedFontSize": 60,
+      "resolvedTextStyle": {
+        "fontSize": 60,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Capability Map & PoC Proof Path"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Capability Map & PoC Proof Path",
+          "resolvedTextStyle": {
+            "fontSize": 60,
+            "color": "#121C2D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Capability Map & PoC Proof Path",
+              "fontSize": 60,
+              "color": "#121C2D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ed8v6psf",
+      "id": "6",
+      "bbox": [
+        96,
+        214,
+        1400,
+        44
+      ],
+      "geometry": "rect",
+      "text": "One platform for service, operations, change, knowledge and AI-assisted decisioning",
+      "textPreview": "One platform for service, operations, change, knowledge and AI-assisted decisioning",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "One platform for service, operations, change, knowledge and AI-assisted decisioning"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "One platform for service, operations, change, knowledge and AI-assisted decisioning",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "One platform for service, operations, change, knowledge and AI-assisted decisioning",
+              "fontSize": 30,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7y1kre1w",
+      "id": "7",
+      "bbox": [
+        96,
+        292,
+        600,
+        44
+      ],
+      "geometry": "rect",
+      "text": "NeatLogic Capability Coverage",
+      "textPreview": "NeatLogic Capability Coverage",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "NeatLogic Capability Coverage"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "NeatLogic Capability Coverage",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#121C2D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "NeatLogic Capability Coverage",
+              "fontSize": 34,
+              "color": "#121C2D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0nuxc3yl",
+      "id": "8",
+      "bbox": [
+        96,
+        350,
+        520,
+        150
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p8nqxs72",
+      "id": "9",
+      "bbox": [
+        96,
+        350,
+        9,
+        150
+      ],
+      "geometry": "rect",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xobm58z2",
+      "id": "10",
+      "bbox": [
+        122,
+        376,
+        468,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Customer & Employee Service",
+      "textPreview": "Customer & Employee Service",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#1E5BA8",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Customer & Employee Service"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Customer & Employee Service",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#1E5BA8",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Customer & Employee Service",
+              "fontSize": 28,
+              "color": "#1E5BA8",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/83itgfml",
+      "id": "11",
+      "bbox": [
+        122,
+        428,
+        468,
+        64
+      ],
+      "geometry": "rect",
+      "text": "Service catalog, work order center, workflow, SLA, satisfaction, notification, mobile access",
+      "textPreview": "Service catalog, work order center, workflow, SLA, satisfaction, notification, mobile access",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Service catalog, work order center, workflow,"
+          },
+          {
+            "index": 2,
+            "text": "SLA, satisfaction, notification, mobile access"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Service catalog, work order center, workflow, SLA, satisfaction, notification, mobile access",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Service catalog, work order center, workflow, SLA, satisfaction, notification, mobile access",
+              "fontSize": 21,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fil0rqd4",
+      "id": "12",
+      "bbox": [
+        640,
+        350,
+        520,
+        150
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qxs72x4n",
+      "id": "13",
+      "bbox": [
+        640,
+        350,
+        9,
+        150
+      ],
+      "geometry": "rect",
+      "fillColor": "#008691",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x0nuxc3y",
+      "id": "14",
+      "bbox": [
+        666,
+        376,
+        468,
+        38
+      ],
+      "geometry": "rect",
+      "text": "CMDB & Resource Center",
+      "textPreview": "CMDB & Resource Center",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#008691",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CMDB & Resource Center"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CMDB & Resource Center",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#008691",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CMDB & Resource Center",
+              "fontSize": 28,
+              "color": "#008691",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4fu18jqh",
+      "id": "15",
+      "bbox": [
+        666,
+        428,
+        468,
+        64
+      ],
+      "geometry": "rect",
+      "text": "Dynamic CI model, topology, transaction, discovery, collection, authorization, APIs and messages",
+      "textPreview": "Dynamic CI model, topology, transaction, discovery, collection, authorization, APIs and messages",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Dynamic CI model, topology, transaction,"
+          },
+          {
+            "index": 2,
+            "text": "discovery, collection, authorization, APIs and"
+          },
+          {
+            "index": 3,
+            "text": "messages"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dynamic CI model, topology, transaction, discovery, collection, authorization, APIs and messages",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dynamic CI model, topology, transaction, discovery, collection, authorization, APIs and messages",
+              "fontSize": 21,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fu18jqh0",
+      "id": "16",
+      "bbox": [
+        96,
+        522,
+        520,
+        150
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m94fu18j",
+      "id": "17",
+      "bbox": [
+        96,
+        522,
+        9,
+        150
+      ],
+      "geometry": "rect",
+      "fillColor": "#B5413E",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xc3ylc7u",
+      "id": "18",
+      "bbox": [
+        122,
+        548,
+        468,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Monitoring & Risk Detection",
+      "textPreview": "Monitoring & Risk Detection",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#B5413E",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Monitoring & Risk Detection"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Monitoring & Risk Detection",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#B5413E",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Monitoring & Risk Detection",
+              "fontSize": 28,
+              "color": "#B5413E",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4r65wjud",
+      "id": "19",
+      "bbox": [
+        122,
+        600,
+        468,
+        64
+      ],
+      "geometry": "rect",
+      "text": "Inspection, latest problem list, config comparison, alert lifecycle, suppression and subscription",
+      "textPreview": "Inspection, latest problem list, config comparison, alert lifecycle, suppression and subscription",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Inspection, latest problem list, config"
+          },
+          {
+            "index": 2,
+            "text": "comparison, alert lifecycle, suppression and"
+          },
+          {
+            "index": 3,
+            "text": "subscription"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Inspection, latest problem list, config comparison, alert lifecycle, suppression and subscription",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Inspection, latest problem list, config comparison, alert lifecycle, suppression and subscription",
+              "fontSize": 21,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/032lszqt",
+      "id": "20",
+      "bbox": [
+        640,
+        522,
+        520,
+        150
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tovahoza",
+      "id": "21",
+      "bbox": [
+        640,
+        522,
+        9,
+        150
+      ],
+      "geometry": "rect",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ixczed8v",
+      "id": "22",
+      "bbox": [
+        666,
+        548,
+        468,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Automation & Release",
+      "textPreview": "Automation & Release",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#248959",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Automation & Release"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Automation & Release",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#248959",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Automation & Release",
+              "fontSize": 28,
+              "color": "#248959",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bi9s36hc",
+      "id": "23",
+      "bbox": [
+        666,
+        600,
+        468,
+        64
+      ],
+      "geometry": "rect",
+      "text": "Custom tools, orchestration, runner execution, batch/parallel/gray execution, one-click release, super pipeline",
+      "textPreview": "Custom tools, orchestration, runner execution, batch/parallel/gray execution, one-click release, super pipeline",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Custom tools, orchestration, runner execution,"
+          },
+          {
+            "index": 2,
+            "text": "batch/parallel/gray execution, one-click release,"
+          },
+          {
+            "index": 3,
+            "text": "super pipeline"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Custom tools, orchestration, runner execution, batch/parallel/gray execution, one-click release, super pipeline",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Custom tools, orchestration, runner execution, batch/parallel/gray execution, one-click release, super pipeline",
+              "fontSize": 21,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0fepkzup",
+      "id": "24",
+      "bbox": [
+        96,
+        694,
+        520,
+        150
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p0bi9s36",
+      "id": "25",
+      "bbox": [
+        96,
+        694,
+        9,
+        150
+      ],
+      "geometry": "rect",
+      "fillColor": "#CF8420",
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i9s36hcr",
+      "id": "26",
+      "bbox": [
+        122,
+        720,
+        468,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Delivery Governance",
+      "textPreview": "Delivery Governance",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#CF8420",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Delivery Governance"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Delivery Governance",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#CF8420",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Delivery Governance",
+              "fontSize": 28,
+              "color": "#CF8420",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bulwval8",
+      "id": "27",
+      "bbox": [
+        122,
+        772,
+        468,
+        64
+      ],
+      "geometry": "rect",
+      "text": "Requirements, tasks, defects, iterations, test plans/cases, code and release association, state transitions",
+      "textPreview": "Requirements, tasks, defects, iterations, test plans/cases, code and release association, state transitions",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Requirements, tasks, defects, iterations, test"
+          },
+          {
+            "index": 2,
+            "text": "plans/cases, code and release association,"
+          },
+          {
+            "index": 3,
+            "text": "state transitions"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Requirements, tasks, defects, iterations, test plans/cases, code and release association, state transitions",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Requirements, tasks, defects, iterations, test plans/cases, code and release association, state transitions",
+              "fontSize": 21,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0je9cvix",
+      "id": "28",
+      "bbox": [
+        640,
+        694,
+        520,
+        150
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47y1kre",
+      "id": "29",
+      "bbox": [
+        640,
+        694,
+        9,
+        150
+      ],
+      "geometry": "rect",
+      "fillColor": "#5F58AA",
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zqtcj6to",
+      "id": "30",
+      "bbox": [
+        666,
+        720,
+        468,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Knowledge & Visibility",
+      "textPreview": "Knowledge & Visibility",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#5F58AA",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Knowledge & Visibility"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Knowledge & Visibility",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#5F58AA",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Knowledge & Visibility",
+              "fontSize": 28,
+              "color": "#5F58AA",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65wjudg7",
+      "id": "31",
+      "bbox": [
+        666,
+        772,
+        468,
+        64
+      ],
+      "geometry": "rect",
+      "text": "Knowledge approval and versioning, ITSM-to-knowledge conversion, reports, dashboard and large screen",
+      "textPreview": "Knowledge approval and versioning, ITSM-to-knowledge conversion, reports, dashboard and large screen",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Knowledge approval and versioning,"
+          },
+          {
+            "index": 2,
+            "text": "ITSM-to-knowledge conversion, reports,"
+          },
+          {
+            "index": 3,
+            "text": "dashboard and large screen"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Knowledge approval and versioning, ITSM-to-knowledge conversion, reports, dashboard and large screen",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Knowledge approval and versioning, ITSM-to-knowledge conversion, reports, dashboard and large screen",
+              "fontSize": 21,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hwfyxobm",
+      "id": "32",
+      "bbox": [
+        96,
+        866,
+        520,
+        150
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obm58z25",
+      "id": "33",
+      "bbox": [
+        96,
+        866,
+        9,
+        150
+      ],
+      "geometry": "rect",
+      "fillColor": "#1A2B45",
+      "lineWidth": 0
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zed8v6ps",
+      "id": "34",
+      "bbox": [
+        122,
+        892,
+        468,
+        38
+      ],
+      "geometry": "rect",
+      "text": "AI-assisted Operations",
+      "textPreview": "AI-assisted Operations",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#1A2B45",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "AI-assisted Operations"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AI-assisted Operations",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#1A2B45",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI-assisted Operations",
+              "fontSize": 28,
+              "color": "#1A2B45",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6xkf6dcb",
+      "id": "35",
+      "bbox": [
+        122,
+        944,
+        468,
+        64
+      ],
+      "geometry": "rect",
+      "text": "AI agents, tool/workflow invocation, RAG knowledge retrieval, alert analysis, structured outputs",
+      "textPreview": "AI agents, tool/workflow invocation, RAG knowledge retrieval, alert analysis, structured outputs",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "AI agents, tool/workflow invocation, RAG"
+          },
+          {
+            "index": 2,
+            "text": "knowledge retrieval, alert analysis, structured"
+          },
+          {
+            "index": 3,
+            "text": "outputs"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AI agents, tool/workflow invocation, RAG knowledge retrieval, alert analysis, structured outputs",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI agents, tool/workflow invocation, RAG knowledge retrieval, alert analysis, structured outputs",
+              "fontSize": 21,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hk3q5o7q",
+      "id": "36",
+      "bbox": [
+        1230,
+        292,
+        800,
+        44
+      ],
+      "geometry": "rect",
+      "text": "Financial Customer PoC Proof Path",
+      "textPreview": "Financial Customer PoC Proof Path",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Financial Customer PoC Proof Path"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Financial Customer PoC Proof Path",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#121C2D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Financial Customer PoC Proof Path",
+              "fontSize": 34,
+              "color": "#121C2D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oza1gvy9",
+      "id": "37",
+      "bbox": [
+        1230,
+        350,
+        592,
+        680
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z61032ls",
+      "id": "38",
+      "bbox": [
+        1260,
+        382,
+        532,
+        78
+      ],
+      "geometry": "rect",
+      "text": "PoC 1: Incident-to-Resolution Intelligence",
+      "textPreview": "PoC 1: Incident-to-Resolution Intelligence",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#1E5BA8",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PoC 1: Incident-to-Resolution"
+          },
+          {
+            "index": 2,
+            "text": "Intelligence"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PoC 1: Incident-to-Resolution Intelligence",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#1E5BA8",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PoC 1: Incident-to-Resolution Intelligence",
+              "fontSize": 30,
+              "color": "#1E5BA8",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/al87ed8b",
+      "id": "39",
+      "bbox": [
+        1260,
+        470,
+        532,
+        96
+      ],
+      "geometry": "rect",
+      "text": "Connect monitoring alerts, CMDB context, ITSM workflow, knowledge base and approved automation for one high-value banking application.",
+      "textPreview": "Connect monitoring alerts, CMDB context, ITSM workflow, knowledge base and approved automation for one high-value banking application.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Connect monitoring alerts, CMDB context, ITSM"
+          },
+          {
+            "index": 2,
+            "text": "workflow, knowledge base and approved"
+          },
+          {
+            "index": 3,
+            "text": "automation for one high-value banking application."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Connect monitoring alerts, CMDB context, ITSM workflow, knowledge base and approved automation for one high-value banking application.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#121C2D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Connect monitoring alerts, CMDB context, ITSM workflow, knowledge base and approved automation for one high-value banking application.",
+              "fontSize": 22,
+              "color": "#121C2D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qpg3ex0n",
+      "id": "40",
+      "bbox": [
+        1260,
+        580,
+        532,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Implementation path",
+      "textPreview": "Implementation path",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Implementation path"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Implementation path",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#121C2D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Implementation path",
+              "fontSize": 22,
+              "color": "#121C2D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa9w3m94",
+      "id": "41",
+      "bbox": [
+        1264,
+        632,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 42,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v6psfil",
+      "id": "42",
+      "bbox": [
+        1290,
+        622,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Ingest alerts into Alert Center",
+      "textPreview": "Ingest alerts into Alert Center",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ingest alerts into Alert Center"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ingest alerts into Alert Center",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ingest alerts into Alert Center",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xczed8v6",
+      "id": "43",
+      "bbox": [
+        1264,
+        679,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qd4vmtwr",
+      "id": "44",
+      "bbox": [
+        1290,
+        669,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Correlate application, owner and topology through CMDB",
+      "textPreview": "Correlate application, owner and topology through CMDB",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Correlate application, owner and topology through"
+          },
+          {
+            "index": 2,
+            "text": "CMDB"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Correlate application, owner and topology through CMDB",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Correlate application, owner and topology through CMDB",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fyxobm58",
+      "id": "45",
+      "bbox": [
+        1264,
+        726,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 46,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "46",
+      "bbox": [
+        1290,
+        716,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Use AI to classify severity, probable cause and action",
+      "textPreview": "Use AI to classify severity, probable cause and action",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Use AI to classify severity, probable cause and action"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Use AI to classify severity, probable cause and action",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Use AI to classify severity, probable cause and action",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nap4r6",
+      "id": "47",
+      "bbox": [
+        1264,
+        773,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 48,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1orytsv",
+      "id": "48",
+      "bbox": [
+        1290,
+        763,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Create/update ticket, assign team and attach runbook",
+      "textPreview": "Create/update ticket, assign team and attach runbook",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Create/update ticket, assign team and attach"
+          },
+          {
+            "index": 2,
+            "text": "runbook"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Create/update ticket, assign team and attach runbook",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Create/update ticket, assign team and attach runbook",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 49,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "49",
+      "bbox": [
+        1264,
+        820,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 50,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5sneloj2",
+      "id": "50",
+      "bbox": [
+        1290,
+        810,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Report SLA, MTTA/MTTR and closure evidence",
+      "textPreview": "Report SLA, MTTA/MTTR and closure evidence",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Report SLA, MTTA/MTTR and closure evidence"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Report SLA, MTTA/MTTR and closure evidence",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Report SLA, MTTA/MTTR and closure evidence",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 51,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbulwval",
+      "id": "51",
+      "bbox": [
+        1260,
+        869,
+        532,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Suggested validation metrics",
+      "textPreview": "Suggested validation metrics",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Suggested validation metrics"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Suggested validation metrics",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#121C2D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Suggested validation metrics",
+              "fontSize": 22,
+              "color": "#121C2D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 52,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nqxs72x4",
+      "id": "52",
+      "bbox": [
+        1264,
+        921,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 53,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u54zidon",
+      "id": "53",
+      "bbox": [
+        1290,
+        911,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "Alert noise reduction ratio",
+      "textPreview": "Alert noise reduction ratio",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Alert noise reduction ratio"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Alert noise reduction ratio",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Alert noise reduction ratio",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 54,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5kb6xkf6",
+      "id": "54",
+      "bbox": [
+        1264,
+        956,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 55,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/czed8v6p",
+      "id": "55",
+      "bbox": [
+        1290,
+        946,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "Correct assignment ratio",
+      "textPreview": "Correct assignment ratio",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Correct assignment ratio"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Correct assignment ratio",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Correct assignment ratio",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 56,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/neloj2t8",
+      "id": "56",
+      "bbox": [
+        1264,
+        991,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 57,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytsvu9kn",
+      "id": "57",
+      "bbox": [
+        1290,
+        981,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "MTTA and MTTR improvement",
+      "textPreview": "MTTA and MTTR improvement",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "MTTA and MTTR improvement"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "MTTA and MTTR improvement",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "MTTA and MTTR improvement",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 58,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/58z25kb6",
+      "id": "58",
+      "bbox": [
+        1264,
+        1026,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#1E5BA8",
+      "lineWidth": 0
+    },
+    {
+      "order": 59,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gn29gr2p",
+      "id": "59",
+      "bbox": [
+        1290,
+        1016,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "Evidence completeness per incident",
+      "textPreview": "Evidence completeness per incident",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Evidence completeness per incident"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Evidence completeness per incident",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Evidence completeness per incident",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 60,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cvixczed",
+      "id": "60",
+      "bbox": [
+        1872,
+        350,
+        592,
+        680
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 1
+    },
+    {
+      "order": 61,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5gbq1ory",
+      "id": "61",
+      "bbox": [
+        1902,
+        382,
+        532,
+        78
+      ],
+      "geometry": "rect",
+      "text": "PoC 2: Controlled Change and Release",
+      "textPreview": "PoC 2: Controlled Change and Release",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#248959",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PoC 2: Controlled Change and"
+          },
+          {
+            "index": 2,
+            "text": "Release"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PoC 2: Controlled Change and Release",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#248959",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PoC 2: Controlled Change and Release",
+              "fontSize": 30,
+              "color": "#248959",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 62,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/upwb2hwf",
+      "id": "62",
+      "bbox": [
+        1902,
+        470,
+        532,
+        96
+      ],
+      "geometry": "rect",
+      "text": "Standardize a core banking or channel-system change flow from request, approval, risk assessment, release, verification and rollback evidence.",
+      "textPreview": "Standardize a core banking or channel-system change flow from request, approval, risk assessment, release, verification and rollback evid...",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Standardize a core banking or channel-system"
+          },
+          {
+            "index": 2,
+            "text": "change flow from request, approval, risk"
+          },
+          {
+            "index": 3,
+            "text": "assessment, release, verification and rollback"
+          },
+          {
+            "index": 4,
+            "text": "evidence."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Standardize a core banking or channel-system change flow from request, approval, risk assessment, release, verification and rollback evidence.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#121C2D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Standardize a core banking or channel-system change flow from request, approval, risk assessment, release, verification and rollback evidence.",
+              "fontSize": 22,
+              "color": "#121C2D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 63,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nap4r65w",
+      "id": "63",
+      "bbox": [
+        1902,
+        580,
+        532,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Implementation path",
+      "textPreview": "Implementation path",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Implementation path"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Implementation path",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#121C2D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Implementation path",
+              "fontSize": 22,
+              "color": "#121C2D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 64,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cj6tovah",
+      "id": "64",
+      "bbox": [
+        1906,
+        632,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 65,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/54zidony",
+      "id": "65",
+      "bbox": [
+        1932,
+        622,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Submit change through ITSM service catalog",
+      "textPreview": "Submit change through ITSM service catalog",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Submit change through ITSM service catalog"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Submit change through ITSM service catalog",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Submit change through ITSM service catalog",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 66,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/udg7adsj",
+      "id": "66",
+      "bbox": [
+        1906,
+        679,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 67,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nyd0z610",
+      "id": "67",
+      "bbox": [
+        1932,
+        669,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Use CMDB topology to show impacted services",
+      "textPreview": "Use CMDB topology to show impacted services",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Use CMDB topology to show impacted services"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Use CMDB topology to show impacted services",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Use CMDB topology to show impacted services",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 68,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cfa9w3m9",
+      "id": "68",
+      "bbox": [
+        1906,
+        726,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 69,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1032lszq",
+      "id": "69",
+      "bbox": [
+        1932,
+        716,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Run automated pre-check, release, post-check and rollback steps",
+      "textPreview": "Run automated pre-check, release, post-check and rollback steps",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Run automated pre-check, release, post-check and"
+          },
+          {
+            "index": 2,
+            "text": "rollback steps"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Run automated pre-check, release, post-check and rollback steps",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Run automated pre-check, release, post-check and rollback steps",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 70,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2p8nqxs",
+      "id": "70",
+      "bbox": [
+        1906,
+        773,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 71,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2hwfyxob",
+      "id": "71",
+      "bbox": [
+        1932,
+        763,
+        498,
+        47
+      ],
+      "geometry": "rect",
+      "text": "Show status, logs, failure reason and compliance evidence",
+      "textPreview": "Show status, logs, failure reason and compliance evidence",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Show status, logs, failure reason and compliance"
+          },
+          {
+            "index": 2,
+            "text": "evidence"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Show status, logs, failure reason and compliance evidence",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Show status, logs, failure reason and compliance evidence",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 72,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/94fu18jq",
+      "id": "72",
+      "bbox": [
+        1902,
+        822,
+        532,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Suggested validation metrics",
+      "textPreview": "Suggested validation metrics",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Suggested validation metrics"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Suggested validation metrics",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#121C2D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Suggested validation metrics",
+              "fontSize": 22,
+              "color": "#121C2D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 73,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kjm1cfa9",
+      "id": "73",
+      "bbox": [
+        1906,
+        874,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 74,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ra5gbq1o",
+      "id": "74",
+      "bbox": [
+        1932,
+        864,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "Lead time from request to verified completion",
+      "textPreview": "Lead time from request to verified completion",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lead time from request to verified completion"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lead time from request to verified completion",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lead time from request to verified completion",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 75,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2p8nqxs7",
+      "id": "75",
+      "bbox": [
+        1906,
+        909,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 76,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9gr2p8nq",
+      "id": "76",
+      "bbox": [
+        1932,
+        899,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "Manual steps replaced by automation",
+      "textPreview": "Manual steps replaced by automation",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Manual steps replaced by automation"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Manual steps replaced by automation",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Manual steps replaced by automation",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 77,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gvy90je9",
+      "id": "77",
+      "bbox": [
+        1906,
+        944,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 78,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/re1w7mp0",
+      "id": "78",
+      "bbox": [
+        1932,
+        934,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "Release success and rollback readiness",
+      "textPreview": "Release success and rollback readiness",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Release success and rollback readiness"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Release success and rollback readiness",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Release success and rollback readiness",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 79,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2t83itgf",
+      "id": "79",
+      "bbox": [
+        1906,
+        979,
+        9,
+        9
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#248959",
+      "lineWidth": 0
+    },
+    {
+      "order": 80,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u18jqh0f",
+      "id": "80",
+      "bbox": [
+        1932,
+        969,
+        498,
+        35
+      ],
+      "geometry": "rect",
+      "text": "Audit evidence completeness",
+      "textPreview": "Audit evidence completeness",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Audit evidence completeness"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Audit evidence completeness",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Audit evidence completeness",
+              "fontSize": 20,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 81,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm1cfa9w",
+      "id": "81",
+      "bbox": [
+        1230,
+        1076,
+        1234,
+        149
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EBF4FF",
+      "lineColor": "#B7CDEB",
+      "lineWidth": 1
+    },
+    {
+      "order": 82,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c7u54zid",
+      "id": "82",
+      "bbox": [
+        1262,
+        1112,
+        600,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Recommended customer-facing message",
+      "textPreview": "Recommended customer-facing message",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#1E5BA8",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Recommended customer-facing message"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Recommended customer-facing message",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#1E5BA8",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Recommended customer-facing message",
+              "fontSize": 28,
+              "color": "#1E5BA8",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 83,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1orytsvu",
+      "id": "83",
+      "bbox": [
+        1262,
+        1156,
+        1140,
+        58
+      ],
+      "geometry": "rect",
+      "text": "NeatLogic does not replace existing banking systems. It connects requests, assets, alerts, changes, automation and knowledge into one operational loop, then uses Huawei ICT/AI foundation to make the loop faster, more traceable and easier to scale.",
+      "textPreview": "NeatLogic does not replace existing banking systems. It connects requests, assets, alerts, changes, automation and knowledge into one ope...",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#121C2D",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "NeatLogic does not replace existing banking systems. It connects requests, assets, alerts, changes, automation"
+          },
+          {
+            "index": 2,
+            "text": "and knowledge into one operational loop, then uses Huawei ICT/AI foundation to make the loop faster, more"
+          },
+          {
+            "index": 3,
+            "text": "traceable and easier to scale."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "NeatLogic does not replace existing banking systems. It connects requests, assets, alerts, changes, automation and knowledge into one operational loop, then uses Huawei ICT/AI foundation to make the loop faster, more traceable and easier to scale.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#121C2D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "NeatLogic does not replace existing banking systems. It connects requests, assets, alerts, changes, automation and knowledge into one operational loop, then uses Huawei ICT/AI foundation to make the loop faster, more traceable and easier to scale.",
+              "fontSize": 22,
+              "color": "#121C2D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 84,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9knih4b",
+      "id": "84",
+      "bbox": [
+        96,
+        1364,
+        2368,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#CFD8E5",
+      "lineWidth": 2
+    },
+    {
+      "order": 85,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "85",
+      "bbox": [
+        96,
+        1395,
+        1250,
+        26
+      ],
+      "geometry": "rect",
+      "text": "Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results",
+      "textPreview": "Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "+mn-lt",
+        "color": "#52617A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "color": "#52617A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Draft for Huawei Thailand customer discussion | Metrics are PoC validation targets, not committed production results",
+              "fontSize": 17,
+              "color": "#52617A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

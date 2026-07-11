@@ -1,0 +1,9 @@
+{"kind":"deck","id":"pr/70fn7p","name":"Deck"}
+{"kind":"layout","layoutId":"3c735049-89ce-4ceb-b850-d2e3a3227840","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"4e2d988e-306f-4d74-bfb0-18e732fafe19","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/eh8z1j","slide":1,"title":"Slide 1","textShapes":0}
+{"kind":"image","id":"im/7u54zido","slide":1,"name":"","alt":"NeatLogic financial IT operations solution page covering customer pain points, solution logic, Huawei ICT AI foundation, and PoC value targets.","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/eh8z1j","slide":1,"text":""}
+{"kind":"slide","id":"sl/dqjssc","slide":2,"title":"Slide 2","textShapes":0}
+{"kind":"image","id":"im/1orytsvu","slide":2,"name":"","alt":"NeatLogic capability map and financial customer PoC proof path covering incident intelligence and controlled change release.","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/dqjssc","slide":2,"text":""}
