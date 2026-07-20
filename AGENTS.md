@@ -75,6 +75,8 @@ Use it as the first-level instruction set when starting a new thread.
 ### Frontend Style Rules
 
 - Reuse existing common styles from `neatlogic-web/src/resources/assets/css/common.less` first.
+- Do not add custom `<style>` blocks, inline styles, or page-specific CSS class names by default. Prefer `common.less` utility classes, internal component props, and existing global styles for layout and presentation.
+- Add a local scoped style or custom class only when the requirement cannot be expressed by existing utilities or component capabilities. Before adding one, verify that no reusable style exists and keep the exception to the smallest necessary scope.
 - Only add local page styles if no suitable common style exists.
 - Page styles should default to `<style scoped lang="less">`.
 - Avoid page-level unscoped styles.
