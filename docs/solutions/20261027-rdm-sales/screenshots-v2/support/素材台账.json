@@ -1,0 +1,235 @@
+[
+  {
+    "id": "artifact-02-repositories",
+    "system": "Neatlogic Artifact",
+    "pagePath": "/repositories",
+    "purpose": "本地、代理与虚拟仓库统一管理",
+    "capturedAt": "2026-10-27T06:07:33.062Z",
+    "plannedPages": [
+      11
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "artifact-03-packages",
+    "system": "Neatlogic Artifact",
+    "pagePath": "/packages",
+    "purpose": "Maven与镜像统一检索",
+    "capturedAt": "2026-10-27T06:07:43.425Z",
+    "plannedPages": [
+      11
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "artifact-04-versions",
+    "system": "Neatlogic Artifact",
+    "pagePath": "/packages/59a0b0e7-f9c2-445d-8214-70e89aa6f554",
+    "purpose": "制品坐标与版本文件",
+    "capturedAt": "2026-10-27T06:08:07.557Z",
+    "plannedPages": [
+      12
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "artifact-05-digest",
+    "system": "Neatlogic Artifact",
+    "pagePath": "/packages/59a0b0e7-f9c2-445d-8214-70e89aa6f554",
+    "purpose": "制品身份与SHA256核对",
+    "capturedAt": "2026-10-27T06:08:20.542Z",
+    "plannedPages": [
+      12
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "artifact-06-security-state",
+    "system": "Neatlogic Artifact",
+    "pagePath": "/runtime/datasets",
+    "purpose": "素材缺口：安全扫描扩展未注册",
+    "capturedAt": "2026-10-27T06:08:30.077Z",
+    "plannedPages": [
+      13
+    ],
+    "usageNote": "无已注册扫描引擎；不展示成功安全报告。"
+  },
+  {
+    "id": "artifact-07-staging-state",
+    "system": "Neatlogic Artifact",
+    "pagePath": "/staging",
+    "purpose": "素材缺口：暂无暂存仓库",
+    "capturedAt": "2026-10-27T06:08:42.092Z",
+    "plannedPages": [],
+    "usageNote": "暂无暂存仓库实例；流转采用标注方案图。"
+  },
+  {
+    "id": "code-01-overview",
+    "system": "Git Keeper",
+    "pagePath": "/r/neatlogic/neatlogic-sofarpc-proxy/overview",
+    "purpose": "代码仓库版本与文件资产",
+    "capturedAt": "2026-10-27T06:08:51.042Z",
+    "plannedPages": [],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "code-02-graph",
+    "system": "Git Keeper",
+    "pagePath": "/r/neatlogic/neatlogic-sofarpc-proxy/graph",
+    "purpose": "提交历史关系",
+    "capturedAt": "2026-10-27T06:09:06.780Z",
+    "plannedPages": [],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "code-03-engineering",
+    "system": "Git Keeper",
+    "pagePath": "/repositories",
+    "purpose": "多工程统一检索管理",
+    "capturedAt": "2026-10-27T06:09:36.298Z",
+    "plannedPages": [
+      8
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "code-04-pr-state",
+    "system": "Git Keeper",
+    "pagePath": "/r/neatlogic/neatlogic-web-component/pulls",
+    "purpose": "素材缺口：当前仓库无已合并PR",
+    "capturedAt": "2026-10-27T06:10:10.527Z",
+    "plannedPages": [
+      9
+    ],
+    "usageNote": "所选仓库无可用已合并PR实例；用策略配置与流程图说明。"
+  },
+  {
+    "id": "code-05-policies",
+    "system": "Git Keeper",
+    "pagePath": "/r/neatlogic/neatlogic-web-component/settings/policies",
+    "purpose": "评审、CI与签名准入策略",
+    "capturedAt": "2026-10-27T06:10:33.692Z",
+    "plannedPages": [
+      9,
+      10
+    ],
+    "usageNote": "配置页当前值不等于策略已启用。"
+  },
+  {
+    "id": "code-06-branches",
+    "system": "Git Keeper",
+    "pagePath": "/r/neatlogic/neatlogic-web-component/branches",
+    "purpose": "分支与固定提交标识",
+    "capturedAt": "2026-10-27T06:10:45.059Z",
+    "plannedPages": [],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "code-07-graph",
+    "system": "Git Keeper",
+    "pagePath": "/r/neatlogic/neatlogic-web-component/graph",
+    "purpose": "真实分支合并与提交历史",
+    "capturedAt": "2026-10-27T06:11:01.961Z",
+    "plannedPages": [
+      8
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "deploy-01-pipeline",
+    "system": "超级流水线DEMO",
+    "pagePath": "/develop/deploy.html#/pipeline-edit?id=700674052251649&type=global",
+    "purpose": "多应用串并行发布编排",
+    "capturedAt": "2026-10-27T06:11:11.684Z",
+    "plannedPages": [
+      15
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "rdm-01-stories",
+    "system": "需求管理",
+    "pagePath": "/develop/rdm.html#/story/927328463863808/927328463863810",
+    "purpose": "需求状态、优先级与开发测试分工",
+    "capturedAt": "2026-10-27T06:12:50.398Z",
+    "plannedPages": [
+      5
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "rdm-02-story-detail",
+    "system": "需求管理",
+    "pagePath": "/develop/rdm.html#/story/927328463863808/927328463863810",
+    "purpose": "需求关联任务、缺陷、用例与变更历史",
+    "capturedAt": "2026-10-27T06:13:17.111Z",
+    "plannedPages": [
+      5
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "rdm-03-testcase-state",
+    "system": "rdm.html",
+    "pagePath": "/develop/rdm.html#/testcase/1436335487328256/1436335487328289",
+    "purpose": "素材缺口：当前项目暂无测试用例",
+    "capturedAt": "2026-10-27T06:13:36.262Z",
+    "plannedPages": [
+      7
+    ],
+    "usageNote": "已查看项目无可用测试实例；用流程图说明。"
+  },
+  {
+    "id": "rdm-04-gantt",
+    "system": "甘特图",
+    "pagePath": "/develop/rdm.html#/gantt/1436335487328256/1436335487328299",
+    "purpose": "计划时间线页面，当前样例计划字段不足",
+    "capturedAt": "2026-10-27T06:13:56.644Z",
+    "plannedPages": [
+      6
+    ],
+    "usageNote": "演示记录计划日期不完整；不作为排期成效证明。"
+  },
+  {
+    "id": "deploy-02-environment",
+    "system": "Deploy",
+    "pagePath": "/develop/deploy.html#/application-config-manage",
+    "purpose": "环境参数与实例差异适配",
+    "capturedAt": "2026-10-27T06:34:07.832Z",
+    "plannedPages": [
+      14
+    ],
+    "usageNote": "成稿前遮蔽服务器地址、内部账号及无关信息。"
+  },
+  {
+    "id": "deploy-03-jobs",
+    "system": "Deploy",
+    "pagePath": "/develop/deploy.html#/job-manage",
+    "purpose": "已有发布作业的状态、耗时与执行结果",
+    "capturedAt": "2026-10-27T06:34:50.334Z",
+    "plannedPages": [
+      16
+    ],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  },
+  {
+    "id": "deploy-04-completed-job",
+    "system": "Deploy",
+    "pagePath": "/develop/deploy.html#/job-detail?id=1776041907658840",
+    "purpose": "已完成作业的编译、SQL、部署与验证阶段",
+    "capturedAt": "2026-10-27T06:36:30.635Z",
+    "plannedPages": [
+      16
+    ],
+    "usageNote": "优先展示阶段图；日志区需逐项脱敏。"
+  },
+  {
+    "id": "rdm-05-history",
+    "system": "RDM",
+    "pagePath": "/develop/rdm.html#/story/927328463863808/927328463863810",
+    "purpose": "需求变更时间、操作人及前后值",
+    "capturedAt": "2026-10-27T06:37:15.106Z",
+    "plannedPages": [],
+    "usageNote": "候选实景；保留真实业务状态，按需裁剪与脱敏。"
+  }
+]
