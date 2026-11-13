@@ -141,6 +141,8 @@ services:
         hard: 65535
     environment:
       - NEATLOGIC_HOME=/app
+      # 镜像默认路径未包含自动化依赖目录，显式配置以确保初始化和重建可用。
+      - PYTHONPATH=/app/autoexec/plugins/local/lib:/app/autoexec/lib:/app/autoexec/plib
     networks:
       - neatlogic
     depends_on:
